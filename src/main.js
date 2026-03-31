@@ -1,5 +1,16 @@
 import { createApp } from 'vue'
-import './style.css'
+import { createHead } from '@vueuse/head'
+import { MotionPlugin } from '@vueuse/motion'
+import router from '@/router'
 import App from './App.vue'
+import '@/assets/styles/main.css'
 
-createApp(App).mount('#app')
+document.documentElement.classList.add('dark')
+document.documentElement.setAttribute('lang', 'id')
+
+const app = createApp(App)
+
+app.use(createHead())
+app.use(router)
+app.use(MotionPlugin)
+app.mount('#app')
