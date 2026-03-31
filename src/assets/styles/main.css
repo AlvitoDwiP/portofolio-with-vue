@@ -5,6 +5,14 @@
 @layer base {
   :root {
     color-scheme: dark;
+    --color-bg: 15 17 21;
+    --color-surface: 23 27 34;
+    --color-text: 237 241 247;
+    --color-text-muted: 154 163 178;
+    --color-accent: 124 161 143;
+    --color-line: 255 255 255;
+    --container-width: 72rem;
+    --container-padding: 1.25rem;
   }
 
   html {
@@ -14,9 +22,10 @@
   body {
     margin: 0;
     min-height: 100vh;
-    background-color: #020617;
-    color: #e2e8f0;
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
     font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.6;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -28,7 +37,7 @@
 
   * {
     box-sizing: border-box;
-    border-color: rgb(30 41 59 / 1);
+    border-color: rgb(var(--color-line) / 0.08);
   }
 
   a {
@@ -43,8 +52,28 @@
     font: inherit;
   }
 
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  ::placeholder {
+    color: rgb(var(--color-text-muted) / 0.8);
+  }
+
   ::selection {
-    background: rgb(73 237 170 / 0.2);
-    color: #f8fafc;
+    background: rgb(var(--color-accent) / 0.18);
+    color: rgb(var(--color-text));
+  }
+}
+
+@layer components {
+  .container {
+    width: min(100% - (var(--container-padding) * 2), var(--container-width));
+    margin-inline: auto;
   }
 }

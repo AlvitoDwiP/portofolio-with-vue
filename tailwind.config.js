@@ -3,27 +3,55 @@ export default {
   darkMode: 'class',
   content: ['./index.html', './src/**/*.{vue,js}'],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1.25rem',
+        sm: '1.5rem',
+        lg: '2rem',
+        xl: '2.5rem',
+      },
+      screens: {
+        '2xl': '72rem',
+      },
+    },
     extend: {
       colors: {
+        canvas: '#0f1115',
+        surface: '#171b22',
+        text: {
+          DEFAULT: '#edf1f7',
+          muted: '#9aa3b2',
+        },
+        accent: '#7ca18f',
         brand: {
-          50: '#effef8',
-          100: '#d8fff0',
-          200: '#b5fde0',
-          300: '#84f9c7',
-          400: '#49edaa',
-          500: '#22d38f',
-          600: '#18aa73',
-          700: '#15855c',
-          800: '#15694b',
-          900: '#14563f',
+          50: '#f3f7f5',
+          100: '#e4ece7',
+          200: '#c8d9d0',
+          300: '#a9c0b4',
+          400: '#8eaa9c',
+          500: '#7ca18f',
+          600: '#628270',
+          700: '#4e6659',
+          800: '#41524a',
+          900: '#38463f',
         },
       },
       fontFamily: {
         sans: ['Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
+      spacing: {
+        gutter: '1.5rem',
+        section: '5rem',
+      },
+      borderRadius: {
+        lg: '0.875rem',
+        xl: '1.125rem',
+        '2xl': '1.5rem',
       },
       boxShadow: {
-        glow: '0 0 0 1px rgba(148, 163, 184, 0.08), 0 20px 60px rgba(2, 6, 23, 0.55)',
+        glow: '0 0 0 1px rgba(255, 255, 255, 0.04), 0 10px 30px rgba(0, 0, 0, 0.18)',
       },
     },
   },
