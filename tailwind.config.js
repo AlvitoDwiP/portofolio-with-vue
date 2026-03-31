@@ -3,18 +3,6 @@ export default {
   darkMode: 'class',
   content: ['./index.html', './src/**/*.{vue,js}'],
   theme: {
-    container: {
-      center: true,
-      padding: {
-        DEFAULT: '1.25rem',
-        sm: '1.5rem',
-        lg: '2rem',
-        xl: '2.5rem',
-      },
-      screens: {
-        '2xl': '72rem',
-      },
-    },
     extend: {
       colors: {
         canvas: '#0f1115',
