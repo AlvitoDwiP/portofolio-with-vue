@@ -1,65 +1,187 @@
 export const projects = [
   {
-    slug: 'nova-studio',
-    title: 'Nova Studio',
-    summary: 'Premium landing system with clean motion, sharp typography, and modular UI.',
+    id: 1,
+    slug: 'dashboard-insight-penjualan',
+    title: 'Dashboard Insight Penjualan',
+    category: 'Data Analytics',
+    shortDescription:
+      'Tim penjualan kesulitan melihat pola penurunan omzet bulanan. Dashboard ini merapikan data transaksi dan menampilkan metrik utama agar evaluasi bisa dilakukan lebih cepat.',
     overview:
-      'A placeholder case study for the first commit. The goal is to establish a stable frontend data shape before real project content is added.',
-    role: 'Frontend Design & Development',
-    year: '2026',
-    status: 'Concept',
-    featured: true,
-    stack: ['Vue 3', 'Tailwind CSS', 'VueUse Motion'],
-    highlights: [
-      'Frontend-only project data that is easy to replace later',
-      'Reusable card and layout primitives',
-      'Project detail page already wired into the router',
+      'Project ini berfokus pada analisis data penjualan dari beberapa file mentah yang formatnya belum konsisten. Saya membersihkan data, menyusun metrik inti, lalu menyajikannya dalam dashboard yang mudah dibaca untuk kebutuhan monitoring mingguan.',
+    problem: [
+      'Data transaksi tersebar di beberapa file dengan format yang tidak seragam.',
+      'Tim belum memiliki ringkasan omzet, kategori, dan cabang dalam satu tampilan.',
+      'Proses evaluasi mingguan masih bergantung pada rekap manual.',
     ],
+    approach: [
+      'Membersihkan dan menggabungkan data transaksi dengan Python dan Pandas.',
+      'Menyusun query SQL untuk metrik omzet, produk, dan performa cabang.',
+      'Membuat dashboard ringkas untuk monitoring mingguan.',
+    ],
+    tools: ['Python', 'SQL', 'Pandas', 'Tableau'],
+    output:
+      'Hasil akhirnya adalah dashboard penjualan dengan filter dasar dan ringkasan KPI yang bisa dipakai untuk review rutin.',
+    insights:
+      'Setelah data dirapikan, terlihat bahwa penurunan omzet paling sering terjadi pada kategori tertentu dan di cabang dengan repeat order rendah.',
+    cover: '/images/projects/dashboard-insight-penjualan.jpg',
+    featured: true,
     links: {
-      live: 'https://example.com/nova-studio',
-      repo: 'https://github.com/example/nova-studio',
+      github: 'https://github.com/yourusername/dashboard-insight-penjualan',
+      demo: 'https://public.tableau.com/app/profile/yourusername/viz/dashboard-insight-penjualan',
     },
   },
   {
-    slug: 'atlas-dashboard',
-    title: 'Atlas Dashboard',
-    summary: 'Internal analytics interface focused on clarity, hierarchy, and component reuse.',
+    id: 2,
+    slug: 'analisis-churn-pelanggan',
+    title: 'Analisis Churn Pelanggan',
+    category: 'Data Analytics',
+    shortDescription:
+      'Retensi pelanggan menurun tetapi tim belum tahu pola utamanya. Analisis ini membantu mengidentifikasi faktor yang paling sering muncul sebelum pelanggan berhenti berlangganan.',
     overview:
-      'This sample entry keeps the portfolio data structure realistic without turning the first commit into a finished case study.',
-    role: 'Product Design System',
-    year: '2025',
-    status: 'Prototype',
-    featured: true,
-    stack: ['Vue Router', 'Lucide Icons', 'ESLint'],
-    highlights: [
-      'Structured metadata for future filtering or tags',
-      'Consistent project slug model for detail routes',
-      'Ready to expand with screenshots or richer content blocks',
+      'Saya mengolah dataset pelanggan untuk mencari hubungan antara churn dengan durasi langganan, jenis paket, dan frekuensi komplain. Hasil analisis dirangkum dalam visual yang sederhana agar tim non-teknis bisa langsung menggunakannya.',
+    problem: [
+      'Tim hanya melihat total churn tanpa segmentasi yang jelas.',
+      'Data komplain dan data paket belum pernah dianalisis bersamaan.',
+      'Prioritas tindak lanjut retensi masih berdasarkan asumsi.',
     ],
+    approach: [
+      'Menggabungkan data pelanggan, paket, dan komplain ke satu dataset analisis.',
+      'Membuat segmentasi sederhana berdasarkan masa aktif dan jenis paket.',
+      'Menyusun dashboard untuk melihat pola churn yang paling sering muncul.',
+    ],
+    tools: ['Python', 'SQL', 'Pandas', 'Looker Studio'],
+    output:
+      'Output project ini berupa laporan analisis dan dashboard ringkas untuk membantu prioritas tindak lanjut retensi.',
+    insights:
+      'Pelanggan dengan masa aktif pendek dan frekuensi komplain lebih tinggi menunjukkan risiko churn yang paling jelas.',
+    cover: '/images/projects/analisis-churn-pelanggan.jpg',
+    featured: true,
     links: {
-      live: 'https://example.com/atlas-dashboard',
-      repo: 'https://github.com/example/atlas-dashboard',
+      github: 'https://github.com/yourusername/analisis-churn-pelanggan',
+      demo: 'https://lookerstudio.google.com/reporting/analisis-churn-pelanggan',
     },
   },
   {
-    slug: 'signal-notes',
-    title: 'Signal Notes',
-    summary: 'Content-first note experience with elegant spacing and dark-mode-first styling.',
+    id: 3,
+    slug: 'aplikasi-alur-inventaris',
+    title: 'Aplikasi Alur Inventaris',
+    category: 'Fullstack',
+    shortDescription:
+      'Pencatatan stok barang masih dilakukan manual dan sering terlambat diperbarui. Aplikasi ini membantu input barang masuk, barang keluar, dan melihat stok aktif dalam satu tempat.',
     overview:
-      'Another sample project used to prove the detail route, card grid, and frontend data organization are ready before the real portfolio is filled in.',
-    role: 'UI Engineering',
-    year: '2024',
-    status: 'Exploration',
-    featured: true,
-    stack: ['Prettier', '@vueuse/head', 'Vite'],
-    highlights: [
-      'Flat data source stored in the frontend only',
-      'Simple enough for a first commit, structured enough to scale',
-      'Works well for one-page navigation plus detail pages',
+      'Project ini dibuat untuk kebutuhan operasional skala kecil yang membutuhkan alur inventaris sederhana namun rapi. Fokus utamanya ada pada form input yang cepat, pencarian data, dan tampilan stok yang mudah dipahami.',
+    problem: [
+      'Riwayat perubahan stok sulit dilacak saat pencatatan masih di spreadsheet.',
+      'Admin perlu waktu lama untuk mengecek stok terbaru sebelum pengiriman.',
+      'Barang masuk dan keluar belum memiliki alur pencatatan yang konsisten.',
     ],
+    approach: [
+      'Membangun backend CRUD sederhana untuk data barang dan transaksi.',
+      'Menyusun relasi stok masuk, stok keluar, dan stok aktif.',
+      'Membuat antarmuka ringkas untuk input dan pencarian data.',
+    ],
+    tools: ['Vue 3', 'Node.js', 'Express', 'MySQL'],
+    output:
+      'Hasilnya adalah aplikasi inventaris sederhana dengan alur input stok yang lebih cepat dan riwayat transaksi yang lebih jelas.',
+    insights:
+      'Masalah utama bukan pada jumlah data, tetapi pada konsistensi input dan visibilitas perubahan stok harian.',
+    cover: '/images/projects/aplikasi-alur-inventaris.jpg',
+    featured: true,
     links: {
-      live: 'https://example.com/signal-notes',
-      repo: 'https://github.com/example/signal-notes',
+      github: 'https://github.com/yourusername/aplikasi-alur-inventaris',
+      demo: 'https://aplikasi-alur-inventaris.vercel.app',
+    },
+  },
+  {
+    id: 4,
+    slug: 'aplikasi-pembukuan-usaha',
+    title: 'Aplikasi Pembukuan Usaha',
+    category: 'Fullstack',
+    shortDescription:
+      'Usaha kecil sering punya catatan pemasukan dan pengeluaran yang tersebar. Web app ini merapikan pencatatan kas harian dan menampilkan ringkasan bulanan secara sederhana.',
+    overview:
+      'Saya membuat aplikasi pencatatan keuangan dasar untuk membantu pemilik usaha memantau arus kas tanpa sistem yang rumit. Fitur utamanya mencakup input transaksi, kategori, dan ringkasan bulanan yang bisa langsung dibaca.',
+    problem: [
+      'Catatan keuangan tersimpan di chat dan spreadsheet yang terpisah.',
+      'Pemilik usaha sulit melihat total pengeluaran per kategori.',
+      'Rekap bulanan membutuhkan pengecekan manual yang berulang.',
+    ],
+    approach: [
+      'Merancang struktur transaksi yang sederhana untuk pemasukan dan pengeluaran.',
+      'Membuat filter bulanan dan kategori untuk memudahkan pencarian.',
+      'Menyusun ringkasan saldo bersih dan total transaksi per periode.',
+    ],
+    tools: ['Laravel', 'MySQL', 'Blade', 'Chart.js'],
+    output:
+      'Output project ini adalah aplikasi pencatatan kas dengan ringkasan transaksi yang bisa dipakai untuk kebutuhan operasional harian.',
+    insights:
+      'Kategori pengeluaran kecil yang sering berulang ternyata memberi dampak cukup besar pada total biaya bulanan.',
+    cover: '/images/projects/aplikasi-pembukuan-usaha.jpg',
+    featured: false,
+    links: {
+      github: 'https://github.com/yourusername/aplikasi-pembukuan-usaha',
+    },
+  },
+  {
+    id: 5,
+    slug: 'platform-pelacak-lamaran',
+    title: 'Platform Pelacak Lamaran',
+    category: 'Fullstack',
+    shortDescription:
+      'Pelacakan lamaran kerja sering tercecer di banyak tab dan catatan pribadi. Project ini membantu menyimpan status aplikasi, jadwal interview, dan catatan follow-up dalam satu dashboard.',
+    overview:
+      'Aplikasi ini dibuat untuk kebutuhan personal agar proses pencarian kerja lebih terstruktur dan tidak mengandalkan catatan manual. Fokusnya ada pada alur input yang ringan, filtering status, dan halaman detail yang mudah dibaca.',
+    problem: [
+      'Informasi lowongan dan status aplikasi tersebar di banyak tempat.',
+      'Jadwal interview dan follow-up mudah terlewat.',
+      'Progres pencarian kerja sulit dipantau dalam satu tampilan.',
+    ],
+    approach: [
+      'Membuat dashboard ringkas untuk daftar aplikasi dan statusnya.',
+      'Menyiapkan form input cepat untuk lowongan, catatan, dan jadwal.',
+      'Menyimpan riwayat aplikasi dengan backend ringan.',
+    ],
+    tools: ['React', 'Node.js', 'Express', 'PostgreSQL'],
+    output:
+      'Hasil akhirnya adalah platform kecil untuk mencatat proses lamaran dan menjaga tindak lanjut tetap teratur.',
+    insights:
+      'Dengan status yang konsisten, progres aplikasi jauh lebih mudah dipantau dibanding catatan manual yang tersebar.',
+    cover: '/images/projects/platform-pelacak-lamaran.jpg',
+    featured: true,
+    links: {
+      github: 'https://github.com/yourusername/platform-pelacak-lamaran',
+      demo: 'https://platform-pelacak-lamaran.vercel.app',
+    },
+  },
+  {
+    id: 6,
+    slug: 'monitor-aduan-layanan-publik',
+    title: 'Monitor Aduan Layanan Publik',
+    category: 'Data Analytics',
+    shortDescription:
+      'Data aduan layanan publik tersedia, tetapi sulit dibaca secara cepat oleh tim internal. Dashboard ini merangkum jenis aduan, waktu respons, dan tren kanal pelaporan.',
+    overview:
+      'Project ini menyusun ulang data aduan dari beberapa kanal agar lebih mudah dianalisis. Saya fokus pada pembersihan data, kategorisasi sederhana, dan visual monitoring yang relevan untuk evaluasi layanan.',
+    problem: [
+      'Data aduan datang dari beberapa kanal dengan format berbeda.',
+      'Tim belum memiliki ringkasan kategori aduan dan waktu respons.',
+      'Evaluasi bulanan masih bergantung pada rekap manual.',
+    ],
+    approach: [
+      'Menstandardisasi data aduan dari beberapa sumber.',
+      'Membuat agregasi berdasarkan kategori, kanal, dan waktu respons.',
+      'Menyusun dashboard monitoring untuk evaluasi bulanan.',
+    ],
+    tools: ['Python', 'SQL', 'Pandas', 'Tableau'],
+    output:
+      'Output project ini berupa dashboard monitoring layanan publik dengan ringkasan metrik yang bisa dipakai untuk evaluasi bulanan.',
+    insights:
+      'Aduan dengan volume tinggi tidak selalu memiliki waktu respons terlama, sehingga prioritas perbaikan perlu dilihat dari dua sisi sekaligus.',
+    cover: '/images/projects/monitor-aduan-layanan-publik.jpg',
+    featured: false,
+    links: {
+      github: 'https://github.com/yourusername/monitor-aduan-layanan-publik',
+      demo: 'https://public.tableau.com/app/profile/yourusername/viz/monitor-aduan-layanan-publik',
     },
   },
 ]

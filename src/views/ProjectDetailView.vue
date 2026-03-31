@@ -19,7 +19,7 @@ useHead(() => ({
     {
       name: 'description',
       content:
-        project.value?.summary ??
+        project.value?.shortDescription ??
         'Project detail page for the personal portfolio foundation built with Vue 3.',
     },
   ],
@@ -40,20 +40,22 @@ useHead(() => ({
 
         <div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
           <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 shadow-glow">
-            <p class="text-xs uppercase tracking-[0.28em] text-brand-200">{{ project.status }}</p>
+            <p class="text-xs uppercase tracking-[0.28em] text-brand-200">
+              {{ project.category }}
+            </p>
             <h1 class="mt-4 font-display text-4xl text-white sm:text-5xl">{{ project.title }}</h1>
             <p class="mt-5 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-              {{ project.summary }}
+              {{ project.shortDescription }}
             </p>
 
             <div class="mt-8 grid gap-4 sm:grid-cols-3">
               <div class="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
-                <p class="text-xs uppercase tracking-[0.24em] text-slate-500">Role</p>
-                <p class="mt-2 text-sm text-slate-200">{{ project.role }}</p>
+                <p class="text-xs uppercase tracking-[0.24em] text-slate-500">ID</p>
+                <p class="mt-2 text-sm text-slate-200">{{ project.id }}</p>
               </div>
               <div class="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
-                <p class="text-xs uppercase tracking-[0.24em] text-slate-500">Year</p>
-                <p class="mt-2 text-sm text-slate-200">{{ project.year }}</p>
+                <p class="text-xs uppercase tracking-[0.24em] text-slate-500">Category</p>
+                <p class="mt-2 text-sm text-slate-200">{{ project.category }}</p>
               </div>
               <div class="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
                 <p class="text-xs uppercase tracking-[0.24em] text-slate-500">Slug</p>
@@ -71,23 +73,36 @@ useHead(() => ({
 
           <aside class="space-y-6">
             <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
-              <h2 class="font-display text-2xl text-white">Highlights</h2>
+              <h2 class="font-display text-2xl text-white">Problem</h2>
               <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-300">
                 <li
-                  v-for="highlight in project.highlights"
-                  :key="highlight"
+                  v-for="item in project.problem"
+                  :key="item"
                   class="rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3"
                 >
-                  {{ highlight }}
+                  {{ item }}
                 </li>
               </ul>
             </section>
 
             <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
-              <h2 class="font-display text-2xl text-white">Stack</h2>
+              <h2 class="font-display text-2xl text-white">Approach</h2>
+              <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-300">
+                <li
+                  v-for="item in project.approach"
+                  :key="item"
+                  class="rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3"
+                >
+                  {{ item }}
+                </li>
+              </ul>
+            </section>
+
+            <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
+              <h2 class="font-display text-2xl text-white">Tools</h2>
               <div class="mt-5 flex flex-wrap gap-2">
                 <span
-                  v-for="item in project.stack"
+                  v-for="item in project.tools"
                   :key="item"
                   class="rounded-full border border-white/10 bg-slate-950/60 px-3 py-2 text-xs text-slate-300"
                 >
@@ -97,25 +112,40 @@ useHead(() => ({
             </section>
 
             <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
+              <h2 class="font-display text-2xl text-white">Output</h2>
+              <p class="mt-5 text-sm leading-8 text-slate-300">
+                {{ project.output }}
+              </p>
+            </section>
+
+            <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
+              <h2 class="font-display text-2xl text-white">Insights</h2>
+              <p class="mt-5 text-sm leading-8 text-slate-300">
+                {{ project.insights }}
+              </p>
+            </section>
+
+            <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
               <h2 class="font-display text-2xl text-white">Links</h2>
               <div class="mt-5 flex flex-col gap-3">
                 <a
-                  :href="project.links.live"
+                  :href="project.links.github"
                   target="_blank"
                   rel="noreferrer"
                   class="inline-flex items-center justify-between rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-sm text-slate-200 transition hover:border-white/20"
                 >
-                  <span>Live preview</span>
-                  <ArrowUpRight class="h-4 w-4" />
+                  <span>GitHub</span>
+                  <Github class="h-4 w-4" />
                 </a>
                 <a
-                  :href="project.links.repo"
+                  v-if="project.links.demo"
+                  :href="project.links.demo"
                   target="_blank"
                   rel="noreferrer"
                   class="inline-flex items-center justify-between rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-sm text-slate-200 transition hover:border-white/20"
                 >
-                  <span>Repository</span>
-                  <Github class="h-4 w-4" />
+                  <span>Demo</span>
+                  <ArrowUpRight class="h-4 w-4" />
                 </a>
               </div>
             </section>

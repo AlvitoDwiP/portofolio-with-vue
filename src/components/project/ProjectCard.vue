@@ -15,7 +15,7 @@ defineProps({
   >
     <div class="mb-5 flex items-start justify-between gap-4">
       <div class="space-y-3">
-        <p class="text-xs uppercase tracking-[0.24em] text-brand-200">{{ project.status }}</p>
+        <p class="text-xs uppercase tracking-[0.24em] text-brand-200">{{ project.category }}</p>
         <div>
           <RouterLink
             :to="{ name: 'project-detail', params: { slug: project.slug } }"
@@ -23,7 +23,7 @@ defineProps({
           >
             {{ project.title }}
           </RouterLink>
-          <p class="mt-2 text-sm leading-7 text-slate-400">{{ project.summary }}</p>
+          <p class="mt-2 text-sm leading-7 text-slate-400">{{ project.shortDescription }}</p>
         </div>
       </div>
 
@@ -36,7 +36,7 @@ defineProps({
 
     <div class="mb-6 flex flex-wrap gap-2">
       <span
-        v-for="item in project.stack"
+        v-for="item in project.tools.slice(0, 3)"
         :key="item"
         class="rounded-full border border-white/10 bg-slate-950/60 px-3 py-2 text-xs text-slate-300"
       >
@@ -45,8 +45,8 @@ defineProps({
     </div>
 
     <div class="flex items-center justify-between text-sm text-slate-500">
-      <span>{{ project.role }}</span>
-      <span>{{ project.year }}</span>
+      <span>#{{ project.id }}</span>
+      <span>{{ project.slug }}</span>
     </div>
   </article>
 </template>
