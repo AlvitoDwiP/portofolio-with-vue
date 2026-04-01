@@ -3,6 +3,7 @@ import { useHead } from '@vueuse/head'
 import { Github, Linkedin, Mail } from 'lucide-vue-next'
 import AppShell from '@/components/layout/AppShell.vue'
 import HeroSection from '@/components/sections/HeroSection.vue'
+import HomeQuickProofSection from '@/components/sections/HomeQuickProofSection.vue'
 import HomeProjectsSection from '@/components/sections/HomeProjectsSection.vue'
 import BaseCard from '@/components/ui/BaseCard.vue'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
@@ -62,6 +63,10 @@ useHead({
   <AppShell>
     <HeroSection />
 
+    <HomeQuickProofSection />
+
+    <HomeProjectsSection :projects="featuredProjects" />
+
     <section id="tentang-saya" class="scroll-mt-24 pb-24 sm:pb-28">
       <BaseContainer>
         <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
@@ -86,8 +91,6 @@ useHead({
         </div>
       </BaseContainer>
     </section>
-
-    <HomeProjectsSection :projects="featuredProjects" />
 
     <section id="sertifikasi" class="scroll-mt-24 pb-24 sm:pb-28">
       <BaseContainer>
