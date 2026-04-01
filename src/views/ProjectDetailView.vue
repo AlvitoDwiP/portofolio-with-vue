@@ -14,13 +14,13 @@ const { findProjectBySlug } = useProjects()
 const project = computed(() => findProjectBySlug(route.params.slug))
 
 useHead(() => ({
-  title: createPageTitle(project.value?.title ?? 'Project'),
+  title: createPageTitle(project.value?.title ?? 'Proyek'),
   meta: [
     {
       name: 'description',
       content:
         project.value?.shortDescription ??
-        'Project detail page for the personal portfolio foundation built with Vue 3.',
+        'Halaman detail proyek untuk portofolio personal berbasis Vue 3.',
     },
   ],
 }))
@@ -31,11 +31,11 @@ useHead(() => ({
     <BaseContainer class="py-16 sm:py-24">
       <div v-if="project" class="space-y-10">
         <RouterLink
-          :to="{ name: 'home', hash: '#projects' }"
+          :to="{ name: 'home', hash: '#proyek' }"
           class="inline-flex items-center gap-2 text-sm text-slate-400 transition hover:text-white"
         >
           <ArrowLeft class="h-4 w-4" />
-          Back to projects
+          Kembali ke proyek
         </RouterLink>
 
         <div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
@@ -54,7 +54,7 @@ useHead(() => ({
                 <p class="mt-2 text-sm text-slate-200">{{ project.id }}</p>
               </div>
               <div class="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
-                <p class="text-xs uppercase tracking-[0.24em] text-slate-500">Category</p>
+                <p class="text-xs uppercase tracking-[0.24em] text-slate-500">Kategori</p>
                 <p class="mt-2 text-sm text-slate-200">{{ project.category }}</p>
               </div>
               <div class="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
@@ -64,7 +64,7 @@ useHead(() => ({
             </div>
 
             <div class="mt-10 space-y-4">
-              <h2 class="font-display text-2xl text-white">Overview</h2>
+              <h2 class="font-display text-2xl text-white">Ringkasan</h2>
               <p class="max-w-3xl text-sm leading-8 text-slate-300">
                 {{ project.overview }}
               </p>
@@ -73,7 +73,7 @@ useHead(() => ({
 
           <aside class="space-y-6">
             <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
-              <h2 class="font-display text-2xl text-white">Problem</h2>
+              <h2 class="font-display text-2xl text-white">Masalah</h2>
               <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-300">
                 <li
                   v-for="item in project.problem"
@@ -86,7 +86,7 @@ useHead(() => ({
             </section>
 
             <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
-              <h2 class="font-display text-2xl text-white">Approach</h2>
+              <h2 class="font-display text-2xl text-white">Pendekatan</h2>
               <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-300">
                 <li
                   v-for="item in project.approach"
@@ -112,21 +112,21 @@ useHead(() => ({
             </section>
 
             <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
-              <h2 class="font-display text-2xl text-white">Output</h2>
+              <h2 class="font-display text-2xl text-white">Hasil</h2>
               <p class="mt-5 text-sm leading-8 text-slate-300">
                 {{ project.output }}
               </p>
             </section>
 
             <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
-              <h2 class="font-display text-2xl text-white">Insights</h2>
+              <h2 class="font-display text-2xl text-white">Insight</h2>
               <p class="mt-5 text-sm leading-8 text-slate-300">
                 {{ project.insights }}
               </p>
             </section>
 
             <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
-              <h2 class="font-display text-2xl text-white">Links</h2>
+              <h2 class="font-display text-2xl text-white">Tautan</h2>
               <div class="mt-5 flex flex-col gap-3">
                 <a
                   :href="project.links.github"
@@ -157,17 +157,17 @@ useHead(() => ({
         v-else
         class="rounded-[2rem] border border-dashed border-white/15 bg-white/[0.03] p-10 text-center"
       >
-        <h1 class="font-display text-3xl text-white">Project not found</h1>
+        <h1 class="font-display text-3xl text-white">Proyek tidak ditemukan</h1>
         <p class="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-400">
-          Slug project ini belum ada di `src/data/projects.js`. Anda bisa menambahkannya kapan saja
+          Slug proyek ini belum ada di `src/data/projects.js`. Anda bisa menambahkannya kapan saja
           tanpa perlu backend.
         </p>
         <RouterLink
-          :to="{ name: 'home', hash: '#projects' }"
+          :to="{ name: 'home', hash: '#proyek' }"
           class="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950"
         >
           <ArrowLeft class="h-4 w-4" />
-          Return home
+          Kembali ke beranda
         </RouterLink>
       </div>
     </BaseContainer>

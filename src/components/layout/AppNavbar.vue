@@ -1,25 +1,26 @@
 <script setup>
+import { computed } from 'vue'
 import { Github, Linkedin, Mail } from 'lucide-vue-next'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
 import { siteConfig } from '@/data/site'
 
 const navItems = [
   { label: 'Home', href: '#home' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'About', href: '#about' },
-  { label: 'Certification', href: '#certification' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Tentang Saya', href: '#tentang-saya' },
+  { label: 'Proyek', href: '#proyek' },
+  { label: 'Sertifikasi', href: '#sertifikasi' },
+  { label: 'Kontak', href: '#kontak' },
 ]
 
 const socialLinks = [
   {
     name: 'GitHub',
-    href: '#',
+    href: siteConfig.githubUrl,
     icon: Github,
   },
   {
     name: 'LinkedIn',
-    href: '#',
+    href: siteConfig.linkedinUrl,
     icon: Linkedin,
   },
   {
@@ -28,54 +29,76 @@ const socialLinks = [
     icon: Mail,
   },
 ]
+
+const initials = computed(() =>
+  siteConfig.name
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join('')
+    .toUpperCase()
+)
 </script>
 
 <template>
-  <header class="relative z-30 border-b border-text-muted/10 bg-canvas/88 backdrop-blur-md">
-    <BaseContainer>
-      <div class="flex min-h-16 flex-col justify-center gap-4 py-4 md:min-h-20 md:py-0">
-        <div class="flex items-center justify-between gap-4">
-          <RouterLink to="/" class="flex min-w-0 items-center gap-3">
-            <span
-              class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-text-muted/10 bg-surface text-sm font-semibold text-text"
-            >
-              YN
-            </span>
+  <header
+    class="sticky top-0 z-40 border-b border-white/10 bg-[rgba(15,17,21,0.8)] backdrop-blur-xl"
+  >
+    <BaseContainer class="py-3">
+      <div class="flex min-h-12 items-center justify-between gap-5">
+        <RouterLink to="/" class="flex min-w-0 items-center gap-3">
+          <span
+            class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-[0.72rem] font-semibold tracking-[0.18em] text-text"
+          >
+            {{ initials }}
+          </span>
 
-            <div class="min-w-0">
-              <p class="truncate font-display text-sm font-semibold tracking-[0.18em] text-text">
-                {{ siteConfig.name }}
-              </p>
-              <p class="truncate text-xs text-text-muted">
-                {{ siteConfig.role }}
-              </p>
-            </div>
-          </RouterLink>
-
-          <div class="flex items-center gap-2">
-            <a
-              v-for="item in socialLinks"
-              :key="item.name"
-              :href="item.href"
-              :aria-label="item.name"
-              :title="item.name"
-              class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-text-muted/10 bg-surface text-text-muted transition-colors hover:text-text"
-            >
-              <component :is="item.icon" class="h-4 w-4" />
-            </a>
+          <div class="min-w-0">
+            <p class="truncate font-display text-sm font-semibold tracking-[0.14em] text-text">
+              {{ siteConfig.name }}
+            </p>
+            <p class="hidden truncate text-xs text-text-muted sm:block">
+              {{ siteConfig.role }}
+            </p>
           </div>
-        </div>
+        </RouterLink>
 
-        <nav class="overflow-x-auto pb-1 md:pb-0">
-          <ul class="flex min-w-max items-center gap-5 text-sm text-text-muted md:min-w-0 md:gap-6">
+        <nav class="hidden md:flex md:flex-1 md:justify-center">
+          <ul class="flex items-center gap-7 text-sm text-text-muted">
             <li v-for="item in navItems" :key="item.label">
-              <a :href="item.href" class="whitespace-nowrap transition-colors hover:text-text">
+              <a :href="item.href" class="transition duration-200 hover:text-text">
                 {{ item.label }}
               </a>
             </li>
           </ul>
         </nav>
+
+        <div class="flex items-center gap-2">
+          <a
+            v-for="item in socialLinks"
+            :key="item.name"
+            :href="item.href"
+            :aria-label="item.name"
+            :title="item.name"
+            :target="item.href.startsWith('mailto:') ? undefined : '_blank'"
+            :rel="item.href.startsWith('mailto:') ? undefined : 'noreferrer'"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-text-muted transition duration-200 hover:border-white/15 hover:bg-white/[0.06] hover:text-text"
+          >
+            <component :is="item.icon" class="h-4 w-4" />
+          </a>
+        </div>
       </div>
+
+      <nav class="overflow-x-auto pb-1 pt-3 md:hidden">
+        <ul class="flex min-w-max items-center gap-5 text-sm text-text-muted">
+          <li v-for="item in navItems" :key="item.label">
+            <a :href="item.href" class="whitespace-nowrap transition duration-200 hover:text-text">
+              {{ item.label }}
+            </a>
+          </li>
+        </ul>
+      </nav>
     </BaseContainer>
   </header>
 </template>

@@ -1,14 +1,21 @@
 export const siteConfig = {
-  name: 'Your Name',
-  role: 'Frontend Developer',
+  name: 'Nama Anda',
+  role: 'Data Analyst & Fullstack Developer',
   location: 'Indonesia',
   email: 'hello@yourdomain.com',
-  eyebrow: 'Personal portfolio foundation',
-  headline: 'Dark-first portfolio starter with clean structure and room to grow.',
+  githubUrl: 'https://github.com/yourusername',
+  linkedinUrl: 'https://www.linkedin.com/in/yourusername/',
+  resumeUrl: '/cv.pdf',
+  portrait: {
+    src: '/profile-photo.jpg',
+    alt: 'Foto profesional Nama Anda',
+  },
+  eyebrow: 'Portofolio Personal',
+  headline: 'Saya membangun solusi data yang siap dipakai',
   summary:
-    'This first commit focuses on architecture: scalable folders, a modern layout system, frontend project data, and routing for a one-page home plus project detail pages.',
+    'Saya menggabungkan analisis data, visualisasi, dan pengembangan aplikasi web untuk membangun solusi yang bisa langsung digunakan.',
   description:
-    'Personal portfolio built with Vue 3, Vite, Vue Router, Tailwind CSS, VueUse Motion, and frontend-managed project data.',
-  availability: 'Open for selected freelance and full-time opportunities',
-  stack: ['Vue 3', 'Vite', 'Tailwind CSS', 'Vue Router', 'VueUse Motion'],
+    'Portofolio personal berbahasa Indonesia dengan fokus pada kredibilitas, proyek, dan narasi kerja yang menyatukan data analyst serta fullstack developer.',
+  availability: 'Terbuka untuk proyek freelance, peluang full-time, dan kolaborasi yang relevan.',
+  stack: ['Python', 'SQL', 'Tableau', 'Laravel', 'Vue'],
 }

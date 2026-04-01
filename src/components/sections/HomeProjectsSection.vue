@@ -11,18 +11,19 @@ defineProps({
 </script>
 
 <template>
-  <section id="projects" class="pb-24 sm:pb-32">
+  <section id="proyek" class="scroll-mt-24 pb-24 sm:pb-32">
     <BaseContainer>
       <div class="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div class="max-w-2xl space-y-3">
-          <p class="text-xs uppercase tracking-[0.28em] text-brand-200">Selected work</p>
+          <p class="text-xs uppercase tracking-[0.28em] text-brand-200">Proyek Pilihan</p>
           <h2 class="font-display text-3xl text-white sm:text-4xl">
-            Project cards are ready before the final case studies are.
+            Proyek yang menunjukkan bagaimana analisis data dan pengembangan aplikasi bekerja
+            sebagai satu alur.
           </h2>
         </div>
         <p class="max-w-md text-sm leading-7 text-slate-400">
-          Semua data project masih berasal dari frontend agar fondasi commit pertama tetap ringan
-          dan mudah diubah.
+          Fokus utamanya adalah solusi yang relevan, mudah dipahami, dan menunjukkan dampak kerja
+          secara langsung.
         </p>
       </div>
 
