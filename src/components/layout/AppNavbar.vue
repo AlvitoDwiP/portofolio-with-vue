@@ -35,7 +35,6 @@ const initials = computed(() =>
   siteConfig.name
     .split(' ')
     .filter(Boolean)
-    .slice(0, 2)
     .map((part) => part[0])
     .join('')
     .toUpperCase()
@@ -62,7 +61,7 @@ const { activeHash, createSectionHref, navigateToSection } = useSectionNavigatio
 
           <div class="min-w-0">
             <p class="truncate font-display text-sm font-semibold tracking-[0.14em] text-text">
-              {{ siteConfig.name }}
+              {{ siteConfig.brandName ?? siteConfig.name }}
             </p>
             <p class="hidden truncate text-xs text-text-muted sm:block">
               {{ siteConfig.role }}

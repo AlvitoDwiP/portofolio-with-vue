@@ -1,7 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { ArrowRight, Download } from 'lucide-vue-next'
-import BaseBadge from '@/components/ui/BaseBadge.vue'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import { siteConfig } from '@/data/site'
@@ -16,7 +15,6 @@ const fallbackInitials = computed(() =>
   siteConfig.name
     .split(' ')
     .filter(Boolean)
-    .slice(0, 2)
     .map((part) => part[0])
     .join('')
     .toUpperCase()
@@ -41,7 +39,7 @@ function navigateToHash(hash) {
           v-motion
           :initial="{ opacity: 0, y: 18 }"
           :enter="{ opacity: 1, y: 0, transition: { duration: 450 } }"
-          class="order-1 max-w-xl space-y-6 lg:row-start-1"
+          class="order-1 max-w-xl space-y-6 lg:row-span-2"
         >
           <p class="text-xs font-medium uppercase tracking-[0.24em] text-accent">
             {{ siteConfig.eyebrow }}
@@ -49,7 +47,7 @@ function navigateToHash(hash) {
 
           <div class="space-y-4">
             <h1 class="font-display text-[2.5rem] leading-[1.05] text-text sm:text-5xl lg:text-6xl">
-              {{ siteConfig.headline }}
+              {{ siteConfig.name }}
             </h1>
 
             <p class="text-lg font-medium text-text sm:text-xl">
@@ -57,7 +55,8 @@ function navigateToHash(hash) {
             </p>
 
             <p class="max-w-lg text-[0.98rem] leading-8 text-text-muted sm:text-lg">
-              {{ siteConfig.summary }}
+              Saya menggabungkan analisis data, visualisasi, dan pengembangan aplikasi untuk
+              membangun solusi yang relevan dan siap digunakan.
             </p>
           </div>
 
@@ -98,7 +97,7 @@ function navigateToHash(hash) {
                 v-if="!hasPortraitError"
                 :src="siteConfig.portrait.src"
                 :alt="portraitAlt"
-                class="h-full w-full object-cover object-center"
+                class="h-full w-full object-contain object-top"
                 @error="hasPortraitError = true"
               />
 
@@ -111,9 +110,11 @@ function navigateToHash(hash) {
                 >
                   {{ fallbackInitials }}
                 </div>
-                <p class="mt-5 text-base font-medium text-text">Tambahkan foto profesional Anda</p>
+                <p class="mt-5 text-base font-medium text-text">
+                  Tambahkan foto profesional Alvito
+                </p>
                 <p class="mt-2 max-w-xs text-sm leading-7 text-text-muted">
-                  Simpan file foto di `public/profile-photo.jpg` agar area hero langsung terisi.
+                  Simpan file foto di `public/profile-photo-hero.png` agar area hero langsung terisi.
                 </p>
               </div>
 
@@ -139,24 +140,6 @@ function navigateToHash(hash) {
           </div>
         </div>
 
-        <div
-          v-motion
-          :initial="{ opacity: 0, y: 18 }"
-          :enter="{ opacity: 1, y: 0, transition: { duration: 450, delay: 120 } }"
-          class="order-3 max-w-xl lg:row-start-2"
-        >
-          <p class="text-xs uppercase tracking-[0.2em] text-text-muted">Stack inti</p>
-          <div class="mt-4 flex flex-wrap gap-2.5">
-            <BaseBadge
-              v-for="item in siteConfig.stack"
-              :key="item"
-              variant="accent"
-              class="px-3.5 py-1.5 text-[0.72rem] uppercase tracking-[0.14em]"
-            >
-              {{ item }}
-            </BaseBadge>
-          </div>
-        </div>
       </div>
     </BaseContainer>
   </section>
