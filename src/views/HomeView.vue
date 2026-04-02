@@ -12,7 +12,7 @@ import { useProjects } from '@/composables/useProjects'
 import { siteConfig } from '@/data/site'
 import { createPageTitle } from '@/utils/createPageTitle'
 
-const { featuredProjects } = useProjects()
+const { allProjects } = useProjects()
 
 const aboutHighlights = [
   {
@@ -65,7 +65,7 @@ useHead({
 
     <HomeQuickProofSection />
 
-    <HomeProjectsSection :projects="featuredProjects" />
+    <HomeProjectsSection :projects="allProjects" />
 
     <section id="tentang-saya" class="scroll-mt-24 pb-24 sm:pb-28">
       <BaseContainer>

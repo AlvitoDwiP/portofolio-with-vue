@@ -1,34 +1,61 @@
 <script setup>
+import { computed, ref } from 'vue'
 import ProjectCard from '@/components/project/ProjectCard.vue'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
 
-defineProps({
+const props = defineProps({
   projects: {
     type: Array,
     required: true,
   },
 })
+
+const filters = ['Semua', 'Data Analytics', 'Fullstack']
+const activeFilter = ref('Semua')
+
+const filteredProjects = computed(() =>
+  activeFilter.value === 'Semua'
+    ? props.projects
+    : props.projects.filter((project) => project.category === activeFilter.value)
+)
 </script>
 
 <template>
   <section id="proyek" class="scroll-mt-24 pb-24 sm:pb-32">
     <BaseContainer>
-      <div class="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div class="max-w-2xl space-y-3">
+      <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div class="max-w-3xl space-y-3">
           <p class="text-xs uppercase tracking-[0.28em] text-brand-200">Proyek Pilihan</p>
           <h2 class="font-display text-3xl text-white sm:text-4xl">
-            Proyek yang menunjukkan bagaimana analisis data dan pengembangan aplikasi bekerja
-            sebagai satu alur.
+            Hasil kerja yang menunjukkan bagaimana saya membaca masalah lalu membangun solusi yang
+            bisa dipakai.
           </h2>
+          <p class="max-w-2xl text-sm leading-7 text-slate-400">
+            Setiap proyek dipilih untuk memperlihatkan alur kerja saya, dari memahami konteks,
+            mengolah data, sampai merancang output yang relevan untuk kebutuhan nyata.
+          </p>
         </div>
-        <p class="max-w-md text-sm leading-7 text-slate-400">
-          Fokus utamanya adalah solusi yang relevan, mudah dipahami, dan menunjukkan dampak kerja
-          secara langsung.
-        </p>
+
+        <div class="flex flex-wrap gap-2.5">
+          <button
+            v-for="filter in filters"
+            :key="filter"
+            type="button"
+            class="rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-150"
+            :class="
+              activeFilter === filter
+                ? 'border-accent bg-accent text-canvas'
+                : 'border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/20 hover:text-white'
+            "
+            @click="activeFilter = filter"
+          >
+            {{ filter }}
+          </button>
+        </div>
       </div>
 
-      <div class="grid gap-5 lg:grid-cols-2 xl:grid-cols-3">
-        <ProjectCard v-for="project in projects" :key="project.slug" :project="project" />
+      <div v-if="filteredProjects.length" class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <ProjectCard v-for="project in filteredProjects" :key="project.slug" :project="project" />
       </div>
     </BaseContainer>
   </section>
