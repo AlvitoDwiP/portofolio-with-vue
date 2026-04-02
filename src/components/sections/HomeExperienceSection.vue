@@ -12,7 +12,10 @@ defineProps({
 </script>
 
 <template>
-  <section id="pengalaman" class="scroll-mt-24 pb-24 sm:pb-32">
+  <section
+    id="pengalaman"
+    class="section-theme section-theme-experience section-spacing scroll-mt-24"
+  >
     <BaseContainer
       v-motion
       :initial="{ opacity: 0, y: 14 }"
@@ -25,7 +28,7 @@ defineProps({
         class="max-w-3xl"
       />
 
-      <div class="mt-8 grid auto-rows-fr gap-5 md:grid-cols-2 xl:gap-6">
+      <div class="section-content-gap section-grid-gap grid auto-rows-fr md:grid-cols-2">
         <ExperienceCard
           v-for="experience in experiences"
           :key="experience.slug"

@@ -16,7 +16,7 @@ const visibleTools = computed(() => props.project.tools.slice(0, 4))
 
 <template>
   <article
-    class="group flex h-full min-h-[22.5rem] transform-gpu flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-950/70 shadow-[0_16px_36px_rgba(2,6,23,0.28)] transition-[transform,border-color,box-shadow,background-color] duration-300 hover:-translate-y-1.5 hover:border-white/20 hover:bg-slate-950/80 hover:shadow-[0_24px_60px_rgba(2,6,23,0.42)] sm:min-h-[24rem]"
+    class="section-card-hover group flex h-full min-h-[22.5rem] transform-gpu flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-950/70 shadow-[0_16px_36px_rgba(2,6,23,0.28)] transition-[transform,border-color,box-shadow,background-color] duration-300 hover:bg-slate-950/80 sm:min-h-[24rem]"
   >
     <div
       :class="[

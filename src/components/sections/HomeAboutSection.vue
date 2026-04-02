@@ -33,14 +33,25 @@ const skillCategories = [
 </script>
 
 <template>
-  <section id="tentang-saya" class="scroll-mt-24 pb-24 sm:pb-28">
+  <section
+    id="tentang-saya"
+    class="section-theme section-theme-about scroll-mt-24 pb-20 pt-20 sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28"
+  >
+    <div
+      class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-[linear-gradient(180deg,rgba(15,17,21,0.98),rgba(15,17,21,0.92)_48%,rgba(15,17,21,0))] sm:h-40"
+    />
+    <div
+      class="pointer-events-none absolute inset-x-0 top-12 h-40 bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.08),transparent_68%)] sm:top-16 sm:h-48"
+    />
+
     <BaseContainer
+      class="pt-4 sm:pt-6"
       v-motion
       :initial="{ opacity: 0, y: 14 }"
       :visible-once="{ opacity: 1, y: 0, transition: { duration: 360 } }"
     >
-      <div class="grid items-start gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
-        <div class="max-w-2xl space-y-5">
+      <div class="grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+        <div class="max-w-2xl space-y-6">
           <SectionHeader
             eyebrow="Tentang Saya"
             title="Saya bekerja dengan pendekatan berbasis masalah, bukan sekadar tools."
@@ -48,33 +59,33 @@ const skillCategories = [
             class="max-w-3xl"
           />
 
-          <p class="text-sm leading-8 text-slate-300 sm:text-base">
+          <p class="section-muted text-sm leading-8 sm:text-base">
             Saya adalah lulusan Teknologi Informasi Universitas Jember yang berfokus pada data
             analytics dan pengembangan sistem. Saya terbiasa mengolah data dan mengubahnya menjadi
             insight yang dapat digunakan dalam pengambilan keputusan.
           </p>
 
-          <p class="text-sm leading-8 text-slate-300 sm:text-base">
+          <p class="section-muted text-sm leading-8 sm:text-base">
             Saya memiliki pengalaman melalui internship dan proyek nyata, serta terbiasa bekerja
             secara sistematis, berpikir kritis, dan menghubungkan data dengan kebutuhan bisnis agar
             solusi yang dihasilkan benar-benar relevan dan dapat digunakan.
           </p>
         </div>
 
-        <div class="grid auto-rows-fr content-start gap-4 self-start sm:grid-cols-2">
+        <div class="section-grid-gap grid auto-rows-fr content-start self-start sm:grid-cols-2">
           <BaseCard
             v-for="item in skillCategories"
             :key="item.title"
-            class="flex flex-col rounded-[1.75rem] border-white/10 bg-white/[0.03] p-5 sm:p-6"
+            class="section-panel section-card-hover flex flex-col rounded-[1.75rem] border-white/10 bg-slate-950/40 p-5 sm:p-6"
           >
-            <p class="text-xs uppercase tracking-[0.18em] text-accent">{{ item.title }}</p>
+            <p class="section-eyebrow text-xs uppercase tracking-[0.18em]">{{ item.title }}</p>
 
             <div class="mt-4 flex flex-wrap gap-2">
               <BaseBadge
                 v-for="skill in item.items"
                 :key="skill"
                 variant="default"
-                class="rounded-full border border-white/10 bg-slate-950/70 px-2.5 py-1 text-[0.7rem] font-medium text-slate-300 sm:text-xs"
+                class="rounded-full border border-white/10 bg-slate-950/70 px-2.5 py-1 text-[0.7rem] text-slate-300 sm:text-xs"
               >
                 {{ skill }}
               </BaseBadge>

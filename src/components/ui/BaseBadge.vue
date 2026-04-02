@@ -18,7 +18,7 @@ const badgeClass = computed(() => {
 
   const variants = {
     neutral: 'border-text-muted/10 bg-surface text-text-muted',
-    accent: 'border-accent/20 bg-accent/10 text-accent',
+    accent: 'section-chip-accent',
   }
 
   return [baseClass, variants[props.variant] ?? variants.neutral]

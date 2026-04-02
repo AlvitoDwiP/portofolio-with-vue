@@ -25,20 +25,20 @@ const visibleProjects = computed(() => filteredProjects.value.slice(0, maxVisibl
 </script>
 
 <template>
-  <section id="proyek" class="scroll-mt-24 pb-24 sm:pb-32">
+  <section id="proyek" class="section-theme section-theme-projects section-spacing scroll-mt-24">
     <BaseContainer
       v-motion
       :initial="{ opacity: 0, y: 14 }"
       :visible-once="{ opacity: 1, y: 0, transition: { duration: 360 } }"
     >
-      <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-        <div class="max-w-3xl space-y-3">
-          <p class="text-xs uppercase tracking-[0.28em] text-brand-200">Proyek Pilihan</p>
+      <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+        <div class="max-w-3xl space-y-4">
+          <p class="section-eyebrow text-xs uppercase tracking-[0.28em]">Proyek Pilihan</p>
           <h2 class="font-display text-3xl text-white sm:text-4xl">
             Hasil kerja yang menunjukkan bagaimana saya membaca masalah lalu membangun solusi yang
             bisa dipakai.
           </h2>
-          <p class="max-w-2xl text-sm leading-7 text-slate-400">
+          <p class="section-muted max-w-2xl text-sm leading-7">
             Setiap proyek dipilih untuk memperlihatkan alur kerja saya, dari memahami konteks,
             mengolah data, sampai merancang output yang relevan untuk kebutuhan nyata.
           </p>
@@ -53,14 +53,14 @@ const visibleProjects = computed(() => filteredProjects.value.slice(0, maxVisibl
 
       <div
         v-if="visibleProjects.length"
-        class="mt-10 grid gap-5 sm:auto-rows-fr sm:grid-cols-2 xl:grid-cols-3 xl:gap-6"
+        class="section-content-gap section-grid-gap grid sm:auto-rows-fr sm:grid-cols-2 xl:grid-cols-3"
       >
         <ProjectCard v-for="project in visibleProjects" :key="project.slug" :project="project" />
       </div>
 
       <div
         v-else
-        class="mt-10 rounded-[1.75rem] border border-dashed border-white/10 bg-white/[0.03] p-6 text-sm leading-7 text-slate-400"
+        class="section-panel section-content-gap rounded-[1.75rem] border-dashed p-6 text-sm leading-7 text-slate-300"
       >
         Belum ada proyek pada kategori ini.
       </div>

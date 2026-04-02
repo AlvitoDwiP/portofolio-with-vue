@@ -24,8 +24,8 @@ defineProps({
 </script>
 
 <template>
-  <div v-bind="$attrs" class="space-y-3">
-    <p v-if="eyebrow" class="text-xs font-medium uppercase tracking-[0.18em] text-accent">
+  <div v-bind="$attrs" class="space-y-4">
+    <p v-if="eyebrow" class="section-eyebrow text-xs font-medium uppercase tracking-[0.18em]">
       {{ eyebrow }}
     </p>
 
@@ -33,7 +33,7 @@ defineProps({
       {{ title }}
     </component>
 
-    <p v-if="description" class="max-w-2xl text-sm leading-7 text-text-muted sm:text-base">
+    <p v-if="description" class="section-muted max-w-2xl text-sm leading-7 sm:text-base">
       {{ description }}
     </p>
   </div>

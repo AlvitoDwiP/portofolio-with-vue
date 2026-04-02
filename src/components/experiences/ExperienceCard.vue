@@ -13,29 +13,26 @@ defineProps({
 <template>
   <RouterLink
     :to="{ name: 'experience-detail', params: { slug: experience.slug } }"
-    class="group flex h-full min-h-[17rem] transform-gpu flex-col rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 transition-[transform,border-color,background-color] duration-200 hover:-translate-y-1 hover:border-white/15 hover:bg-white/[0.05] sm:p-6"
+    class="section-panel section-card-hover group flex h-full min-h-[17rem] transform-gpu flex-col rounded-[1.75rem] p-5 sm:p-6"
   >
     <div
-      class="flex flex-1 flex-col rounded-[1.4rem] bg-[radial-gradient(circle_at_top,rgba(200,155,96,0.12),transparent_42%),linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] p-4 sm:p-5"
+      class="flex flex-1 flex-col rounded-[1.4rem] bg-[linear-gradient(135deg,rgba(251,191,36,0.08),rgba(251,146,60,0.04)_40%,rgba(168,85,247,0.1))] p-4 sm:p-5"
     >
       <div class="flex items-start justify-between gap-4">
-        <BaseBadge
-          variant="accent"
-          class="px-3 py-1 text-[0.68rem] uppercase tracking-[0.16em]"
-        >
+        <BaseBadge variant="accent" class="px-3 py-1 text-[0.68rem] uppercase tracking-[0.16em]">
           {{ experience.category }}
         </BaseBadge>
 
         <p
           v-if="experience.period"
-          class="max-w-[9rem] text-right text-[0.68rem] uppercase tracking-[0.16em] text-slate-400"
+          class="section-muted max-w-[9rem] text-right text-[0.68rem] uppercase tracking-[0.16em]"
         >
           {{ experience.period }}
         </p>
       </div>
 
       <h3
-        class="mt-5 font-display text-[1.35rem] leading-tight text-white transition-colors duration-150 group-hover:text-brand-100 sm:text-[1.5rem]"
+        class="mt-5 font-display text-[1.35rem] leading-tight text-white transition-colors duration-150 group-hover:text-white/90 sm:text-[1.5rem]"
       >
         {{ experience.role }}
       </h3>
@@ -46,7 +43,7 @@ defineProps({
 
       <p
         v-if="experience.location"
-        class="mt-2 inline-flex items-center gap-2 text-sm text-slate-400"
+        class="section-muted mt-2 inline-flex items-center gap-2 text-sm"
       >
         <MapPin class="h-4 w-4" />
         <span>{{ experience.location }}</span>
