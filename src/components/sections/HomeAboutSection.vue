@@ -24,7 +24,11 @@ const aboutHighlights = [
 
 <template>
   <section id="tentang-saya" class="scroll-mt-24 pb-24 sm:pb-28">
-    <BaseContainer>
+    <BaseContainer
+      v-motion
+      :initial="{ opacity: 0, y: 14 }"
+      :visible-once="{ opacity: 1, y: 0, transition: { duration: 360 } }"
+    >
       <SectionHeader
         eyebrow="Tentang Saya"
         title="Saya bekerja dengan pendekatan berbasis masalah, bukan sekadar tools."

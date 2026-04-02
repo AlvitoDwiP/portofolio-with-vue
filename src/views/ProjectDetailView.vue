@@ -38,42 +38,27 @@ useHead(() => ({
           Kembali ke proyek
         </RouterLink>
 
-        <div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-          <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 shadow-glow">
-            <p class="text-xs uppercase tracking-[0.28em] text-brand-200">
-              {{ project.category }}
-            </p>
-            <h1 class="mt-4 font-display text-4xl text-white sm:text-5xl">{{ project.title }}</h1>
-            <p class="mt-5 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-              {{ project.shortDescription }}
-            </p>
+        <section class="max-w-4xl">
+          <p class="text-xs uppercase tracking-[0.28em] text-brand-200">{{ project.category }}</p>
+          <h1 class="mt-4 font-display text-4xl text-white sm:text-5xl">{{ project.title }}</h1>
+          <p class="mt-5 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">
+            {{ project.shortDescription }}
+          </p>
+        </section>
 
-            <div class="mt-8 grid gap-4 sm:grid-cols-3">
-              <div class="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
-                <p class="text-xs uppercase tracking-[0.24em] text-slate-500">ID</p>
-                <p class="mt-2 text-sm text-slate-200">{{ project.id }}</p>
-              </div>
-              <div class="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
-                <p class="text-xs uppercase tracking-[0.24em] text-slate-500">Kategori</p>
-                <p class="mt-2 text-sm text-slate-200">{{ project.category }}</p>
-              </div>
-              <div class="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
-                <p class="text-xs uppercase tracking-[0.24em] text-slate-500">Slug</p>
-                <p class="mt-2 text-sm text-slate-200">{{ project.slug }}</p>
-              </div>
-            </div>
-
-            <div class="mt-10 space-y-4">
-              <h2 class="font-display text-2xl text-white">Ringkasan</h2>
-              <p class="max-w-3xl text-sm leading-8 text-slate-300">
+        <div
+          class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem] xl:grid-cols-[minmax(0,1fr)_22rem]"
+        >
+          <div class="space-y-8">
+            <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 sm:p-8">
+              <p class="text-xs uppercase tracking-[0.22em] text-slate-500">Overview</p>
+              <p class="mt-4 text-sm leading-8 text-slate-300 sm:text-base">
                 {{ project.overview }}
               </p>
-            </div>
-          </section>
+            </section>
 
-          <aside class="space-y-6">
-            <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
-              <h2 class="font-display text-2xl text-white">Masalah</h2>
+            <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 sm:p-8">
+              <p class="text-xs uppercase tracking-[0.22em] text-slate-500">Problem</p>
               <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-300">
                 <li
                   v-for="item in project.problem"
@@ -85,8 +70,8 @@ useHead(() => ({
               </ul>
             </section>
 
-            <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
-              <h2 class="font-display text-2xl text-white">Pendekatan</h2>
+            <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 sm:p-8">
+              <p class="text-xs uppercase tracking-[0.22em] text-slate-500">Approach</p>
               <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-300">
                 <li
                   v-for="item in project.approach"
@@ -97,9 +82,11 @@ useHead(() => ({
                 </li>
               </ul>
             </section>
+          </div>
 
+          <aside class="space-y-6">
             <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
-              <h2 class="font-display text-2xl text-white">Tools</h2>
+              <p class="text-xs uppercase tracking-[0.22em] text-slate-500">Tools</p>
               <div class="mt-5 flex flex-wrap gap-2">
                 <span
                   v-for="item in project.tools"
@@ -112,23 +99,24 @@ useHead(() => ({
             </section>
 
             <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
-              <h2 class="font-display text-2xl text-white">Hasil</h2>
+              <p class="text-xs uppercase tracking-[0.22em] text-slate-500">Output</p>
               <p class="mt-5 text-sm leading-8 text-slate-300">
                 {{ project.output }}
               </p>
             </section>
 
             <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
-              <h2 class="font-display text-2xl text-white">Insight</h2>
+              <p class="text-xs uppercase tracking-[0.22em] text-slate-500">Insight</p>
               <p class="mt-5 text-sm leading-8 text-slate-300">
                 {{ project.insights }}
               </p>
             </section>
 
             <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
-              <h2 class="font-display text-2xl text-white">Tautan</h2>
+              <p class="text-xs uppercase tracking-[0.22em] text-slate-500">Tautan</p>
               <div class="mt-5 flex flex-col gap-3">
                 <a
+                  v-if="project.links?.github"
                   :href="project.links.github"
                   target="_blank"
                   rel="noreferrer"
@@ -138,7 +126,7 @@ useHead(() => ({
                   <Github class="h-4 w-4" />
                 </a>
                 <a
-                  v-if="project.links.demo"
+                  v-if="project.links?.demo"
                   :href="project.links.demo"
                   target="_blank"
                   rel="noreferrer"
@@ -155,12 +143,12 @@ useHead(() => ({
 
       <div
         v-else
-        class="rounded-[2rem] border border-dashed border-white/15 bg-white/[0.03] p-10 text-center"
+        class="rounded-[2rem] border border-dashed border-white/15 bg-white/[0.03] p-8 text-center sm:p-10"
       >
         <h1 class="font-display text-3xl text-white">Proyek tidak ditemukan</h1>
         <p class="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-400">
-          Slug proyek ini belum ada di `src/data/projects.js`. Anda bisa menambahkannya kapan saja
-          tanpa perlu backend.
+          Slug yang Anda buka tidak ada di data project lokal. Silakan kembali ke daftar proyek
+          untuk membuka detail yang tersedia.
         </p>
         <RouterLink
           :to="{ name: 'home', hash: '#proyek' }"

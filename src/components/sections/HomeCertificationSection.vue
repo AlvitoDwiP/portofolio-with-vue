@@ -6,7 +6,11 @@ import { certifications } from '@/data/certifications'
 
 <template>
   <section id="sertifikasi" class="scroll-mt-24 pb-20 sm:pb-24">
-    <BaseContainer>
+    <BaseContainer
+      v-motion
+      :initial="{ opacity: 0, y: 14 }"
+      :visible-once="{ opacity: 1, y: 0, transition: { duration: 360 } }"
+    >
       <SectionHeader
         eyebrow="Sertifikasi"
         title="Sertifikasi pendukung yang relevan dengan cara kerja saya."

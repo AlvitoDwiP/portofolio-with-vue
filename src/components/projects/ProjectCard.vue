@@ -11,7 +11,7 @@ defineProps({
 
 <template>
   <article
-    class="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.04] transition-colors duration-200 hover:border-white/15 hover:bg-white/[0.05]"
+    class="group flex h-full transform-gpu flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.04] transition-[transform,border-color,background-color] duration-200 hover:-translate-y-1 hover:border-white/15 hover:bg-white/[0.05]"
   >
     <div class="relative aspect-[16/10] overflow-hidden border-b border-white/10">
       <img
@@ -59,7 +59,7 @@ defineProps({
       <div class="mt-6 flex flex-wrap items-center gap-2.5">
         <RouterLink
           :to="{ name: 'project-detail', params: { slug: project.slug } }"
-          class="inline-flex items-center rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-sm font-medium text-slate-100 transition-colors duration-150 hover:border-white/20 hover:text-white"
+          class="inline-flex items-center rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-sm font-medium text-slate-100 transition-[transform,border-color,color,background-color] duration-150 hover:-translate-y-0.5 hover:border-white/20 hover:text-white"
         >
           <span>Lihat Detail</span>
           <ArrowRight class="ml-2 h-4 w-4" />
@@ -70,7 +70,7 @@ defineProps({
           :href="project.links.github"
           target="_blank"
           rel="noreferrer"
-          class="inline-flex items-center rounded-xl border border-white/10 bg-transparent px-3.5 py-2.5 text-sm text-slate-300 transition-colors duration-150 hover:border-white/20 hover:text-white"
+          class="inline-flex items-center rounded-xl border border-white/10 bg-transparent px-3.5 py-2.5 text-sm text-slate-300 transition-[transform,border-color,color] duration-150 hover:-translate-y-0.5 hover:border-white/20 hover:text-white"
         >
           <Github class="mr-2 h-4 w-4" />
           <span>GitHub</span>
@@ -81,7 +81,7 @@ defineProps({
           :href="project.links.demo"
           target="_blank"
           rel="noreferrer"
-          class="inline-flex items-center rounded-xl border border-white/10 bg-transparent px-3.5 py-2.5 text-sm text-slate-300 transition-colors duration-150 hover:border-white/20 hover:text-white"
+          class="inline-flex items-center rounded-xl border border-white/10 bg-transparent px-3.5 py-2.5 text-sm text-slate-300 transition-[transform,border-color,color] duration-150 hover:-translate-y-0.5 hover:border-white/20 hover:text-white"
         >
           <span>Lihat Demo</span>
           <ArrowUpRight class="ml-2 h-4 w-4" />

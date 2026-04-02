@@ -23,7 +23,7 @@ const proofItems = [
 </script>
 
 <template>
-  <section class="pb-20 sm:pb-24">
+  <section id="quick-proof" class="scroll-mt-24 pb-20 sm:pb-24">
     <BaseContainer>
       <div
         v-motion

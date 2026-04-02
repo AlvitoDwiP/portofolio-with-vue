@@ -14,12 +14,12 @@ defineEmits(['change'])
 </script>
 
 <template>
-  <div class="flex flex-wrap gap-2.5">
+  <div class="flex flex-wrap gap-2">
     <button
       v-for="category in categories"
       :key="category"
       type="button"
-      class="rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-150"
+      class="rounded-full border px-3.5 py-2 text-sm font-medium transition-[transform,background-color,border-color,color] duration-150 hover:-translate-y-0.5 sm:px-4"
       :class="
         activeCategory === category
           ? 'border-accent bg-accent text-canvas'

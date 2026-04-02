@@ -33,7 +33,7 @@ function navigateToHash(hash) {
       class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,rgba(200,155,96,0.18),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.03),transparent_24%)]"
     />
 
-    <BaseContainer class="flex min-h-[calc(100vh-4.75rem)] items-center py-16 sm:py-20 lg:py-24">
+    <BaseContainer class="flex min-h-[calc(100vh-4.75rem)] items-center py-14 sm:py-20 lg:py-24">
       <div
         class="grid w-full gap-y-8 lg:grid-cols-[minmax(0,45%)_minmax(0,55%)] lg:grid-rows-[auto_auto] lg:items-center lg:gap-x-14"
       >
@@ -48,7 +48,7 @@ function navigateToHash(hash) {
           </p>
 
           <div class="space-y-4">
-            <h1 class="font-display text-4xl leading-[1.05] text-text sm:text-5xl lg:text-6xl">
+            <h1 class="font-display text-[2.5rem] leading-[1.05] text-text sm:text-5xl lg:text-6xl">
               {{ siteConfig.headline }}
             </h1>
 
@@ -56,13 +56,17 @@ function navigateToHash(hash) {
               {{ siteConfig.role }}
             </p>
 
-            <p class="max-w-lg text-base leading-8 text-text-muted sm:text-lg">
+            <p class="max-w-lg text-[0.98rem] leading-8 text-text-muted sm:text-lg">
               {{ siteConfig.summary }}
             </p>
           </div>
 
-          <div class="flex flex-wrap items-center gap-3 pt-2">
-            <BaseButton variant="primary" @click="navigateToHash('#proyek')">
+          <div class="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap sm:items-center">
+            <BaseButton
+              variant="primary"
+              class="w-full sm:w-auto"
+              @click="navigateToHash('#proyek')"
+            >
               <span>Lihat Proyek</span>
               <ArrowRight class="ml-2 h-4 w-4" />
             </BaseButton>
@@ -70,7 +74,7 @@ function navigateToHash(hash) {
             <a
               :href="siteConfig.resumeUrl"
               download
-              class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-medium text-text transition duration-200 hover:border-white/20 hover:bg-white/[0.06]"
+              class="inline-flex w-full items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-medium text-text transition-[transform,background-color,border-color,color] duration-200 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.06] sm:w-auto"
             >
               <span>Unduh CV</span>
               <Download class="ml-2 h-4 w-4" />
@@ -85,7 +89,7 @@ function navigateToHash(hash) {
           class="order-2 lg:col-start-2 lg:row-span-2 lg:self-stretch"
         >
           <div
-            class="relative mx-auto flex h-full min-h-[24rem] w-full max-w-[42rem] items-stretch rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-3 shadow-[0_24px_80px_rgba(0,0,0,0.32)]"
+            class="relative mx-auto flex h-full min-h-[20rem] w-full max-w-[42rem] items-stretch rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-3 shadow-[0_24px_80px_rgba(0,0,0,0.32)] sm:min-h-[24rem]"
           >
             <div class="absolute inset-x-10 bottom-0 h-24 rounded-full bg-accent/10 blur-3xl" />
 

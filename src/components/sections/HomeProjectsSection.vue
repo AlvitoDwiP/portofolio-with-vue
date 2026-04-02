@@ -26,7 +26,11 @@ const visibleProjects = computed(() => filteredProjects.value.slice(0, maxVisibl
 
 <template>
   <section id="proyek" class="scroll-mt-24 pb-24 sm:pb-32">
-    <BaseContainer>
+    <BaseContainer
+      v-motion
+      :initial="{ opacity: 0, y: 14 }"
+      :visible-once="{ opacity: 1, y: 0, transition: { duration: 360 } }"
+    >
       <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div class="max-w-3xl space-y-3">
           <p class="text-xs uppercase tracking-[0.28em] text-brand-200">Proyek Pilihan</p>
