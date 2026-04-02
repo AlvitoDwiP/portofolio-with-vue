@@ -53,7 +53,7 @@ const visibleProjects = computed(() => filteredProjects.value.slice(0, maxVisibl
 
       <div
         v-if="visibleProjects.length"
-        class="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6"
+        class="mt-10 grid gap-5 sm:auto-rows-fr sm:grid-cols-2 xl:grid-cols-3 xl:gap-6"
       >
         <ProjectCard v-for="project in visibleProjects" :key="project.slug" :project="project" />
       </div>

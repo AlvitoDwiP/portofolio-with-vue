@@ -49,26 +49,15 @@ const skillCategories = [
           />
 
           <p class="text-sm leading-8 text-slate-300 sm:text-base">
-            Saya adalah lulusan Teknologi Informasi Universitas Jember dengan fokus pada Machine
-            Learning, data analytics, dan analisis sistem. Saya terbiasa bekerja dengan data dan
-            mengubahnya menjadi insight yang bisa digunakan dalam pengambilan keputusan.
+            Saya adalah lulusan Teknologi Informasi Universitas Jember yang berfokus pada data
+            analytics dan pengembangan sistem. Saya terbiasa mengolah data dan mengubahnya menjadi
+            insight yang dapat digunakan dalam pengambilan keputusan.
           </p>
 
           <p class="text-sm leading-8 text-slate-300 sm:text-base">
-            Selama kuliah, saya menjadi Teaching Assistant di Laboratorium GIS dan asisten di
-            Laboratorium Smart Agriculture. Saya membantu praktikum, membimbing mahasiswa, dan
-            menerjemahkan konsep teknis menjadi solusi yang lebih aplikatif.
-          </p>
-
-          <p class="text-sm leading-8 text-slate-300 sm:text-base">
-            Saya berfokus pada Data Analytics, Data Science, dan pengembangan sistem yang
-            mendukung kebutuhan bisnis. Saya terus mengasah kemampuan melalui proyek nyata dan
-            eksplorasi tools industri.
-          </p>
-
-          <p class="text-sm leading-8 text-slate-300 sm:text-base">
-            Saya siap berkontribusi dalam tim yang membutuhkan pendekatan berbasis data untuk
-            memecahkan masalah dan meningkatkan proses kerja.
+            Saya memiliki pengalaman melalui internship dan proyek nyata, serta terbiasa bekerja
+            secara sistematis, berpikir kritis, dan menghubungkan data dengan kebutuhan bisnis agar
+            solusi yang dihasilkan benar-benar relevan dan dapat digunakan.
           </p>
         </div>
 
