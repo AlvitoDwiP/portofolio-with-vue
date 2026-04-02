@@ -35,23 +35,15 @@ defineProps({
     </div>
 
     <div class="flex flex-1 flex-col p-5 sm:p-6">
-      <div class="flex items-start justify-between gap-4">
-        <div class="min-w-0">
-          <p class="text-xs uppercase tracking-[0.24em] text-brand-200">{{ project.category }}</p>
-          <RouterLink
-            :to="{ name: 'project-detail', params: { slug: project.slug } }"
-            class="mt-3 block font-display text-2xl leading-tight text-white transition-colors duration-150 group-hover:text-brand-100"
-          >
-            {{ project.title }}
-          </RouterLink>
-          <p class="mt-3 text-sm leading-7 text-slate-400">{{ project.shortDescription }}</p>
-        </div>
-
-        <div
-          class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-slate-950/70 text-slate-300 transition-colors duration-150 group-hover:text-white"
+      <div class="min-w-0">
+        <p class="text-xs uppercase tracking-[0.24em] text-brand-200">{{ project.category }}</p>
+        <RouterLink
+          :to="{ name: 'project-detail', params: { slug: project.slug } }"
+          class="mt-3 block font-display text-2xl leading-tight text-white transition-colors duration-150 group-hover:text-brand-100"
         >
-          <ArrowUpRight class="h-4 w-4" />
-        </div>
+          {{ project.title }}
+        </RouterLink>
+        <p class="mt-3 text-sm leading-7 text-slate-400">{{ project.shortDescription }}</p>
       </div>
 
       <div class="mt-6 flex flex-wrap gap-2">

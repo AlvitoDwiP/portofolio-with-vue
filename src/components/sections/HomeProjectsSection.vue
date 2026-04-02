@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
-import ProjectCard from '@/components/project/ProjectCard.vue'
+import ProjectCard from '@/components/projects/ProjectCard.vue'
+import ProjectFilter from '@/components/projects/ProjectFilter.vue'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
 
 const props = defineProps({
@@ -10,7 +11,8 @@ const props = defineProps({
   },
 })
 
-const filters = ['Semua', 'Data Analytics', 'Fullstack']
+const categories = ['Semua', 'Data Analytics', 'Fullstack']
+const maxVisibleProjects = 6
 const activeFilter = ref('Semua')
 
 const filteredProjects = computed(() =>
@@ -18,6 +20,8 @@ const filteredProjects = computed(() =>
     ? props.projects
     : props.projects.filter((project) => project.category === activeFilter.value)
 )
+
+const visibleProjects = computed(() => filteredProjects.value.slice(0, maxVisibleProjects))
 </script>
 
 <template>
@@ -36,26 +40,25 @@ const filteredProjects = computed(() =>
           </p>
         </div>
 
-        <div class="flex flex-wrap gap-2.5">
-          <button
-            v-for="filter in filters"
-            :key="filter"
-            type="button"
-            class="rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-150"
-            :class="
-              activeFilter === filter
-                ? 'border-accent bg-accent text-canvas'
-                : 'border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/20 hover:text-white'
-            "
-            @click="activeFilter = filter"
-          >
-            {{ filter }}
-          </button>
-        </div>
+        <ProjectFilter
+          :categories="categories"
+          :active-category="activeFilter"
+          @change="activeFilter = $event"
+        />
       </div>
 
-      <div v-if="filteredProjects.length" class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-        <ProjectCard v-for="project in filteredProjects" :key="project.slug" :project="project" />
+      <div
+        v-if="visibleProjects.length"
+        class="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6"
+      >
+        <ProjectCard v-for="project in visibleProjects" :key="project.slug" :project="project" />
+      </div>
+
+      <div
+        v-else
+        class="mt-10 rounded-[1.75rem] border border-dashed border-white/10 bg-white/[0.03] p-6 text-sm leading-7 text-slate-400"
+      >
+        Belum ada proyek pada kategori ini.
       </div>
     </BaseContainer>
   </section>

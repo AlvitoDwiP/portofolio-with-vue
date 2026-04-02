@@ -24,7 +24,6 @@ export const projects = [
     insights:
       'Setelah data dirapikan, terlihat bahwa penurunan omzet paling sering terjadi pada kategori tertentu dan di cabang dengan repeat order rendah.',
     cover: '/images/projects/dashboard-insight-penjualan.jpg',
-    featured: true,
     links: {
       github: 'https://github.com/yourusername/dashboard-insight-penjualan',
       demo: 'https://public.tableau.com/app/profile/yourusername/viz/dashboard-insight-penjualan',
@@ -55,7 +54,6 @@ export const projects = [
     insights:
       'Pelanggan dengan masa aktif pendek dan frekuensi komplain lebih tinggi menunjukkan risiko churn yang paling jelas.',
     cover: '/images/projects/analisis-churn-pelanggan.jpg',
-    featured: true,
     links: {
       github: 'https://github.com/yourusername/analisis-churn-pelanggan',
       demo: 'https://lookerstudio.google.com/reporting/analisis-churn-pelanggan',
@@ -86,7 +84,6 @@ export const projects = [
     insights:
       'Masalah utama bukan pada jumlah data, tetapi pada konsistensi input dan visibilitas perubahan stok harian.',
     cover: '/images/projects/aplikasi-alur-inventaris.jpg',
-    featured: true,
     links: {
       github: 'https://github.com/yourusername/aplikasi-alur-inventaris',
       demo: 'https://aplikasi-alur-inventaris.vercel.app',
@@ -117,7 +114,6 @@ export const projects = [
     insights:
       'Kategori pengeluaran kecil yang sering berulang ternyata memberi dampak cukup besar pada total biaya bulanan.',
     cover: '/images/projects/aplikasi-pembukuan-usaha.jpg',
-    featured: false,
     links: {
       github: 'https://github.com/yourusername/aplikasi-pembukuan-usaha',
     },
@@ -147,7 +143,6 @@ export const projects = [
     insights:
       'Dengan status yang konsisten, progres aplikasi jauh lebih mudah dipantau dibanding catatan manual yang tersebar.',
     cover: '/images/projects/platform-pelacak-lamaran.jpg',
-    featured: true,
     links: {
       github: 'https://github.com/yourusername/platform-pelacak-lamaran',
       demo: 'https://platform-pelacak-lamaran.vercel.app',
@@ -178,7 +173,6 @@ export const projects = [
     insights:
       'Aduan dengan volume tinggi tidak selalu memiliki waktu respons terlama, sehingga prioritas perbaikan perlu dilihat dari dua sisi sekaligus.',
     cover: '/images/projects/monitor-aduan-layanan-publik.jpg',
-    featured: false,
     links: {
       github: 'https://github.com/yourusername/monitor-aduan-layanan-publik',
       demo: 'https://public.tableau.com/app/profile/yourusername/viz/monitor-aduan-layanan-publik',
