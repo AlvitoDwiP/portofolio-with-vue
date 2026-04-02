@@ -4,6 +4,7 @@ import { Github, Linkedin, Mail } from 'lucide-vue-next'
 import AppShell from '@/components/layout/AppShell.vue'
 import HeroSection from '@/components/sections/HeroSection.vue'
 import HomeAboutSection from '@/components/sections/HomeAboutSection.vue'
+import HomeCertificationSection from '@/components/sections/HomeCertificationSection.vue'
 import HomeQuickProofSection from '@/components/sections/HomeQuickProofSection.vue'
 import HomeProjectsSection from '@/components/sections/HomeProjectsSection.vue'
 import BaseCard from '@/components/ui/BaseCard.vue'
@@ -55,44 +56,9 @@ useHead({
 
     <HomeProjectsSection :projects="allProjects" />
 
+    <HomeCertificationSection />
+
     <HomeAboutSection />
-
-    <section id="sertifikasi" class="scroll-mt-24 pb-24 sm:pb-28">
-      <BaseContainer>
-        <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
-          <SectionHeader
-            eyebrow="Sertifikasi"
-            title="Dokumen pendukung saya letakkan dekat dengan konteks profesional."
-            description="Bagian ini sengaja ringkas agar recruiter dan client bisa langsung berpindah ke CV atau LinkedIn untuk melihat versi terbaru dari sertifikasi dan riwayat belajar."
-          />
-
-          <BaseCard class="rounded-[1.75rem] border-white/10 bg-white/[0.03] p-7">
-            <p class="text-sm leading-8 text-slate-300">
-              Untuk versi terbaru sertifikasi, pengalaman belajar, dan detail profil profesional,
-              silakan lihat CV atau LinkedIn saya.
-            </p>
-
-            <div class="mt-6 flex flex-wrap gap-3">
-              <a
-                :href="siteConfig.resumeUrl"
-                download
-                class="inline-flex items-center justify-center rounded-xl border border-accent bg-accent px-4 py-2.5 text-sm font-medium text-canvas transition duration-200 hover:bg-brand-400"
-              >
-                Unduh CV
-              </a>
-              <a
-                :href="siteConfig.linkedinUrl"
-                target="_blank"
-                rel="noreferrer"
-                class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-medium text-text transition duration-200 hover:border-white/20 hover:bg-white/[0.06]"
-              >
-                Lihat LinkedIn
-              </a>
-            </div>
-          </BaseCard>
-        </div>
-      </BaseContainer>
-    </section>
 
     <section id="kontak" class="scroll-mt-24 pb-24 sm:pb-32">
       <BaseContainer>
