@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useHead } from '@vueuse/head'
-import { ArrowLeft, MapPin } from 'lucide-vue-next'
+import { ArrowLeft, ArrowUpRight, MapPin } from 'lucide-vue-next'
 import { useRoute } from 'vue-router'
 import AppShell from '@/components/layout/AppShell.vue'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
@@ -119,6 +119,23 @@ useHead(() => ({
                   {{ item }}
                 </span>
               </div>
+            </section>
+
+            <section
+              v-if="experience.certificate?.url"
+              class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6"
+            >
+              <p class="text-xs uppercase tracking-[0.22em] text-slate-500">Sertifikat</p>
+              <a
+                :href="experience.certificate.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Lihat sertifikat untuk pengalaman ini"
+                class="mt-5 inline-flex w-full cursor-pointer items-center justify-between rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-sm font-medium text-slate-100 transition-[transform,border-color,background-color,color] duration-150 hover:-translate-y-0.5 hover:border-white/20 hover:bg-slate-950/80 hover:text-white"
+              >
+                <span>{{ experience.certificate.label || 'Lihat Sertifikat' }}</span>
+                <ArrowUpRight class="h-4 w-4" />
+              </a>
             </section>
 
             <section
