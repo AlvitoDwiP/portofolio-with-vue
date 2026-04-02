@@ -3,6 +3,7 @@ import { useHead } from '@vueuse/head'
 import { Github, Linkedin, Mail } from 'lucide-vue-next'
 import AppShell from '@/components/layout/AppShell.vue'
 import HeroSection from '@/components/sections/HeroSection.vue'
+import HomeAboutSection from '@/components/sections/HomeAboutSection.vue'
 import HomeQuickProofSection from '@/components/sections/HomeQuickProofSection.vue'
 import HomeProjectsSection from '@/components/sections/HomeProjectsSection.vue'
 import BaseCard from '@/components/ui/BaseCard.vue'
@@ -13,19 +14,6 @@ import { siteConfig } from '@/data/site'
 import { createPageTitle } from '@/utils/createPageTitle'
 
 const { allProjects } = useProjects()
-
-const aboutHighlights = [
-  {
-    title: 'Analisis yang berujung implementasi',
-    description:
-      'Saya memulai dari problem bisnis, merapikan data, mencari insight, lalu menerjemahkannya menjadi dashboard atau aplikasi web yang benar-benar dipakai.',
-  },
-  {
-    title: 'Komunikasi yang mudah dipahami',
-    description:
-      'Saya menjaga hasil kerja tetap jelas untuk recruiter, client, maupun tim non-teknis, sehingga keputusan bisa diambil lebih cepat.',
-  },
-]
 
 const contactLinks = [
   {
@@ -67,30 +55,7 @@ useHead({
 
     <HomeProjectsSection :projects="allProjects" />
 
-    <section id="tentang-saya" class="scroll-mt-24 pb-24 sm:pb-28">
-      <BaseContainer>
-        <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
-          <SectionHeader
-            eyebrow="Tentang Saya"
-            title="Data Analyst dan Fullstack Developer saya jalankan sebagai satu cara kerja."
-            description="Nilai utama yang saya tawarkan adalah kemampuan membaca data dengan tajam lalu mengubahnya menjadi solusi digital yang rapi, terukur, dan siap digunakan."
-          />
-
-          <div class="grid gap-4 sm:grid-cols-2">
-            <BaseCard
-              v-for="item in aboutHighlights"
-              :key="item.title"
-              class="rounded-[1.75rem] border-white/10 bg-white/[0.03] p-6"
-            >
-              <p class="text-xs uppercase tracking-[0.18em] text-accent">{{ item.title }}</p>
-              <p class="mt-4 text-sm leading-7 text-slate-300">
-                {{ item.description }}
-              </p>
-            </BaseCard>
-          </div>
-        </div>
-      </BaseContainer>
-    </section>
+    <HomeAboutSection />
 
     <section id="sertifikasi" class="scroll-mt-24 pb-24 sm:pb-28">
       <BaseContainer>
