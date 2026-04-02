@@ -8,6 +8,7 @@ import { siteConfig } from '@/data/site'
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'Proyek', href: '#proyek' },
+  { label: 'Pengalaman', href: '#pengalaman' },
   { label: 'Tentang Saya', href: '#tentang-saya' },
   { label: 'Sertifikasi', href: '#sertifikasi' },
   { label: 'Kontak', href: '#kontak' },

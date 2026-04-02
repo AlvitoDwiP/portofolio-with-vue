@@ -5,13 +5,16 @@ import HeroSection from '@/components/sections/HeroSection.vue'
 import HomeAboutSection from '@/components/sections/HomeAboutSection.vue'
 import HomeCertificationSection from '@/components/sections/HomeCertificationSection.vue'
 import HomeContactSection from '@/components/sections/HomeContactSection.vue'
+import HomeExperienceSection from '@/components/sections/HomeExperienceSection.vue'
 import HomeQuickProofSection from '@/components/sections/HomeQuickProofSection.vue'
 import HomeProjectsSection from '@/components/sections/HomeProjectsSection.vue'
+import { useExperiences } from '@/composables/useExperiences'
 import { useProjects } from '@/composables/useProjects'
 import { siteConfig } from '@/data/site'
 import { createPageTitle } from '@/utils/createPageTitle'
 
 const { allProjects } = useProjects()
+const { allExperiences } = useExperiences()
 
 useHead({
   title: createPageTitle('Portofolio'),
@@ -31,6 +34,8 @@ useHead({
     <HomeQuickProofSection />
 
     <HomeProjectsSection :projects="allProjects" />
+
+    <HomeExperienceSection :experiences="allExperiences" />
 
     <HomeAboutSection />
 

@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { ArrowRight, Download } from 'lucide-vue-next'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
+import { useSectionNavigation } from '@/composables/useSectionNavigation'
 import { siteConfig } from '@/data/site'
 
 const hasPortraitError = ref(false)
@@ -20,9 +21,7 @@ const fallbackInitials = computed(() =>
     .toUpperCase()
 )
 
-function navigateToHash(hash) {
-  window.location.hash = hash.startsWith('#') ? hash : `#${hash}`
-}
+const { navigateToSection } = useSectionNavigation(['#proyek'])
 </script>
 
 <template>
@@ -64,7 +63,7 @@ function navigateToHash(hash) {
             <BaseButton
               variant="primary"
               class="w-full sm:w-auto"
-              @click="navigateToHash('#proyek')"
+              @click="navigateToSection('#proyek')"
             >
               <span>Lihat Proyek</span>
               <ArrowRight class="ml-2 h-4 w-4" />
