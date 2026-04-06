@@ -13,7 +13,7 @@ import unejLogo from '@/assets/images/education/unej-logo.png'
     <img
       :src="unejLogo"
       alt="Universitas Jember"
-      class="pointer-events-none absolute right-2 top-1/2 w-24 -translate-y-1/2 select-none object-contain opacity-[0.14] transition-opacity duration-200 group-hover:opacity-[0.90] sm:right-4 sm:w-40 lg:w-44"
+      class="pointer-events-none absolute right-2 top-1/2 w-24 -translate-y-1/2 select-none object-contain opacity-[0.50] transition-opacity duration-200 group-hover:opacity-[0.90] sm:right-4 sm:w-40 lg:w-44"
       loading="lazy"
       decoding="async"
     />
