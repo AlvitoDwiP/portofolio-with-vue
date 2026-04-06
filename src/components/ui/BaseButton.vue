@@ -18,7 +18,7 @@ const props = defineProps({
 
 const buttonClass = computed(() => {
   const baseClass =
-    'inline-flex items-center justify-center rounded-xl border px-4 py-2.5 text-sm font-medium transition-[transform,background-color,border-color,color,box-shadow] duration-200 focus:outline-none hover:-translate-y-0.5'
+    'inline-flex cursor-pointer items-center justify-center rounded-xl border px-4 py-2.5 text-sm font-medium transition-[transform,background-color,border-color,color,box-shadow] duration-200 focus:outline-none hover:-translate-y-0.5'
 
   const variants = {
     primary: 'section-button-primary',

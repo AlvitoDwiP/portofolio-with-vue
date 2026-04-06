@@ -35,10 +35,10 @@ const contactLinks = [
       :initial="{ opacity: 0, y: 14 }"
       :visible-once="{ opacity: 1, y: 0, transition: { duration: 360 } }"
     >
-      <div class="section-panel rounded-[2rem] px-6 py-10 text-center sm:px-8 sm:py-12">
+      <div class="section-panel rounded-lg px-6 py-10 text-center sm:px-8 sm:py-12">
         <div class="mx-auto max-w-3xl">
           <p class="section-eyebrow text-xs font-medium uppercase tracking-[0.18em]">Kontak</p>
-          <h2 class="mt-4 font-display text-3xl leading-tight text-white sm:text-[2.6rem]">
+          <h2 class="mt-4 font-display text-3xl leading-tight text-white sm:text-4xl">
             Jika Anda butuh partner kerja yang bisa membaca masalah lalu mengubahnya menjadi solusi,
             saya siap berdiskusi.
           </h2>
@@ -58,7 +58,7 @@ const contactLinks = [
             :aria-label="item.ariaLabel"
             :target="item.href.startsWith('mailto:') ? undefined : '_blank'"
             :rel="item.href.startsWith('mailto:') ? undefined : 'noreferrer'"
-            class="section-button-secondary inline-flex h-16 w-16 items-center justify-center rounded-2xl text-slate-300 transition duration-200 hover:-translate-y-0.5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/40 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas sm:h-20 sm:w-20"
+            class="section-button-secondary inline-flex h-16 w-16 items-center justify-center rounded-card text-textSecondary transition duration-200 hover:-translate-y-0.5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/40 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas sm:h-20 sm:w-20"
           >
             <component :is="item.icon" class="h-9 w-9 sm:h-10 sm:w-10" />
             <span class="sr-only">{{ item.label }}</span>

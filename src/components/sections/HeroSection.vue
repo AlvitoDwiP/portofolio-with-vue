@@ -85,13 +85,13 @@ const { navigateToSection } = useSectionNavigation(['#proyek'])
           class="order-2 lg:col-start-2 lg:row-span-2 lg:self-stretch"
         >
           <div
-            class="section-panel mx-auto flex h-full min-h-[20rem] w-full max-w-[42rem] items-stretch rounded-[2rem] p-3 shadow-[0_24px_80px_rgba(0,0,0,0.32)] sm:min-h-[24rem]"
+            class="section-panel mx-auto flex h-full min-h-[19rem] w-full max-w-[42rem] items-stretch rounded-lg p-3 shadow-soft sm:min-h-[24rem]"
           >
             <div
               class="absolute inset-x-10 bottom-0 h-24 rounded-full bg-[rgb(var(--section-accent-rgb)/0.12)] blur-3xl"
             />
 
-            <div class="relative flex-1 overflow-hidden rounded-[1.5rem] bg-[#0d0f13]">
+            <div class="relative flex-1 overflow-hidden rounded-lg bg-[#0d0f13]">
               <img
                 v-if="!hasPortraitError"
                 :src="siteConfig.portrait.src"
@@ -105,16 +105,15 @@ const { navigateToSection } = useSectionNavigation(['#proyek'])
                 class="flex h-full flex-col items-center justify-center bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.14),transparent_44%)] px-6 text-center"
               >
                 <div
-                  class="flex h-24 w-24 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-2xl font-semibold tracking-[0.24em] text-text"
+                  class="glass-chip-strong flex h-24 w-24 items-center justify-center rounded-full text-2xl font-semibold tracking-[0.24em] text-textPrimary"
                 >
                   {{ fallbackInitials }}
                 </div>
-                <p class="mt-5 text-base font-medium text-text">
-                  Tambahkan foto profesional Alvito
+                <p class="mt-5 text-base font-medium text-textPrimary">
+                  {{ siteConfig.name }}
                 </p>
                 <p class="section-muted mt-2 max-w-xs text-sm leading-7">
-                  Simpan file foto di `public/profile-photo-hero.png` agar area hero langsung
-                  terisi.
+                  {{ siteConfig.role }}
                 </p>
               </div>
 
@@ -127,9 +126,9 @@ const { navigateToSection } = useSectionNavigation(['#proyek'])
               />
 
               <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-                <div class="section-panel max-w-sm rounded-2xl bg-slate-950/35 px-4 py-3">
+                <div class="glass glass-panel max-w-sm rounded-card px-4 py-3">
                   <p class="section-eyebrow text-xs uppercase tracking-[0.2em]">Fokus kerja</p>
-                  <p class="mt-2 text-sm leading-7 text-slate-200">
+                  <p class="mt-2 text-sm leading-7 text-textPrimary">
                     Dari insight analitis sampai aplikasi web yang siap dipakai tim.
                   </p>
                 </div>

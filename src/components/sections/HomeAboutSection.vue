@@ -76,7 +76,7 @@ const skillCategories = [
           <BaseCard
             v-for="item in skillCategories"
             :key="item.title"
-            class="section-panel section-card-hover flex flex-col rounded-[1.75rem] border-white/10 bg-slate-950/40 p-5 sm:p-6"
+            class="glass-hover flex flex-col p-5 sm:p-6"
           >
             <p class="section-eyebrow text-xs uppercase tracking-[0.18em]">{{ item.title }}</p>
 
@@ -84,8 +84,8 @@ const skillCategories = [
               <BaseBadge
                 v-for="skill in item.items"
                 :key="skill"
-                variant="default"
-                class="rounded-full border border-white/10 bg-slate-950/70 px-2.5 py-1 text-[0.7rem] text-slate-300 sm:text-xs"
+                variant="neutral"
+                class="px-2.5 py-1 text-[0.7rem] sm:text-xs"
               >
                 {{ skill }}
               </BaseBadge>

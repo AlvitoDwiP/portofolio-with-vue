@@ -19,11 +19,11 @@ defineEmits(['change'])
       v-for="category in categories"
       :key="category"
       type="button"
-      class="rounded-full border px-3.5 py-2 text-sm font-medium transition-[transform,background-color,border-color,color] duration-150 hover:-translate-y-0.5 sm:px-4"
+      class="rounded-full border px-3.5 py-2 text-sm font-medium transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:-translate-y-0.5 sm:px-4"
       :class="
         activeCategory === category
           ? 'section-chip-accent'
-          : 'border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/20 hover:text-white'
+          : 'glass-chip hover:border-[color:var(--glass-hover-border)] hover:text-textPrimary'
       "
       @click="$emit('change', category)"
     >

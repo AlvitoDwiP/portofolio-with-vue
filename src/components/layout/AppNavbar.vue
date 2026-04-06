@@ -49,13 +49,13 @@ const { activeHash, createSectionHref, navigateToSection } = useSectionNavigatio
 <template>
   <header
     data-site-header
-    class="sticky top-0 z-40 border-b border-white/10 bg-[rgba(15,17,21,0.8)] backdrop-blur-xl"
+    class="sticky top-0 z-40 border-b border-[color:var(--glass-border)] bg-[rgba(2,6,23,0.78)] backdrop-blur-glass"
   >
     <BaseContainer class="py-3">
       <div class="flex min-h-12 items-center justify-between gap-3 sm:gap-5">
         <RouterLink to="/" class="flex min-w-0 items-center gap-3">
           <span
-            class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-[0.72rem] font-semibold tracking-[0.18em] text-text"
+            class="glass-chip-strong inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-card text-[0.72rem] font-semibold tracking-[0.18em] text-textPrimary"
           >
             {{ initials }}
           </span>
@@ -95,7 +95,7 @@ const { activeHash, createSectionHref, navigateToSection } = useSectionNavigatio
             :title="item.name"
             :target="item.href.startsWith('mailto:') ? undefined : '_blank'"
             :rel="item.href.startsWith('mailto:') ? undefined : 'noreferrer'"
-            class="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-text-muted transition duration-200 hover:border-white/15 hover:bg-white/[0.06] hover:text-text sm:h-9 sm:w-9"
+            class="glass-chip glass-hover inline-flex h-8 w-8 items-center justify-center rounded-card text-textSecondary sm:h-9 sm:w-9"
           >
             <component :is="item.icon" class="h-4 w-4" />
           </a>

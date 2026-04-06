@@ -12,11 +12,7 @@ defineProps({
 </script>
 
 <template>
-  <component
-    :is="as"
-    v-bind="$attrs"
-    class="rounded-2xl border border-text-muted/10 bg-surface p-6 shadow-glow"
-  >
+  <component :is="as" v-bind="$attrs" class="glass glass-panel p-6">
     <slot />
   </component>
 </template>

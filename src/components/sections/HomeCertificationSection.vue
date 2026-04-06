@@ -22,7 +22,7 @@ import { certifications } from '@/data/certifications'
       />
 
       <div
-        class="section-panel section-content-gap max-w-4xl divide-y divide-white/10 rounded-[1.75rem] px-5 sm:px-6"
+        class="glass glass-panel glass-divide section-content-gap max-w-4xl rounded-lg px-5 sm:px-6"
       >
         <article
           v-for="item in certifications"
@@ -30,7 +30,7 @@ import { certifications } from '@/data/certifications'
           class="grid gap-2 py-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:gap-6"
         >
           <div class="min-w-0">
-            <h3 class="text-sm font-medium leading-6 text-slate-100 sm:text-[0.95rem]">
+            <h3 class="text-sm font-medium leading-6 text-textPrimary sm:text-[0.95rem]">
               {{ item.name }}
             </h3>
             <p class="section-muted mt-1 text-sm">

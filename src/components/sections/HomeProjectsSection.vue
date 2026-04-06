@@ -60,7 +60,7 @@ const visibleProjects = computed(() => filteredProjects.value.slice(0, maxVisibl
 
       <div
         v-else
-        class="section-panel section-content-gap rounded-[1.75rem] border-dashed p-6 text-sm leading-7 text-slate-300"
+        class="glass glass-panel section-content-gap rounded-lg border-dashed p-6 text-sm leading-8 text-textSecondary"
       >
         Belum ada proyek pada kategori ini.
       </div>

@@ -13,10 +13,10 @@ defineProps({
 <template>
   <RouterLink
     :to="{ name: 'experience-detail', params: { slug: experience.slug } }"
-    class="section-panel section-card-hover group flex h-full min-h-[17rem] transform-gpu flex-col rounded-[1.75rem] p-5 sm:p-6"
+    class="glass glass-panel glass-hover group flex h-full min-h-[16rem] transform-gpu flex-col rounded-lg p-3 sm:min-h-[17rem] sm:p-3.5"
   >
     <div
-      class="flex flex-1 flex-col rounded-[1.4rem] bg-[linear-gradient(135deg,rgba(251,191,36,0.08),rgba(251,146,60,0.04)_40%,rgba(168,85,247,0.1))] p-4 sm:p-5"
+      class="flex flex-1 flex-col rounded-card border border-[color:var(--glass-border)] bg-[linear-gradient(135deg,rgba(251,191,36,0.08),rgba(251,146,60,0.04)_40%,rgba(168,85,247,0.1))] p-4 sm:p-5"
     >
       <div class="flex items-start justify-between gap-4">
         <BaseBadge variant="accent" class="px-3 py-1 text-[0.68rem] uppercase tracking-[0.16em]">
@@ -32,12 +32,12 @@ defineProps({
       </div>
 
       <h3
-        class="mt-5 font-display text-[1.35rem] leading-tight text-white transition-colors duration-150 group-hover:text-white/90 sm:text-[1.5rem]"
+        class="mt-5 font-display text-[1.35rem] leading-tight text-white transition-colors duration-200 group-hover:text-white/90 sm:text-[1.5rem]"
       >
         {{ experience.role }}
       </h3>
 
-      <p class="mt-3 text-sm font-medium text-slate-200 sm:text-[0.95rem]">
+      <p class="mt-3 text-sm font-medium text-textPrimary sm:text-[0.95rem]">
         {{ experience.company }}
       </p>
 
@@ -49,10 +49,10 @@ defineProps({
         <span>{{ experience.location }}</span>
       </p>
 
-      <div class="mt-auto pt-6 inline-flex items-center text-sm font-medium text-slate-100">
+      <div class="mt-auto inline-flex items-center pt-6 text-sm font-medium text-textPrimary">
         <span>Lihat Detail</span>
         <ArrowRight
-          class="ml-2 h-4 w-4 transition-transform duration-150 group-hover:translate-x-0.5"
+          class="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
         />
       </div>
     </div>

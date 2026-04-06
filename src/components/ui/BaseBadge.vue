@@ -17,7 +17,7 @@ const badgeClass = computed(() => {
     'inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium tracking-[0.08em]'
 
   const variants = {
-    neutral: 'border-text-muted/10 bg-surface text-text-muted',
+    neutral: 'glass-chip',
     accent: 'section-chip-accent',
   }
 
