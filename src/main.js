@@ -3,6 +3,7 @@ import { createHead } from '@vueuse/head'
 import { MotionPlugin } from '@vueuse/motion'
 import router from '@/router'
 import App from './App.vue'
+import '@/assets/styles/tokens.css'
 import '@/assets/styles/main.css'
 
 document.documentElement.classList.add('dark')

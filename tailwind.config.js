@@ -7,6 +7,10 @@ export default {
       colors: {
         canvas: '#0f1115',
         surface: '#171b22',
+        primaryBg: 'var(--color-bg-primary)',
+        secondaryBg: 'var(--color-bg-secondary)',
+        textPrimary: 'var(--color-text-primary)',
+        textSecondary: 'var(--color-text-secondary)',
         text: {
           DEFAULT: '#edf1f7',
           muted: '#9aa3b2',
@@ -30,16 +34,23 @@ export default {
         display: ['Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       spacing: {
-        gutter: '1.5rem',
-        section: '5rem',
+        gutter: 'var(--space-gutter)',
+        section: 'var(--space-section)',
       },
       borderRadius: {
-        lg: '0.875rem',
+        card: 'var(--radius-card)',
+        lg: 'var(--radius-lg)',
         xl: '1.125rem',
         '2xl': '1.5rem',
       },
       boxShadow: {
-        glow: '0 0 0 1px rgba(255, 255, 255, 0.04), 0 10px 30px rgba(0, 0, 0, 0.18)',
+        soft: 'var(--shadow-soft)',
+        glass: 'var(--shadow-glass)',
+        glow: '0 0 0 1px var(--glass-border), var(--shadow-soft)',
+      },
+      backdropBlur: {
+        glass: 'var(--blur-base)',
+        strong: 'var(--blur-strong)',
       },
     },
   },
