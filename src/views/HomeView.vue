@@ -3,7 +3,7 @@ import { useHead } from '@vueuse/head'
 import AppShell from '@/components/layout/AppShell.vue'
 import HeroSection from '@/components/sections/HeroSection.vue'
 import HomeAboutSection from '@/components/sections/HomeAboutSection.vue'
-import HomeCertificationSection from '@/components/sections/HomeCertificationSection.vue'
+import CertificationSection from '@/components/sections/CertificationSection.vue'
 import HomeContactSection from '@/components/sections/HomeContactSection.vue'
 import HomeExperienceSection from '@/components/sections/HomeExperienceSection.vue'
 import HomeQuickProofSection from '@/components/sections/HomeQuickProofSection.vue'
@@ -39,7 +39,7 @@ useHead({
 
     <HomeAboutSection />
 
-    <HomeCertificationSection />
+    <CertificationSection />
 
     <HomeContactSection />
   </AppShell>
