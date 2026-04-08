@@ -152,31 +152,33 @@ export const projects = [
   },
   {
     id: 6,
-    slug: 'monitor-aduan-layanan-publik',
-    title: 'Monitor Aduan Layanan Publik',
+    slug: 'analisis-efisiensi-ongkir-risiko-pembatalan-ecommerce-indonesia',
+    title: 'Analisis Efisiensi Ongkir dan Risiko Pembatalan Transaksi E-Commerce Indonesia',
     category: 'Data Analytics',
     shortDescription:
-      'Data aduan layanan publik tersedia, tetapi sulit dibaca secara cepat oleh tim internal. Dashboard ini merangkum jenis aduan, waktu respons, dan tren kanal pelaporan.',
+      'Analisis biaya pengiriman, subsidi ongkir, dan risiko pembatalan transaksi untuk mengevaluasi efisiensi operasional e-commerce di Indonesia.',
     overview:
-      'Project ini menyusun ulang data aduan dari beberapa kanal agar lebih mudah dianalisis. Saya fokus pada pembersihan data, kategorisasi sederhana, dan visual monitoring yang relevan untuk evaluasi layanan.',
+      'Proyek ini menganalisis biaya pengiriman, subsidi ongkir, dan risiko pembatalan transaksi pada operasional e-commerce di Indonesia. Analisis menggunakan 20.848 data transaksi untuk memahami efisiensi logistik, dampak dominasi program gratis ongkir, dan segmen subsidi yang paling berisiko membebani biaya operasional.',
     problem: [
-      'Data aduan datang dari beberapa kanal dengan format berbeda.',
-      'Tim belum memiliki ringkasan kategori aduan dan waktu respons.',
-      'Evaluasi bulanan masih bergantung pada rekap manual.',
+      'Operasional e-commerce tidak hanya dipengaruhi volume transaksi, tetapi juga efisiensi biaya pengiriman dan kualitas transaksi yang dihasilkan.',
+      'Tantangan utamanya adalah memahami struktur ongkir aktual pada transaksi berbayar dan mengukur dominasi program gratis ongkir dalam total transaksi.',
+      'Segmen subsidi dengan risiko pembatalan tertinggi perlu diidentifikasi agar kebijakan ongkir dapat dievaluasi secara lebih tepat dan hemat biaya.',
     ],
     approach: [
-      'Menstandardisasi data aduan dari beberapa sumber.',
-      'Membuat agregasi berdasarkan kategori, kanal, dan waktu respons.',
-      'Menyusun dashboard monitoring untuk evaluasi bulanan.',
+      'Melakukan data preprocessing dan feature engineering melalui standarisasi kolom, pembuatan cancel_flag, konversi berat ke kilogram, perhitungan ongkir_per_kg, serta pemisahan transaksi free shipping dan paid shipping.',
+      'Melakukan exploratory data analysis berorientasi bisnis untuk membaca struktur ongkir aktual pada transaksi berbayar dan mengevaluasi dominasi subsidi ongkir.',
+      'Menyusun estimasi beban subsidi, simulasi potensi penghematan, dan segmentasi risiko berdasarkan tingkat biaya subsidi untuk mendukung evaluasi kebijakan operasional.',
     ],
-    tools: ['Python', 'SQL', 'Pandas', 'Tableau'],
+    tools: ['Python', 'Pandas', 'Jupyter Notebook', 'Tableau Public', 'CSV'],
     output:
-      'Output project ini berupa dashboard monitoring layanan publik dengan ringkasan metrik yang bisa dipakai untuk evaluasi bulanan.',
+      'Proyek ini menghasilkan dataset hasil preprocessing, dataset transaksi paid shipping dan free shipping, dataset agregasi untuk visualisasi, notebook analisis, serta dashboard interaktif di Tableau Public untuk mengeksplorasi pola ongkir, subsidi, dan risiko pembatalan transaksi.',
     insights:
-      'Aduan dengan volume tinggi tidak selalu memiliki waktu respons terlama, sehingga prioritas perbaikan perlu dilihat dari dua sisi sekaligus.',
-    cover: '/images/projects/monitor-aduan-layanan-publik.jpg',
+      'Analisis menunjukkan bahwa program gratis ongkir mendominasi 69,80% dari seluruh transaksi sehingga kebijakan subsidi memegang peran besar dalam struktur biaya operasional. Pada transaksi berbayar, median ongkir per kilogram sebesar Rp10.000.- memberi gambaran baseline biaya logistik aktual. Dari sisi risiko, segmen subsidi biaya tinggi memiliki cancellation rate 24,81% lebih tinggi dibanding segmen subsidi biaya rendah sebesar 15,26%. Temuan ini menunjukkan bahwa subsidi besar tidak selalu menghasilkan transaksi yang lebih aman justru dapat meningkatkan potensi pemborosan biaya operasional. Beban subsidi juga terkonsentrasi di Jawa Barat, Banten, dan DKI Jakarta, sehingga wilayah ini layak menjadi prioritas evaluasi kebijakan ongkir.',
+    cover: '/images/projects/analisis-efisiensi-ongkir-risiko-pembatalan-ecommerce-indonesia.jpg',
     links: {
-      github: 'https://github.com/AlvitoDwiP/monitor-aduan-layanan-publik',
+      github: 'https://github.com/AlvitoDwiP/operasional_ecommers_indo',
+      demo: 'https://public.tableau.com/app/profile/alvito.dwinova.permana/vizzes',
+      demoLabel: 'Tableau Public',
     },
   },
 ]
