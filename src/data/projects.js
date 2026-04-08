@@ -1,31 +1,34 @@
 export const projects = [
   {
     id: 1,
-    slug: 'dashboard-insight-penjualan',
-    title: 'Dashboard Insight Penjualan',
+    slug: 'global-video-game-market-analysis-dashboard',
+    title: 'Global Video Game Market Analysis Dashboard',
     category: 'Data Analytics',
     shortDescription:
-      'Tim penjualan kesulitan melihat pola penurunan omzet bulanan. Dashboard ini merapikan data transaksi dan menampilkan metrik utama agar evaluasi bisa dilakukan lebih cepat.',
+      'Analisis ini mengkaji struktur pasar video game global lintas platform, genre, dan region untuk memahami dominasi pasar, perbedaan preferensi regional, serta pola lifecycle platform secara deskriptif.',
     overview:
-      'Project ini berfokus pada analisis data penjualan dari beberapa file mentah yang formatnya belum konsisten. Saya membersihkan data, menyusun metrik inti, lalu menyajikannya dalam dashboard yang mudah dibaca untuk kebutuhan monitoring mingguan.',
+      'Project ini merupakan analisis pasar video game menggunakan data penjualan global lintas platform, genre, dan region. Fokus utamanya adalah memahami struktur pasar, perbedaan komposisi genre antar region, serta pola lifecycle platform secara deskriptif.',
     problem: [
-      'Data transaksi tersebar di beberapa file dengan format yang tidak seragam.',
-      'Tim belum memiliki ringkasan omzet, kategori, dan cabang dalam satu tampilan.',
-      'Proses evaluasi mingguan masih bergantung pada rekap manual.',
+      'Industri video game memiliki banyak platform, genre, dan pasar regional, sehingga pola dominasi pasar tidak selalu terlihat secara langsung.',
+      'Perbedaan komposisi genre antar region membuat interpretasi pasar tidak cukup jika hanya melihat total penjualan global.',
+      'Performa tiap platform berubah sepanjang siklus hidupnya, sehingga perlu dianalisis untuk memahami fase pertumbuhan, puncak, dan penurunannya.',
     ],
     approach: [
-      'Membersihkan dan menggabungkan data transaksi dengan Python dan Pandas.',
-      'Menyusun query SQL untuk metrik omzet, produk, dan performa cabang.',
-      'Membuat dashboard ringkas untuk monitoring mingguan.',
+      'Membersihkan dan menstandardisasi dataset agar siap dipakai untuk analisis lintas platform, genre, dan region.',
+      'Melakukan market structure analysis untuk melihat distribusi penjualan dan tingkat konsentrasi platform.',
+      'Melakukan regional genre analysis untuk membandingkan proporsi genre antar region utama.',
+      'Melakukan platform lifecycle analysis untuk mengamati pola pertumbuhan, puncak, dan penurunan performa platform dari waktu ke waktu.',
     ],
-    tools: ['Python', 'SQL', 'Pandas', 'Tableau'],
+    tools: ['Python', 'pandas', 'numpy', 'matplotlib', 'Google Colab', 'Looker Studio', 'GitHub'],
     output:
-      'Hasil akhirnya adalah dashboard penjualan dengan filter dasar dan ringkasan KPI yang bisa dipakai untuk review rutin.',
+      'Project ini menghasilkan notebook analisis, dataset hasil preprocessing, dataset agregasi untuk visualisasi, dashboard interaktif di Looker Studio, dan repository GitHub untuk dokumentasi proses analisis.',
     insights:
-      'Setelah data dirapikan, terlihat bahwa penurunan omzet paling sering terjadi pada kategori tertentu dan di cabang dengan repeat order rendah.',
-    cover: '/images/projects/dashboard-insight-penjualan.jpg',
+      'Analisis menunjukkan bahwa pasar video game terkonsentrasi pada beberapa platform besar, dengan PS2 sebagai platform paling dominan. Pola genre juga berbeda antar region, di mana Jepang lebih kuat pada Role-Playing, sementara region lain lebih didominasi Action. Dari sisi waktu, setiap platform memiliki pola lifecycle yang berbeda, sehingga pertumbuhan, puncak, dan penurunannya tidak bisa disamaratakan.',
+    cover: '/images/projects/global-video-game-market-analysis-dashboard.jpg',
     links: {
-      github: 'https://github.com/AlvitoDwiP/dashboard-insight-penjualan',
+      github: 'https://github.com/AlvitoDwiP/video-game-sales',
+      demo: 'https://lookerstudio.google.com/reporting/9d6051e1-6eea-484f-af4f-5affd78f5353',
+      demoLabel: 'Looker Studio',
     },
   },
   {

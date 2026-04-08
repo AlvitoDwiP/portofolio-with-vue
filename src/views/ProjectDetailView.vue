@@ -132,7 +132,7 @@ useHead(() => ({
                 v-if="project.insights"
                 class="mt-6 border-t border-[color:var(--glass-border)] pt-6"
               >
-                <p class="section-eyebrow text-xs uppercase tracking-[0.22em]">Insight</p>
+                <p class="section-eyebrow text-xs uppercase tracking-[0.22em]">Insights</p>
                 <p class="mt-4 text-sm leading-8 text-textSecondary">
                   {{ project.insights }}
                 </p>
@@ -161,7 +161,7 @@ useHead(() => ({
                     rel="noreferrer"
                     class="glass-chip-strong glass-hover inline-flex items-center justify-between rounded-card px-4 py-3 text-sm text-textPrimary"
                   >
-                    <span>Demo</span>
+                    <span>{{ project.links.demoLabel ?? 'Demo' }}</span>
                     <ArrowUpRight class="h-4 w-4" />
                   </a>
                 </div>
