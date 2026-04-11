@@ -29,6 +29,7 @@ const visibleProjects = computed(() => filteredProjects.value.slice(0, maxVisibl
 <template>
   <section id="proyek" class="section-theme section-theme-projects section-spacing scroll-mt-24">
     <BaseContainer
+      class="[--container-width:80rem]"
       v-motion
       :initial="{ opacity: 0, y: 14 }"
       :visible-once="{ opacity: 1, y: 0, transition: { duration: 360 } }"
@@ -55,7 +56,7 @@ const visibleProjects = computed(() => filteredProjects.value.slice(0, maxVisibl
 
       <div
         v-if="visibleProjects.length"
-        class="section-content-gap section-grid-gap grid sm:auto-rows-fr sm:grid-cols-2 xl:grid-cols-3"
+        class="section-content-gap grid gap-5 sm:auto-rows-fr sm:grid-cols-2 lg:grid-cols-4 xl:gap-6"
       >
         <ProjectCard v-for="project in visibleProjects" :key="project.slug" :project="project" />
       </div>
