@@ -19,7 +19,7 @@ export const projects = [
       'Melakukan regional genre analysis untuk membandingkan proporsi genre antar region utama.',
       'Melakukan platform lifecycle analysis untuk mengamati pola pertumbuhan, puncak, dan penurunan performa platform dari waktu ke waktu.',
     ],
-    tools: ['Python', 'pandas', 'numpy', 'matplotlib', 'Google Colab', 'Looker Studio', 'GitHub'],
+    tools: ['Python', 'Google Colab', 'Looker Studio'],
     output:
       'Project ini menghasilkan notebook analisis, dataset hasil preprocessing, dataset agregasi untuk visualisasi, dashboard interaktif di Looker Studio, dan repository GitHub untuk dokumentasi proses analisis.',
     insights:
@@ -33,121 +33,143 @@ export const projects = [
   },
   {
     id: 2,
-    slug: 'analisis-churn-pelanggan',
-    title: 'Analisis Churn Pelanggan',
+    slug: 'analisis-customer-churn-strategi-retensi-bisnis-subscription',
+    title: 'Analisis Customer Churn untuk Strategi Retensi Bisnis Subscription',
     category: 'Data Analytics',
     shortDescription:
-      'Retensi pelanggan menurun tetapi tim belum tahu pola utamanya. Analisis ini membantu mengidentifikasi faktor yang paling sering muncul sebelum pelanggan berhenti berlangganan.',
+      'Analisis customer churn untuk mengidentifikasi segmen berisiko tinggi dan mendukung strategi retensi yang lebih tepat sasaran pada bisnis subscription.',
     overview:
-      'Saya mengolah dataset pelanggan untuk mencari hubungan antara churn dengan durasi langganan, jenis paket, dan frekuensi komplain. Hasil analisis dirangkum dalam visual yang sederhana agar tim non-teknis bisa langsung menggunakannya.',
+      'Proyek ini menganalisis customer churn pada bisnis subscription menggunakan dataset publik Telco Customer Churn. Fokus utamanya adalah mengidentifikasi segmen customer dengan risiko churn tinggi dan memahami faktor layanan yang paling berkaitan dengan churn untuk mendukung strategi retensi yang lebih tepat sasaran.',
     problem: [
-      'Tim hanya melihat total churn tanpa segmentasi yang jelas.',
-      'Data komplain dan data paket belum pernah dianalisis bersamaan.',
-      'Prioritas tindak lanjut retensi masih berdasarkan asumsi.',
+      'Bisnis subscription sering kehilangan customer, tetapi churn tidak terjadi secara merata pada semua segmen.',
+      'Tantangan utamanya adalah mengetahui kelompok customer yang paling berisiko churn dan memahami faktor layanan yang berkaitan dengan keputusan mereka untuk berhenti berlangganan.',
+      'Tanpa analisis ini, strategi retensi cenderung terlalu umum dan kurang efektif.',
     ],
     approach: [
-      'Menggabungkan data pelanggan, paket, dan komplain ke satu dataset analisis.',
-      'Membuat segmentasi sederhana berdasarkan masa aktif dan jenis paket.',
-      'Menyusun dashboard untuk melihat pola churn yang paling sering muncul.',
+      'Melakukan data overview dan quality check untuk memastikan dataset siap dianalisis secara konsisten.',
+      'Menganalisis churn berdasarkan segmen manajerial seperti jenis kontrak, layanan internet, dan kelompok customer.',
+      'Memperdalam analisis hubungan churn dengan tenure, monthly charges, TechSupport, dan OnlineSecurity untuk mengidentifikasi faktor risiko utama.',
     ],
-    tools: ['Python', 'SQL', 'Pandas', 'Looker Studio'],
+    tools: ['Python', 'Jupyter Notebook', 'Tableau'],
     output:
-      'Output project ini berupa laporan analisis dan dashboard ringkas untuk membantu prioritas tindak lanjut retensi.',
+      'Proyek ini menghasilkan dataset bersih, notebook analisis untuk data overview dan segmentasi churn, visualisasi utama untuk mengeksplorasi pola churn, serta executive summary yang dapat digunakan sebagai dasar rekomendasi strategi retensi.',
     insights:
-      'Pelanggan dengan masa aktif pendek dan frekuensi komplain lebih tinggi menunjukkan risiko churn yang paling jelas.',
-    cover: '/images/projects/analisis-churn-pelanggan.jpg',
+      'Analisis menunjukkan bahwa churn rate keseluruhan berada di kisaran 26 persen. Risiko churn tertinggi ditemukan pada customer dengan kontrak month-to-month dan pengguna layanan fiber optic. Customer yang churn juga cenderung memiliki tenure lebih pendek dan monthly charges lebih tinggi. Selain itu, ketiadaan layanan TechSupport dan OnlineSecurity berkaitan kuat dengan peningkatan churn. Temuan ini menunjukkan bahwa customer berisiko tinggi umumnya adalah customer baru dengan kontrak jangka pendek, biaya bulanan tinggi, dan tanpa layanan pendukung.',
+    cover: '/images/projects/analisis-customer-churn-strategi-retensi-bisnis-subscription.jpg',
     links: {
-      github: 'https://github.com/AlvitoDwiP/analisis-churn-pelanggan',
-      demo: 'https://lookerstudio.google.com/reporting/analisis-churn-pelanggan',
+      github: 'https://github.com/AlvitoDwiP/churn-analysis',
     },
   },
   {
     id: 3,
-    slug: 'aplikasi-alur-inventaris',
-    title: 'Aplikasi Alur Inventaris',
+    slug: 'sipanda-kph-sistem-informasi-kepegawaian-dan-monitoring-penugasan',
+    title: 'SIPANDA-KPH (Sistem Informasi Kepegawaian dan Monitoring Penugasan)',
     category: 'Fullstack',
     shortDescription:
-      'Pencatatan stok barang masih dilakukan manual dan sering terlambat diperbarui. Aplikasi ini membantu input barang masuk, barang keluar, dan melihat stok aktif dalam satu tempat.',
+      'Aplikasi web internal untuk mengelola data kepegawaian, monitoring penugasan, pelaporan aktivitas kerja, dan kontrol akses berbasis peran dalam satu sistem terpusat.',
     overview:
-      'Project ini dibuat untuk kebutuhan operasional skala kecil yang membutuhkan alur inventaris sederhana namun rapi. Fokus utamanya ada pada form input yang cepat, pencarian data, dan tampilan stok yang mudah dipahami.',
+      'SIPANDA-KPH adalah aplikasi web berbasis Laravel yang dirancang untuk mendukung pengelolaan data kepegawaian, penugasan, dan pelaporan aktivitas kerja dalam lingkungan KPH. Sistem ini mengintegrasikan administrasi pengguna, data pegawai, monitoring tugas, pencatatan kegiatan, dan kontrol akses berbasis peran dalam satu platform terpusat.',
     problem: [
-      'Riwayat perubahan stok sulit dilacak saat pencatatan masih di spreadsheet.',
-      'Admin perlu waktu lama untuk mengecek stok terbaru sebelum pengiriman.',
-      'Barang masuk dan keluar belum memiliki alur pencatatan yang konsisten.',
+      'Pengelolaan data kepegawaian dan aktivitas kerja sering menghadapi kendala karena data pengguna, data pegawai, dan proses pelaporan tidak terhubung dalam satu sistem yang rapi.',
+      'Kondisi ini membuat verifikasi akun, pemantauan penugasan, dan pengawasan aktivitas pegawai menjadi kurang efisien.',
+      'Dibutuhkan sistem internal yang mampu mengelola data, proses kerja, dan hak akses secara lebih terstruktur.',
     ],
     approach: [
-      'Membangun backend CRUD sederhana untuk data barang dan transaksi.',
-      'Menyusun relasi stok masuk, stok keluar, dan stok aktif.',
-      'Membuat antarmuka ringkas untuk input dan pencarian data.',
+      'Aplikasi dikembangkan dengan arsitektur monolitik berbasis Laravel dan pemisahan akses berdasarkan peran pengguna.',
+      'Sistem dirancang untuk membedakan alur kerja admin, pegawai, dan KPH melalui middleware dan kontrol status akun.',
+      'Relasi data digunakan untuk menghubungkan akun pengguna, data pegawai, riwayat kepegawaian, penugasan, dan catatan kegiatan.',
+      'Lingkungan pengembangan juga disiapkan dengan Docker agar instalasi dan menjalankan layanan menjadi lebih konsisten.',
     ],
-    tools: ['Vue 3', 'Node.js', 'Express', 'MySQL'],
+    tools: [
+      'Laravel',
+      'Blade',
+      'MySQL',
+      'Docker',
+    ],
     output:
-      'Hasilnya adalah aplikasi inventaris sederhana dengan alur input stok yang lebih cepat dan riwayat transaksi yang lebih jelas.',
+      'Proyek ini menghasilkan aplikasi web internal dengan dashboard berbasis peran untuk admin, pegawai, dan KPH. Fitur utamanya mencakup manajemen akun pengguna, pengelolaan data pegawai, referensi master, penugasan kerja, pencatatan kegiatan, notifikasi administratif, log aktivitas sistem, dan ekspor dokumen PDF untuk kebutuhan pelaporan.',
     insights:
-      'Masalah utama bukan pada jumlah data, tetapi pada konsistensi input dan visibilitas perubahan stok harian.',
-    cover: '/images/projects/aplikasi-alur-inventaris.jpg',
+      'Proyek ini menekankan pentingnya role-based access control dalam sistem internal yang melibatkan banyak alur kerja. Pemisahan dashboard dan middleware per peran membantu menjaga keamanan akses sekaligus membuat pengalaman pengguna lebih relevan. Integrasi modul kepegawaian, penugasan, dan pelaporan dalam satu sistem juga membantu proses administrasi dan monitoring menjadi lebih terstruktur.',
+    cover: '/images/projects/sipanda-kph-sistem-informasi-kepegawaian-dan-monitoring-penugasan.jpg',
     links: {
-      github: 'https://github.com/AlvitoDwiP/aplikasi-alur-inventaris',
-      demo: 'https://aplikasi-alur-inventaris.vercel.app',
+      github: 'https://github.com/AlvitoDwiP/sipanda-kph.git',
     },
   },
   {
     id: 4,
-    slug: 'aplikasi-pembukuan-usaha',
-    title: 'Aplikasi Pembukuan Usaha',
-    category: 'Fullstack',
+    slug: 'acc-carbon-emissions-analysis-dashboard',
+    title: 'ACC - Carbon Emissions Analysis and Prediction',
+    category: 'Data Analytics',
     shortDescription:
-      'Usaha kecil sering punya catatan pemasukan dan pengeluaran yang tersebar. Web app ini merapikan pencatatan kas harian dan menampilkan ringkasan bulanan secara sederhana.',
+      'Proyek data science untuk menganalisis faktor emisi CO2 di ASEAN, memetakan segmentasi negara, dan menyusun prediksi tren emisi.',
     overview:
-      'Saya membuat aplikasi pencatatan keuangan dasar untuk membantu pemilik usaha memantau arus kas tanpa sistem yang rumit. Fitur utamanya mencakup input transaksi, kategori, dan ringkasan bulanan yang bisa langsung dibaca.',
+      'ACC - Carbon Emissions Analysis and Prediction merupakan proyek final dari kegiatan MBKM-SIB di Zenius. ACC sendiri merupakan singkatan dari Asian Carbon Counter. Proyek ini berfokus pada analisis emisi CO2 di negara-negara ASEAN pada periode 1900 sampai 2020 untuk memahami pola emisi, mengidentifikasi faktor yang berkaitan dengan cumulative CO2, memetakan segmentasi negara, dan menyusun prediksi awal tren emisi pada beberapa tahun berikutnya. Analisis dilakukan menggunakan Python di Google Colab, lalu hasil utamanya divisualisasikan dalam dashboard agar insight lebih mudah dipahami dan dieksplorasi.',
     problem: [
-      'Catatan keuangan tersimpan di chat dan spreadsheet yang terpisah.',
-      'Pemilik usaha sulit melihat total pengeluaran per kategori.',
-      'Rekap bulanan membutuhkan pengecekan manual yang berulang.',
+      'Emisi CO2 di kawasan ASEAN terus berkembang seiring pertumbuhan penduduk, aktivitas ekonomi, dan perubahan penggunaan lahan.',
+      'Tantangan utamanya adalah memahami faktor mana yang paling berkaitan dengan cumulative CO2 dan melihat perbedaan pola emisi antar negara.',
+      'Tanpa analisis yang terstruktur, data historis emisi sulit diterjemahkan menjadi insight yang relevan maupun pembacaan awal terhadap tren emisi di masa dekat.',
     ],
     approach: [
-      'Merancang struktur transaksi yang sederhana untuk pemasukan dan pengeluaran.',
-      'Membuat filter bulanan dan kategori untuk memudahkan pencarian.',
-      'Menyusun ringkasan saldo bersih dan total transaksi per periode.',
+      'Mengumpulkan data dari sumber publik lalu memfilter negara-negara ASEAN untuk periode 1900 sampai 2020, termasuk penanganan missing values, penyederhanaan variabel, dan capping outlier agar data lebih stabil untuk dianalisis.',
+      'Melakukan exploratory data analysis untuk melihat distribusi data, pola hubungan antar variabel, dan karakteristik emisi pada masing-masing negara.',
+      'Melakukan correlation analysis untuk mengidentifikasi faktor yang paling berkaitan dengan cumulative CO2.',
+      'Membangun model multiple linear regression untuk melihat kemampuan beberapa variabel dalam menjelaskan cumulative CO2, lalu melanjutkannya dengan clustering dan proyeksi awal tren emisi periode 2021 sampai 2025.',
     ],
-    tools: ['Laravel', 'MySQL', 'Blade', 'Chart.js'],
+    tools: [
+      'Python',
+      'Google Colab',
+      'Scikit-learn',
+      'Looker Studio',
+    ],
     output:
-      'Output project ini adalah aplikasi pencatatan kas dengan ringkasan transaksi yang bisa dipakai untuk kebutuhan operasional harian.',
+      'Proyek ini menghasilkan dataset yang telah dibersihkan, visualisasi exploratory data analysis, analisis korelasi antar variabel, model untuk membaca hubungan variabel terhadap cumulative CO2, segmentasi negara berdasarkan tingkat emisi, prediksi awal tren emisi untuk beberapa tahun setelah 2020, serta dashboard interaktif di Looker Studio untuk mendukung eksplorasi hasil secara visual.',
     insights:
-      'Kategori pengeluaran kecil yang sering berulang ternyata memberi dampak cukup besar pada total biaya bulanan.',
-    cover: '/images/projects/aplikasi-pembukuan-usaha.jpg',
+      'Analisis menunjukkan bahwa cumulative CO2 di negara-negara ASEAN paling kuat berkaitan dengan population, total CO2 emissions, dan land use. Model regresi juga menunjukkan bahwa faktor waktu ikut berperan dalam menjelaskan perubahan emisi. Selain itu, hasil clustering membagi negara ASEAN ke dalam dua kelompok utama, yaitu negara dengan level emisi rendah dan tinggi, yang menunjukkan bahwa distribusi emisi di kawasan ini tidak merata. Temuan ini membantu membaca emisi karbon ASEAN tidak hanya sebagai tren historis, tetapi juga sebagai pola yang dipengaruhi faktor demografis, aktivitas energi, dan perubahan penggunaan lahan.',
+    cover: '/images/projects/acc-carbon-emissions-analysis-dashboard.jpg',
     links: {
-      github: 'https://github.com/AlvitoDwiP/aplikasi-pembukuan-usaha',
+      demo: 'https://lookerstudio.google.com/reporting/87cd1be2-40f6-4b0d-bc5e-974eb00e00c3',
+      demoLabel: 'Looker Studio',
+      notebook: 'https://colab.research.google.com/drive/1_mOJTAeSPt1V0neNWeSkZKvGqCnNI8qI?usp=sharing',
+      notebookLabel: 'Google Colab',
     },
   },
   {
     id: 5,
-    slug: 'platform-pelacak-lamaran',
-    title: 'Platform Pelacak Lamaran',
+    slug: 'sistem-operasional-hair-studio-transaksi-payroll-dan-laporan',
+    title: 'Sistem Operasional Hair Studio',
     category: 'Fullstack',
     shortDescription:
-      'Pelacakan lamaran kerja sering tercecer di banyak tab dan catatan pribadi. Project ini membantu menyimpan status aplikasi, jadwal interview, dan catatan follow-up dalam satu dashboard.',
+      'Aplikasi web internal untuk mengelola transaksi, payroll, komisi, stok, dan laporan operasional hair studio dalam satu sistem terpusat.',
     overview:
-      'Aplikasi ini dibuat untuk kebutuhan personal agar proses pencarian kerja lebih terstruktur dan tidak mengandalkan catatan manual. Fokusnya ada pada alur input yang ringan, filtering status, dan halaman detail yang mudah dibaca.',
+      'Proyek ini adalah aplikasi web berbasis Laravel 11 yang dirancang untuk membantu pemilik hair studio mengelola operasional usaha dalam satu sistem terpusat. Fungsinya mencakup transaksi harian, payroll pegawai tetap dan freelance, komisi, pengeluaran, stok produk, serta laporan usaha. Sistem ini difokuskan pada kebutuhan single owner agar alur operasional lebih sederhana, rapi, dan mudah dikontrol.',
     problem: [
-      'Informasi lowongan dan status aplikasi tersebar di banyak tempat.',
-      'Jadwal interview dan follow-up mudah terlewat.',
-      'Progres pencarian kerja sulit dipantau dalam satu tampilan.',
+      'Operasional hair studio skala kecil sering masih tersebar di catatan manual, chat, atau spreadsheet, sehingga pencatatan usaha menjadi tidak konsisten.',
+      'Kondisi ini membuat transaksi harian sulit direkap, komisi pegawai rawan salah hitung, payroll sulit ditutup per periode, stok produk mudah tidak sinkron, dan laporan usaha membutuhkan waktu lebih lama untuk disusun.',
+      'Dibutuhkan sistem internal yang mampu menyatukan proses operasional tersebut dalam satu alur yang lebih tertata.',
     ],
     approach: [
-      'Membuat dashboard ringkas untuk daftar aplikasi dan statusnya.',
-      'Menyiapkan form input cepat untuk lowongan, catatan, dan jadwal.',
-      'Menyimpan riwayat aplikasi dengan backend ringan.',
+      'Aplikasi ini dibangun dengan pendekatan yang menyesuaikan kebutuhan usaha kecil. Transaksi utama dicatat melalui daily batch input, bukan POS real-time, agar lebih sederhana dan relevan dengan pola operasional hair studio.',
+      'Setiap item transaksi disimpan sebagai historical snapshot untuk menjaga integritas data lama saat master data berubah.',
+      'Payroll dirancang dengan konsep open dan closed period agar transaksi yang sudah final tidak mudah diubah.',
+      'Perhitungan komisi dan stok diproses otomatis saat transaksi dicatat, sementara logika bisnis utama dipisahkan ke service layer agar kode lebih terstruktur dan mudah dirawat.',
     ],
-    tools: ['React', 'Node.js', 'Express', 'PostgreSQL'],
+    tools: [
+      'PHP',
+      'Laravel',
+      'Blade',
+      'Laravel Breeze',
+      'Tailwind CSS',
+      'Alpine.js',
+      'Vite',
+      'MySQL',
+    ],
     output:
-      'Hasil akhirnya adalah platform kecil untuk mencatat proses lamaran dan menjaga tindak lanjut tetap teratur.',
+      'Proyek ini menghasilkan aplikasi internal yang memungkinkan owner mengelola pegawai, layanan, produk, pengeluaran, transaksi harian, komisi, payroll, serta laporan operasional dalam satu sistem. Aplikasi juga mendukung ekspor laporan ke CSV untuk kebutuhan rekap dan evaluasi usaha.',
     insights:
-      'Dengan status yang konsisten, progres aplikasi jauh lebih mudah dipantau dibanding catatan manual yang tersebar.',
-    cover: '/images/projects/platform-pelacak-lamaran.jpg',
+      'Proyek ini menunjukkan bahwa sistem operasional untuk usaha kecil tidak selalu membutuhkan arsitektur yang kompleks, tetapi harus kuat pada akurasi proses bisnis. Keputusan menggunakan historical snapshot menjadi bagian penting karena menjaga konsistensi data transaksi dan payroll dari perubahan master data. Pendekatan single owner juga membuat alur autentikasi dan permission lebih sederhana, sehingga sistem lebih fokus pada kebutuhan operasional inti. Selain itu, pemisahan logika ke service layer menunjukkan bahwa aplikasi ini dirancang lebih dari sekadar CRUD, karena sudah mengakomodasi aturan bisnis yang spesifik.',
+    cover: '/images/projects/sistem-operasional-hair-studio-transaksi-payroll-dan-laporan.jpg',
     links: {
-      github: 'https://github.com/AlvitoDwiP/platform-pelacak-lamaran',
-      demo: 'https://platform-pelacak-lamaran.vercel.app',
+      github: 'https://github.com/AlvitoDwiP/barber-management.git',
     },
   },
   {
@@ -169,7 +191,7 @@ export const projects = [
       'Melakukan exploratory data analysis berorientasi bisnis untuk membaca struktur ongkir aktual pada transaksi berbayar dan mengevaluasi dominasi subsidi ongkir.',
       'Menyusun estimasi beban subsidi, simulasi potensi penghematan, dan segmentasi risiko berdasarkan tingkat biaya subsidi untuk mendukung evaluasi kebijakan operasional.',
     ],
-    tools: ['Python', 'Pandas', 'Jupyter Notebook', 'Tableau Public', 'CSV'],
+    tools: ['Python', 'Pandas', 'Jupyter Notebook', 'Tableau'],
     output:
       'Proyek ini menghasilkan dataset hasil preprocessing, dataset transaksi paid shipping dan free shipping, dataset agregasi untuk visualisasi, notebook analisis, serta dashboard interaktif di Tableau Public untuk mengeksplorasi pola ongkir, subsidi, dan risiko pembatalan transaksi.',
     insights:
@@ -177,8 +199,48 @@ export const projects = [
     cover: '/images/projects/analisis-efisiensi-ongkir-risiko-pembatalan-ecommerce-indonesia.jpg',
     links: {
       github: 'https://github.com/AlvitoDwiP/operasional_ecommers_indo',
-      demo: 'https://public.tableau.com/app/profile/alvito.dwinova.permana/vizzes',
+      demo: 'https://public.tableau.com/views/E-commersShipping/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
       demoLabel: 'Tableau Public',
+    },
+  },
+  {
+    id: 7,
+    slug: 'findfe-aplikasi-mobile-pencarian-mitra-dan-informasi-produk-kopi',
+    title: 'FindFe - Aplikasi Mobile Pencarian Mitra dan Informasi Produk Kopi',
+    category: 'Fullstack',
+    displayCategory: 'MOBILE APPS',
+    cardVariant: 'mobile',
+    cardBadgeLabel: 'APP',
+    cardCoverLabel: 'Mobile Product',
+    cardSummaryLabel: 'MOBILE APPS',
+    shortDescription:
+      'Aplikasi mobile berbasis Flutter untuk mencari mitra usaha kopi, mengakses informasi produk, dan menjelajahi data berbasis lokasi dalam satu platform.',
+    overview:
+      'Project ini merupakan tugas akhir dari mata kuliah Pemrograman Berbasis Mobile. FindFe adalah aplikasi mobile berbasis Flutter yang dirancang untuk membantu pengguna mencari mitra usaha di bidang kopi, mengakses informasi produk kopi, dan mengelola data terkait dalam satu platform. Aplikasi ini menggabungkan fitur pencarian mitra, pengelolaan data, informasi lokasi, dan konten edukatif agar proses pencarian dan eksplorasi informasi kopi menjadi lebih praktis dan terstruktur.',
+    problem: [
+      'Pengguna di bidang kopi sering menghadapi kesulitan saat mencari mitra usaha atau sumber informasi yang relevan dalam satu tempat.',
+      'Data produk kopi juga sering dikelola secara terpisah, sehingga kurang efisien untuk dipantau.',
+      'Selain itu, informasi lokasi mitra dan konten edukatif seputar kopi belum selalu mudah diakses melalui satu aplikasi yang sederhana dan terintegrasi.',
+    ],
+    approach: [
+      'Aplikasi ini dikembangkan dengan pendekatan mobile app terintegrasi yang berfokus pada kebutuhan pengguna.',
+      'Prosesnya dimulai dari perancangan alur aplikasi yang sederhana, lalu dilanjutkan dengan pembangunan antarmuka menggunakan Flutter.',
+      'Sistem kemudian diintegrasikan dengan Firebase untuk autentikasi dan penyimpanan data, serta dilengkapi fitur lokasi dan peta untuk membantu pencarian mitra.',
+      'Fitur artikel juga ditambahkan untuk memberi nilai informasi tambahan di luar fungsi pencarian dan pengelolaan data.',
+    ],
+    tools: [
+      'Flutter',
+      'Firebase',
+      'Flutter Map',
+      'Dart',
+    ],
+    output:
+      'Proyek ini menghasilkan aplikasi mobile yang mendukung login dan registrasi pengguna, pencarian dan penelusuran data mitra kopi, pengelolaan data produk kopi, akses informasi berbasis lokasi, konten artikel seputar kopi, serta penyimpanan data online melalui Firebase.',
+    insights:
+      'Proyek ini menunjukkan bahwa kebutuhan pengguna di bidang kopi tidak berhenti pada pencarian mitra, tetapi juga membutuhkan akses data, lokasi, dan informasi pendukung dalam satu alur yang ringkas. Nilai utama aplikasi bukan pada banyaknya fitur, tetapi pada integrasi fungsi pencarian, informasi, dan pengelolaan data dalam satu pengalaman mobile yang sederhana dan mudah digunakan.',
+    cover: '/images/projects/findfe-aplikasi-mobile-pencarian-mitra-dan-informasi-produk-kopi.jpg',
+    links: {
+      github: 'https://github.com/AlvitoDwiP/AplikasiCariMitraKopi-main',
     },
   },
 ]

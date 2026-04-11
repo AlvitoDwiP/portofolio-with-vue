@@ -11,9 +11,11 @@ const props = defineProps({
   },
 })
 
-const categories = ['Semua', 'Data Analytics', 'Fullstack']
-const maxVisibleProjects = 6
 const activeFilter = ref('Semua')
+
+const categories = computed(() => ['Semua', ...new Set(props.projects.map((project) => project.category))])
+
+const maxVisibleProjects = computed(() => Math.max(6, props.projects.length))
 
 const filteredProjects = computed(() =>
   activeFilter.value === 'Semua'
@@ -21,7 +23,7 @@ const filteredProjects = computed(() =>
     : props.projects.filter((project) => project.category === activeFilter.value)
 )
 
-const visibleProjects = computed(() => filteredProjects.value.slice(0, maxVisibleProjects))
+const visibleProjects = computed(() => filteredProjects.value.slice(0, maxVisibleProjects.value))
 </script>
 
 <template>

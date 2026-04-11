@@ -1,7 +1,8 @@
-import { AppWindow, ChartColumnBig } from 'lucide-vue-next'
+import { AppWindow, ChartColumnBig, Smartphone } from 'lucide-vue-next'
 
 const DATA_CATEGORIES = ['data analytics', 'data']
 const WEB_CATEGORIES = ['fullstack', 'web']
+const MOBILE_CATEGORIES = ['mobile app', 'mobile']
 
 const VARIANTS = {
   data: {
@@ -40,6 +41,24 @@ const VARIANTS = {
       'border-sky-300/20 bg-sky-400/10 text-sky-50 hover:border-sky-200/30 hover:bg-sky-400/18',
     dotClass: 'bg-sky-300',
   },
+  mobile: {
+    label: 'APP',
+    coverLabel: 'Mobile Product',
+    summaryLabel: 'MOBILE APPS',
+    icon: Smartphone,
+    coverGradient:
+      'bg-[radial-gradient(circle_at_top,rgba(250,204,21,0.16),transparent_34%),linear-gradient(135deg,rgba(180,83,9,0.34),rgba(8,145,178,0.2)_52%,rgba(15,23,42,0.96))]',
+    glowPrimary: 'glow-amber',
+    glowSecondary: 'glow-cyan',
+    badgeClass: 'border-amber-300/20 bg-amber-400/15 text-amber-50',
+    iconShell:
+      'border-amber-200/20 bg-amber-400/10 text-amber-50 shadow-glass',
+    metaClass: 'text-amber-100/80',
+    techClass: 'border-amber-300/15 bg-amber-400/10 text-amber-50/90',
+    linkPrimaryClass:
+      'border-amber-300/20 bg-amber-400/10 text-amber-50 hover:border-amber-200/30 hover:bg-amber-400/18',
+    dotClass: 'bg-amber-300',
+  },
 }
 
 const resolveVariantKey = (category = '') => {
@@ -53,13 +72,21 @@ const resolveVariantKey = (category = '') => {
     return 'web'
   }
 
+  if (MOBILE_CATEGORIES.some((item) => normalizedCategory.includes(item))) {
+    return 'mobile'
+  }
+
   return 'web'
 }
 
 export const resolveProjectCardVariant = (project) => {
-  const variantKey = resolveVariantKey(project?.category)
+  const variantKey = resolveVariantKey(project?.cardVariant ?? project?.category)
+
   return {
     ...VARIANTS[variantKey],
+    label: project?.cardBadgeLabel ?? VARIANTS[variantKey].label,
+    coverLabel: project?.cardCoverLabel ?? VARIANTS[variantKey].coverLabel,
+    summaryLabel: project?.cardSummaryLabel ?? VARIANTS[variantKey].summaryLabel,
     key: variantKey,
   }
 }
