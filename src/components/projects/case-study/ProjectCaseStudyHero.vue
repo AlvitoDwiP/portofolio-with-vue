@@ -49,8 +49,12 @@ defineProps({
         <div
           class="absolute bottom-10 right-20 h-28 w-52 rounded-[1.75rem] border border-white/10 bg-gradient-to-br from-sky-400/10 via-transparent to-indigo-500/10"
         />
-        <div class="absolute right-10 top-24 h-px w-40 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-        <div class="absolute bottom-20 right-8 h-px w-28 bg-gradient-to-r from-white/5 via-white/25 to-transparent" />
+        <div
+          class="absolute right-10 top-24 h-px w-40 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+        />
+        <div
+          class="absolute bottom-20 right-8 h-px w-28 bg-gradient-to-r from-white/5 via-white/25 to-transparent"
+        />
       </div>
 
       <div class="relative z-10 px-6 py-7 sm:px-8 sm:py-9 lg:px-10 lg:py-12">

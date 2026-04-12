@@ -49,29 +49,26 @@ const getPreviewTheme = (previewType) => previewThemes[previewType] ?? previewTh
         class="section-panel flex h-full flex-col overflow-hidden rounded-[1.75rem]"
       >
         <div class="relative min-h-[15rem] border-b border-white/8 bg-[#0d1320]">
-          <div
-            class="absolute inset-0"
-            :class="getPreviewTheme(item.previewType).shell"
-          />
+          <div class="absolute inset-0" :class="getPreviewTheme(item.previewType).shell" />
           <div
             class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.1),rgba(2,6,23,0.74))]"
           />
-          <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
-          <div class="absolute left-6 top-6 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 backdrop-blur-sm">
-            <component
-              :is="getPreviewTheme(item.previewType).Icon"
-              class="h-5 w-5 text-white/85"
-            />
+          <div
+            class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent"
+          />
+          <div
+            class="absolute left-6 top-6 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 backdrop-blur-sm"
+          >
+            <component :is="getPreviewTheme(item.previewType).Icon" class="h-5 w-5 text-white/85" />
             <span class="text-[0.72rem] font-medium uppercase tracking-[0.22em] text-white/70">
               {{ getPreviewTheme(item.previewType).label }}
             </span>
           </div>
-          <div class="absolute right-6 top-6 h-20 w-20 rounded-[1.5rem] border border-white/10 bg-white/[0.05]" />
+          <div
+            class="absolute right-6 top-6 h-20 w-20 rounded-[1.5rem] border border-white/10 bg-white/[0.05]"
+          />
           <div class="absolute bottom-16 left-6 right-6 space-y-3">
-            <div
-              class="h-3 rounded-full"
-              :class="getPreviewTheme(item.previewType).line"
-            />
+            <div class="h-3 rounded-full" :class="getPreviewTheme(item.previewType).line" />
             <div class="h-3 w-4/5 rounded-full bg-white/15" />
             <div class="h-3 w-3/5 rounded-full bg-white/10" />
           </div>

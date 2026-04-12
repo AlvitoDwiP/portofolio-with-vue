@@ -1,5 +1,4 @@
 <script setup>
-import { computed } from 'vue'
 import { Github, Linkedin, Mail } from 'lucide-vue-next'
 import { useSectionNavigation } from '@/composables/useSectionNavigation'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
@@ -32,15 +31,6 @@ const socialLinks = [
   },
 ]
 
-const initials = computed(() =>
-  siteConfig.name
-    .split(' ')
-    .filter(Boolean)
-    .map((part) => part[0])
-    .join('')
-    .toUpperCase()
-)
-
 const { activeHash, createSectionHref, navigateToSection } = useSectionNavigation(
   navItems.map((item) => item.href)
 )
@@ -53,23 +43,6 @@ const { activeHash, createSectionHref, navigateToSection } = useSectionNavigatio
   >
     <BaseContainer class="py-3">
       <div class="flex min-h-12 items-center justify-between gap-3 sm:gap-5">
-        <RouterLink to="/" class="flex min-w-0 items-center gap-3">
-          <span
-            class="glass-chip-strong inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-card text-[0.72rem] font-medium tracking-[0.08em] text-textPrimary"
-          >
-            {{ initials }}
-          </span>
-
-          <div class="min-w-0">
-            <p class="truncate font-display text-sm font-medium tracking-[0.02em] text-text">
-              {{ siteConfig.brandName ?? siteConfig.name }}
-            </p>
-            <p class="hidden truncate text-xs text-text-muted sm:block">
-              {{ siteConfig.role }}
-            </p>
-          </div>
-        </RouterLink>
-
         <nav class="hidden md:flex md:flex-1 md:justify-center">
           <ul class="flex items-center gap-7 text-sm text-text-muted">
             <li v-for="item in navItems" :key="item.label">
