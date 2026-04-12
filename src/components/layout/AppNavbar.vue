@@ -55,13 +55,13 @@ const { activeHash, createSectionHref, navigateToSection } = useSectionNavigatio
       <div class="flex min-h-12 items-center justify-between gap-3 sm:gap-5">
         <RouterLink to="/" class="flex min-w-0 items-center gap-3">
           <span
-            class="glass-chip-strong inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-card text-[0.72rem] font-semibold tracking-[0.18em] text-textPrimary"
+            class="glass-chip-strong inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-card text-[0.72rem] font-medium tracking-[0.08em] text-textPrimary"
           >
             {{ initials }}
           </span>
 
           <div class="min-w-0">
-            <p class="truncate font-display text-sm font-semibold tracking-[0.14em] text-text">
+            <p class="truncate font-display text-sm font-medium tracking-[0.02em] text-text">
               {{ siteConfig.brandName ?? siteConfig.name }}
             </p>
             <p class="hidden truncate text-xs text-text-muted sm:block">
@@ -76,7 +76,7 @@ const { activeHash, createSectionHref, navigateToSection } = useSectionNavigatio
               <a
                 :href="createSectionHref(item.href)"
                 :aria-current="activeHash === item.href ? 'page' : undefined"
-                class="transition duration-200 hover:text-text"
+                class="font-medium transition duration-200 hover:text-text"
                 :class="activeHash === item.href ? 'text-text' : 'text-text-muted'"
                 @click.prevent="navigateToSection(item.href)"
               >
@@ -108,7 +108,7 @@ const { activeHash, createSectionHref, navigateToSection } = useSectionNavigatio
             <a
               :href="createSectionHref(item.href)"
               :aria-current="activeHash === item.href ? 'page' : undefined"
-              class="whitespace-nowrap transition duration-200 hover:text-text"
+              class="whitespace-nowrap font-medium transition duration-200 hover:text-text"
               :class="activeHash === item.href ? 'text-text' : 'text-text-muted'"
               @click.prevent="navigateToSection(item.href)"
             >

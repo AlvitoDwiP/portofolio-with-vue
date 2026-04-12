@@ -25,8 +25,6 @@ export const projects = [
     insights:
       'Analisis menunjukkan bahwa pasar video game terkonsentrasi pada beberapa platform besar, dengan PS2 sebagai platform paling dominan. Pola genre juga berbeda antar region, di mana Jepang lebih kuat pada Role-Playing, sementara region lain lebih didominasi Action. Dari sisi waktu, setiap platform memiliki pola lifecycle yang berbeda, sehingga pertumbuhan, puncak, dan penurunannya tidak bisa disamaratakan.',
     cover: '/images/projects/global-video-game-market-analysis-dashboard.jpg',
-    coverAlt:
-      'Preview cover presentasi dan dashboard analisis pasar video game global lintas platform, genre, dan region.',
     links: {
       github: 'https://github.com/AlvitoDwiP/video-game-sales',
       demo: 'https://lookerstudio.google.com/reporting/9d6051e1-6eea-484f-af4f-5affd78f5353',
@@ -134,9 +132,7 @@ export const projects = [
             'Deck presentasi yang merangkum alur analisis, temuan utama, dan implikasi hasil dalam format yang lebih ringkas untuk stakeholder.',
           href: 'https://canva.link/2qgzeyf9kds8lz8',
           ctaLabel: 'View PPT',
-          image: '/images/projects/global-video-game-market-analysis-dashboard.jpg',
-          imageAlt: 'Cover presentasi proyek Global Video Game Market Analysis Dashboard.',
-          previewType: 'image',
+          previewType: 'presentation',
         },
       ],
     },

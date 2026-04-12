@@ -61,8 +61,6 @@ const buildFallbackVisualOutputs = (currentProject) => {
       href: currentProject.links.demo,
       ctaLabel: `View ${currentProject.links.demoLabel ?? 'Demo'}`,
       previewType: 'dashboard',
-      image: currentProject.cover,
-      imageAlt: currentProject.coverAlt ?? currentProject.title,
     })
   }
 
@@ -74,9 +72,7 @@ const buildFallbackVisualOutputs = (currentProject) => {
         'Dokumen kerja ini menunjukkan proses analisis atau eksperimen yang mendukung hasil akhir proyek.',
       href: currentProject.links.notebook,
       ctaLabel: `View ${currentProject.links.notebookLabel ?? 'Notebook'}`,
-      previewType: 'image',
-      image: currentProject.cover,
-      imageAlt: currentProject.coverAlt ?? currentProject.title,
+      previewType: 'document',
     })
   }
 
@@ -88,9 +84,7 @@ const buildFallbackVisualOutputs = (currentProject) => {
         'Presentasi ringkas ini merangkum konteks, proses, dan insight utama proyek dalam format yang cepat dipahami.',
       href: currentProject.links.ppt,
       ctaLabel: `View ${currentProject.links.pptLabel ?? 'Presentation'}`,
-      previewType: 'image',
-      image: currentProject.cover,
-      imageAlt: currentProject.coverAlt ?? currentProject.title,
+      previewType: 'presentation',
     })
   }
 
@@ -195,8 +189,6 @@ const caseStudy = computed(() => {
       : buildFallbackVisualOutputs(currentProject),
     impact: study.impact?.length ? study.impact : buildFallbackImpact(currentProject),
     supportLinks: buildSupportLinks(currentProject),
-    coverImage: currentProject.cover,
-    coverAlt: currentProject.coverAlt ?? currentProject.title,
   }
 })
 
@@ -224,8 +216,6 @@ useHead(() => ({
             :title="project.title"
             :summary="caseStudy.heroSummary"
             :links="heroLinks"
-            :cover-image="caseStudy.coverImage"
-            :cover-alt="caseStudy.coverAlt"
           />
 
           <div class="grid gap-12 xl:grid-cols-[minmax(0,1fr)_18rem] xl:gap-10">
@@ -265,7 +255,7 @@ useHead(() => ({
           </p>
           <RouterLink
             :to="{ name: 'home', hash: '#proyek' }"
-            class="glass-chip-strong glass-hover mt-6 inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold"
+            class="glass-chip-strong glass-hover mt-6 inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium"
           >
             <ArrowLeft class="h-4 w-4" />
             Kembali ke beranda

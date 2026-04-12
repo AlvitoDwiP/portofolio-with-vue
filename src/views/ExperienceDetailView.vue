@@ -177,7 +177,7 @@ useHead(() => ({
           </p>
           <RouterLink
             :to="{ name: 'home', hash: '#pengalaman' }"
-            class="glass-chip-strong glass-hover mt-6 inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold"
+            class="glass-chip-strong glass-hover mt-6 inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium"
           >
             <ArrowLeft class="h-4 w-4" />
             Kembali ke beranda

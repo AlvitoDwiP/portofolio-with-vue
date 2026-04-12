@@ -5,6 +5,7 @@
 @layer base {
   :root {
     color-scheme: dark;
+    --font-family-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
     --color-bg: var(--color-bg-primary-rgb);
     --color-surface: var(--color-surface-rgb);
     --color-text: var(--color-text-primary-rgb);
@@ -20,11 +21,57 @@
     min-height: 100vh;
     background-color: var(--color-bg-primary);
     color: var(--color-text-primary);
-    font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
-    line-height: 1.6;
+    font-family: var(--font-family-sans);
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: -0.012em;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    color: inherit;
+    font-family: var(--font-family-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 0.98;
+  }
+
+  h2 {
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+  }
+
+  h3,
+  h4 {
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.14;
+  }
+
+  h5,
+  h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
   }
 
   #app {
@@ -294,6 +341,7 @@
 
   .section-muted {
     color: var(--color-text-secondary);
+    font-weight: 400;
   }
 
   .section-chip-accent {
@@ -347,15 +395,19 @@
   }
 
   .case-study-heading {
-    font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-family-sans);
     font-size: clamp(2.1rem, 4vw, 3.4rem);
+    font-weight: 800;
+    letter-spacing: -0.045em;
     line-height: 1.02;
     color: var(--color-text-primary);
   }
 
   .case-study-subheading {
-    font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-family-sans);
     font-size: clamp(1.15rem, 2vw, 1.5rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
     line-height: 1.2;
     color: var(--color-text-primary);
   }
@@ -370,11 +422,42 @@
   .case-study-body {
     color: var(--color-text-secondary);
     font-size: 1rem;
+    font-weight: 400;
     line-height: 2rem;
   }
 }
 
 @layer utilities {
+  h1.font-display {
+    font-weight: 800;
+    letter-spacing: -0.055em;
+    line-height: 0.96;
+  }
+
+  h2.font-display {
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+  }
+
+  h3.font-display,
+  h4.font-display {
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+  }
+
+  .section-button-primary,
+  .section-button-secondary {
+    font-weight: 500;
+    letter-spacing: -0.015em;
+  }
+
+  [data-site-header] nav a {
+    font-weight: 500;
+    letter-spacing: -0.015em;
+  }
+
   .glass {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);

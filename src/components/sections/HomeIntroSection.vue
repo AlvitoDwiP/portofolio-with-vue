@@ -35,14 +35,14 @@ import { siteConfig } from '@/data/site'
           <div class="flex flex-wrap items-center gap-3">
             <RouterLink
               :to="{ name: 'home', hash: '#proyek' }"
-              class="section-button-primary inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:-translate-y-0.5"
+              class="section-button-primary inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:-translate-y-0.5"
             >
               Explore projects
               <ArrowRight class="h-4 w-4" />
             </RouterLink>
             <a
               :href="`mailto:${siteConfig.email}`"
-              class="section-button-secondary inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:-translate-y-0.5"
+              class="section-button-secondary inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:-translate-y-0.5"
             >
               Start a conversation
             </a>
@@ -57,7 +57,9 @@ import { siteConfig } from '@/data/site'
         >
           <div class="mb-6 flex items-center justify-between">
             <div>
-              <p class="font-display text-lg text-textPrimary">Ringkasan Fokus</p>
+              <p class="font-display text-lg font-semibold tracking-[-0.03em] text-textPrimary">
+                Ringkasan Fokus
+              </p>
               <p class="mt-1 text-sm text-textSecondary">Area kerja yang paling relevan saat ini</p>
             </div>
             <div class="glass-chip rounded-full px-3 py-1 text-xs">v0</div>

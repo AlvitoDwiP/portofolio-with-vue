@@ -1,6 +1,5 @@
 <script setup>
-import { ref } from 'vue'
-import { ArrowUpRight } from 'lucide-vue-next'
+import { ArrowUpRight, FileText, LayoutDashboard, MonitorPlay } from 'lucide-vue-next'
 
 defineProps({
   items: {
@@ -9,11 +8,31 @@ defineProps({
   },
 })
 
-const failedImages = ref({})
-
-const markImageFailed = (index) => {
-  failedImages.value[index] = true
+const previewThemes = {
+  dashboard: {
+    shell:
+      'bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_34%),linear-gradient(135deg,rgba(15,23,42,0.96),rgba(15,23,42,0.84)_48%,rgba(2,6,23,0.96))]',
+    line: 'bg-sky-300/60',
+    Icon: LayoutDashboard,
+    label: 'Dashboard View',
+  },
+  presentation: {
+    shell:
+      'bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.16),transparent_34%),linear-gradient(135deg,rgba(30,41,59,0.94),rgba(15,23,42,0.88)_50%,rgba(2,6,23,0.96))]',
+    line: 'bg-amber-200/60',
+    Icon: MonitorPlay,
+    label: 'Presentation Deck',
+  },
+  document: {
+    shell:
+      'bg-[radial-gradient(circle_at_top_left,rgba(165,180,252,0.16),transparent_34%),linear-gradient(135deg,rgba(30,41,59,0.94),rgba(15,23,42,0.88)_50%,rgba(2,6,23,0.96))]',
+    line: 'bg-indigo-200/60',
+    Icon: FileText,
+    label: 'Working Document',
+  },
 }
+
+const getPreviewTheme = (previewType) => previewThemes[previewType] ?? previewThemes.document
 </script>
 
 <template>
@@ -30,27 +49,32 @@ const markImageFailed = (index) => {
         class="section-panel flex h-full flex-col overflow-hidden rounded-[1.75rem]"
       >
         <div class="relative min-h-[15rem] border-b border-white/8 bg-[#0d1320]">
-          <img
-            v-if="item.image && !failedImages[index]"
-            :src="item.image"
-            :alt="item.imageAlt || item.title"
-            class="absolute inset-0 h-full w-full object-cover"
-            @error="markImageFailed(index)"
-          />
-
           <div
-            v-else-if="item.previewType === 'dashboard'"
-            class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.16),transparent_34%),linear-gradient(135deg,rgba(15,23,42,0.96),rgba(15,23,42,0.84)_48%,rgba(2,6,23,0.96))]"
+            class="absolute inset-0"
+            :class="getPreviewTheme(item.previewType).shell"
           />
-
-          <div
-            v-else
-            class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(99,102,241,0.16),transparent_34%),linear-gradient(135deg,rgba(30,41,59,0.94),rgba(15,23,42,0.88)_50%,rgba(2,6,23,0.96))]"
-          />
-
           <div
             class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.1),rgba(2,6,23,0.74))]"
           />
+          <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+          <div class="absolute left-6 top-6 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 backdrop-blur-sm">
+            <component
+              :is="getPreviewTheme(item.previewType).Icon"
+              class="h-5 w-5 text-white/85"
+            />
+            <span class="text-[0.72rem] font-medium uppercase tracking-[0.22em] text-white/70">
+              {{ getPreviewTheme(item.previewType).label }}
+            </span>
+          </div>
+          <div class="absolute right-6 top-6 h-20 w-20 rounded-[1.5rem] border border-white/10 bg-white/[0.05]" />
+          <div class="absolute bottom-16 left-6 right-6 space-y-3">
+            <div
+              class="h-3 rounded-full"
+              :class="getPreviewTheme(item.previewType).line"
+            />
+            <div class="h-3 w-4/5 rounded-full bg-white/15" />
+            <div class="h-3 w-3/5 rounded-full bg-white/10" />
+          </div>
 
           <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
             <p class="case-study-kicker">
@@ -72,7 +96,7 @@ const markImageFailed = (index) => {
               :href="item.href"
               target="_blank"
               rel="noopener noreferrer"
-              class="section-button-secondary inline-flex items-center rounded-xl border px-4 py-2.5 text-sm font-semibold transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:-translate-y-0.5"
+              class="section-button-secondary inline-flex items-center rounded-xl border px-4 py-2.5 text-sm font-medium transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:-translate-y-0.5"
             >
               <span>{{ item.ctaLabel || 'View Output' }}</span>
               <ArrowUpRight class="ml-2 h-4 w-4" />
