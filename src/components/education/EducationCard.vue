@@ -26,12 +26,10 @@ import unejLogo from '@/assets/images/education/unej-logo.png'
       </h2>
 
       <p class="section-muted mt-2 max-w-xl text-sm leading-7 sm:text-base">
-      Prodi Teknologi Informasi Fakultas Ilmu Komputer 
+        Prodi Teknologi Informasi Fakultas Ilmu Komputer
       </p>
 
-      <p class="section-muted mt-2 max-w-xl text-sm leading-7 sm:text-base">
-        UNIVERSITAS JEMBER
-      </p>
+      <p class="section-muted mt-2 max-w-xl text-sm leading-7 sm:text-base">UNIVERSITAS JEMBER</p>
 
       <div
         class="section-chip-accent mt-5 inline-flex items-center rounded-full px-4 py-2 text-sm font-medium"

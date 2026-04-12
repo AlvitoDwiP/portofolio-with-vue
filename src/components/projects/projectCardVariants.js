@@ -15,8 +15,7 @@ const VARIANTS = {
     glowPrimary: 'glow-purple',
     glowSecondary: 'glow-indigo',
     badgeClass: 'border-violet-300/20 bg-violet-400/15 text-violet-100',
-    iconShell:
-      'border-violet-200/20 bg-violet-400/10 text-violet-100 shadow-glass',
+    iconShell: 'border-violet-200/20 bg-violet-400/10 text-violet-100 shadow-glass',
     metaClass: 'text-violet-200/80',
     techClass: 'border-violet-300/15 bg-violet-400/10 text-violet-100/90',
     linkPrimaryClass:
@@ -33,8 +32,7 @@ const VARIANTS = {
     glowPrimary: 'glow-blue',
     glowSecondary: 'glow-indigo',
     badgeClass: 'border-sky-300/20 bg-sky-400/15 text-sky-100',
-    iconShell:
-      'border-sky-200/20 bg-sky-400/10 text-sky-100 shadow-glass',
+    iconShell: 'border-sky-200/20 bg-sky-400/10 text-sky-100 shadow-glass',
     metaClass: 'text-sky-200/80',
     techClass: 'border-sky-300/15 bg-sky-400/10 text-sky-100/90',
     linkPrimaryClass:
@@ -51,8 +49,7 @@ const VARIANTS = {
     glowPrimary: 'glow-amber',
     glowSecondary: 'glow-cyan',
     badgeClass: 'border-amber-300/20 bg-amber-400/15 text-amber-50',
-    iconShell:
-      'border-amber-200/20 bg-amber-400/10 text-amber-50 shadow-glass',
+    iconShell: 'border-amber-200/20 bg-amber-400/10 text-amber-50 shadow-glass',
     metaClass: 'text-amber-100/80',
     techClass: 'border-amber-300/15 bg-amber-400/10 text-amber-50/90',
     linkPrimaryClass:

@@ -34,9 +34,7 @@ const handleThumbnailError = () => {
       class="flex h-full flex-col gap-5 md:flex-row md:items-end md:justify-between"
     >
       <div class="max-w-2xl space-y-3">
-        <p class="section-eyebrow text-xs font-semibold uppercase tracking-[0.22em]">
-          Lampiran
-        </p>
+        <p class="section-eyebrow text-xs font-semibold uppercase tracking-[0.22em]">Lampiran</p>
 
         <div class="space-y-2">
           <h3 class="font-display text-2xl leading-tight text-text sm:text-[1.8rem]">

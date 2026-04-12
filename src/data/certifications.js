@@ -131,6 +131,5 @@ export const certificationAttachment = {
   title: 'Lampiran Sertifikat',
   description: 'Lihat seluruh sertifikat lengkap melalui LinkedIn',
   ctaLabel: 'Lihat Sertifikat',
-  ctaUrl:
-    'https://www.linkedin.com/in/alvito-dwinova-permana-90a7b82ab/details/certifications/',
+  ctaUrl: 'https://www.linkedin.com/in/alvito-dwinova-permana-90a7b82ab/details/certifications/',
 }

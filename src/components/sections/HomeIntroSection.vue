@@ -60,9 +60,7 @@ import { siteConfig } from '@/data/site'
               <p class="font-display text-lg text-textPrimary">Ringkasan Fokus</p>
               <p class="mt-1 text-sm text-textSecondary">Area kerja yang paling relevan saat ini</p>
             </div>
-            <div class="glass-chip rounded-full px-3 py-1 text-xs">
-              v0
-            </div>
+            <div class="glass-chip rounded-full px-3 py-1 text-xs">v0</div>
           </div>
 
           <div class="space-y-4">

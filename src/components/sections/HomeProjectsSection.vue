@@ -13,7 +13,10 @@ const props = defineProps({
 
 const activeFilter = ref('Semua')
 
-const categories = computed(() => ['Semua', ...new Set(props.projects.map((project) => project.category))])
+const categories = computed(() => [
+  'Semua',
+  ...new Set(props.projects.map((project) => project.category)),
+])
 
 const maxVisibleProjects = computed(() => Math.max(6, props.projects.length))
 
@@ -29,8 +32,8 @@ const visibleProjects = computed(() => filteredProjects.value.slice(0, maxVisibl
 <template>
   <section id="proyek" class="section-theme section-theme-projects section-spacing scroll-mt-24">
     <BaseContainer
-      class="[--container-width:80rem]"
       v-motion
+      class="[--container-width:80rem]"
       :initial="{ opacity: 0, y: 14 }"
       :visible-once="{ opacity: 1, y: 0, transition: { duration: 360 } }"
     >

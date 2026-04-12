@@ -25,10 +25,120 @@ export const projects = [
     insights:
       'Analisis menunjukkan bahwa pasar video game terkonsentrasi pada beberapa platform besar, dengan PS2 sebagai platform paling dominan. Pola genre juga berbeda antar region, di mana Jepang lebih kuat pada Role-Playing, sementara region lain lebih didominasi Action. Dari sisi waktu, setiap platform memiliki pola lifecycle yang berbeda, sehingga pertumbuhan, puncak, dan penurunannya tidak bisa disamaratakan.',
     cover: '/images/projects/global-video-game-market-analysis-dashboard.jpg',
+    coverAlt:
+      'Preview cover presentasi dan dashboard analisis pasar video game global lintas platform, genre, dan region.',
     links: {
       github: 'https://github.com/AlvitoDwiP/video-game-sales',
       demo: 'https://lookerstudio.google.com/reporting/9d6051e1-6eea-484f-af4f-5affd78f5353',
       demoLabel: 'Looker Studio',
+      ppt: 'https://canva.link/2qgzeyf9kds8lz8',
+      pptLabel: 'PPT Canva',
+    },
+    caseStudy: {
+      heroSummary:
+        'Case study ini membaca pasar video game global dari tiga sudut yang paling menentukan: struktur platform, preferensi genre per region, dan pola lifecycle tiap platform. Hasilnya adalah analisis yang membantu insight pasar menjadi lebih cepat dipahami dan lebih mudah dipakai sebagai dasar keputusan.',
+      context: [
+        'Pasar video game global terlihat besar dari luar, tetapi struktur di dalamnya sangat terfragmentasi. Platform, genre, dan region membentuk pola permintaan yang berbeda-beda, sehingga membaca pasar hanya dari angka penjualan total sering menghasilkan kesimpulan yang terlalu dangkal.',
+        'Karena itu, analisis lintas platform, genre, dan region dibutuhkan untuk melihat di mana konsentrasi pasar terjadi, bagaimana selera pemain berubah antar wilayah, dan kapan sebuah platform berada pada fase tumbuh, matang, atau menurun.',
+      ],
+      problemHighlights: [
+        {
+          title: 'Dominasi pasar tidak langsung terlihat',
+          description:
+            'Banyaknya platform membuat peta persaingan terlihat ramai, padahal tidak semua platform memegang peran yang sama dalam penjualan global.',
+          implication:
+            'Tanpa pembacaan struktur pasar, prioritas analisis bisa bias dan keputusan strategi mudah tersebar ke terlalu banyak fokus.',
+        },
+        {
+          title: 'Preferensi region tidak bisa disamaratakan',
+          description:
+            'Genre yang kuat di satu region belum tentu punya performa yang sama di region lain.',
+          implication:
+            'Jika hanya mengandalkan total global, peluang dan risiko di tiap pasar lokal menjadi sulit dibaca secara akurat.',
+        },
+        {
+          title: 'Performa platform berubah sepanjang waktu',
+          description:
+            'Setiap platform memiliki pola pertumbuhan, puncak, dan penurunan yang berbeda.',
+          implication:
+            'Tanpa analisis lifecycle, pembacaan terhadap momentum pasar berisiko terlambat atau terlalu bergantung pada performa historis total.',
+        },
+      ],
+      approachGroups: [
+        {
+          title: 'Data Preparation',
+          description:
+            'Dataset dibersihkan dan distandardisasi lebih dulu agar perbandingan lintas platform, genre, dan region bisa dibaca secara konsisten.',
+        },
+        {
+          title: 'Market Structure Analysis',
+          description:
+            'Penjualan tiap platform dipetakan untuk melihat distribusi pasar dan tingkat konsentrasi di antara pemain utama.',
+        },
+        {
+          title: 'Regional Genre Analysis',
+          description:
+            'Komposisi genre dibandingkan antar region utama untuk menangkap perbedaan selera pasar yang tidak terlihat dari angka global saja.',
+        },
+        {
+          title: 'Platform Lifecycle Analysis',
+          description:
+            'Performa platform dibaca sepanjang waktu untuk memahami kapan sebuah platform bertumbuh, mencapai puncak, lalu menurun.',
+        },
+      ],
+      insightHighlights: [
+        {
+          eyebrow: 'Market Structure',
+          title: 'Pasar terkonsentrasi pada sedikit platform besar',
+          description:
+            'Penjualan global tidak tersebar merata. PS2 tampil sebagai platform paling dominan, menandakan bahwa kekuatan pasar terkonsentrasi pada beberapa pemain inti.',
+          implication:
+            'Analisis kompetisi dan peluang tidak perlu dimulai dari semua platform sekaligus, tetapi dari platform yang benar-benar mengendalikan volume pasar.',
+        },
+        {
+          eyebrow: 'Regional Behavior',
+          title: 'Preferensi genre berubah antar region',
+          description:
+            'Jepang menunjukkan kekuatan pada genre Role-Playing, sementara region lain cenderung lebih kuat pada Action.',
+          implication:
+            'Strategi konten, positioning, dan pembacaan demand perlu dibedakan per pasar, bukan digeneralisasi dari tren global.',
+        },
+        {
+          eyebrow: 'Lifecycle Pattern',
+          title: 'Setiap platform punya siklus performa yang berbeda',
+          description:
+            'Pertumbuhan, puncak, dan penurunan platform tidak terjadi dengan pola yang sama dari satu platform ke platform lain.',
+          implication:
+            'Evaluasi pasar perlu mempertimbangkan momentum waktu agar keputusan tidak hanya bergantung pada total penjualan historis.',
+        },
+      ],
+      impact: [
+        'Hasil analisis ini membantu memprioritaskan platform mana yang paling relevan untuk dibaca lebih dalam ketika menilai struktur pasar video game global.',
+        'Perbedaan genre antar region memberi dasar yang lebih kuat untuk membaca kebutuhan pasar secara lokal, terutama saat mengevaluasi peluang distribusi atau positioning konten.',
+        'Pembacaan lifecycle platform membantu melihat kapan momentum pasar berada pada fase tumbuh, matang, atau menurun sehingga keputusan analitis menjadi lebih kontekstual.',
+      ],
+      visualOutputs: [
+        {
+          label: 'Interactive Output',
+          title: 'Looker Studio Dashboard',
+          description:
+            'Dashboard interaktif untuk mengeksplorasi struktur pasar, komposisi genre antar region, dan pola lifecycle platform secara cepat.',
+          href: 'https://lookerstudio.google.com/reporting/9d6051e1-6eea-484f-af4f-5affd78f5353',
+          ctaLabel: 'View Dashboard',
+          previewType: 'dashboard',
+        },
+        {
+          label: 'Presentation Deck',
+          title: 'Canva Project Presentation',
+          description:
+            'Deck presentasi yang merangkum alur analisis, temuan utama, dan implikasi hasil dalam format yang lebih ringkas untuk stakeholder.',
+          href: 'https://canva.link/2qgzeyf9kds8lz8',
+          ctaLabel: 'View PPT',
+          image: '/images/projects/global-video-game-market-analysis-dashboard.jpg',
+          imageAlt: 'Cover presentasi proyek Global Video Game Market Analysis Dashboard.',
+          previewType: 'image',
+        },
+      ],
     },
   },
   {
@@ -80,12 +190,7 @@ export const projects = [
       'Relasi data digunakan untuk menghubungkan akun pengguna, data pegawai, riwayat kepegawaian, penugasan, dan catatan kegiatan.',
       'Lingkungan pengembangan juga disiapkan dengan Docker agar instalasi dan menjalankan layanan menjadi lebih konsisten.',
     ],
-    tools: [
-      'Laravel',
-      'Blade',
-      'MySQL',
-      'Docker',
-    ],
+    tools: ['Laravel', 'Blade', 'MySQL', 'Docker'],
     output:
       'Proyek ini menghasilkan aplikasi web internal dengan dashboard berbasis peran untuk admin, pegawai, dan KPH. Fitur utamanya mencakup manajemen akun pengguna, pengelolaan data pegawai, referensi master, penugasan kerja, pencatatan kegiatan, notifikasi administratif, log aktivitas sistem, dan ekspor dokumen PDF untuk kebutuhan pelaporan.',
     insights:
@@ -115,12 +220,7 @@ export const projects = [
       'Melakukan correlation analysis untuk mengidentifikasi faktor yang paling berkaitan dengan cumulative CO2.',
       'Membangun model multiple linear regression untuk melihat kemampuan beberapa variabel dalam menjelaskan cumulative CO2, lalu melanjutkannya dengan clustering dan proyeksi awal tren emisi periode 2021 sampai 2025.',
     ],
-    tools: [
-      'Python',
-      'Google Colab',
-      'Scikit-learn',
-      'Looker Studio',
-    ],
+    tools: ['Python', 'Google Colab', 'Scikit-learn', 'Looker Studio'],
     output:
       'Proyek ini menghasilkan dataset yang telah dibersihkan, visualisasi exploratory data analysis, analisis korelasi antar variabel, model untuk membaca hubungan variabel terhadap cumulative CO2, segmentasi negara berdasarkan tingkat emisi, prediksi awal tren emisi untuk beberapa tahun setelah 2020, serta dashboard interaktif di Looker Studio untuk mendukung eksplorasi hasil secara visual.',
     insights:
@@ -129,7 +229,8 @@ export const projects = [
     links: {
       demo: 'https://lookerstudio.google.com/reporting/87cd1be2-40f6-4b0d-bc5e-974eb00e00c3',
       demoLabel: 'Looker Studio',
-      notebook: 'https://colab.research.google.com/drive/1_mOJTAeSPt1V0neNWeSkZKvGqCnNI8qI?usp=sharing',
+      notebook:
+        'https://colab.research.google.com/drive/1_mOJTAeSPt1V0neNWeSkZKvGqCnNI8qI?usp=sharing',
       notebookLabel: 'Google Colab',
     },
   },
@@ -228,12 +329,7 @@ export const projects = [
       'Sistem kemudian diintegrasikan dengan Firebase untuk autentikasi dan penyimpanan data, serta dilengkapi fitur lokasi dan peta untuk membantu pencarian mitra.',
       'Fitur artikel juga ditambahkan untuk memberi nilai informasi tambahan di luar fungsi pencarian dan pengelolaan data.',
     ],
-    tools: [
-      'Flutter',
-      'Firebase',
-      'Flutter Map',
-      'Dart',
-    ],
+    tools: ['Flutter', 'Firebase', 'Flutter Map', 'Dart'],
     output:
       'Proyek ini menghasilkan aplikasi mobile yang mendukung login dan registrasi pengguna, pencarian dan penelusuran data mitra kopi, pengelolaan data produk kopi, akses informasi berbasis lokasi, konten artikel seputar kopi, serta penyimpanan data online melalui Firebase.',
     insights:

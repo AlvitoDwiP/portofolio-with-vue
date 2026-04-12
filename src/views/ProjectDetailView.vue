@@ -1,9 +1,17 @@
 <script setup>
 import { computed } from 'vue'
 import { useHead } from '@vueuse/head'
-import { ArrowLeft, ArrowUpRight, Github } from 'lucide-vue-next'
+import { ArrowLeft } from 'lucide-vue-next'
 import { useRoute } from 'vue-router'
 import AppShell from '@/components/layout/AppShell.vue'
+import ProjectCaseStudyApproach from '@/components/projects/case-study/ProjectCaseStudyApproach.vue'
+import ProjectCaseStudyContext from '@/components/projects/case-study/ProjectCaseStudyContext.vue'
+import ProjectCaseStudyHero from '@/components/projects/case-study/ProjectCaseStudyHero.vue'
+import ProjectCaseStudyImpact from '@/components/projects/case-study/ProjectCaseStudyImpact.vue'
+import ProjectCaseStudyInsights from '@/components/projects/case-study/ProjectCaseStudyInsights.vue'
+import ProjectCaseStudyMeta from '@/components/projects/case-study/ProjectCaseStudyMeta.vue'
+import ProjectCaseStudyProblem from '@/components/projects/case-study/ProjectCaseStudyProblem.vue'
+import ProjectCaseStudyVisualOutput from '@/components/projects/case-study/ProjectCaseStudyVisualOutput.vue'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
 import { useProjects } from '@/composables/useProjects'
 import { createPageTitle } from '@/utils/createPageTitle'
@@ -12,7 +20,185 @@ const route = useRoute()
 const { findProjectBySlug } = useProjects()
 
 const project = computed(() => findProjectBySlug(route.params.slug))
-const projectCategoryLabel = computed(() => project.value?.displayCategory ?? project.value?.category)
+
+const projectCategoryLabel = computed(
+  () => project.value?.displayCategory ?? project.value?.category
+)
+
+const splitIntoSentences = (text = '') =>
+  text
+    .split(/(?<=\.)\s+/)
+    .map((item) => item.trim())
+    .filter(Boolean)
+
+const buildFallbackProblemHighlights = (items = []) =>
+  items.map((item, index) => ({
+    title: `Problem ${String(index + 1).padStart(2, '0')}`,
+    description: item,
+    implication:
+      'Tanpa pembacaan yang lebih terstruktur, implikasi masalah ini mudah tertutup oleh deskripsi umum proyek.',
+  }))
+
+const buildFallbackApproachGroups = (items = []) =>
+  items.map((item, index) => ({
+    title: `Step ${String(index + 1).padStart(2, '0')}`,
+    description: item,
+  }))
+
+const buildFallbackVisualOutputs = (currentProject) => {
+  if (!currentProject?.links) {
+    return []
+  }
+
+  const outputs = []
+
+  if (currentProject.links.demo) {
+    outputs.push({
+      label: 'Interactive Output',
+      title: currentProject.links.demoLabel ?? 'Live Demo',
+      description:
+        'Output utama proyek ini tersedia untuk ditinjau langsung agar reviewer dapat melihat hasil kerja secara lebih konkret.',
+      href: currentProject.links.demo,
+      ctaLabel: `View ${currentProject.links.demoLabel ?? 'Demo'}`,
+      previewType: 'dashboard',
+      image: currentProject.cover,
+      imageAlt: currentProject.coverAlt ?? currentProject.title,
+    })
+  }
+
+  if (currentProject.links.notebook) {
+    outputs.push({
+      label: 'Working File',
+      title: currentProject.links.notebookLabel ?? 'Notebook',
+      description:
+        'Dokumen kerja ini menunjukkan proses analisis atau eksperimen yang mendukung hasil akhir proyek.',
+      href: currentProject.links.notebook,
+      ctaLabel: `View ${currentProject.links.notebookLabel ?? 'Notebook'}`,
+      previewType: 'image',
+      image: currentProject.cover,
+      imageAlt: currentProject.coverAlt ?? currentProject.title,
+    })
+  }
+
+  if (currentProject.links.ppt) {
+    outputs.push({
+      label: 'Presentation Deck',
+      title: currentProject.links.pptLabel ?? 'Presentation',
+      description:
+        'Presentasi ringkas ini merangkum konteks, proses, dan insight utama proyek dalam format yang cepat dipahami.',
+      href: currentProject.links.ppt,
+      ctaLabel: `View ${currentProject.links.pptLabel ?? 'Presentation'}`,
+      previewType: 'image',
+      image: currentProject.cover,
+      imageAlt: currentProject.coverAlt ?? currentProject.title,
+    })
+  }
+
+  return outputs
+}
+
+const buildFallbackImpact = (currentProject) =>
+  [currentProject.output, ...splitIntoSentences(currentProject.insights).slice(0, 2)].filter(
+    Boolean
+  )
+
+const buildSupportLinks = (currentProject) => {
+  if (!currentProject?.links) {
+    return []
+  }
+
+  return [
+    currentProject.links.github
+      ? {
+          label: 'GitHub Repository',
+          href: currentProject.links.github,
+          kind: 'github',
+        }
+      : null,
+    currentProject.links.demo
+      ? {
+          label: currentProject.links.demoLabel ?? 'Demo',
+          href: currentProject.links.demo,
+          kind: 'external',
+        }
+      : null,
+    currentProject.links.ppt
+      ? {
+          label: currentProject.links.pptLabel ?? 'Presentation',
+          href: currentProject.links.ppt,
+          kind: 'external',
+        }
+      : null,
+    currentProject.links.notebook
+      ? {
+          label: currentProject.links.notebookLabel ?? 'Notebook',
+          href: currentProject.links.notebook,
+          kind: 'external',
+        }
+      : null,
+  ].filter(Boolean)
+}
+
+const heroLinks = computed(() => {
+  if (!project.value?.links) {
+    return []
+  }
+
+  const preferredLinks = [
+    project.value.links.demo
+      ? {
+          label: `View ${project.value.links.demoLabel ?? 'Demo'}`,
+          href: project.value.links.demo,
+          variant: 'primary',
+        }
+      : null,
+    project.value.links.ppt
+      ? {
+          label: `View ${project.value.links.pptLabel ?? 'Presentation'}`,
+          href: project.value.links.ppt,
+          variant: 'secondary',
+        }
+      : null,
+    project.value.links.notebook
+      ? {
+          label: `View ${project.value.links.notebookLabel ?? 'Notebook'}`,
+          href: project.value.links.notebook,
+          variant: 'secondary',
+        }
+      : null,
+  ].filter(Boolean)
+
+  return preferredLinks.slice(0, 2)
+})
+
+const caseStudy = computed(() => {
+  if (!project.value) {
+    return null
+  }
+
+  const currentProject = project.value
+  const study = currentProject.caseStudy ?? {}
+
+  return {
+    heroSummary: study.heroSummary ?? currentProject.shortDescription,
+    context: study.context?.length ? study.context : [currentProject.overview],
+    problemHighlights: study.problemHighlights?.length
+      ? study.problemHighlights
+      : buildFallbackProblemHighlights(currentProject.problem),
+    approachGroups: study.approachGroups?.length
+      ? study.approachGroups
+      : buildFallbackApproachGroups(currentProject.approach),
+    insightHighlights: study.insightHighlights ?? [],
+    insightSummary: currentProject.insights,
+    visualOutputs: study.visualOutputs?.length
+      ? study.visualOutputs
+      : buildFallbackVisualOutputs(currentProject),
+    impact: study.impact?.length ? study.impact : buildFallbackImpact(currentProject),
+    supportLinks: buildSupportLinks(currentProject),
+    coverImage: currentProject.cover,
+    coverAlt: currentProject.coverAlt ?? currentProject.title,
+  }
+})
 
 useHead(() => ({
   title: createPageTitle(project.value?.title ?? 'Proyek'),
@@ -30,155 +216,41 @@ useHead(() => ({
 <template>
   <AppShell>
     <section class="section-theme section-theme-detail-project">
-      <BaseContainer class="py-16 sm:py-24">
-        <div v-if="project" class="space-y-10">
-          <RouterLink
-            :to="{ name: 'home', hash: '#proyek' }"
-            class="glass-chip glass-hover inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm"
-          >
-            <ArrowLeft class="h-4 w-4" />
-            Kembali ke proyek
-          </RouterLink>
+      <BaseContainer class="[--container-width:78rem] py-14 sm:py-16 lg:py-20">
+        <div v-if="project && caseStudy" class="space-y-12 sm:space-y-14">
+          <ProjectCaseStudyHero
+            :back-to="{ name: 'home', hash: '#proyek' }"
+            :category="projectCategoryLabel"
+            :title="project.title"
+            :summary="caseStudy.heroSummary"
+            :links="heroLinks"
+            :cover-image="caseStudy.coverImage"
+            :cover-alt="caseStudy.coverAlt"
+          />
 
-          <section class="max-w-4xl space-y-5">
-            <span
-              class="section-chip-accent inline-flex items-center rounded-full px-4 py-2 text-[0.68rem] font-medium uppercase tracking-[0.22em]"
-            >
-              {{ projectCategoryLabel }}
-            </span>
-            <h1 class="font-display text-4xl text-textPrimary sm:text-5xl">{{ project.title }}</h1>
-            <p class="max-w-3xl text-base leading-8 text-textSecondary sm:text-lg">
-              {{ project.shortDescription }}
-            </p>
-          </section>
+          <div class="grid gap-12 xl:grid-cols-[minmax(0,1fr)_18rem] xl:gap-10">
+            <div class="space-y-14 sm:space-y-16">
+              <ProjectCaseStudyContext :paragraphs="caseStudy.context" />
 
-          <div
-            class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem] xl:grid-cols-[minmax(0,1fr)_22rem]"
-          >
-            <div class="glass glass-panel-solid rounded-lg p-7 sm:p-8">
-              <section class="space-y-4">
-                <p class="section-eyebrow text-xs uppercase tracking-[0.22em]">Overview</p>
-                <p class="text-sm leading-8 text-textSecondary sm:text-base">
-                  {{ project.overview }}
-                </p>
-              </section>
+              <ProjectCaseStudyProblem :items="caseStudy.problemHighlights" />
 
-              <section
-                v-if="project.problem?.length"
-                class="mt-8 border-t border-[color:var(--glass-border)] pt-8"
-              >
-                <p class="section-eyebrow text-xs uppercase tracking-[0.22em]">Problem</p>
-                <ul class="mt-5 space-y-3">
-                  <li
-                    v-for="item in project.problem"
-                    :key="item"
-                    class="glass-chip-strong rounded-card px-4 py-3 text-sm leading-7 text-textPrimary"
-                  >
-                    {{ item }}
-                  </li>
-                </ul>
-              </section>
+              <ProjectCaseStudyApproach :items="caseStudy.approachGroups" />
 
-              <section
-                v-if="project.approach?.length"
-                class="mt-8 border-t border-[color:var(--glass-border)] pt-8"
-              >
-                <p class="section-eyebrow text-xs uppercase tracking-[0.22em]">Approach</p>
-                <ul class="mt-5 space-y-3">
-                  <li
-                    v-for="item in project.approach"
-                    :key="item"
-                    class="glass-chip-strong rounded-card px-4 py-3 text-sm leading-7 text-textPrimary"
-                  >
-                    {{ item }}
-                  </li>
-                </ul>
-              </section>
+              <ProjectCaseStudyInsights
+                :items="caseStudy.insightHighlights"
+                :summary="caseStudy.insightSummary"
+              />
+
+              <ProjectCaseStudyVisualOutput :items="caseStudy.visualOutputs" />
+
+              <ProjectCaseStudyImpact :items="caseStudy.impact" />
             </div>
 
-            <aside
-              v-if="
-                project.tools?.length ||
-                project.output ||
-                project.insights ||
-                project.links?.github ||
-                project.links?.demo ||
-                project.links?.notebook
-              "
-              class="glass glass-panel-solid rounded-lg p-6"
-            >
-              <section v-if="project.tools?.length" class="space-y-5">
-                <p class="section-eyebrow text-xs uppercase tracking-[0.22em]">Tools</p>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    v-for="item in project.tools"
-                    :key="item"
-                    class="glass-chip rounded-full px-3 py-2 text-xs"
-                  >
-                    {{ item }}
-                  </span>
-                </div>
-              </section>
-
-              <section
-                v-if="project.output"
-                class="mt-6 border-t border-[color:var(--glass-border)] pt-6"
-              >
-                <p class="section-eyebrow text-xs uppercase tracking-[0.22em]">Output</p>
-                <p class="mt-4 text-sm leading-8 text-textSecondary">
-                  {{ project.output }}
-                </p>
-              </section>
-
-              <section
-                v-if="project.insights"
-                class="mt-6 border-t border-[color:var(--glass-border)] pt-6"
-              >
-                <p class="section-eyebrow text-xs uppercase tracking-[0.22em]">Insights</p>
-                <p class="mt-4 text-sm leading-8 text-textSecondary">
-                  {{ project.insights }}
-                </p>
-              </section>
-
-              <section
-                v-if="project.links?.github || project.links?.demo || project.links?.notebook"
-                class="mt-6 border-t border-[color:var(--glass-border)] pt-6"
-              >
-                <p class="section-eyebrow text-xs uppercase tracking-[0.22em]">Tautan</p>
-                <div class="mt-5 flex flex-col gap-3">
-                  <a
-                    v-if="project.links?.github"
-                    :href="project.links.github"
-                    target="_blank"
-                    rel="noreferrer"
-                    class="glass-chip-strong glass-hover inline-flex items-center justify-between rounded-card px-4 py-3 text-sm text-textPrimary"
-                  >
-                    <span>GitHub</span>
-                    <Github class="h-4 w-4" />
-                  </a>
-                  <a
-                    v-if="project.links?.demo"
-                    :href="project.links.demo"
-                    target="_blank"
-                    rel="noreferrer"
-                    class="glass-chip-strong glass-hover inline-flex items-center justify-between rounded-card px-4 py-3 text-sm text-textPrimary"
-                  >
-                    <span>{{ project.links.demoLabel ?? 'Demo' }}</span>
-                    <ArrowUpRight class="h-4 w-4" />
-                  </a>
-                  <a
-                    v-if="project.links?.notebook"
-                    :href="project.links.notebook"
-                    target="_blank"
-                    rel="noreferrer"
-                    class="glass-chip-strong glass-hover inline-flex items-center justify-between rounded-card px-4 py-3 text-sm text-textPrimary"
-                  >
-                    <span>{{ project.links.notebookLabel ?? 'Notebook' }}</span>
-                    <ArrowUpRight class="h-4 w-4" />
-                  </a>
-                </div>
-              </section>
-            </aside>
+            <ProjectCaseStudyMeta
+              :tools="project.tools"
+              :output="project.output"
+              :links="caseStudy.supportLinks"
+            />
           </div>
         </div>
 
