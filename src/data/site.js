@@ -1,3 +1,5 @@
+import { createAssetUrl } from '@/utils/createAssetUrl'
+
 export const siteConfig = {
   name: 'Alvito Dwinova Permana',
   brandName: 'Alvito',
@@ -6,9 +8,9 @@ export const siteConfig = {
   email: 'vdwinova@gmail.com',
   githubUrl: 'https://github.com/AlvitoDwiP',
   linkedinUrl: 'https://www.linkedin.com/in/alvito-dwinova-permana-90a7b82ab',
-  resumeUrl: '/alvito-dwinova-permana-cv.pdf',
+  resumeUrl: createAssetUrl('alvito-dwinova-permana-cv.pdf'),
   portrait: {
-    src: '/profile-photo-hero.jpg',
+    src: createAssetUrl('profile-photo-hero.jpg'),
     alt: 'Foto profesional Alvito Dwinova Permana',
   },
   eyebrow: 'Portofolio Personal',

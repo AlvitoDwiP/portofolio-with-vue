@@ -1,3 +1,7 @@
+import { createAssetUrl } from '@/utils/createAssetUrl'
+
+const projectImage = (filename) => createAssetUrl(`images/projects/${filename}`)
+
 export const projects = [
   {
     id: 1,
@@ -24,7 +28,7 @@ export const projects = [
       'Proyek ini menghasilkan notebook analisis, dataset yang sudah dibersihkan, data agregat untuk visualisasi, dashboard interaktif di Looker Studio, dan dokumentasi proses di GitHub.',
     insights:
       'Hasil analisis menunjukkan bahwa pasar video game terkonsentrasi pada beberapa platform besar, dengan PS2 sebagai platform paling dominan. Preferensi genre juga berbeda antarwilayah. Jepang lebih kuat pada Role-Playing, sedangkan wilayah lain lebih didominasi Action. Dari sisi waktu, tiap platform memiliki pola siklus hidup yang berbeda, sehingga pembacaan pasar tidak bisa disamaratakan.',
-    cover: '/images/projects/global-video-game-market-analysis-dashboard.jpg',
+    cover: '',
     links: {
       github: 'https://github.com/AlvitoDwiP/video-game-sales',
       demo: 'https://lookerstudio.google.com/reporting/9d6051e1-6eea-484f-af4f-5affd78f5353',
@@ -139,7 +143,7 @@ export const projects = [
       'Proyek ini menghasilkan dataset bersih, notebook analisis untuk segmentasi churn, visualisasi utama, dan executive summary yang dapat dipakai sebagai dasar evaluasi retensi.',
     insights:
       'Analisis menunjukkan churn rate berada di kisaran 26 persen. Risiko tertinggi muncul pada pelanggan dengan kontrak month-to-month dan pengguna layanan fiber optic. Pelanggan yang churn juga cenderung memiliki tenure lebih pendek dan biaya bulanan lebih tinggi. Selain itu, ketiadaan TechSupport dan OnlineSecurity berkaitan kuat dengan churn yang lebih tinggi.',
-    cover: '/images/projects/analisis-customer-churn-strategi-retensi-bisnis-subscription.jpg',
+    cover: '',
     links: {
       github: 'https://github.com/AlvitoDwiP/churn-analysis',
     },
@@ -169,7 +173,7 @@ export const projects = [
       'Proyek ini menghasilkan aplikasi internal dengan dashboard berbasis peran, manajemen akun, data pegawai, referensi master, penugasan kerja, pencatatan kegiatan, log aktivitas, dan ekspor PDF untuk kebutuhan pelaporan.',
     insights:
       'Proyek ini menunjukkan bahwa sistem internal perlu kuat pada pengaturan peran dan relevansi alur kerja. Pemisahan dashboard dan middleware membantu menjaga keamanan akses sekaligus membuat tiap pengguna melihat fungsi yang memang mereka butuhkan. Saat modul kepegawaian, penugasan, dan pelaporan disatukan, proses administrasi menjadi lebih rapi dan lebih mudah dipantau.',
-    cover: '/images/projects/sipanda-admin-dashboard.png',
+    cover: projectImage('sipanda-admin-dashboard.png'),
     links: {
       github: 'https://github.com/AlvitoDwiP/sipanda-kph.git',
     },
@@ -251,41 +255,41 @@ export const projects = [
         'KPH memperoleh ringkasan kondisi lintas unit kerja melalui dashboard monitoring yang menampilkan status tugas, keterlambatan, dan tingkat penyelesaian.',
       ],
       appPreview: {
-        imageSrc: '/images/projects/sipanda-admin-dashboard.png',
+        imageSrc: projectImage('sipanda-admin-dashboard.png'),
         imageAlt: 'Dashboard admin SIPANDA-KPH',
         description:
           'Galeri ini menampilkan alur utama SIPANDA-KPH mulai dari login hingga dashboard dan halaman operasional untuk tiap peran.',
         images: [
           {
-            src: '/images/projects/sipanda-login.png',
+            src: projectImage('sipanda-login.png'),
             alt: 'Halaman login SIPANDA-KPH',
             label: 'Login',
             caption:
               'Halaman masuk dengan form sederhana, fokus visual pada autentikasi, dan CTA utama yang jelas untuk pengguna internal.',
           },
           {
-            src: '/images/projects/sipanda-admin-dashboard.png',
+            src: projectImage('sipanda-admin-dashboard.png'),
             alt: 'Dashboard admin SIPANDA-KPH',
             label: 'Dashboard Admin',
             caption:
               'Admin melihat ringkasan pegawai aktif, akun menunggu verifikasi, tugas berjalan, catatan menunggu validasi, serta shortcut tindakan utama.',
           },
           {
-            src: '/images/projects/sipanda-catatan-validasi.png',
+            src: projectImage('sipanda-catatan-validasi.png'),
             alt: 'Halaman validasi catatan kegiatan pegawai SIPANDA-KPH',
             label: 'Validasi Catatan',
             caption:
               'Tabel catatan kegiatan memusatkan status pengajuan, detail dokumen, dan unduhan PDF untuk membantu proses review administratif.',
           },
           {
-            src: '/images/projects/sipanda-pegawai-dashboard.png',
+            src: projectImage('sipanda-pegawai-dashboard.png'),
             alt: 'Dashboard pegawai SIPANDA-KPH',
             label: 'Dashboard Pegawai',
             caption:
               'Pegawai mendapat ringkasan tugas pribadi, progres bulanan, dan akses cepat untuk memperbarui status tugas atau membuat catatan kegiatan.',
           },
           {
-            src: '/images/projects/sipanda-kph-dashboard.png',
+            src: projectImage('sipanda-kph-dashboard.png'),
             alt: 'Dashboard KPH SIPANDA-KPH',
             label: 'Dashboard KPH',
             caption:
@@ -320,7 +324,7 @@ export const projects = [
       'Proyek ini menghasilkan dataset yang telah dibersihkan, visualisasi exploratory data analysis, analisis korelasi, model untuk membaca hubungan antarvariabel, segmentasi negara, proyeksi tren emisi, dan dashboard interaktif di Looker Studio.',
     insights:
       'Analisis menunjukkan bahwa cumulative CO2 di negara-negara ASEAN paling kuat berkaitan dengan population, total CO2 emissions, dan land use. Model regresi juga menunjukkan bahwa faktor waktu ikut berperan dalam perubahan emisi. Selain itu, hasil clustering membagi negara ASEAN ke dalam dua kelompok utama, yaitu emisi rendah dan emisi tinggi, yang menunjukkan distribusi emisi kawasan ini tidak merata.',
-    cover: '/images/projects/acc-carbon-emissions-analysis-dashboard.jpg',
+    cover: '',
     links: {
       demo: 'https://lookerstudio.google.com/reporting/87cd1be2-40f6-4b0d-bc5e-974eb00e00c3',
       demoLabel: 'Looker Studio',
@@ -363,7 +367,7 @@ export const projects = [
       'Proyek ini menghasilkan aplikasi internal yang membantu owner mengelola pegawai, layanan, produk, pengeluaran, transaksi harian, komisi, payroll, dan laporan operasional. Sistem juga mendukung ekspor laporan ke CSV untuk kebutuhan rekap.',
     insights:
       'Proyek ini menunjukkan bahwa sistem untuk usaha kecil tidak perlu rumit, tetapi harus tepat pada alur bisnisnya. Historical snapshot menjadi penting karena menjaga data transaksi dan payroll tetap konsisten. Pendekatan single owner juga membuat autentikasi dan permission bisa dibuat lebih sederhana, sehingga aplikasi tetap fokus pada pekerjaan inti.',
-    cover: '/images/projects/hair-studio-dashboard.png',
+    cover: projectImage('hair-studio-dashboard.png'),
     links: {
       github: 'https://github.com/AlvitoDwiP/barber-management.git',
     },
@@ -445,48 +449,48 @@ export const projects = [
         'Dashboard dan modul operasional yang ringkas membantu pembacaan kondisi bisnis harian maupun bulanan tanpa perlu rekap manual berulang.',
       ],
       appPreview: {
-        imageSrc: '/images/projects/hair-studio-dashboard.png',
+        imageSrc: projectImage('hair-studio-dashboard.png'),
         imageAlt: 'Dashboard Sistem Operasional Hair Studio',
         description:
           'Galeri ini menampilkan alur utama Sistem Operasional Hair Studio dari login owner sampai transaksi, payroll, dan pengeluaran.',
         images: [
           {
-            src: '/images/projects/hair-studio-login.png',
+            src: projectImage('hair-studio-login.png'),
             alt: 'Halaman login owner Sistem Operasional Hair Studio',
             label: 'Login Owner',
             caption:
               'Halaman masuk menegaskan konteks penggunaan untuk owner yang mengakses transaksi, payroll, laporan, dan pengaturan aplikasi.',
           },
           {
-            src: '/images/projects/hair-studio-dashboard.png',
+            src: projectImage('hair-studio-dashboard.png'),
             alt: 'Dashboard Sistem Operasional Hair Studio',
             label: 'Dashboard',
             caption:
               'Dashboard merangkum kas masuk harian, performa bulanan, laba operasional, pegawai paling produktif, dan produk paling laku dalam satu layar.',
           },
           {
-            src: '/images/projects/hair-studio-transaksi-list.png',
+            src: projectImage('hair-studio-transaksi-list.png'),
             alt: 'Daftar transaksi Sistem Operasional Hair Studio',
             label: 'Daftar Transaksi',
             caption:
               'Halaman transaksi memperlihatkan filter, ringkasan cepat hari ini, serta daftar transaksi tersimpan yang masih bisa dicek atau dikoreksi sebelum payroll final.',
           },
           {
-            src: '/images/projects/hair-studio-input-transaksi.png',
+            src: projectImage('hair-studio-input-transaksi.png'),
             alt: 'Form input transaksi Sistem Operasional Hair Studio',
             label: 'Input Transaksi',
             caption:
               'Form input harian memadukan pegawai, metode pembayaran, item layanan atau produk, dan total transaksi dalam satu blok kerja yang mudah dipantau.',
           },
           {
-            src: '/images/projects/hair-studio-payroll.png',
+            src: projectImage('hair-studio-payroll.png'),
             alt: 'Detail payroll Sistem Operasional Hair Studio',
             label: 'Payroll',
             caption:
               'Owner dapat meninjau periode payroll, status periode, jumlah transaksi yang masuk, dan hasil komisi per pegawai dari satu halaman ringkas.',
           },
           {
-            src: '/images/projects/hair-studio-pengeluaran.png',
+            src: projectImage('hair-studio-pengeluaran.png'),
             alt: 'Halaman pengeluaran Sistem Operasional Hair Studio',
             label: 'Pengeluaran',
             caption:
@@ -520,7 +524,7 @@ export const projects = [
       'Proyek ini menghasilkan dataset hasil preprocessing, data transaksi paid shipping dan free shipping, data agregat untuk visualisasi, notebook analisis, dan dashboard interaktif di Tableau Public.',
     insights:
       'Analisis menunjukkan bahwa gratis ongkir mendominasi 69,80 persen dari seluruh transaksi. Pada transaksi berbayar, median ongkir per kilogram berada di angka Rp10.000 dan memberi gambaran baseline biaya logistik aktual. Dari sisi risiko, segmen subsidi tinggi memiliki cancellation rate 24,81 persen, lebih tinggi dibanding segmen subsidi rendah yang berada di 15,26 persen. Beban subsidi juga banyak terkonsentrasi di Jawa Barat, Banten, dan DKI Jakarta.',
-    cover: '/images/projects/analisis-efisiensi-ongkir-risiko-pembatalan-ecommerce-indonesia.jpg',
+    cover: '',
     links: {
       github: 'https://github.com/AlvitoDwiP/operasional_ecommers_indo',
       demo: 'https://public.tableau.com/views/E-commersShipping/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
@@ -557,13 +561,13 @@ export const projects = [
       'Proyek ini menghasilkan aplikasi mobile yang mendukung login dan registrasi, pencarian serta penelusuran mitra kopi, pengelolaan data produk, informasi berbasis lokasi, dan artikel seputar kopi dengan penyimpanan data online melalui Firebase.',
     insights:
       'Proyek ini menunjukkan bahwa kebutuhan pengguna tidak hanya berhenti pada pencarian mitra. Mereka juga perlu informasi produk, lokasi, dan konten pendukung dalam alur yang ringkas. Nilai utama aplikasi ini ada pada cara beberapa fungsi berbeda disatukan dalam pengalaman mobile yang tetap mudah dipahami.',
-    cover: '/images/projects/findfe-aplikasi-mobile-pencarian-mitra-dan-informasi-produk-kopi.jpg',
+    cover: projectImage('findfe-ui.png'),
     links: {
       github: 'https://github.com/AlvitoDwiP/AplikasiCariMitraKopi-main',
     },
     caseStudy: {
       appPreview: {
-        imageSrc: '/images/projects/findfe-ui.png',
+        imageSrc: projectImage('findfe-ui.png'),
         imageAlt: 'Preview fitur utama aplikasi FindFe dalam beberapa layar',
         description:
           'Preview ini menunjukkan alur utama aplikasi, mulai dari pencarian mitra, informasi produk kopi, sampai penelusuran lokasi dalam satu tampilan yang mudah diikuti.',

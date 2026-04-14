@@ -140,21 +140,37 @@ const tools = toolGroups.flatMap((group) => group.tools)
       <div class="space-y-10 lg:space-y-12">
         <div class="max-w-4xl space-y-6">
           <SectionHeader
-            eyebrow="Tentang Saya"
-            title="Saya memulai dari kebutuhan yang nyata, lalu memilih bentuk solusi yang paling tepat."
-            description="Saya terbiasa membaca konteks, merapikan informasi, lalu mengubahnya menjadi analisis atau aplikasi yang dapat dipakai."
+            eyebrow="who am i?"
+            title="Tentang Saya."
             class="max-w-3xl"
           />
 
-          <p class="section-muted text-sm leading-8 sm:text-base">
-            Saya lulusan Teknologi Informasi Universitas Jember. Fokus kerja saya ada pada analisis
-            data dan pengembangan sistem yang membantu proses kerja menjadi lebih jelas.
+          <p class="section-muted text-justify text-sm leading-8 sm:text-base">
+            Saya merupakan lulusan Teknologi Informasi dari Universitas Jember dengan IPK 3.76/4.00.
+            Saya berfokus pada analisis data dan pemecahan masalah berbasis data dengan pengalaman
+            dalam mengolah data mentah menjadi insight yang terstruktur untuk mendukung pengambilan
+            keputusan. Saya memulai dari memahami kebutuhan yang nyata kemudian merapikan informasi dan
+            mengubahnya menjadi analisis atau solusi yang dapat digunakan. Dalam prosesnya, saya
+            tidak hanya berhenti pada insight tetapi juga mengembangkan aplikasi berbasis web untuk
+            menyajikan data secara lebih terstruktur dan mudah diakses.
           </p>
 
-          <p class="section-muted text-sm leading-8 sm:text-base">
-            Melalui magang dan berbagai proyek, saya terbiasa menyusun alur kerja yang rapi,
-            berdiskusi dengan konteks bisnis, dan menjaga agar hasil akhirnya tetap berguna bagi
-            orang yang memakainya.
+          <p class="section-muted text-justify text-sm leading-8 sm:text-base">
+            Selama masa studi saya membangun dasar yang kuat dalam data analytics, machine
+            learning, dan data processing melalui proyek akademik dan praktik langsung. Saya juga
+            pernah berperan sebagai Asisten Dosen di Laboratorium GIS serta Asisten
+            Laboratorium Smart Agriculture. Saya membantu sesi praktikum, membimbing
+            mahasiswa, dan menjelaskan konsep teknis seperti sistem operasi dan penerapan IoT.
+            Melalui pengalaman magang dan berbagai proyek, saya terbiasa menyusun alur kerja yang
+            rapi, memahami konteks kebutuhan, serta memastikan solusi yang dibangun tetap relevan
+            dan dapat digunakan secara nyata.
+          </p>
+
+          <p class="section-muted text-justify text-sm leading-8 sm:text-base">
+            Saya tertarik pada peran Data Analyst dan Data Science yang dimana saya dapat menganalisis
+            data, menemukan pola, dan menghasilkan insight yang berdampak. Saya juga terus
+            mengembangkan kemampuan dengan mengerjakan dataset nyata, membangun proyek analisis,
+            serta mengembangkan sistem sederhana yang menghubungkan data dengan aplikasi.
           </p>
         </div>
 
