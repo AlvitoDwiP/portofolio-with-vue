@@ -15,7 +15,7 @@ defineProps({
   <aside v-if="tools.length || output" class="xl:sticky xl:top-28 xl:self-start">
     <div class="rounded-[1.5rem] border border-white/8 bg-white/[0.02] p-5 sm:p-6">
       <section v-if="output" class="space-y-3">
-        <p class="case-study-kicker">Summary</p>
+        <p class="case-study-kicker">Ringkas</p>
         <h2 class="font-display text-[1.35rem] leading-tight text-textPrimary">Output</h2>
         <p class="case-study-copy text-sm leading-7 text-textSecondary">
           {{ output }}

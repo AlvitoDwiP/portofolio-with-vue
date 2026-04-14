@@ -19,7 +19,7 @@ defineProps({
 <template>
   <section v-if="items.length" class="space-y-7 sm:space-y-8">
     <div class="max-w-3xl space-y-3">
-      <p class="case-study-kicker">Core Tensions</p>
+      <p class="case-study-kicker">Pokok Masalah</p>
       <h2 class="case-study-heading">Problem</h2>
     </div>
 

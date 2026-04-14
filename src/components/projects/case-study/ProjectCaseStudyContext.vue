@@ -2,7 +2,7 @@
 defineProps({
   title: {
     type: String,
-    default: 'Why This Matters',
+    default: 'Latar Belakang',
   },
   paragraph: {
     type: String,

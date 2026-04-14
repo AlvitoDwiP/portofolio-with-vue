@@ -14,12 +14,12 @@ defineProps({
 <template>
   <section v-if="items.length || summary" class="space-y-7 sm:space-y-8">
     <div class="max-w-3xl space-y-3">
-      <p class="case-study-kicker">Fast Read</p>
+      <p class="case-study-kicker">Inti Temuan</p>
       <h2 class="case-study-heading">Insights</h2>
     </div>
 
     <div class="section-panel rounded-[1.75rem] p-6 sm:p-8">
-      <p class="case-study-kicker">Core Reading</p>
+      <p class="case-study-kicker">Ringkasan</p>
       <p
         class="case-study-copy mt-5 max-w-4xl text-lg leading-8 text-textPrimary sm:text-[1.24rem]"
       >

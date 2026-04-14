@@ -12,11 +12,11 @@ export const siteConfig = {
     alt: 'Foto profesional Alvito Dwinova Permana',
   },
   eyebrow: 'Portofolio Personal',
-  headline: 'Saya membangun solusi data analytics dan fullstack yang siap dipakai',
+  headline: 'Saya mengerjakan analisis data dan pengembangan aplikasi untuk kebutuhan yang jelas',
   summary:
-    'Saya menggabungkan analisis data, visualisasi, dan pengembangan aplikasi web untuk membangun solusi yang relevan, jelas, dan bisa langsung digunakan.',
+    'Saya bekerja di persimpangan analisis data dan pengembangan aplikasi. Fokus saya adalah merapikan informasi, lalu menerjemahkannya menjadi sistem atau output yang bisa dipakai.',
   description:
-    'Portfolio Alvito Dwinova Permana berisi project data analytics dan fullstack yang berfokus pada solusi nyata.',
-  availability: 'Terbuka untuk peluang full-time, project freelance, dan kolaborasi yang relevan.',
+    'Portofolio Alvito Dwinova Permana yang memuat proyek analisis data, pengembangan aplikasi, dan pengalaman kerja yang relevan.',
+  availability: 'Terbuka untuk peran tetap, freelance, dan kolaborasi yang relevan.',
   stack: ['Python', 'SQL', 'Tableau', 'Laravel', 'Vue'],
 }

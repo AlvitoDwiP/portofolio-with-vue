@@ -41,12 +41,12 @@ const visibleProjects = computed(() => filteredProjects.value.slice(0, maxVisibl
         <div class="max-w-3xl space-y-4">
           <p class="section-eyebrow text-xs uppercase tracking-[0.28em]">Proyek Pilihan</p>
           <h2 class="font-display text-3xl text-white sm:text-4xl">
-            Hasil kerja yang menunjukkan bagaimana saya membaca masalah lalu membangun solusi yang
-            bisa dipakai.
+            Beberapa proyek ini menunjukkan cara saya memahami kebutuhan lalu menerjemahkannya
+            menjadi hasil kerja yang jelas.
           </h2>
           <p class="section-muted max-w-2xl text-sm leading-7">
-            Setiap proyek dipilih untuk memperlihatkan alur kerja saya, dari memahami konteks,
-            mengolah data, sampai merancang output yang relevan untuk kebutuhan nyata.
+            Setiap proyek memperlihatkan konteks masalah, cara kerja yang dipilih, dan output yang
+            dipakai untuk menjawab kebutuhan yang berbeda.
           </p>
         </div>
 

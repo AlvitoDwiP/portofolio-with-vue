@@ -26,7 +26,7 @@ import unejLogo from '@/assets/images/education/unej-logo.png'
       </h2>
 
       <p class="section-muted mt-2 max-w-xl text-sm leading-7 sm:text-base">
-        Prodi Teknologi Informasi Fakultas Ilmu Komputer
+        Program Studi Teknologi Informasi, Fakultas Ilmu Komputer
       </p>
 
       <p class="section-muted mt-2 max-w-xl text-sm leading-7 sm:text-base">UNIVERSITAS JEMBER</p>

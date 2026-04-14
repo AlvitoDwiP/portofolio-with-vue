@@ -10,7 +10,7 @@ defineProps({
 <template>
   <section v-if="items.length" class="space-y-7 sm:space-y-8">
     <div class="max-w-3xl space-y-3">
-      <p class="case-study-kicker">Decision Value</p>
+      <p class="case-study-kicker">Makna Hasil</p>
       <h2 class="case-study-heading">Impact</h2>
     </div>
 

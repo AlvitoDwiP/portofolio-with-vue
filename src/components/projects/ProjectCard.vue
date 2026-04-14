@@ -12,6 +12,19 @@ const props = defineProps({
 
 const cardVariant = computed(() => resolveProjectCardVariant(props.project))
 const visibleTools = computed(() => props.project.tools.slice(0, 4))
+const titleClass = computed(() => {
+  const titleLength = props.project.title?.trim().length ?? 0
+
+  if (titleLength >= 72) {
+    return 'text-[1.22rem] sm:text-[1.3rem]'
+  }
+
+  if (titleLength >= 52) {
+    return 'text-[1.4rem] sm:text-[1.48rem]'
+  }
+
+  return 'text-[1.65rem]'
+})
 </script>
 
 <template>
@@ -78,7 +91,10 @@ const visibleTools = computed(() => props.project.tools.slice(0, 4))
         </p>
         <RouterLink
           :to="{ name: 'project-detail', params: { slug: project.slug } }"
-          class="block font-display text-[1.65rem] leading-tight text-textPrimary transition-colors duration-200 group-hover:text-white/90"
+          :class="[
+            'block font-display leading-tight text-textPrimary transition-colors duration-200 group-hover:text-white/90 sm:text-[1.65rem]',
+            titleClass,
+          ]"
         >
           {{ project.title }}
         </RouterLink>

@@ -33,7 +33,10 @@ defineProps({
       {{ title }}
     </component>
 
-    <p v-if="description" class="section-muted max-w-2xl text-sm leading-8 sm:text-base">
+    <p
+      v-if="description"
+      class="section-muted max-w-2xl whitespace-pre-line text-sm leading-8 sm:text-base"
+    >
       {{ description }}
     </p>
   </div>

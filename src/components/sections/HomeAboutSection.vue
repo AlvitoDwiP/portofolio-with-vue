@@ -141,21 +141,20 @@ const tools = toolGroups.flatMap((group) => group.tools)
         <div class="max-w-4xl space-y-6">
           <SectionHeader
             eyebrow="Tentang Saya"
-            title="Saya bekerja dengan pendekatan berbasis masalah, bukan sekadar tools."
-            description="Pendekatan saya menggabungkan analisis data dan pengembangan aplikasi untuk menghasilkan solusi yang benar-benar digunakan."
+            title="Saya memulai dari kebutuhan yang nyata, lalu memilih bentuk solusi yang paling tepat."
+            description="Saya terbiasa membaca konteks, merapikan informasi, lalu mengubahnya menjadi analisis atau aplikasi yang dapat dipakai."
             class="max-w-3xl"
           />
 
           <p class="section-muted text-sm leading-8 sm:text-base">
-            Saya adalah lulusan Teknologi Informasi Universitas Jember yang berfokus pada data
-            analytics dan pengembangan sistem. Saya terbiasa mengolah data dan mengubahnya menjadi
-            insight yang dapat digunakan dalam pengambilan keputusan.
+            Saya lulusan Teknologi Informasi Universitas Jember. Fokus kerja saya ada pada analisis
+            data dan pengembangan sistem yang membantu proses kerja menjadi lebih jelas.
           </p>
 
           <p class="section-muted text-sm leading-8 sm:text-base">
-            Saya memiliki pengalaman melalui internship dan proyek nyata, serta terbiasa bekerja
-            secara sistematis, berpikir kritis, dan menghubungkan data dengan kebutuhan bisnis agar
-            solusi yang dihasilkan benar-benar relevan dan dapat digunakan.
+            Melalui magang dan berbagai proyek, saya terbiasa menyusun alur kerja yang rapi,
+            berdiskusi dengan konteks bisnis, dan menjaga agar hasil akhirnya tetap berguna bagi
+            orang yang memakainya.
           </p>
         </div>
 
@@ -169,11 +168,11 @@ const tools = toolGroups.flatMap((group) => group.tools)
           <div class="relative">
             <div class="max-w-xl space-y-2">
               <h3 class="text-lg font-semibold tracking-[-0.03em] text-textPrimary sm:text-xl">
-                Tools &amp; Technologies
+                Tools dan Teknologi
               </h3>
               <p class="section-muted text-sm leading-7">
-                Tools utama yang saya gunakan untuk membangun, menganalisis, dan mengembangkan
-                produk.
+                Tools yang paling sering saya gunakan saat mengolah data, membangun aplikasi, dan
+                menyiapkan output kerja.
               </p>
             </div>
 

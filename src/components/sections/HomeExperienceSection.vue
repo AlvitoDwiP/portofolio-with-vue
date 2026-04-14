@@ -23,8 +23,8 @@ defineProps({
     >
       <SectionHeader
         eyebrow="Pengalaman"
-        title="Pengalaman yang membentuk cara saya bekerja dengan data, sistem, dan kolaborasi."
-        description="Bagian ini merangkum pengalaman yang paling relevan untuk menunjukkan bagaimana saya bekerja, mengambil keputusan, dan memberi dampak dalam konteks nyata."
+        title="Pengalaman ini membentuk cara saya memahami masalah, bekerja dalam sistem, dan berkolaborasi."
+        description="Konteksnya tidak selalu sama. Ada yang dekat dengan analisis data, ada yang tumbuh dari peran akademik dan support. Semuanya ikut membentuk cara saya bekerja hari ini."
         class="max-w-3xl"
       />
 

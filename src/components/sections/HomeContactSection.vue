@@ -33,14 +33,12 @@ const quickContactLinks = [
   },
 ]
 
-const contactDescription =
-  'Tulis pesan singkat di bawah, lalu lanjutkan percakapan melalui aplikasi email default Anda. Website ini tidak mengirim email secara langsung.'
 
 const mailtoHref = computed(() => {
   const name = form.name.trim()
   const email = form.email.trim()
   const message = form.message.trim()
-  const subject = encodeURIComponent(`Pesan dari Portfolio - ${name || 'Tanpa Nama'}`)
+  const subject = encodeURIComponent(`Pesan dari Portofolio - ${name || 'Tanpa Nama'}`)
   const body = encodeURIComponent(
     `Nama: ${name || '-'}\nEmail: ${email || '-'}\n\nPesan:\n${message || '-'}`
   )
@@ -51,9 +49,9 @@ const mailtoHref = computed(() => {
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 const validateForm = () => {
-  errors.name = form.name.trim() ? '' : 'Nama lengkap masih kosong.'
-  errors.email = emailPattern.test(form.email.trim()) ? '' : 'Masukkan alamat email yang valid.'
-  errors.message = form.message.trim().length >= 10 ? '' : 'Pesan singkat minimal 10 karakter.'
+  errors.name = form.name.trim() ? '' : 'Nama belum diisi.'
+  errors.email = emailPattern.test(form.email.trim()) ? '' : 'Gunakan alamat email yang valid.'
+  errors.message = form.message.trim().length >= 10 ? '' : 'Tulis pesan minimal 10 karakter.'
 
   return !errors.name && !errors.email && !errors.message
 }
@@ -77,7 +75,7 @@ const handleSubmit = () => {
     >
       <SectionHeader
         eyebrow="Kontak"
-        title="Mari mulai percakapan yang jelas, singkat, dan langsung ke konteksnya."
+        title="Hubungi saya untuk peran, proyek, atau diskusi yang relevan."
         :description="contactDescription"
         class="mx-auto max-w-3xl text-center"
       />
@@ -93,14 +91,14 @@ const handleSubmit = () => {
               Kirim Pesan
             </p>
             <p class="section-muted max-w-2xl text-sm leading-7 sm:text-base">
-              Isi detail pentingnya dulu. Saat Anda menekan tombol di bawah, kami akan membuka email
-              client agar Anda bisa meninjau dan mengirim pesannya sendiri.
+              <span class="block">Tulis pesan Anda di bawah.</span>
+              <span class="block">Email akan terbuka untuk ditinjau sebelum dikirim.</span>
             </p>
           </div>
 
           <form class="space-y-5" novalidate @submit.prevent="handleSubmit">
             <div class="space-y-2">
-              <label for="contact-name" class="contact-label">Full Name</label>
+              <label for="contact-name" class="contact-label">Nama</label>
               <input
                 id="contact-name"
                 v-model="form.name"
@@ -110,7 +108,7 @@ const handleSubmit = () => {
                 class="contact-input"
                 :aria-invalid="Boolean(errors.name)"
                 :aria-describedby="errors.name ? 'contact-name-error' : undefined"
-                placeholder="Nama lengkap Anda"
+                placeholder="Nama Anda"
               />
               <p v-if="errors.name" id="contact-name-error" class="contact-error">
                 {{ errors.name }}
@@ -128,7 +126,7 @@ const handleSubmit = () => {
                 class="contact-input"
                 :aria-invalid="Boolean(errors.email)"
                 :aria-describedby="errors.email ? 'contact-email-error' : undefined"
-                placeholder="nama@email.com"
+                placeholder="nama@perusahaan.com"
               />
               <p v-if="errors.email" id="contact-email-error" class="contact-error">
                 {{ errors.email }}
@@ -136,7 +134,7 @@ const handleSubmit = () => {
             </div>
 
             <div class="space-y-2">
-              <label for="contact-message" class="contact-label">Message</label>
+              <label for="contact-message" class="contact-label">Pesan</label>
               <textarea
                 id="contact-message"
                 v-model="form.message"
@@ -145,7 +143,7 @@ const handleSubmit = () => {
                 class="contact-input contact-textarea"
                 :aria-invalid="Boolean(errors.message)"
                 :aria-describedby="errors.message ? 'contact-message-error' : undefined"
-                placeholder="Ceritakan konteks, kebutuhan, atau ide kolaborasi Anda."
+                placeholder="Tulis pesan singkat Anda."
               />
               <p v-if="errors.message" id="contact-message-error" class="contact-error">
                 {{ errors.message }}
@@ -161,15 +159,14 @@ const handleSubmit = () => {
                 <span>Lanjutkan ke Email</span>
               </BaseButton>
               <p class="section-muted text-center text-xs leading-6 sm:text-sm">
-                Tombol ini akan membuka aplikasi email default Anda dengan subject dan isi pesan
-                yang sudah disiapkan.
+                Email akan terbuka dengan subjek dan isi pesan.
               </p>
             </div>
           </form>
 
           <div class="contact-divider pt-6">
             <p class="section-muted text-center text-xs uppercase tracking-[0.16em]">
-              lihat profil saya juga di:
+              Profil lainnya
             </p>
 
             <div class="mt-4 flex flex-wrap items-center justify-center gap-3">

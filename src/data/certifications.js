@@ -10,7 +10,7 @@ export const certifications = [
     title: 'Data Analytics Mini Course',
     provider: 'RevoU',
     description:
-      'Program intensif 1 minggu untuk memahami fundamental data analytics, simulasi praktik, case study, dan bagaimana data diterjemahkan menjadi keputusan bisnis.',
+      'Program singkat yang memperkuat dasar analisis data, studi kasus, dan cara membaca data dalam konteks keputusan bisnis.',
     skills: ['Data Analytics', 'Business Case Study', 'Career Preparation'],
     thumbnail: revouLogo,
     thumbnailAlt: 'Logo RevoU',
@@ -20,7 +20,7 @@ export const certifications = [
     title: 'Bootcamp Data Analytics & Visualization',
     provider: 'Dsarea',
     description:
-      'Bootcamp intensif dengan hasil grade A yang berfokus pada pengolahan data, visualisasi, analisis statistik, dan penyusunan insight untuk keputusan berbasis data.',
+      'Bootcamp intensif yang membahas pengolahan data, visualisasi, analisis statistik, dan penyusunan insight yang lebih terarah.',
     skills: ['Excel', 'SQL', 'Python', 'Power BI'],
     thumbnail: dsareaLogo,
     thumbnailAlt: 'Logo Dsarea',
@@ -30,7 +30,7 @@ export const certifications = [
     title: 'Associate Data Scientist',
     provider: 'Digital Talent Academy',
     description:
-      'Mendalami fondasi data science untuk membangun alur analisis yang rapi, terukur, dan relevan untuk kebutuhan bisnis.',
+      'Program ini memperdalam fondasi data science dan cara menyusun alur analisis yang rapi untuk kebutuhan kerja.',
     skills: ['Data Science', 'Analytics Thinking'],
     thumbnail: digitalTalentAcademyLogo,
     thumbnailAlt: 'Logo Digital Talent Academy',
@@ -40,7 +40,7 @@ export const certifications = [
     title: 'Natural Language Processing',
     provider: 'Udemy',
     description:
-      'Mengenal konsep pemrosesan teks, workflow NLP, dan cara mengubah data bahasa menjadi insight yang dapat diolah.',
+      'Materi ini memperkenalkan pemrosesan teks, alur kerja NLP, dan cara membaca data bahasa secara lebih terstruktur.',
     skills: ['NLP', 'Text Processing'],
     thumbnail: udemyLogo,
     thumbnailAlt: 'Logo Udemy',
@@ -50,7 +50,7 @@ export const certifications = [
     title: 'Microsoft Excel Advanced',
     provider: 'Udemy',
     description:
-      'Memperkuat teknik pengolahan data lanjutan di Excel untuk reporting, cleaning, dan analisis yang lebih efisien.',
+      'Fokus pada teknik Excel lanjutan untuk cleaning, reporting, dan analisis data yang lebih rapi.',
     skills: ['Excel', 'Reporting'],
     thumbnail: udemyLogo,
     thumbnailAlt: 'Logo Udemy',
@@ -60,7 +60,7 @@ export const certifications = [
     title: 'Fullstack DevOps',
     provider: 'Udemy',
     description:
-      'Menambah pemahaman tentang workflow pengembangan modern, deployment, dan kolaborasi antara development dan operations.',
+      'Materi ini memperluas pemahaman saya tentang alur pengembangan modern, deployment, dan kerja lintas pengembangan serta operasional.',
     skills: ['DevOps', 'Deployment'],
     thumbnail: udemyLogo,
     thumbnailAlt: 'Logo Udemy',
@@ -70,7 +70,7 @@ export const certifications = [
     title: 'Data Science Mastery',
     provider: 'Udemy',
     description:
-      'Memperluas pendekatan data science dari eksplorasi, analisis, hingga penyampaian insight yang lebih terstruktur.',
+      'Materi ini memperluas pendekatan saya dalam eksplorasi data, analisis, dan penyampaian insight yang lebih terarah.',
     skills: ['Data Science', 'Insight Generation'],
     thumbnail: udemyLogo,
     thumbnailAlt: 'Logo Udemy',
@@ -80,7 +80,7 @@ export const certifications = [
     title: 'AI Engineer Explorer',
     provider: 'Udemy',
     description:
-      'Mengeksplorasi dasar peran AI engineer, use case praktis, dan pola implementasi teknologi AI dalam produk digital.',
+      'Program ini mengenalkan dasar peran AI engineer, contoh penggunaan praktis, dan pola penerapannya pada produk digital.',
     skills: ['AI Fundamentals', 'Applied AI'],
     thumbnail: udemyLogo,
     thumbnailAlt: 'Logo Udemy',
@@ -90,7 +90,7 @@ export const certifications = [
     title: 'SQL Complete Guide',
     provider: 'Udemy',
     description:
-      'Mengasah kemampuan query, filtering, agregasi, dan analisis data relasional untuk kebutuhan eksplorasi maupun reporting.',
+      'Fokus pada query, filtering, agregasi, dan pembacaan data relasional untuk kebutuhan eksplorasi maupun reporting.',
     skills: ['SQL', 'Relational Data'],
     thumbnail: udemyLogo,
     thumbnailAlt: 'Logo Udemy',
@@ -100,7 +100,7 @@ export const certifications = [
     title: 'Python Data Analysis',
     provider: 'MySkill',
     description:
-      'Berfokus pada penggunaan Python untuk cleaning, eksplorasi data, dan menyiapkan dataset agar siap dianalisis lebih lanjut.',
+      'Materi ini membahas penggunaan Python untuk cleaning, eksplorasi data, dan penyiapan dataset sebelum analisis.',
     skills: ['Python', 'Data Analysis'],
     thumbnail: myskillLogo,
     thumbnailAlt: 'Logo MySkill',
@@ -110,7 +110,7 @@ export const certifications = [
     title: 'Python Fundamental',
     provider: 'MySkill',
     description:
-      'Menguatkan dasar pemrograman Python sebagai fondasi untuk automasi, analisis data, dan pengembangan workflow kerja.',
+      'Program ini menguatkan dasar Python sebagai fondasi untuk automasi, analisis data, dan alur kerja yang lebih efisien.',
     skills: ['Python', 'Programming Basics'],
     thumbnail: myskillLogo,
     thumbnailAlt: 'Logo MySkill',
@@ -120,7 +120,7 @@ export const certifications = [
     title: 'Data Science & Data Analysis',
     provider: 'MySkill',
     description:
-      'Menyatukan pemahaman data analysis dan data science untuk membangun keputusan yang lebih terarah dari data yang tersedia.',
+      'Materi ini mempertemukan dasar data analysis dan data science untuk membantu pembacaan data yang lebih terarah.',
     skills: ['Data Analysis', 'Decision Making'],
     thumbnail: myskillLogo,
     thumbnailAlt: 'Logo MySkill',
@@ -129,7 +129,7 @@ export const certifications = [
 
 export const certificationAttachment = {
   title: 'Lampiran Sertifikat',
-  description: 'Lihat seluruh sertifikat lengkap melalui LinkedIn',
+  description: 'Seluruh sertifikat dapat dilihat melalui profil LinkedIn saya.',
   ctaLabel: 'Lihat Sertifikat',
   ctaUrl: 'https://www.linkedin.com/in/alvito-dwinova-permana-90a7b82ab/details/certifications/',
 }

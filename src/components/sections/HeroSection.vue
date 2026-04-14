@@ -240,8 +240,7 @@ onBeforeUnmount(() => {
               :enter="heroReveal(240, 14, 360).enter"
               class="section-muted max-w-lg text-[0.98rem] leading-8 sm:text-lg"
             >
-              Saya menggabungkan analisis data, visualisasi, dan pengembangan aplikasi untuk
-              membangun solusi yang relevan dan siap digunakan.
+              {{ siteConfig.summary }}
             </p>
           </div>
 
@@ -335,7 +334,7 @@ onBeforeUnmount(() => {
                 >
                   <p class="section-eyebrow text-xs uppercase tracking-[0.2em]">Fokus kerja</p>
                   <p class="mt-2 text-sm leading-7 text-textPrimary">
-                    Dari insight analitis sampai aplikasi web yang siap dipakai tim.
+                    Menyusun insight yang jelas dan membangun aplikasi yang dapat langsung dipakai.
                   </p>
                 </div>
               </div>

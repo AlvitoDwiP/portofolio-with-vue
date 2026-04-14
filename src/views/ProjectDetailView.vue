@@ -39,9 +39,6 @@ const projectCategoryLabel = computed(
 )
 
 const isDataAnalyticsProject = computed(() => project.value?.category === 'Data Analytics')
-const isMobileAppProject = computed(
-  () => project.value?.cardVariant === 'mobile' || project.value?.displayCategory === 'MOBILE APPS'
-)
 
 const splitIntoSentences = (text = '') =>
   text
@@ -73,13 +70,13 @@ const buildHeroLinks = (currentProject) => {
 
   const primaryLink = currentProject.links.demo
     ? {
-        label: 'View Dashboard',
+        label: 'Lihat Dashboard',
         href: currentProject.links.demo,
         variant: 'primary',
       }
     : currentProject.links.notebook
       ? {
-          label: `View ${currentProject.links.notebookLabel ?? 'Notebook'}`,
+          label: `Lihat ${currentProject.links.notebookLabel ?? 'Notebook'}`,
           href: currentProject.links.notebook,
           variant: 'primary',
         }
@@ -88,21 +85,21 @@ const buildHeroLinks = (currentProject) => {
   const secondaryLinks = [
     currentProject.links.ppt
       ? {
-          label: 'View PPT',
+          label: 'Lihat PPT',
           href: currentProject.links.ppt,
           variant: 'secondary',
         }
       : null,
     currentProject.links.github
       ? {
-          label: 'GitHub Repository',
+          label: 'Repositori GitHub',
           href: currentProject.links.github,
           variant: 'secondary',
         }
       : null,
     currentProject.links.demo && currentProject.links.notebook
       ? {
-          label: `View ${currentProject.links.notebookLabel ?? 'Notebook'}`,
+          label: `Lihat ${currentProject.links.notebookLabel ?? 'Notebook'}`,
           href: currentProject.links.notebook,
           variant: 'secondary',
         }
@@ -113,8 +110,8 @@ const buildHeroLinks = (currentProject) => {
 }
 
 const heroLinks = computed(() => buildHeroLinks(project.value))
-const canShowUiPreview = computed(
-  () => isMobileAppProject.value && Boolean(caseStudy.value?.appPreview?.imageSrc)
+const canShowUiPreview = computed(() =>
+  Boolean(caseStudy.value?.appPreview?.imageSrc || caseStudy.value?.appPreview?.images?.length)
 )
 
 const contextParagraph = computed(() => {
@@ -122,16 +119,16 @@ const contextParagraph = computed(() => {
   return paragraphs.join(' ').trim()
 })
 
-const buildMobileAppPreview = (currentProject, study) => {
+const buildAppPreview = (currentProject, study) => {
+  if (study?.appPreview?.imageSrc || study?.appPreview?.images?.length) {
+    return study.appPreview
+  }
+
   if (
     currentProject?.cardVariant !== 'mobile' &&
     currentProject?.displayCategory !== 'MOBILE APPS'
   ) {
     return null
-  }
-
-  if (study?.appPreview?.imageSrc) {
-    return study.appPreview
   }
 
   if (!currentProject?.cover) {
@@ -142,7 +139,7 @@ const buildMobileAppPreview = (currentProject, study) => {
     imageSrc: currentProject.cover,
     imageAlt: `Preview fitur utama ${currentProject.title}`,
     description:
-      'Preview ini memperlihatkan bagaimana pencarian mitra, informasi produk, dan eksplorasi lokasi dirangkum dalam satu alur mobile yang ringkas dan mudah dipakai.',
+      'Preview ini memperlihatkan alur utama aplikasi, mulai dari pencarian mitra sampai informasi produk dan lokasi, dalam tampilan yang ringkas.',
   }
 }
 
@@ -165,7 +162,7 @@ const caseStudy = computed(() => {
       : buildFallbackApproachGroups(currentProject.approach),
     insightHighlights: study.insightHighlights ?? [],
     insightSummary: currentProject.insights,
-    appPreview: buildMobileAppPreview(currentProject, study),
+    appPreview: buildAppPreview(currentProject, study),
     impact: study.impact?.length ? study.impact : buildFallbackImpact(currentProject),
   }
 })
@@ -632,6 +629,7 @@ useHead(() => ({
                   :section-id="''"
                   :image-src="caseStudy.appPreview.imageSrc"
                   :image-alt="caseStudy.appPreview.imageAlt"
+                  :images="caseStudy.appPreview.images"
                   :description="caseStudy.appPreview.description"
                 />
               </div>
@@ -667,8 +665,8 @@ useHead(() => ({
         >
           <h1 class="font-display text-3xl text-textPrimary">Proyek tidak ditemukan</h1>
           <p class="mx-auto mt-4 max-w-xl text-sm leading-7 text-textSecondary">
-            Slug yang Anda buka tidak ada di data project lokal. Silakan kembali ke daftar proyek
-            untuk membuka detail yang tersedia.
+            Halaman yang Anda buka tidak cocok dengan data proyek yang tersedia. Silakan kembali ke
+            daftar proyek untuk melihat detail lainnya.
           </p>
           <RouterLink
             :to="{ name: 'home', hash: '#proyek' }"

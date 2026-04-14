@@ -7,12 +7,12 @@ export const experiences = [
     location: 'Banyuwangi, Jawa Timur',
     category: 'Internship',
     shortDescription:
-      'Mengolah data, membuat visualisasi, dan mendukung pengembangan sistem untuk membantu pengambilan keputusan.',
+      'Magang ini memperkuat cara saya membaca data operasional, merapikan alurnya, lalu menyajikannya agar lebih mudah dipakai tim.',
     highlights: [
-      'Mengolah dan membersihkan data operasional menggunakan Excel dan PostgreSQL',
-      'Membuat visualisasi data untuk membantu tim memahami kondisi data dengan lebih cepat',
-      'Berkolaborasi dengan tim IT dalam pengembangan dan pemeliharaan sistem pengolahan data',
-      'Merapikan alur data agar proses analisis lebih terstruktur dan mudah digunakan',
+      'Mengolah dan membersihkan data operasional dengan Excel dan PostgreSQL',
+      'Menyusun visualisasi untuk membantu tim membaca kondisi dengan lebih cepat',
+      'Berkolaborasi dengan tim IT dalam pengembangan dan pemeliharaan sistem data',
+      'Merapikan alur data agar lebih siap dipakai dalam pekerjaan harian',
     ],
     tools: ['Excel', 'PostgreSQL'],
     certificate: {
@@ -21,16 +21,16 @@ export const experiences = [
     },
     detail: {
       overview:
-        'Selama mengikuti program MAGENTA di Perum Perhutani, saya terlibat langsung dalam proses pengolahan data yang digunakan untuk kebutuhan operasional mulai dari membersihkan dan merapikan data hingga membuat visualisasi yang membantu tim memahami kondisi yang ada. Saya tidak hanya bekerja dari sisi teknis tetapi juga belajar bagaimana data benar-benar digunakan dalam konteks kerja nyata, termasuk bagaimana alur data harus dijaga agar tetap rapi, konsisten, dan mudah digunakan oleh tim lain. Selain itu saya juga mendapatkan pengalaman yang tidak bisa didapatkan di banyak tempat seperti ikut serta dalam kegiatan pengecekan lahan hutan dan proses lelang hasil hutan sehingga saya bisa melihat langsung bagaimana data berkaitan dengan kondisi lapangan dan keputusan yang diambil. Saya juga sempat berkolaborasi dengan tim IT dalam pengembangan dan pemeliharaan sistem pengolahan data, yang membuat saya memahami hubungan antara data dan sistem secara lebih menyeluruh. Pengalaman ini membuat saya melihat bahwa data bukan hanya untuk dianalisis tetapi harus benar-benar bisa digunakan untuk mendukung keputusan yang lebih tepat dan terarah.',
+        'Dalam program MAGENTA di Perum Perhutani, saya terlibat langsung pada pengolahan data operasional yang dipakai dalam pekerjaan harian. Saya membersihkan data, merapikan alurnya, lalu menyusun visualisasi agar tim lebih cepat memahami kondisi yang sedang dihadapi. Saya juga sempat mengikuti kegiatan lapangan seperti pengecekan lahan dan lelang hasil hutan. Dari situ saya melihat bahwa data tidak berdiri sendiri. Data selalu terkait dengan kondisi nyata dan keputusan yang diambil. Pengalaman ini juga mempertemukan saya dengan tim IT, sehingga saya memahami hubungan antara data yang rapi dan sistem yang dapat diandalkan.',
       responsibilities: [
         'Mengumpulkan, membersihkan, dan menyiapkan data operasional',
-        'Membuat visualisasi data untuk kebutuhan analisis',
+        'Menyusun visualisasi data untuk membantu pembacaan kondisi lapangan',
         'Mendukung pengembangan dan pemeliharaan sistem data bersama tim IT',
       ],
       impact: [
-        'Membantu tim membaca data dengan lebih jelas',
-        'Membuat alur data lebih rapi dan siap digunakan untuk analisis',
-        'Mendukung pengambilan keputusan berbasis data',
+        'Membantu tim membaca informasi operasional dengan lebih cepat dan lebih jelas',
+        'Merapikan alur data agar lebih siap dipakai untuk analisis lanjutan',
+        'Menunjukkan kepada saya bagaimana data, sistem, dan keputusan saling berkaitan di lapangan',
       ],
     },
   },
@@ -42,12 +42,12 @@ export const experiences = [
     location: 'Jakarta (Remote)',
     category: 'MBKM-SIB',
     shortDescription:
-      'Mengembangkan kemampuan data analytics dalam konteks climate change dan sustainable development melalui program Studi Independen Bersertifikat.',
+      'Program ini memperkuat dasar analisis saya melalui pembelajaran terstruktur dan studi kasus yang dekat dengan isu nyata.',
     highlights: [
-      'Mempelajari analisis data dalam konteks perubahan iklim dan pembangunan berkelanjutan',
-      'Mengasah kemampuan berpikir kritis dan pengambilan keputusan berbasis data',
-      'Mengembangkan pemahaman teknis data analytics melalui pembelajaran terstruktur dan studi kasus',
-      'Memperluas kesiapan sebagai talenta digital yang responsif terhadap isu nyata',
+      'Mengerjakan studi kasus dalam konteks perubahan iklim dan pembangunan berkelanjutan',
+      'Melatih cara berpikir kritis saat membaca data dan konteks masalah',
+      'Menyusun alur analisis secara lebih runtut melalui pembelajaran terstruktur',
+      'Membangun fondasi sebelum masuk ke pengalaman kerja yang lebih praktis',
     ],
     tools: [],
     certificate: {
@@ -56,16 +56,16 @@ export const experiences = [
     },
     detail: {
       overview:
-        'Selama mengikuti program Studi Independen Bersertifikat bersama Zenius saya memperdalam pemahaman data analytics melalui pembelajaran yang terstruktur sekaligus relevan dengan isu nyata seperti climate change dan sustainable development. Saya mengerjakan berbagai studi kasus yang menuntut saya untuk tidak hanya memahami data tetapi juga menghubungkannya dengan konteks masalah dan menyusun pendekatan solusi yang lebih masuk akal. Dalam prosesnya saya mulai terbiasa membaca data secara lebih kritis, mencari pola, memahami konteks, dan mempertimbangkan berbagai kemungkinan keputusan yang bisa diambil dari hasil analisis tersebut. Program ini juga melatih saya untuk bekerja lebih sistematis dalam menyusun alur analisis, mulai dari memahami masalah hingga menghasilkan insight yang bisa digunakan. Selain itu, saya juga mengembangkan cara berpikir yang lebih terstruktur, termasuk dalam hal critical thinking dan pengambilan keputusan berbasis data. Pengalaman ini menjadi salah satu fondasi penting dalam cara saya berpikir dan bekerja dengan data sebelum masuk ke pengalaman yang lebih praktis di dunia kerja.',
+        'Program Studi Independen Bersertifikat bersama Zenius menjadi ruang belajar yang penting dalam perjalanan saya. Di sini saya memperkuat dasar analisis melalui materi yang terstruktur dan studi kasus yang terkait dengan climate change serta sustainable development. Fokus utamanya bukan hanya memahami tools, tetapi belajar membaca masalah, melihat konteks, lalu memilih pendekatan yang masuk akal. Program ini memberi fondasi yang lebih kuat sebelum saya masuk ke pengalaman yang lebih praktis di dunia kerja.',
       responsibilities: [
         'Mengikuti pembelajaran terstruktur terkait data analytics',
         'Mengerjakan studi kasus dalam konteks climate change dan sustainable development',
-        'Mengembangkan kemampuan analitis dan pemecahan masalah berbasis data',
+        'Melatih kemampuan analitis dan pemecahan masalah berbasis data',
       ],
       impact: [
-        'Memperkuat dasar data analytics dalam konteks isu nyata',
-        'Meningkatkan kemampuan critical thinking dan decision-making',
-        'Menambah kesiapan untuk berkontribusi dalam peran berbasis data',
+        'Memperkuat dasar analisis sebelum masuk ke pengalaman kerja yang lebih nyata',
+        'Membentuk cara berpikir yang lebih runtut saat membaca data dan masalah',
+        'Menambah kesiapan untuk berkontribusi dalam peran yang dekat dengan analisis',
       ],
     },
   },
@@ -77,24 +77,24 @@ export const experiences = [
     location: 'Universitas Jember',
     category: 'Academic',
     shortDescription:
-      'Membimbing praktikum dan membantu mahasiswa memahami konsep geospasial secara lebih aplikatif.',
+      'Peran ini membentuk cara saya menjelaskan hal teknis dengan lebih runtut dan menjaga proses belajar tetap terarah.',
     highlights: [
-      'Membimbing praktikum secara langsung',
-      'Menyederhanakan konsep teknis menjadi langkah yang lebih mudah dipahami',
-      'Mendukung kelancaran sesi praktikum dan penggunaan tools',
+      'Mendampingi praktikum secara langsung',
+      'Menjelaskan konsep teknis dengan bahasa yang lebih mudah diikuti',
+      'Menjaga sesi praktikum tetap tertib dan terarah',
     ],
     tools: [],
     detail: {
       overview:
-        'Selama menjadi Teaching Assistant di Laboratorium Geographical Information System, saya berperan dalam membimbing praktikum dan membantu mahasiswa memahami konsep geospasial secara lebih aplikatif. Saya tidak hanya menjelaskan materi, tetapi juga berusaha menyederhanakan konsep teknis menjadi langkah yang lebih mudah dipahami selama sesi praktikum berlangsung. Selain itu, saya turut menjaga alur praktikum agar tetap berjalan dengan baik, termasuk dalam penggunaan tools dan penyelesaian tugas. Pengalaman ini melatih kemampuan komunikasi teknis saya, sekaligus membantu saya memahami bagaimana menyampaikan konsep yang kompleks menjadi lebih terstruktur dan mudah diikuti.',
+        'Sebagai Teaching Assistant di Laboratorium GIS, saya mendampingi praktikum dan membantu mahasiswa memahami konsep geospasial dalam bentuk yang lebih aplikatif. Saya belajar bahwa menjelaskan materi teknis tidak cukup hanya benar secara isi. Penjelasannya juga harus runtut dan mudah diikuti. Selain membantu penggunaan tools dan penyelesaian tugas, saya ikut menjaga agar sesi praktikum berjalan tertib. Pengalaman ini banyak membentuk cara saya berkomunikasi dalam konteks kerja tim dan lingkungan belajar.',
       responsibilities: [
         'Membantu mahasiswa memahami materi praktikum',
         'Mendampingi proses praktikum secara langsung',
         'Menjaga alur praktikum tetap berjalan dengan baik',
       ],
       impact: [
-        'Membantu mahasiswa memahami materi teknis secara lebih terstruktur',
-        'Membuat sesi praktikum lebih terarah dan mudah diikuti',
+        'Melatih saya menjelaskan konsep teknis dengan lebih sabar dan lebih jelas',
+        'Membantu sesi praktikum berjalan lebih terarah dan mudah diikuti',
       ],
     },
   },
@@ -106,24 +106,24 @@ export const experiences = [
     location: 'Universitas Jember',
     category: 'Academic',
     shortDescription:
-      'Mendukung praktikum dan analisis data pada studi kasus pertanian berbasis sistem dan data.',
+      'Peran ini melatih saya menjaga praktikum dan eksperimen tetap rapi, sistematis, dan relevan dengan studi kasus yang dikerjakan.',
     highlights: [
-      'Mendukung kegiatan praktikum berbasis data dan sistem',
-      'Membantu implementasi konsep teknis ke studi kasus yang lebih realistis',
-      'Terlibat dalam pengolahan dan analisis data eksperimen',
+      'Mendukung jalannya praktikum dan eksperimen di laboratorium',
+      'Membantu pengolahan data pada studi kasus pertanian',
+      'Menjaga keterkaitan antara konsep teknis dan kebutuhan eksperimen',
     ],
     tools: [],
     detail: {
       overview:
-        'Selama menjadi Laboratory Assistant di Smart Farm Laboratory, saya terlibat dalam kegiatan yang berkaitan dengan pengembangan dan pengujian sistem berbasis data dalam konteks pertanian. Saya tidak hanya mendukung jalannya praktikum, tetapi juga membantu proses pengolahan dan analisis data yang digunakan dalam eksperimen. Dalam peran ini, saya belajar bagaimana menghubungkan konsep teknis dengan kondisi nyata di lapangan, serta memastikan bahwa setiap proses yang dilakukan dapat berjalan dengan lebih terstruktur dan relevan dengan kebutuhan studi kasus. Pengalaman ini juga melatih saya untuk bekerja lebih sistematis dan memahami bagaimana data digunakan dalam pengembangan solusi berbasis sistem.',
+        'Sebagai Laboratory Assistant di Smart Agriculture Laboratory, saya membantu jalannya praktikum dan mendukung pengolahan data pada eksperimen yang sedang dikerjakan. Peran ini tidak hanya soal aspek teknis. Saya juga perlu memastikan prosesnya tertata, instruksinya jelas, dan pelaksanaannya tetap relevan dengan studi kasus di laboratorium. Dari pengalaman ini, saya belajar bekerja lebih sistematis dan lebih peka pada kebutuhan lingkungan kerja yang kolaboratif.',
       responsibilities: [
         'Mendukung pelaksanaan praktikum',
         'Membantu pengolahan data eksperimen',
         'Menghubungkan konsep teknis dengan implementasi di laboratorium',
       ],
       impact: [
-        'Membantu proses praktikum berjalan lebih efektif',
-        'Mendukung analisis data yang lebih terstruktur pada studi kasus laboratorium',
+        'Membantu proses praktikum dan eksperimen berjalan lebih tertib',
+        'Melatih saya bekerja lebih sistematis dalam konteks support role',
       ],
     },
   },

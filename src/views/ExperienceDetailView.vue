@@ -74,7 +74,7 @@ useHead(() => ({
           >
             <div class="glass glass-panel-solid rounded-lg p-7 sm:p-8">
               <section class="space-y-4">
-                <p class="section-eyebrow text-xs uppercase tracking-[0.22em]">Overview</p>
+                <p class="section-eyebrow text-xs uppercase tracking-[0.22em]">Ringkasan</p>
                 <p class="text-sm leading-8 text-textSecondary sm:text-base">
                   {{ experience.detail.overview }}
                 </p>
@@ -144,7 +144,7 @@ useHead(() => ({
                   :href="experience.certificate.url"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Lihat sertifikat untuk pengalaman ini"
+                  aria-label="Buka sertifikat pengalaman ini"
                   class="glass-chip-strong glass-hover mt-5 inline-flex w-full cursor-pointer items-center justify-between rounded-card px-4 py-3 text-sm font-medium text-textPrimary"
                 >
                   <span>{{ experience.certificate.label || 'Lihat Sertifikat' }}</span>
@@ -171,8 +171,8 @@ useHead(() => ({
         >
           <h1 class="font-display text-3xl text-textPrimary">Pengalaman tidak ditemukan</h1>
           <p class="mx-auto mt-4 max-w-xl text-sm leading-7 text-textSecondary">
-            Slug yang Anda buka tidak ada di data pengalaman lokal. Silakan kembali ke daftar
-            pengalaman untuk membuka detail yang tersedia.
+            Halaman yang Anda buka tidak cocok dengan data pengalaman yang tersedia. Silakan kembali
+            ke daftar pengalaman untuk melihat detail lainnya.
           </p>
           <RouterLink
             :to="{ name: 'home', hash: '#pengalaman' }"

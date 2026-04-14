@@ -18,7 +18,7 @@ defineProps({
 <template>
   <section v-if="items.length" class="space-y-7 sm:space-y-8">
     <div class="max-w-3xl space-y-3">
-      <p class="case-study-kicker">How The Work Was Structured</p>
+      <p class="case-study-kicker">Cara Kerja</p>
       <h2 class="case-study-heading">Approach</h2>
     </div>
 
