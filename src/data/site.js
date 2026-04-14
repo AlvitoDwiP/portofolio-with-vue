@@ -8,7 +8,7 @@ export const siteConfig = {
   linkedinUrl: 'https://www.linkedin.com/in/alvito-dwinova-permana-90a7b82ab',
   resumeUrl: '/alvito-dwinova-permana-cv.pdf',
   portrait: {
-    src: '/profile-photo-hero.png',
+    src: '/profile-photo-hero.jpg',
     alt: 'Foto profesional Alvito Dwinova Permana',
   },
   eyebrow: 'Portofolio Personal',

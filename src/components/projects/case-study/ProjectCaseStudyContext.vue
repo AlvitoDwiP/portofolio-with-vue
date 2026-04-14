@@ -4,9 +4,13 @@ defineProps({
     type: String,
     default: 'Why This Matters',
   },
-  paragraphs: {
-    type: Array,
-    default: () => [],
+  paragraph: {
+    type: String,
+    default: '',
+  },
+  variant: {
+    type: String,
+    default: 'compact',
   },
 })
 </script>
@@ -18,10 +22,13 @@ defineProps({
       <h2 class="case-study-heading">Context</h2>
     </div>
 
-    <div class="grid gap-6 lg:grid-cols-2 lg:gap-8">
-      <div v-for="paragraph in paragraphs" :key="paragraph" class="border-t border-white/10 pt-6">
-        <p class="case-study-body">{{ paragraph }}</p>
-      </div>
+    <div
+      class="border-t border-white/10 pt-6"
+      :class="variant === 'wide' ? 'max-w-[58rem]' : 'max-w-[49rem]'"
+    >
+      <p class="case-study-body case-study-copy leading-[2.1rem] sm:text-[1.04rem]">
+        {{ paragraph }}
+      </p>
     </div>
   </section>
 </template>

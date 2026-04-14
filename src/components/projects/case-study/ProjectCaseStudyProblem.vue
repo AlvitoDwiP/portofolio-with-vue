@@ -1,11 +1,12 @@
 <script setup>
 const isGenericTitle = (title = '') => /^problem\s+\d+$/i.test(title.trim())
 
-const getDisplayTitle = (item) =>
-  !item?.title || isGenericTitle(item?.title) ? item?.description : item?.title
+const hasExplicitTitle = (item) => Boolean(item?.title && !isGenericTitle(item.title))
+
+const getDisplayTitle = (item) => (hasExplicitTitle(item) ? item.title : '')
 
 const getDisplayDescription = (item) =>
-  !item?.title || isGenericTitle(item?.title) ? '' : item?.description
+  hasExplicitTitle(item) ? item?.description : item?.description || item?.title || ''
 
 defineProps({
   items: {
@@ -26,18 +27,22 @@ defineProps({
       <article
         v-for="(item, index) in items"
         :key="`${item.title}-${index}`"
-        class="section-panel rounded-[1.5rem] p-6 sm:p-7"
+        class="section-panel flex h-full flex-col rounded-[1.5rem] p-6 sm:p-7"
       >
         <p class="case-study-index">{{ String(index + 1).padStart(2, '0') }}</p>
-        <h3 class="case-study-subheading mt-5">
-          {{ getDisplayTitle(item) }}
-        </h3>
-        <p v-if="getDisplayDescription(item)" class="mt-3 text-sm leading-7 text-textSecondary">
-          {{ getDisplayDescription(item) }}
-        </p>
-        <p class="mt-5 border-t border-white/8 pt-5 text-sm leading-7 text-textPrimary">
-          {{ item.implication }}
-        </p>
+
+        <div class="mt-5 space-y-3">
+          <h3 v-if="getDisplayTitle(item)" class="case-study-subheading">
+            {{ getDisplayTitle(item) }}
+          </h3>
+          <p
+            v-if="getDisplayDescription(item)"
+            class="text-sm leading-7 text-textSecondary"
+            :class="getDisplayTitle(item) ? '' : 'font-medium text-textPrimary'"
+          >
+            {{ getDisplayDescription(item) }}
+          </p>
+        </div>
       </article>
     </div>
   </section>

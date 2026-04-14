@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useHead } from '@vueuse/head'
-import { ArrowLeft, ArrowUpRight, MapPin } from 'lucide-vue-next'
+import { ArrowLeft, MapPin } from 'lucide-vue-next'
 import { useRoute } from 'vue-router'
 import AppShell from '@/components/layout/AppShell.vue'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
@@ -148,7 +148,6 @@ useHead(() => ({
                   class="glass-chip-strong glass-hover mt-5 inline-flex w-full cursor-pointer items-center justify-between rounded-card px-4 py-3 text-sm font-medium text-textPrimary"
                 >
                   <span>{{ experience.certificate.label || 'Lihat Sertifikat' }}</span>
-                  <ArrowUpRight class="h-4 w-4" />
                 </a>
               </section>
 

@@ -1,5 +1,5 @@
 <script setup>
-import { ArrowLeft, ArrowUpRight } from 'lucide-vue-next'
+import { ArrowLeft } from 'lucide-vue-next'
 
 defineProps({
   backTo: {
@@ -18,11 +18,21 @@ defineProps({
     type: String,
     required: true,
   },
+  tools: {
+    type: Array,
+    default: () => [],
+  },
   links: {
     type: Array,
     default: () => [],
   },
+  uiPreviewTarget: {
+    type: String,
+    default: '',
+  },
 })
+
+const emit = defineEmits(['view-ui'])
 </script>
 
 <template>
@@ -66,7 +76,7 @@ defineProps({
           Kembali ke proyek
         </RouterLink>
 
-        <div class="mt-10 max-w-3xl space-y-5 sm:space-y-6 lg:max-w-[68%]">
+        <div class="mt-10 max-w-3xl space-y-5 sm:space-y-6 lg:max-w-[72%]">
           <span
             class="section-chip-accent inline-flex items-center rounded-full px-4 py-2 text-[0.68rem] font-medium uppercase tracking-[0.22em]"
           >
@@ -77,25 +87,46 @@ defineProps({
             {{ title }}
           </h1>
 
-          <p class="max-w-2xl text-base leading-8 text-textSecondary sm:text-lg">
+          <p class="case-study-copy max-w-2xl text-base leading-8 text-textSecondary sm:text-lg">
             {{ summary }}
           </p>
+
+          <div v-if="tools.length" class="flex flex-wrap gap-2.5 pt-1">
+            <span
+              v-for="tool in tools"
+              :key="tool"
+              class="glass-chip inline-flex items-center rounded-full px-3.5 py-2 text-[0.72rem] font-medium text-textSecondary"
+            >
+              {{ tool }}
+            </span>
+          </div>
         </div>
 
-        <div v-if="links.length" class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <div
+          v-if="uiPreviewTarget || links.length"
+          class="mt-8 flex max-w-2xl flex-col gap-3 sm:flex-row sm:flex-wrap"
+        >
+          <button
+            v-if="uiPreviewTarget"
+            type="button"
+            class="section-button-secondary inline-flex min-h-11 items-center justify-center rounded-xl border px-5 py-3 text-sm font-medium transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:-translate-y-0.5 sm:min-w-[11.5rem]"
+            @click="emit('view-ui')"
+          >
+            <span>View UI</span>
+          </button>
+
           <a
             v-for="link in links"
             :key="link.href"
             :href="link.href"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex min-h-11 items-center justify-center rounded-xl border px-5 py-3 text-sm font-medium transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:-translate-y-0.5"
+            class="inline-flex min-h-11 items-center justify-center rounded-xl border px-5 py-3 text-sm font-medium transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:-translate-y-0.5 sm:min-w-[11.5rem]"
             :class="
               link.variant === 'primary' ? 'section-button-primary' : 'section-button-secondary'
             "
           >
             <span>{{ link.label }}</span>
-            <ArrowUpRight class="ml-2 h-4 w-4" />
           </a>
         </div>
       </div>

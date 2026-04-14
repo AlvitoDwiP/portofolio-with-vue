@@ -1,5 +1,5 @@
 <script setup>
-import { ArrowUpRight, FileText, LayoutDashboard, MonitorPlay } from 'lucide-vue-next'
+import { FileText, LayoutDashboard, MonitorPlay } from 'lucide-vue-next'
 
 defineProps({
   items: {
@@ -84,7 +84,7 @@ const getPreviewTheme = (previewType) => previewThemes[previewType] ?? previewTh
         </div>
 
         <div class="flex flex-1 flex-col p-6 sm:p-7">
-          <p class="text-sm leading-7 text-textSecondary">
+          <p class="case-study-copy text-sm leading-7 text-textSecondary">
             {{ item.description }}
           </p>
 
@@ -96,7 +96,6 @@ const getPreviewTheme = (previewType) => previewThemes[previewType] ?? previewTh
               class="section-button-secondary inline-flex items-center rounded-xl border px-4 py-2.5 text-sm font-medium transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:-translate-y-0.5"
             >
               <span>{{ item.ctaLabel || 'View Output' }}</span>
-              <ArrowUpRight class="ml-2 h-4 w-4" />
             </a>
           </div>
         </div>

@@ -24,7 +24,7 @@ defineProps({
           <div class="case-study-index pt-1 text-accent">
             {{ String(index + 1).padStart(2, '0') }}
           </div>
-          <p class="case-study-body">
+          <p class="case-study-body case-study-copy">
             {{ item }}
           </p>
         </div>

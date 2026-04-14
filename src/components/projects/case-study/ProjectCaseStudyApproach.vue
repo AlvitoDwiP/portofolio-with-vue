@@ -38,7 +38,7 @@ defineProps({
           </h3>
           <p
             v-if="getDisplayDescription(item)"
-            class="max-w-3xl text-base leading-8 text-textSecondary"
+            class="case-study-copy max-w-3xl text-base leading-8 text-textSecondary"
           >
             {{ getDisplayDescription(item) }}
           </p>

@@ -334,5 +334,13 @@ export const projects = [
     links: {
       github: 'https://github.com/AlvitoDwiP/AplikasiCariMitraKopi-main',
     },
+    caseStudy: {
+      appPreview: {
+        imageSrc: '/images/projects/findfe-ui.png',
+        imageAlt: 'Preview fitur utama aplikasi FindFe dalam beberapa layar',
+        description:
+          'Preview ini menunjukkan bagaimana pencarian mitra, informasi produk kopi, dan eksplorasi lokasi disatukan dalam pengalaman mobile yang praktis dan mudah dipahami.',
+      },
+    },
   },
 ]
