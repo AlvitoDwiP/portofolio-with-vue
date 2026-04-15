@@ -42,10 +42,9 @@ const basePreviewImage = computed(() => {
       props.project.caseStudy?.appPreview?.imageSrc ||
       props.project.cover ||
       createProjectThumbnail(props.project),
-    alt:
-      props.project.caseStudy?.appPreview?.imageAlt ||
-      `Preview project ${props.project.title}`,
-    title: primaryScreenshotMeta.value?.title || primaryScreenshotMeta.value?.label || 'Preview Utama',
+    alt: props.project.caseStudy?.appPreview?.imageAlt || `Preview project ${props.project.title}`,
+    title:
+      primaryScreenshotMeta.value?.title || primaryScreenshotMeta.value?.label || 'Preview Utama',
     description:
       primaryScreenshotMeta.value?.description ||
       primaryScreenshotMeta.value?.caption ||
@@ -73,6 +72,7 @@ const activeImageTitle = computed(() => activeImage.value?.title || 'Preview Uta
 const activeImageDescription = computed(
   () => activeImage.value?.description || props.project?.caseStudy?.appPreview?.description || ''
 )
+const projectTools = computed(() => props.project?.tools?.filter(Boolean) ?? [])
 
 const closeModal = () => {
   emit('close')
@@ -111,15 +111,12 @@ const handleKeydown = (event) => {
   }
 }
 
-const {
-  handleTouchStart,
-  handleTouchMove,
-  handleTouchEnd,
-  handleTouchCancel,
-} = useHorizontalSwipe({
-  onNext: showNext,
-  onPrevious: showPrevious,
-})
+const { handleTouchStart, handleTouchMove, handleTouchEnd, handleTouchCancel } = useHorizontalSwipe(
+  {
+    onNext: showNext,
+    onPrevious: showPrevious,
+  }
+)
 
 watch(
   () => props.project,
@@ -232,7 +229,9 @@ onBeforeUnmount(() => {
                   <span
                     class="inline-flex items-center rounded-full border border-white/12 bg-slate-950/66 px-3 py-1.5 text-[0.68rem] font-medium text-white/82 backdrop-blur-md"
                   >
-                    {{ String(activeIndex + 1).padStart(2, '0') }}/{{ String(previewImages.length).padStart(2, '0') }}
+                    {{ String(activeIndex + 1).padStart(2, '0') }}/{{
+                      String(previewImages.length).padStart(2, '0')
+                    }}
                   </span>
                 </div>
 
@@ -257,7 +256,9 @@ onBeforeUnmount(() => {
                   "
                   @click="setActiveIndex(index)"
                 >
-                  <div class="flex aspect-[4/3] items-center justify-center bg-[linear-gradient(180deg,rgba(15,23,42,0.54),rgba(2,6,23,0.42))] p-2.5">
+                  <div
+                    class="flex aspect-[4/3] items-center justify-center bg-[linear-gradient(180deg,rgba(15,23,42,0.54),rgba(2,6,23,0.42))] p-2.5"
+                  >
                     <img
                       :src="item.src"
                       :alt="item.alt || project.title"
@@ -268,7 +269,9 @@ onBeforeUnmount(() => {
                     <p class="project-preview__thumb-title text-sm text-textPrimary">
                       {{ item.title || `Screen ${index + 1}` }}
                     </p>
-                    <p class="project-preview__thumb-copy mt-1 text-xs leading-5 text-textSecondary">
+                    <p
+                      class="project-preview__thumb-copy mt-1 text-xs leading-5 text-textSecondary"
+                    >
                       {{ item.description || 'Preview tampilan project.' }}
                     </p>
                   </div>
@@ -314,7 +317,27 @@ onBeforeUnmount(() => {
                   </p>
                 </div>
 
-                <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <div v-if="projectTools.length" class="space-y-3 border-t border-white/8 pt-4">
+                  <p
+                    class="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-textSecondary/78"
+                  >
+                    Tools
+                  </p>
+
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      v-for="tool in projectTools"
+                      :key="tool"
+                      class="inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[0.72rem] font-medium leading-none text-textPrimary/88 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] backdrop-blur-sm"
+                    >
+                      {{ tool }}
+                    </span>
+                  </div>
+                </div>
+
+                <div
+                  class="flex flex-col gap-3 border-t border-white/8 pt-4 sm:flex-row sm:flex-wrap"
+                >
                   <RouterLink
                     :to="{ name: 'project-detail', params: { slug: project.slug } }"
                     class="inline-flex items-center justify-center rounded-xl border border-white/12 bg-white/[0.04] px-4 py-3 text-sm font-medium text-textPrimary transition-[transform,border-color,background-color,color] duration-200 hover:-translate-y-0.5 hover:border-white/18 hover:bg-white/[0.07]"

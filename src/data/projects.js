@@ -28,7 +28,7 @@ export const projects = [
       'Proyek ini menghasilkan notebook analisis, dataset yang sudah dibersihkan, data agregat untuk visualisasi, dashboard interaktif di Looker Studio, dan dokumentasi proses di GitHub.',
     insights:
       'Hasil analisis menunjukkan bahwa pasar video game terkonsentrasi pada beberapa platform besar, dengan PS2 sebagai platform paling dominan. Preferensi genre juga berbeda antarwilayah. Jepang lebih kuat pada Role-Playing, sedangkan wilayah lain lebih didominasi Action. Dari sisi waktu, tiap platform memiliki pola siklus hidup yang berbeda, sehingga pembacaan pasar tidak bisa disamaratakan.',
-    cover: '',
+    cover: projectImage('global-video-game-cover.jpg'),
     links: {
       github: 'https://github.com/AlvitoDwiP/video-game-sales',
       demo: 'https://lookerstudio.google.com/reporting/9d6051e1-6eea-484f-af4f-5affd78f5353',
@@ -117,6 +117,28 @@ export const projects = [
         'Perbedaan genre antarwilayah memberi dasar yang lebih kuat untuk memahami kebutuhan pasar secara lokal.',
         'Pembacaan siklus hidup platform membantu melihat apakah pasar sedang tumbuh, stabil, atau mulai menurun.',
       ],
+      appPreview: {
+        imageSrc: projectImage('global-video-game-dashboard-overview.png'),
+        imageAlt: 'Dashboard ringkasan dan perbandingan regional penjualan video game global',
+        description:
+          'Screenshot ini memperlihatkan dashboard utama yang merangkum penjualan global, dominasi platform, perbandingan regional, tren tahunan, dan performa genre.',
+        images: [
+          {
+            src: projectImage('global-video-game-dashboard-overview.png'),
+            alt: 'Ringkasan penjualan, dominasi platform, dan perbandingan penjualan video game per wilayah',
+            label: 'Overview Dashboard',
+            caption:
+              'Tampilan ini menyorot metrik ringkasan, platform dengan dominasi pasar tertinggi, serta perbandingan penjualan di North America, Japan, dan Europe.',
+          },
+          {
+            src: projectImage('global-video-game-dashboard-trends.png'),
+            alt: 'Tren penjualan video game global per tahun dan performa genre per wilayah',
+            label: 'Trend and Genre Analysis',
+            caption:
+              'Tampilan ini memperlihatkan tren penjualan global dari waktu ke waktu, heatmap performa genre per wilayah, dan ringkasan komposisi kontributor penjualan utama.',
+          },
+        ],
+      },
     },
   },
   {
@@ -324,13 +346,65 @@ export const projects = [
       'Proyek ini menghasilkan dataset yang telah dibersihkan, visualisasi exploratory data analysis, analisis korelasi, model untuk membaca hubungan antarvariabel, segmentasi negara, proyeksi tren emisi, dan dashboard interaktif di Looker Studio.',
     insights:
       'Analisis menunjukkan bahwa cumulative CO2 di negara-negara ASEAN paling kuat berkaitan dengan population, total CO2 emissions, dan land use. Model regresi juga menunjukkan bahwa faktor waktu ikut berperan dalam perubahan emisi. Selain itu, hasil clustering membagi negara ASEAN ke dalam dua kelompok utama, yaitu emisi rendah dan emisi tinggi, yang menunjukkan distribusi emisi kawasan ini tidak merata.',
-    cover: '',
+    cover: projectImage('acc-carbon-cover.jpg'),
     links: {
       demo: 'https://lookerstudio.google.com/reporting/87cd1be2-40f6-4b0d-bc5e-974eb00e00c3',
       demoLabel: 'Looker Studio',
       notebook:
         'https://colab.research.google.com/drive/1_mOJTAeSPt1V0neNWeSkZKvGqCnNI8qI?usp=sharing',
       notebookLabel: 'Google Colab',
+    },
+    caseStudy: {
+      appPreview: {
+        imageSrc: projectImage('acc-carbon-preview-overview.jpg'),
+        imageAlt: 'Dashboard utama ACC untuk ringkasan emisi karbon ASEAN',
+        description:
+          'Preview ini menampilkan dashboard ACC mulai dari ringkasan utama, faktor pendorong emisi, tren antarnegara, peta distribusi, hingga hasil model prediksi.',
+        images: [
+          {
+            src: projectImage('acc-carbon-preview-overview.jpg'),
+            alt: 'Ringkasan, tren historis, dan komposisi negara dengan emisi karbon tertinggi di ASEAN',
+            label: 'Overview Dashboard',
+            caption:
+              'Tampilan utama ini merangkum metric cards, historical trends, hasil prediksi awal, dan komposisi negara dengan kontribusi emisi terbesar.',
+          },
+          {
+            src: projectImage('acc-carbon-preview-factors.jpg'),
+            alt: 'Panel faktor penyumbang emisi, GDP per country, dan ringkasan emisi per dekade',
+            label: 'Factors and Decades',
+            caption:
+              'Layar ini memperlihatkan hubungan GDP, distribusi faktor penyumbang emisi, serta ringkasan tabel emisi karbon per dekade untuk membaca pola secara lebih rinci.',
+          },
+          {
+            src: projectImage('acc-carbon-preview-country-trends.jpg'),
+            alt: 'Tren carbon emissions dan gross domestic product per negara di kawasan ASEAN',
+            label: 'Country Trends',
+            caption:
+              'Visual ini membandingkan pertumbuhan carbon emissions dan gross domestic product antarnegara ASEAN dari waktu ke waktu.',
+          },
+          {
+            src: projectImage('acc-carbon-preview-map.jpg'),
+            alt: 'Peta distribusi carbon emissions di negara-negara ASEAN',
+            label: 'Regional Map View',
+            caption:
+              'Peta ini membantu melihat distribusi intensitas emisi karbon secara geografis di kawasan ASEAN.',
+          },
+          {
+            src: projectImage('acc-carbon-preview-predictive-model.jpg'),
+            alt: 'Grafik perbandingan actual carbon emissions dan predicted carbon emissions',
+            label: 'Predictive Model',
+            caption:
+              'Grafik ini menunjukkan kedekatan antara nilai actual dan predicted carbon emissions sebagai gambaran performa model prediksi.',
+          },
+          {
+            src: projectImage('acc-carbon-preview-comparison.jpg'),
+            alt: 'Ringkasan angka actual versus predicted carbon emissions',
+            label: 'Actual vs Predicted',
+            caption:
+              'Ringkasan akhir ini menampilkan perbandingan total actual dan predicted carbon emissions dalam satu tampilan yang sangat cepat dibaca.',
+          },
+        ],
+      },
     },
   },
   {

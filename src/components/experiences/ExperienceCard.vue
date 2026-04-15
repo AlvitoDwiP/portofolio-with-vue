@@ -13,6 +13,24 @@ const props = defineProps({
 const experience = computed(() => props.experience)
 const hasImageError = ref(false)
 
+const mediaType = computed(() => {
+  if (experience.value.mediaType) {
+    return experience.value.mediaType
+  }
+
+  return experience.value.type === 'academic' ? 'activity' : 'certificate'
+})
+
+const mediaFit = computed(() => {
+  if (experience.value.mediaFit) {
+    return experience.value.mediaFit
+  }
+
+  return mediaType.value === 'activity' ? 'cover' : 'contain'
+})
+
+const isCertificateMedia = computed(() => mediaType.value === 'certificate')
+
 const badgeLabel = computed(() => {
   if (experience.value.type === 'mbkm') {
     return 'MBKM'
@@ -26,6 +44,35 @@ const badgeLabel = computed(() => {
 })
 
 const showImage = computed(() => Boolean(experience.value.image) && !hasImageError.value)
+
+const mediaFrameClass = computed(() => {
+  if (isCertificateMedia.value) {
+    return 'flex h-44 items-center justify-center bg-[radial-gradient(circle_at_top,rgba(148,163,184,0.14),transparent_56%),linear-gradient(180deg,rgba(2,6,23,0.94),rgba(15,23,42,0.82))] p-4 sm:h-48 sm:p-5'
+  }
+
+  return 'h-44 bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.18),transparent_34%),linear-gradient(135deg,rgba(30,41,59,0.92),rgba(15,23,42,0.76)_46%,rgba(59,130,246,0.18))] sm:h-48'
+})
+
+const fallbackClass = computed(() => {
+  if (isCertificateMedia.value) {
+    return 'flex h-44 items-end bg-[radial-gradient(circle_at_top,rgba(148,163,184,0.18),transparent_44%),linear-gradient(180deg,rgba(15,23,42,0.96),rgba(2,6,23,0.88))] p-5 sm:h-48'
+  }
+
+  return 'flex h-44 items-end bg-[radial-gradient(circle_at_top,rgba(251,191,36,0.16),transparent_42%),linear-gradient(135deg,rgba(251,191,36,0.16),rgba(251,146,60,0.06)_45%,rgba(168,85,247,0.14))] p-5 sm:h-48'
+})
+
+const imageClass = computed(() => {
+  const fitClass =
+    mediaFit.value === 'cover'
+      ? 'h-full w-full object-cover object-center'
+      : 'h-full w-full object-contain object-center'
+
+  const hoverClass = isCertificateMedia.value
+    ? 'scale-[1.01] group-hover:scale-[1.03] group-hover:brightness-[1.05]'
+    : 'group-hover:scale-[1.04] group-hover:brightness-[1.06]'
+
+  return [fitClass, hoverClass, 'transition duration-500 ease-out']
+})
 </script>
 
 <template>
@@ -39,22 +86,33 @@ const showImage = computed(() => Boolean(experience.value.image) && !hasImageErr
       <div
         class="relative overflow-hidden border-b border-[color:var(--glass-border)] bg-[linear-gradient(180deg,rgba(15,23,42,0.24),rgba(2,6,23,0.36))]"
       >
-        <div
-          v-if="showImage"
-          class="flex h-44 items-center justify-center bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(15,23,42,0.12))] p-3 sm:h-48 sm:p-4"
-        >
-          <img
-            :src="experience.image"
-            :alt="experience.imageAlt || experience.role"
-            class="max-h-full w-full object-contain object-center transition duration-500 ease-out group-hover:scale-[1.02] group-hover:brightness-105"
-            @error="hasImageError = true"
-          />
+        <div v-if="showImage" :class="mediaFrameClass">
+          <div
+            v-if="isCertificateMedia"
+            class="flex h-full w-full items-center justify-center rounded-[1rem] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(15,23,42,0.32))] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_18px_34px_rgba(2,6,23,0.34)] backdrop-blur-sm sm:px-5 sm:py-4"
+          >
+            <img
+              :src="experience.image"
+              :alt="experience.imageAlt || experience.role"
+              :class="imageClass"
+              @error="hasImageError = true"
+            />
+          </div>
+
+          <div v-else class="relative h-full w-full overflow-hidden rounded-[0.95rem]">
+            <img
+              :src="experience.image"
+              :alt="experience.imageAlt || experience.role"
+              :class="imageClass"
+              @error="hasImageError = true"
+            />
+            <div
+              class="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-slate-950/76 via-slate-950/20 to-transparent opacity-90 transition duration-300 group-hover:opacity-100"
+            />
+          </div>
         </div>
 
-        <div
-          v-else
-          class="flex h-44 items-end bg-[radial-gradient(circle_at_top,rgba(251,191,36,0.16),transparent_42%),linear-gradient(135deg,rgba(251,191,36,0.16),rgba(251,146,60,0.06)_45%,rgba(168,85,247,0.14))] p-5 sm:h-48"
-        >
+        <div v-else :class="fallbackClass">
           <div
             class="inline-flex rounded-full border border-white/10 bg-slate-950/44 px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/88 backdrop-blur-sm"
           >
@@ -63,7 +121,11 @@ const showImage = computed(() => Boolean(experience.value.image) && !hasImageErr
         </div>
 
         <div
-          class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.02),rgba(2,6,23,0.08)_48%,rgba(2,6,23,0.36))]"
+          :class="
+            isCertificateMedia
+              ? 'pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(2,6,23,0.04)_48%,rgba(2,6,23,0.22))]'
+              : 'pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.02),rgba(2,6,23,0.08)_48%,rgba(2,6,23,0.36))]'
+          "
         />
       </div>
 

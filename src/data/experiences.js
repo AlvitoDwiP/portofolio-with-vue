@@ -4,6 +4,8 @@ export const experiences = [
   {
     slug: 'intern-perhutani-magenta',
     type: 'internship',
+    mediaType: 'certificate',
+    mediaFit: 'contain',
     role: 'Data Analyst & Systems - Perum Perhutani KPH Banyuwangi Utara',
     company: 'Magang Generasi Bertalenta (MAGENTA)',
     period: 'Mar 2024 - Jun 2024',
@@ -42,6 +44,8 @@ export const experiences = [
   {
     slug: 'mbkm-sib-data-analytics-zenius',
     type: 'mbkm',
+    mediaType: 'certificate',
+    mediaFit: 'contain',
     role: 'Data Analytics for Climate Change Resolution and Sustainable Development',
     company: 'Zenius x Kampus Merdeka',
     period: 'Agu 2023 - Des 2023',
@@ -80,6 +84,8 @@ export const experiences = [
   {
     slug: 'teaching-assistant-gis',
     type: 'academic',
+    mediaType: 'activity',
+    mediaFit: 'cover',
     role: 'Teaching Assistant',
     company: 'Laboratorium GIS',
     period: 'Agu 2022 - Jun 2023',
@@ -112,6 +118,8 @@ export const experiences = [
   {
     slug: 'lab-assistant-smart-agriculture',
     type: 'academic',
+    mediaType: 'activity',
+    mediaFit: 'cover',
     role: 'Laboratory Assistant',
     company: 'Smart Agriculture Laboratory',
     period: 'Jul 2023 - Mar 2024',
