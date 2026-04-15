@@ -1,6 +1,8 @@
 <script setup>
 import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import { ChevronLeft, ChevronRight, Search, X } from 'lucide-vue-next'
+import { useHorizontalSwipe } from '@/composables/useHorizontalSwipe'
+import { normalizeProjectScreenshots } from '@/utils/normalizeProjectScreenshots'
 
 const props = defineProps({
   sectionId: {
@@ -29,21 +31,15 @@ const isZoomed = ref(false)
 const activeIndex = ref(0)
 
 const previewImages = computed(() => {
-  if (props.images.length) {
-    return props.images.filter((item) => item?.src)
+  const fallbackImage = {
+    src: props.imageSrc,
+    image: props.imageSrc,
+    alt: props.imageAlt || 'Preview fitur utama aplikasi',
+    title: 'Preview Utama',
+    description: props.description,
   }
 
-  if (!props.imageSrc) {
-    return []
-  }
-
-  return [
-    {
-      src: props.imageSrc,
-      alt: props.imageAlt || 'Preview fitur utama aplikasi',
-      caption: props.description,
-    },
-  ]
+  return normalizeProjectScreenshots([fallbackImage, ...props.images], fallbackImage)
 })
 
 const activeImage = computed(() => previewImages.value[activeIndex.value] ?? null)
@@ -82,6 +78,16 @@ const showPrevious = () => {
 const showNext = () => {
   setActiveIndex(activeIndex.value + 1)
 }
+
+const {
+  handleTouchStart,
+  handleTouchMove,
+  handleTouchEnd,
+  handleTouchCancel,
+} = useHorizontalSwipe({
+  onNext: showNext,
+  onPrevious: showPrevious,
+})
 
 const openZoom = (index = activeIndex.value) => {
   if (!previewImages.value.length) {
@@ -162,46 +168,93 @@ onBeforeUnmount(() => {
 
     <div class="section-panel overflow-hidden rounded-[1.75rem] p-4 sm:p-5 lg:p-6">
       <div
-        class="relative overflow-hidden rounded-[1.35rem] border border-white/8 bg-[linear-gradient(180deg,rgba(15,23,42,0.5),rgba(15,23,42,0.34))] p-3 sm:p-4"
+        class="swipe-surface relative overflow-hidden rounded-[1.35rem] border border-white/8 bg-[linear-gradient(180deg,rgba(15,23,42,0.5),rgba(15,23,42,0.34))] p-3 sm:p-4"
+        tabindex="0"
+        @keydown.left.prevent="showPrevious"
+        @keydown.right.prevent="showNext"
+        @touchstart="handleTouchStart"
+        @touchmove="handleTouchMove"
+        @touchend="handleTouchEnd"
+        @touchcancel="handleTouchCancel"
       >
         <div
           class="pointer-events-none absolute inset-x-8 top-0 h-24 rounded-full bg-sky-400/8 blur-3xl"
         />
 
-        <button
-          type="button"
-          class="group relative block w-full overflow-hidden rounded-[1rem] focus:outline-none"
-          aria-label="Perbesar tampilan aplikasi"
-          @click="openZoom()"
-        >
-          <img
-            :src="activeImage?.src"
-            :alt="previewAlt"
-            class="relative mx-auto w-full max-w-4xl rounded-[1rem] object-contain transition-transform duration-500 ease-out group-hover:scale-[1.01]"
-          />
-
-          <span
-            class="pointer-events-none absolute right-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/70 px-3 py-2 text-xs font-medium text-white/88 opacity-0 shadow-[0_16px_40px_rgba(2,6,23,0.32)] backdrop-blur-md transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+        <div class="group relative">
+          <button
+            type="button"
+            class="relative block w-full overflow-hidden rounded-[1rem] focus:outline-none"
+            aria-label="Perbesar tampilan aplikasi"
+            @click="openZoom()"
           >
-            <Search class="h-3.5 w-3.5" />
-            Zoom
-          </span>
-        </button>
+            <Transition name="preview-image" mode="out-in">
+              <div
+                :key="activeImage?.src || sectionId"
+                class="flex aspect-[16/10] items-center justify-center rounded-[1rem] p-3 sm:p-4"
+              >
+                <img
+                  :src="activeImage?.src"
+                  :alt="previewAlt"
+                  class="relative mx-auto max-h-full w-full max-w-4xl object-contain transition-transform duration-500 ease-out group-hover:scale-[1.01]"
+                />
+              </div>
+            </Transition>
+
+            <span
+              class="pointer-events-none absolute right-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/70 px-3 py-2 text-xs font-medium text-white/88 opacity-0 shadow-[0_16px_40px_rgba(2,6,23,0.32)] backdrop-blur-md transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+            >
+              <Search class="h-3.5 w-3.5" />
+              Zoom
+            </span>
+          </button>
+
+          <button
+            v-if="previewImages.length > 1"
+            type="button"
+            class="preview-nav-button absolute left-4 top-1/2 z-[1] -translate-y-1/2"
+            aria-label="Gambar sebelumnya"
+            @click="showPrevious"
+          >
+            <ChevronLeft class="h-4 w-4" />
+          </button>
+
+          <button
+            v-if="previewImages.length > 1"
+            type="button"
+            class="preview-nav-button absolute right-4 top-1/2 z-[1] -translate-y-1/2"
+            aria-label="Gambar berikutnya"
+            @click="showNext"
+          >
+            <ChevronRight class="h-4 w-4" />
+          </button>
+
+          <div
+            v-if="previewImages.length > 1"
+            class="pointer-events-none absolute inset-x-0 bottom-4 flex justify-center"
+          >
+            <span
+              class="inline-flex items-center rounded-full border border-white/12 bg-slate-950/66 px-3 py-1.5 text-[0.68rem] font-medium text-white/82 backdrop-blur-md"
+            >
+              {{ String(activeIndex + 1).padStart(2, '0') }}/{{ String(previewImages.length).padStart(2, '0') }}
+            </span>
+          </div>
+        </div>
       </div>
 
       <div class="mt-5 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
         <div class="max-w-3xl space-y-2">
           <p
-            v-if="activeImage?.label"
-            class="case-study-kicker text-[0.7rem] uppercase tracking-[0.24em] text-accent"
+            v-if="activeImage?.title"
+            class="case-study-copy text-base font-semibold tracking-[-0.015em] text-textPrimary sm:text-[1.05rem]"
           >
-            {{ activeImage.label }}
+            {{ activeImage.title }}
           </p>
           <p
-            v-if="activeImage?.caption || description"
+            v-if="activeImage?.description || description"
             class="case-study-copy text-sm leading-7 text-textSecondary"
           >
-            {{ activeImage?.caption || description }}
+            {{ activeImage?.description || description }}
           </p>
         </div>
 
@@ -217,25 +270,29 @@ onBeforeUnmount(() => {
           v-for="(item, index) in previewImages"
           :key="`${item.src}-${index}`"
           type="button"
-          class="group overflow-hidden rounded-[1.15rem] border p-2 text-left transition-[transform,border-color,background-color] duration-200 hover:-translate-y-0.5"
+          class="group overflow-hidden rounded-[1.15rem] border p-2 text-left transition-[transform,border-color,background-color,box-shadow] duration-200 hover:-translate-y-0.5"
           :class="
             index === activeIndex
-              ? 'border-emerald-400/60 bg-emerald-400/[0.08]'
+              ? 'border-emerald-400/60 bg-emerald-400/[0.08] shadow-[0_14px_32px_rgba(16,185,129,0.12)]'
               : 'border-white/8 bg-white/[0.02] hover:border-white/15'
           "
           @click="setActiveIndex(index)"
         >
-          <img
-            :src="item.src"
-            :alt="item.alt || previewAlt"
-            class="h-24 w-full rounded-[0.8rem] object-cover object-top"
-          />
+          <div
+            class="flex h-28 items-center justify-center rounded-[0.8rem] bg-[linear-gradient(180deg,rgba(15,23,42,0.56),rgba(2,6,23,0.42))] p-2.5"
+          >
+            <img
+              :src="item.src"
+              :alt="item.alt || previewAlt"
+              class="max-h-full w-full object-contain"
+            />
+          </div>
           <div class="px-1 pb-1 pt-3">
-            <p class="text-sm font-medium text-textPrimary">
-              {{ item.label || `Screen ${index + 1}` }}
+            <p class="app-preview__thumb-title text-sm text-textPrimary">
+              {{ item.title || `Screen ${index + 1}` }}
             </p>
-            <p class="mt-1 min-h-[2.5rem] text-xs leading-5 text-textSecondary">
-              {{ item.caption || 'Lihat detail tampilan pada layar ini.' }}
+            <p class="app-preview__thumb-copy mt-1 min-h-[2.75rem] text-xs leading-5 text-textSecondary">
+              {{ item.description || 'Lihat detail tampilan pada layar ini.' }}
             </p>
           </div>
         </button>
@@ -292,21 +349,23 @@ onBeforeUnmount(() => {
         <div
           class="w-full max-w-6xl overflow-hidden rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.86),rgba(2,6,23,0.92))] p-3 shadow-[0_30px_80px_rgba(2,6,23,0.5)] sm:p-4"
         >
-          <img
-            :src="activeImage?.src"
-            :alt="previewAlt"
-            class="max-h-[82vh] w-full rounded-[1.1rem] object-contain"
-          />
+          <div class="flex min-h-[52vh] items-center justify-center rounded-[1.1rem] p-3 sm:p-4">
+            <img
+              :src="activeImage?.src"
+              :alt="previewAlt"
+              class="max-h-[82vh] w-full object-contain"
+            />
+          </div>
 
           <div
-            v-if="activeImage?.label || activeImage?.caption"
+            v-if="activeImage?.title || activeImage?.description"
             class="flex flex-col gap-2 border-t border-white/8 px-2 pb-1 pt-4 sm:px-3"
           >
-            <p v-if="activeImage?.label" class="text-xs uppercase tracking-[0.24em] text-white/60">
-              {{ activeImage.label }}
+            <p v-if="activeImage?.title" class="text-sm font-semibold tracking-[-0.01em] text-white/88">
+              {{ activeImage.title }}
             </p>
-            <p v-if="activeImage?.caption" class="text-sm leading-7 text-white/82">
-              {{ activeImage.caption }}
+            <p v-if="activeImage?.description" class="text-sm leading-7 text-white/82">
+              {{ activeImage.description }}
             </p>
           </div>
         </div>
@@ -314,3 +373,60 @@ onBeforeUnmount(() => {
     </Transition>
   </Teleport>
 </template>
+
+<style scoped>
+.app-preview__thumb-title {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-weight: 600;
+}
+
+.app-preview__thumb-copy {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.preview-nav-button {
+  display: inline-flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  background: rgb(2 6 23 / 0.48);
+  color: rgb(248 250 252 / 0.9);
+  backdrop-filter: blur(12px);
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.preview-nav-button:hover {
+  transform: translateY(-50%) scale(1.04);
+  background: rgb(15 23 42 / 0.7);
+  border-color: rgb(255 255 255 / 0.18);
+}
+
+.preview-image-enter-active,
+.preview-image-leave-active {
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.preview-image-enter-from,
+.preview-image-leave-to {
+  opacity: 0;
+  transform: scale(0.985);
+}
+
+.swipe-surface {
+  touch-action: pan-y;
+}
+</style>

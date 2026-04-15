@@ -1,11 +1,16 @@
+import { createAssetUrl } from '@/utils/createAssetUrl'
+
 export const experiences = [
   {
     slug: 'intern-perhutani-magenta',
+    type: 'internship',
     role: 'Data Analyst & Systems - Perum Perhutani KPH Banyuwangi Utara',
     company: 'Magang Generasi Bertalenta (MAGENTA)',
     period: 'Mar 2024 - Jun 2024',
     location: 'Banyuwangi, Jawa Timur',
     category: 'Internship',
+    image: createAssetUrl('images/experiences/certificates/perhutani-magenta-certificate.png'),
+    imageAlt: 'Sertifikat MAGENTA Perum Perhutani',
     shortDescription:
       'Magang ini memperkuat cara saya membaca data operasional, merapikan alurnya, lalu menyajikannya agar lebih mudah dipakai tim.',
     highlights: [
@@ -36,11 +41,14 @@ export const experiences = [
   },
   {
     slug: 'mbkm-sib-data-analytics-zenius',
+    type: 'mbkm',
     role: 'Data Analytics for Climate Change Resolution and Sustainable Development',
     company: 'Zenius x Kampus Merdeka',
     period: 'Agu 2023 - Des 2023',
     location: 'Jakarta (Remote)',
     category: 'MBKM-SIB',
+    image: createAssetUrl('images/experiences/certificates/mbkm-sib-zenius-certificate.png'),
+    imageAlt: 'Sertifikat MBKM-SIB Zenius',
     shortDescription:
       'Program ini memperkuat dasar analisis saya melalui pembelajaran terstruktur dan studi kasus yang dekat dengan isu nyata.',
     highlights: [
@@ -71,11 +79,14 @@ export const experiences = [
   },
   {
     slug: 'teaching-assistant-gis',
+    type: 'academic',
     role: 'Teaching Assistant',
     company: 'Laboratorium GIS',
     period: 'Agu 2022 - Jun 2023',
     location: 'Universitas Jember',
     category: 'Academic',
+    image: createAssetUrl('images/experiences/lab/teaching-assistant-gis.jpg'),
+    imageAlt: 'Kegiatan Teaching Assistant di Laboratorium GIS',
     shortDescription:
       'Peran ini membentuk cara saya menjelaskan hal teknis dengan lebih runtut dan menjaga proses belajar tetap terarah.',
     highlights: [
@@ -100,11 +111,14 @@ export const experiences = [
   },
   {
     slug: 'lab-assistant-smart-agriculture',
+    type: 'academic',
     role: 'Laboratory Assistant',
     company: 'Smart Agriculture Laboratory',
     period: 'Jul 2023 - Mar 2024',
     location: 'Universitas Jember',
     category: 'Academic',
+    image: createAssetUrl('images/experiences/lab/laboratory-assistant-smart-agriculture.jpg'),
+    imageAlt: 'Kegiatan Laboratory Assistant di Smart Agriculture Laboratory',
     shortDescription:
       'Peran ini melatih saya menjaga praktikum dan eksperimen tetap rapi, sistematis, dan relevan dengan studi kasus yang dikerjakan.',
     highlights: [

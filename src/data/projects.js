@@ -367,7 +367,7 @@ export const projects = [
       'Proyek ini menghasilkan aplikasi internal yang membantu owner mengelola pegawai, layanan, produk, pengeluaran, transaksi harian, komisi, payroll, dan laporan operasional. Sistem juga mendukung ekspor laporan ke CSV untuk kebutuhan rekap.',
     insights:
       'Proyek ini menunjukkan bahwa sistem untuk usaha kecil tidak perlu rumit, tetapi harus tepat pada alur bisnisnya. Historical snapshot menjadi penting karena menjaga data transaksi dan payroll tetap konsisten. Pendekatan single owner juga membuat autentikasi dan permission bisa dibuat lebih sederhana, sehingga aplikasi tetap fokus pada pekerjaan inti.',
-    cover: projectImage('hair-studio-dashboard.png'),
+    cover: projectImage('hair-studio-login.png'),
     links: {
       github: 'https://github.com/AlvitoDwiP/barber-management.git',
     },
@@ -449,8 +449,8 @@ export const projects = [
         'Dashboard dan modul operasional yang ringkas membantu pembacaan kondisi bisnis harian maupun bulanan tanpa perlu rekap manual berulang.',
       ],
       appPreview: {
-        imageSrc: projectImage('hair-studio-dashboard.png'),
-        imageAlt: 'Dashboard Sistem Operasional Hair Studio',
+        imageSrc: projectImage('hair-studio-login.png'),
+        imageAlt: 'Halaman login owner Sistem Operasional Hair Studio',
         description:
           'Galeri ini menampilkan alur utama Sistem Operasional Hair Studio dari login owner sampai transaksi, payroll, dan pengeluaran.',
         images: [

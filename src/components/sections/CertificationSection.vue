@@ -17,9 +17,9 @@ import { certificationAttachment, certifications } from '@/data/certifications'
     >
       <SectionHeader
         eyebrow="Sertifikasi"
-        title="Sertifikasi ini menunjukkan arah belajar yang saya jaga secara konsisten."
-        description="Saya memilih sertifikasi yang paling relevan dengan analisis data, visualisasi, dan pengembangan solusi agar pembelajarannya tetap dekat dengan pekerjaan yang saya kerjakan."
-        class="max-w-3xl"
+        title="Pengembangan Diri"
+        description="Daftar sertifikasi yang menunjukkan pengembangan kemampuan saya dalam analisis data, pengembangan aplikasi, dan implementasi solusi berbasis teknologi."
+        class="mx-auto max-w-3xl text-center"
       />
 
       <div

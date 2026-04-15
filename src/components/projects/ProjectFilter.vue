@@ -14,7 +14,7 @@ defineEmits(['change'])
 </script>
 
 <template>
-  <div class="flex flex-wrap gap-2">
+  <div class="flex flex-wrap justify-center gap-2">
     <button
       v-for="category in categories"
       :key="category"

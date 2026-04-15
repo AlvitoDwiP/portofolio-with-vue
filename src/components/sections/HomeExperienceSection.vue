@@ -23,9 +23,9 @@ defineProps({
     >
       <SectionHeader
         eyebrow="Pengalaman"
-        title="Pengalaman ini membentuk cara saya memahami masalah, bekerja dalam sistem, dan berkolaborasi."
-        description="Konteksnya tidak selalu sama. Ada yang dekat dengan analisis data, ada yang tumbuh dari peran akademik dan support. Semuanya ikut membentuk cara saya bekerja hari ini."
-        class="max-w-3xl"
+        title="Perjalanan Kerja"
+        description="Pengalaman yang membentuk cara saya memahami masalah, bekerja dalam sistem, dan menghasilkan solusi yang relevan."
+        class="mx-auto max-w-3xl text-center"
       />
 
       <div class="section-content-gap section-grid-gap grid auto-rows-fr md:grid-cols-2">

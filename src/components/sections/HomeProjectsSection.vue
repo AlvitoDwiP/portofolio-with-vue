@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import ProjectCard from '@/components/projects/ProjectCard.vue'
+import ProjectPreviewModal from '@/components/projects/ProjectPreviewModal.vue'
 import ProjectFilter from '@/components/projects/ProjectFilter.vue'
 import BaseContainer from '@/components/ui/BaseContainer.vue'
 
@@ -12,6 +13,7 @@ const props = defineProps({
 })
 
 const activeFilter = ref('Semua')
+const selectedProject = ref(null)
 
 const categories = computed(() => [
   'Semua',
@@ -27,6 +29,14 @@ const filteredProjects = computed(() =>
 )
 
 const visibleProjects = computed(() => filteredProjects.value.slice(0, maxVisibleProjects.value))
+
+const openPreview = (project) => {
+  selectedProject.value = project
+}
+
+const closePreview = () => {
+  selectedProject.value = null
+}
 </script>
 
 <template>
@@ -37,16 +47,13 @@ const visibleProjects = computed(() => filteredProjects.value.slice(0, maxVisibl
       :initial="{ opacity: 0, y: 14 }"
       :visible-once="{ opacity: 1, y: 0, transition: { duration: 360 } }"
     >
-      <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-        <div class="max-w-3xl space-y-4">
-          <p class="section-eyebrow text-xs uppercase tracking-[0.28em]">Proyek Pilihan</p>
-          <h2 class="font-display text-3xl text-white sm:text-4xl">
-            Beberapa proyek ini menunjukkan cara saya memahami kebutuhan lalu menerjemahkannya
-            menjadi hasil kerja yang jelas.
-          </h2>
-          <p class="section-muted max-w-2xl text-sm leading-7">
-            Setiap proyek memperlihatkan konteks masalah, cara kerja yang dipilih, dan output yang
-            dipakai untuk menjawab kebutuhan yang berbeda.
+      <div class="flex flex-col items-center gap-8">
+        <div class="mx-auto max-w-3xl space-y-4 text-center">
+          <p class="section-eyebrow text-xs uppercase tracking-[0.28em]">Proyek Saya</p>
+          <h2 class="font-display text-3xl text-white sm:text-4xl">Karya Unggulan</h2>
+          <p class="section-muted mx-auto max-w-2xl text-sm leading-7">
+            Kumpulan proyek yang menunjukkan bagaimana saya menganalisis data, membangun sistem,
+            dan menghasilkan solusi yang dapat digunakan.
           </p>
         </div>
 
@@ -61,15 +68,22 @@ const visibleProjects = computed(() => filteredProjects.value.slice(0, maxVisibl
         v-if="visibleProjects.length"
         class="section-content-gap grid gap-5 sm:auto-rows-fr sm:grid-cols-2 lg:grid-cols-4 xl:gap-6"
       >
-        <ProjectCard v-for="project in visibleProjects" :key="project.slug" :project="project" />
+        <ProjectCard
+          v-for="project in visibleProjects"
+          :key="project.slug"
+          :project="project"
+          @preview="openPreview"
+        />
       </div>
 
       <div
         v-else
-        class="glass glass-panel section-content-gap rounded-lg border-dashed p-6 text-sm leading-8 text-textSecondary"
+        class="glass glass-panel section-content-gap rounded-lg border-dashed p-6 text-center text-sm leading-8 text-textSecondary"
       >
         Belum ada proyek pada kategori ini.
       </div>
     </BaseContainer>
+
+    <ProjectPreviewModal :project="selectedProject" @close="closePreview" />
   </section>
 </template>

@@ -142,7 +142,7 @@ const tools = toolGroups.flatMap((group) => group.tools)
           <SectionHeader
             eyebrow="who am i?"
             title="Tentang Saya."
-            class="max-w-3xl"
+            class="mx-auto max-w-3xl text-center"
           />
 
           <p class="section-muted text-justify text-sm leading-8 sm:text-base">

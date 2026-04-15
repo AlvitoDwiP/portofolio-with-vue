@@ -13,10 +13,10 @@ export const siteConfig = {
     src: createAssetUrl('profile-photo-hero.jpg'),
     alt: 'Foto profesional Alvito Dwinova Permana',
   },
-  eyebrow: 'Portofolio Personal',
+  eyebrow: 'Portofolio',
   headline: 'Saya mengerjakan analisis data dan pengembangan aplikasi untuk kebutuhan yang jelas',
   summary:
-    'Saya bekerja di persimpangan analisis data dan pengembangan aplikasi. Fokus saya adalah merapikan informasi, lalu menerjemahkannya menjadi sistem atau output yang bisa dipakai.',
+    'Saya mengolah data menjadi insight untuk pengambilan keputusan dan membangun aplikasi untuk menyajikannya secara terstruktur.',
   description:
     'Portofolio Alvito Dwinova Permana yang memuat proyek analisis data, pengembangan aplikasi, dan pengalaman kerja yang relevan.',
   availability: 'Terbuka untuk peran tetap, freelance, dan kolaborasi yang relevan.',

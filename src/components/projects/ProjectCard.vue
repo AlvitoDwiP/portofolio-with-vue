@@ -1,7 +1,8 @@
 <script setup>
 import { computed } from 'vue'
-import { ArrowRight, Github } from 'lucide-vue-next'
+import { ArrowRight, ChartColumnBig, Github } from 'lucide-vue-next'
 import { resolveProjectCardVariant } from '@/components/projects/projectCardVariants'
+import { createProjectThumbnail } from '@/utils/createProjectThumbnail'
 
 const props = defineProps({
   project: {
@@ -10,132 +11,138 @@ const props = defineProps({
   },
 })
 
+const emit = defineEmits(['preview'])
+
 const cardVariant = computed(() => resolveProjectCardVariant(props.project))
-const visibleTools = computed(() => props.project.tools.slice(0, 4))
-const titleClass = computed(() => {
-  const titleLength = props.project.title?.trim().length ?? 0
+const previewImage = computed(() => props.project.cover || createProjectThumbnail(props.project))
+const isDataProject = computed(() => cardVariant.value.key === 'data')
 
-  if (titleLength >= 72) {
-    return 'text-[1.22rem] sm:text-[1.3rem]'
+const externalAction = computed(() => {
+  if (isDataProject.value) {
+    const href =
+      props.project.links?.demo || props.project.links?.notebook || props.project.links?.ppt || ''
+
+    if (!href) {
+      return null
+    }
+
+    return {
+      href,
+      label:
+        props.project.links?.demoLabel ||
+        props.project.links?.notebookLabel ||
+        props.project.links?.pptLabel ||
+        'Dashboard',
+      ariaLabel: 'Buka dashboard project',
+      icon: ChartColumnBig,
+    }
   }
 
-  if (titleLength >= 52) {
-    return 'text-[1.4rem] sm:text-[1.48rem]'
+  if (!props.project.links?.github) {
+    return null
   }
 
-  return 'text-[1.65rem]'
+  return {
+    href: props.project.links.github,
+    label: 'GitHub',
+    ariaLabel: 'Buka GitHub project',
+    icon: Github,
+  }
 })
+
+const openPreview = () => {
+  emit('preview', props.project)
+}
 </script>
 
 <template>
   <article
-    class="glass glass-panel-strong glass-hover group flex h-full min-h-[21rem] transform-gpu flex-col overflow-hidden rounded-lg sm:min-h-[24rem]"
+    class="section-panel group flex h-full cursor-pointer transform-gpu flex-col overflow-hidden rounded-[1.5rem] border border-white/8 p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:scale-[1.02] hover:border-white/14 hover:shadow-[0_20px_44px_rgba(2,6,23,0.22)] focus:outline-none focus-visible:border-white/18 focus-visible:shadow-[0_0_0_3px_rgba(255,255,255,0.08)] sm:p-3.5"
+    role="button"
+    tabindex="0"
+    :aria-label="`Buka preview project ${project.title}`"
+    @click="openPreview"
+    @keydown.enter.prevent="openPreview"
+    @keydown.space.prevent="openPreview"
   >
-    <div
-      :class="[
-        'relative h-40 overflow-hidden border-b border-[color:var(--glass-border)] sm:h-44',
-        cardVariant.coverGradient,
-      ]"
-    >
+    <div class="relative overflow-hidden rounded-[1.2rem]">
       <div
-        class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.06),rgba(15,23,42,0.08)_45%,rgba(2,6,23,0.58))]"
-      />
+        class="flex aspect-[16/10] items-center justify-center bg-[linear-gradient(180deg,rgba(15,23,42,0.62),rgba(2,6,23,0.42))] p-4 sm:p-5"
+      >
+        <img
+          :src="previewImage"
+          :alt="`Thumbnail project ${project.title}`"
+          class="max-h-full w-full object-contain transition duration-500 ease-out group-hover:scale-[1.03] group-hover:brightness-105"
+        />
+      </div>
+
       <div
-        :class="[
-          'absolute -left-12 top-3 h-32 w-32 rounded-full opacity-90',
-          cardVariant.glowPrimary,
-        ]"
-      />
-      <div
-        :class="[
-          'absolute -bottom-4 right-0 h-32 w-32 rounded-full opacity-80',
-          cardVariant.glowSecondary,
-        ]"
-      />
-      <div
-        class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
+        class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.02),rgba(15,23,42,0.1)_52%,rgba(2,6,23,0.46))]"
       />
 
       <span
-        :class="[
-          'absolute right-4 top-4 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.24em]',
-          cardVariant.badgeClass,
-        ]"
+        class="pointer-events-none absolute inset-x-0 bottom-0 flex translate-y-2 justify-center opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"
       >
-        {{ cardVariant.label }}
-      </span>
-
-      <div class="absolute inset-0 flex items-center justify-center px-6">
-        <div
-          :class="[
-            'flex h-20 w-20 items-center justify-center rounded-lg border transition duration-200 group-hover:scale-[1.03]',
-            cardVariant.iconShell,
-          ]"
+        <span
+          class="mb-4 inline-flex items-center rounded-full border border-white/12 bg-slate-950/72 px-3 py-1.5 text-[0.68rem] font-medium text-white/88 backdrop-blur-md"
         >
-          <component :is="cardVariant.icon" class="h-10 w-10" />
-        </div>
-      </div>
-
-      <div
-        class="glass-chip-strong absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[0.68rem] font-medium"
-      >
-        <span :class="['h-2 w-2 rounded-full', cardVariant.dotClass]" />
-        <span>{{ cardVariant.coverLabel }}</span>
-      </div>
+          Preview Project
+        </span>
+      </span>
     </div>
 
-    <div class="flex flex-1 flex-col p-5 sm:p-6">
-      <div class="min-w-0 space-y-4">
-        <p :class="['text-[0.68rem] uppercase tracking-[0.26em]', cardVariant.metaClass]">
-          {{ cardVariant.summaryLabel }}
-        </p>
-        <RouterLink
-          :to="{ name: 'project-detail', params: { slug: project.slug } }"
-          :class="[
-            'block font-display leading-tight text-textPrimary transition-colors duration-200 group-hover:text-white/90 sm:text-[1.65rem]',
-            titleClass,
-          ]"
-        >
-          {{ project.title }}
-        </RouterLink>
-      </div>
-
-      <div class="mt-5 flex flex-wrap gap-2">
+    <div class="flex flex-1 flex-col px-1 pb-1 pt-4">
+      <div class="min-w-0 space-y-3">
         <span
-          v-for="item in visibleTools"
-          :key="item"
           :class="[
-            'rounded-full border px-3 py-1.5 text-[0.72rem] font-medium',
-            cardVariant.techClass,
+            'inline-flex w-fit items-center rounded-full border px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.22em]',
+            cardVariant.badgeClass,
           ]"
         >
-          {{ item }}
+          {{ cardVariant.label }}
         </span>
+
+        <h3 class="project-card__title font-display text-[1.15rem] leading-tight text-textPrimary sm:text-[1.28rem]">
+          {{ project.title }}
+        </h3>
       </div>
 
-      <div class="mt-auto flex flex-wrap items-center gap-2.5 pt-6">
+      <div class="mt-auto flex items-center gap-3 pt-6">
         <RouterLink
           :to="{ name: 'project-detail', params: { slug: project.slug } }"
-          :class="[
-            'inline-flex items-center rounded-xl border px-3.5 py-2.5 text-sm font-medium transition-[transform,border-color,color,background-color,box-shadow] duration-200 hover:-translate-y-0.5',
-            cardVariant.linkPrimaryClass,
-          ]"
+          class="inline-flex items-center rounded-xl bg-[linear-gradient(135deg,rgba(56,189,248,0.96),rgba(59,130,246,0.92))] px-4 py-3 text-sm font-semibold text-slate-950 shadow-[0_16px_36px_rgba(56,189,248,0.22)] transition-[transform,filter,box-shadow] duration-200 hover:-translate-y-0.5 hover:scale-[1.02] hover:brightness-105"
+          @click.stop
+          @keydown.enter.stop
+          @keydown.space.stop
         >
           <span>Lihat Detail</span>
           <ArrowRight class="ml-2 h-4 w-4" />
         </RouterLink>
 
         <a
-          v-if="project.links?.github"
-          :href="project.links.github"
+          v-if="externalAction"
+          :href="externalAction.href"
           target="_blank"
           rel="noreferrer"
-          class="glass-chip-strong glass-hover inline-flex h-11 w-11 items-center justify-center rounded-xl text-textSecondary hover:text-textPrimary"
-          aria-label="Buka GitHub project"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-textSecondary transition-[transform,border-color,color,background-color] duration-200 hover:-translate-y-0.5 hover:border-white/16 hover:bg-white/[0.06] hover:text-textPrimary"
+          :aria-label="externalAction.ariaLabel"
+          :title="externalAction.label"
+          @click.stop
+          @keydown.enter.stop
+          @keydown.space.stop
         >
-          <Github class="h-4 w-4" />
+          <component :is="externalAction.icon" class="h-4 w-4" />
         </a>
       </div>
     </div>
   </article>
 </template>
+
+<style scoped>
+.project-card__title {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+</style>

@@ -86,11 +86,11 @@ const handleSubmit = () => {
         <div class="contact-card__glow absolute inset-x-8 top-0 h-24 blur-3xl sm:inset-x-16" />
 
         <div class="relative space-y-7">
-          <div class="space-y-2">
+          <div class="mx-auto max-w-2xl space-y-2 text-center">
             <p class="section-eyebrow text-xs font-medium uppercase tracking-[0.18em]">
               Kirim Pesan
             </p>
-            <p class="section-muted max-w-2xl text-sm leading-7 sm:text-base">
+            <p class="section-muted mx-auto max-w-2xl text-sm leading-7 sm:text-base">
               <span class="block">Tulis pesan Anda di bawah.</span>
               <span class="block">Email akan terbuka untuk ditinjau sebelum dikirim.</span>
             </p>
