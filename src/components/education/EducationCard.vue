@@ -7,7 +7,7 @@ import unejLogo from '@/assets/images/education/unej-logo.png'
     class="section-panel section-card-hover group relative overflow-hidden rounded-lg px-5 py-5 sm:px-6 sm:py-6"
   >
     <div
-      class="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#0b1120]/60"
+      class="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[rgba(220,233,226,0.16)]"
     />
 
     <img
@@ -21,7 +21,7 @@ import unejLogo from '@/assets/images/education/unej-logo.png'
     <div class="relative z-10 pr-16 sm:pr-24 lg:pr-32">
       <p class="section-muted text-xs font-medium uppercase tracking-[0.2em]">2021 — 2026</p>
 
-      <h2 class="mt-3 font-display text-2xl leading-tight text-white sm:text-[1.9rem]">
+      <h2 class="mt-3 font-display text-2xl leading-tight text-textPrimary sm:text-[1.9rem]">
         Sarjana Komputer (S.Kom)
       </h2>
 

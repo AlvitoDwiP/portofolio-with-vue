@@ -27,7 +27,7 @@ const handleThumbnailError = () => {
 <template>
   <BaseCard
     as="article"
-    class="section-card-hover group flex h-full transform-gpu flex-col rounded-[20px] border-white/10 p-5 transition duration-300 hover:scale-[1.01] hover:border-white/20 hover:shadow-[0_18px_45px_rgba(15,23,42,0.34)] sm:p-6"
+    class="section-card-hover group flex h-full transform-gpu flex-col rounded-[20px] border-[color:var(--glass-border)] bg-[rgba(251,246,238,0.98)] p-5 transition duration-300 hover:scale-[1.01] hover:border-[rgba(31,92,76,0.18)] hover:shadow-[0_18px_45px_rgba(46,42,38,0.1)] sm:p-6"
   >
     <div
       v-if="attachment"
@@ -62,8 +62,8 @@ const handleThumbnailError = () => {
           class="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl border text-[0.68rem] font-semibold uppercase tracking-[0.16em]"
           :class="
             showThumbnail
-              ? 'border-white/15 bg-white p-1.5 text-slate-900'
-              : 'border-white/10 bg-white/[0.06] text-white/80'
+              ? 'border-[rgba(216,203,184,0.84)] bg-[rgba(251,246,238,0.92)] p-1.5 text-textPrimary'
+              : 'border-[rgba(31,92,76,0.16)] bg-[rgba(220,233,226,0.82)] text-accent'
           "
         >
           <img
@@ -96,7 +96,7 @@ const handleThumbnailError = () => {
         <BaseBadge
           v-for="skill in certification.skills"
           :key="skill"
-          variant="neutral"
+          variant="accent"
           class="px-2.5 py-1 text-[0.68rem] tracking-[0.12em]"
         >
           {{ skill }}

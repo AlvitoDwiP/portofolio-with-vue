@@ -39,31 +39,31 @@ const emit = defineEmits(['view-ui'])
   <section class="relative isolate overflow-hidden rounded-[2rem] p-3 sm:p-4 lg:p-5">
     <div class="pointer-events-none absolute inset-0">
       <div
-        class="absolute inset-0 bg-[radial-gradient(circle_at_16%_20%,rgba(56,189,248,0.18),transparent_30%),radial-gradient(circle_at_82%_24%,rgba(99,102,241,0.14),transparent_28%),linear-gradient(135deg,rgba(15,23,42,0.96),rgba(8,15,30,0.86)_52%,rgba(2,6,23,0.98))]"
+        class="absolute inset-0 bg-[radial-gradient(circle_at_16%_20%,rgba(220,233,226,0.22),transparent_30%),radial-gradient(circle_at_82%_24%,rgba(239,228,211,0.22),transparent_28%),linear-gradient(135deg,rgba(251,246,238,0.98),rgba(239,228,211,0.96)_52%,rgba(244,235,221,0.98))]"
       />
-      <div class="absolute inset-0 bg-[rgba(2,6,23,0.68)]" />
-      <div class="absolute -left-12 top-8 h-40 w-40 rounded-full bg-sky-400/10 blur-3xl" />
-      <div class="absolute bottom-0 right-0 h-56 w-56 rounded-full bg-indigo-500/10 blur-3xl" />
+      <div class="absolute inset-0 bg-[rgba(244,235,221,0.24)]" />
+      <div class="absolute -left-12 top-8 h-40 w-40 rounded-full bg-[rgba(220,233,226,0.14)] blur-3xl" />
+      <div class="absolute bottom-0 right-0 h-56 w-56 rounded-full bg-[rgba(31,92,76,0.08)] blur-3xl" />
     </div>
 
     <div
-      class="relative overflow-hidden rounded-[1.65rem] border border-white/10 bg-[rgba(8,12,24,0.56)] shadow-[0_24px_72px_rgba(2,6,23,0.34)] ring-1 ring-inset ring-white/[0.06] backdrop-blur-[3px]"
+      class="relative overflow-hidden rounded-[1.65rem] border border-[rgba(216,203,184,0.88)] bg-[rgba(251,246,238,0.88)] shadow-[0_24px_72px_rgba(46,42,38,0.1)] ring-1 ring-inset ring-[rgba(255,255,255,0.18)] backdrop-blur-[3px]"
     >
       <div
         class="pointer-events-none absolute inset-y-0 right-0 hidden w-[36%] lg:block"
         aria-hidden="true"
       >
         <div
-          class="absolute right-8 top-8 h-40 w-40 rounded-[2rem] border border-white/10 bg-white/[0.05] shadow-[0_18px_40px_rgba(15,23,42,0.18)]"
+          class="absolute right-8 top-8 h-40 w-40 rounded-[2rem] border border-[rgba(216,203,184,0.86)] bg-[rgba(251,246,238,0.22)] shadow-[0_18px_40px_rgba(46,42,38,0.08)]"
         />
         <div
-          class="absolute bottom-10 right-20 h-28 w-52 rounded-[1.75rem] border border-white/10 bg-gradient-to-br from-sky-400/10 via-transparent to-indigo-500/10"
+          class="absolute bottom-10 right-20 h-28 w-52 rounded-[1.75rem] border border-[rgba(216,203,184,0.86)] bg-gradient-to-br from-[rgba(220,233,226,0.16)] via-transparent to-[rgba(239,228,211,0.16)]"
         />
         <div
-          class="absolute right-10 top-24 h-px w-40 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+          class="absolute right-10 top-24 h-px w-40 bg-gradient-to-r from-transparent via-[rgba(31,92,76,0.24)] to-transparent"
         />
         <div
-          class="absolute bottom-20 right-8 h-px w-28 bg-gradient-to-r from-white/5 via-white/25 to-transparent"
+          class="absolute bottom-20 right-8 h-px w-28 bg-gradient-to-r from-[rgba(31,92,76,0.05)] via-[rgba(31,92,76,0.16)] to-transparent"
         />
       </div>
 

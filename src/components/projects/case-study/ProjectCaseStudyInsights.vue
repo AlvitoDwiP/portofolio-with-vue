@@ -31,7 +31,7 @@ defineProps({
       <article
         v-for="(item, index) in items"
         :key="`${item.title}-${index}`"
-        class="rounded-[1.5rem] border border-white/8 bg-white/[0.02] p-6 sm:p-7"
+        class="rounded-[1.5rem] border border-[rgba(216,203,184,0.88)] bg-[rgba(251,246,238,0.94)] p-6 shadow-[0_12px_28px_rgba(46,42,38,0.08)] sm:p-7"
       >
         <p class="case-study-kicker text-accent">
           {{ item.eyebrow }}
@@ -43,7 +43,7 @@ defineProps({
           {{ item.description }}
         </p>
         <p
-          class="case-study-copy mt-5 border-t border-white/8 pt-5 text-sm leading-7 text-textPrimary"
+          class="case-study-copy mt-5 border-t border-[rgba(216,203,184,0.82)] pt-5 text-sm leading-7 text-textPrimary"
         >
           {{ item.implication }}
         </p>

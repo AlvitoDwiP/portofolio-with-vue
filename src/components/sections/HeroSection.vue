@@ -66,7 +66,7 @@ const cardStyle = computed(() => ({
   transition: isCardHovered.value
     ? 'transform 120ms ease-out, box-shadow 180ms ease-out, filter 180ms ease-out'
     : 'transform 360ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 360ms cubic-bezier(0.22, 1, 0.36, 1), filter 360ms cubic-bezier(0.22, 1, 0.36, 1)',
-  boxShadow: `0 ${cardState.value.shadowY}px ${cardState.value.shadowBlur}px rgba(2, 6, 23, ${cardState.value.shadowOpacity})`,
+  boxShadow: `0 ${cardState.value.shadowY}px ${cardState.value.shadowBlur}px rgba(62, 52, 43, ${cardState.value.shadowOpacity})`,
   '--hero-card-glow-x': `${cardState.value.glowX}%`,
   '--hero-card-glow-y': `${cardState.value.glowY}%`,
   '--hero-card-glow-opacity': cardState.value.glowOpacity,
@@ -274,24 +274,27 @@ onBeforeUnmount(() => {
           v-motion
           :initial="{ opacity: 0, y: 22 }"
           :enter="{ opacity: 1, y: 0, transition: { duration: 500, delay: 80 } }"
-          class="order-2 lg:col-start-2 lg:row-span-2 lg:flex lg:items-center lg:justify-end"
+          class="order-2 relative lg:col-start-2 lg:row-span-2 lg:flex lg:items-center lg:justify-end"
         >
+          <div
+            class="pointer-events-none absolute left-1/2 top-1/2 h-[24rem] w-[24rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(220,233,226,0.72)_0%,rgba(220,233,226,0.38)_36%,rgba(244,235,221,0)_72%)] blur-3xl sm:h-[28rem] sm:w-[28rem]"
+          />
           <div
             ref="cardRef"
             :style="cardStyle"
-            class="hero-photo-card section-panel mx-auto flex w-full max-w-[24.5rem] items-stretch rounded-[1.5rem] p-2.5 sm:max-w-[27rem] sm:p-3 lg:mx-0 lg:max-w-[28rem] xl:max-w-[29.5rem]"
+            class="hero-photo-card section-panel mx-auto flex w-full max-w-[24.5rem] items-stretch rounded-[1.5rem] border-[rgba(216,203,184,0.9)] bg-[rgba(251,246,238,0.96)] p-2.5 sm:max-w-[27rem] sm:p-3 lg:mx-0 lg:max-w-[28rem] xl:max-w-[29.5rem]"
             @pointerenter="handleCardPointerEnter"
             @pointermove="handleCardPointerMove"
             @pointerleave="handleCardPointerLeave"
             @pointercancel="handleCardPointerLeave"
           >
             <div
-              class="hero-photo-card__ambient absolute inset-x-8 bottom-0 h-20 rounded-full bg-[rgb(var(--section-accent-rgb)/0.12)] blur-3xl sm:inset-x-10 sm:h-24"
+              class="hero-photo-card__ambient absolute inset-x-8 bottom-0 h-20 rounded-full bg-[radial-gradient(circle,rgba(220,233,226,0.42)_0%,rgba(239,228,211,0.34)_45%,rgba(31,92,76,0.16)_72%,transparent_100%)] blur-3xl sm:inset-x-10 sm:h-24"
             />
             <div class="hero-photo-card__cursor-glow absolute inset-0 rounded-[inherit]" />
 
             <div
-              class="hero-photo-card__surface relative min-h-[16rem] flex-1 overflow-hidden rounded-[1.1rem] bg-[#d8ccc4] sm:min-h-[18.5rem] lg:min-h-[20rem]"
+              class="hero-photo-card__surface relative min-h-[16rem] flex-1 overflow-hidden rounded-[1.1rem] border border-[rgba(216,203,184,0.82)] bg-[#FBF6EE] sm:min-h-[18.5rem] lg:min-h-[20rem]"
             >
               <img
                 v-if="!hasPortraitError"
@@ -304,7 +307,7 @@ onBeforeUnmount(() => {
 
               <div
                 v-else
-                class="flex h-full flex-col items-center justify-center bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.14),transparent_44%)] px-6 text-center"
+                class="flex h-full flex-col items-center justify-center bg-[radial-gradient(circle_at_top,rgba(220,233,226,0.18),transparent_44%)] px-6 text-center"
               >
                 <div
                   class="glass-chip-strong flex h-24 w-24 items-center justify-center rounded-full text-2xl font-semibold tracking-[0.24em] text-textPrimary"
@@ -320,11 +323,11 @@ onBeforeUnmount(() => {
               </div>
 
               <div
-                class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(10,12,16,0.06),rgba(10,12,16,0.22)_60%,rgba(10,12,16,0.58))]"
+                class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(251,246,238,0.08),rgba(239,228,211,0.1)_60%,rgba(31,92,76,0.16))]"
               />
 
               <div
-                class="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(180deg,transparent,rgba(10,12,16,0.72))]"
+                class="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(180deg,transparent,rgba(239,228,211,0.18),rgba(31,92,76,0.2))]"
               />
 
               <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
@@ -355,13 +358,12 @@ onBeforeUnmount(() => {
 .hero-name-animated {
   background-image: linear-gradient(
     110deg,
-    rgba(248, 250, 252, 0.99) 0%,
-    rgba(248, 250, 252, 0.99) 34%,
-    rgba(224, 242, 254, 0.98) 46%,
-    rgba(248, 250, 252, 0.995) 58%,
-    rgba(199, 210, 254, 0.96) 68%,
-    rgba(248, 250, 252, 0.99) 80%,
-    rgba(248, 250, 252, 0.99) 100%
+    rgba(46, 42, 38, 0.98) 0%,
+    rgba(46, 42, 38, 0.98) 38%,
+    rgba(31, 92, 76, 0.88) 50%,
+    rgba(46, 42, 38, 0.98) 62%,
+    rgba(111, 101, 91, 0.92) 74%,
+    rgba(46, 42, 38, 0.98) 100%
   );
   background-size: 220% 100%;
   background-position: 0% 50%;
@@ -389,11 +391,10 @@ onBeforeUnmount(() => {
   background:
     radial-gradient(
       circle at var(--hero-card-glow-x, 50%) var(--hero-card-glow-y, 18%),
-      rgb(129 140 248 / var(--hero-card-glow-opacity, 0.16)),
+      rgba(164, 144, 124, var(--hero-card-glow-opacity, 0.16)),
       transparent 36%
     ),
-    linear-gradient(180deg, rgb(255 255 255 / 0.04), transparent 32%);
-  mix-blend-mode: screen;
+    linear-gradient(180deg, rgba(241, 222, 201, 0.14), transparent 32%);
   opacity: 0.9;
 }
 
@@ -403,7 +404,7 @@ onBeforeUnmount(() => {
 }
 
 .hero-photo-card__focus {
-  box-shadow: 0 16px 36px rgb(2 6 23 / 0.24);
+  box-shadow: 0 16px 36px rgba(62, 52, 43, 0.12);
 }
 
 .hero-photo-card:hover .hero-photo-card__ambient {

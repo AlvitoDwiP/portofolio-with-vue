@@ -39,7 +39,7 @@ const { activeHash, createSectionHref, navigateToSection } = useSectionNavigatio
 <template>
   <header
     data-site-header
-    class="sticky top-0 z-40 border-b border-[color:var(--glass-border)] bg-[rgba(2,6,23,0.78)] backdrop-blur-glass"
+    class="sticky top-0 z-40 border-b border-[color:var(--glass-border)] bg-[rgba(244,235,221,0.88)] backdrop-blur-glass"
   >
     <BaseContainer class="py-3">
       <div class="flex min-h-12 items-center justify-between gap-3 sm:gap-5">
@@ -49,7 +49,7 @@ const { activeHash, createSectionHref, navigateToSection } = useSectionNavigatio
               <a
                 :href="createSectionHref(item.href)"
                 :aria-current="activeHash === item.href ? 'page' : undefined"
-                class="font-medium transition duration-200 hover:text-text"
+                class="font-medium transition duration-200 hover:text-accent"
                 :class="activeHash === item.href ? 'text-text' : 'text-text-muted'"
                 @click.prevent="navigateToSection(item.href)"
               >
@@ -81,7 +81,7 @@ const { activeHash, createSectionHref, navigateToSection } = useSectionNavigatio
             <a
               :href="createSectionHref(item.href)"
               :aria-current="activeHash === item.href ? 'page' : undefined"
-              class="whitespace-nowrap font-medium transition duration-200 hover:text-text"
+              class="whitespace-nowrap font-medium transition duration-200 hover:text-accent"
               :class="activeHash === item.href ? 'text-text' : 'text-text-muted'"
               @click.prevent="navigateToSection(item.href)"
             >

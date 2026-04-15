@@ -159,11 +159,11 @@ onBeforeUnmount(() => {
     <Transition name="project-preview">
       <div
         v-if="project"
-        class="project-preview fixed inset-0 z-[95] flex items-center justify-center bg-[rgba(2,6,23,0.78)] px-4 py-6 backdrop-blur-md sm:px-6"
+        class="project-preview fixed inset-0 z-[95] flex items-center justify-center bg-[rgba(244,235,221,0.84)] px-4 py-6 backdrop-blur-md sm:px-6"
         @click.self="closeModal"
       >
         <div
-          class="project-preview__panel section-panel relative w-full max-w-6xl overflow-hidden rounded-[1.9rem] border border-white/10 p-4 shadow-[0_28px_80px_rgba(2,6,23,0.48)] sm:p-5 lg:p-6"
+          class="project-preview__panel section-panel relative w-full max-w-6xl overflow-hidden rounded-[1.9rem] border border-[rgba(216,203,184,0.88)] p-4 shadow-[0_28px_80px_rgba(46,42,38,0.12)] sm:p-5 lg:p-6"
           role="dialog"
           aria-modal="true"
           :aria-label="project.title"
@@ -180,7 +180,7 @@ onBeforeUnmount(() => {
           <div class="grid gap-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(18rem,0.75fr)] lg:gap-8">
             <div class="space-y-4">
               <div
-                class="swipe-surface relative overflow-hidden rounded-[1.5rem] border border-white/8 bg-[linear-gradient(180deg,rgba(15,23,42,0.58),rgba(2,6,23,0.42))]"
+                class="swipe-surface relative overflow-hidden rounded-[1.5rem] border border-[rgba(216,203,184,0.88)] bg-[linear-gradient(180deg,rgba(251,246,238,0.98),rgba(239,228,211,0.94))]"
                 tabindex="0"
                 @keydown.left.prevent="showPrevious"
                 @keydown.right.prevent="showNext"
@@ -227,7 +227,7 @@ onBeforeUnmount(() => {
                   class="pointer-events-none absolute inset-x-0 bottom-4 flex justify-center"
                 >
                   <span
-                    class="inline-flex items-center rounded-full border border-white/12 bg-slate-950/66 px-3 py-1.5 text-[0.68rem] font-medium text-white/82 backdrop-blur-md"
+                    class="inline-flex items-center rounded-full border border-[rgba(216,203,184,0.86)] bg-[rgba(251,246,238,0.96)] px-3 py-1.5 text-[0.68rem] font-medium text-textSecondary backdrop-blur-md"
                   >
                     {{ String(activeIndex + 1).padStart(2, '0') }}/{{
                       String(previewImages.length).padStart(2, '0')
@@ -236,7 +236,7 @@ onBeforeUnmount(() => {
                 </div>
 
                 <div
-                  class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.04),rgba(2,6,23,0.36))]"
+                  class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(251,246,238,0.08),rgba(31,92,76,0.14))]"
                 />
               </div>
 
@@ -251,13 +251,13 @@ onBeforeUnmount(() => {
                   class="overflow-hidden rounded-[1rem] border transition-[transform,border-color,box-shadow] duration-200 hover:scale-[1.02]"
                   :class="
                     index === activeIndex
-                      ? 'border-white/24 bg-white/[0.05] shadow-[0_14px_34px_rgba(2,6,23,0.24)]'
-                      : 'border-white/8 bg-white/[0.02]'
+                      ? 'border-[rgba(31,92,76,0.24)] bg-[rgba(220,233,226,0.72)] shadow-[0_14px_34px_rgba(46,42,38,0.1)]'
+                      : 'border-[rgba(216,203,184,0.86)] bg-[rgba(251,246,238,0.86)]'
                   "
                   @click="setActiveIndex(index)"
                 >
                   <div
-                    class="flex aspect-[4/3] items-center justify-center bg-[linear-gradient(180deg,rgba(15,23,42,0.54),rgba(2,6,23,0.42))] p-2.5"
+                    class="flex aspect-[4/3] items-center justify-center bg-[linear-gradient(180deg,rgba(251,246,238,0.98),rgba(239,228,211,0.94))] p-2.5"
                   >
                     <img
                       :src="item.src"
@@ -302,24 +302,24 @@ onBeforeUnmount(() => {
                   </p>
                 </div>
 
-                <div class="space-y-2.5 border-t border-white/8 pt-4">
+                <div class="space-y-2.5 border-t border-[rgba(216,203,184,0.82)] pt-4">
                   <p
                     v-if="activeImageTitle"
-                    class="text-[0.82rem] font-semibold tracking-[-0.01em] text-textPrimary/88 sm:text-[0.9rem]"
+                    class="text-[0.82rem] font-semibold tracking-[-0.01em] text-textPrimary sm:text-[0.9rem]"
                   >
                     {{ activeImageTitle }}
                   </p>
                   <p
                     v-if="activeImageDescription"
-                    class="project-preview__active-copy text-sm leading-7 text-textSecondary/88"
+                    class="project-preview__active-copy text-sm leading-7 text-textSecondary"
                   >
                     {{ activeImageDescription }}
                   </p>
                 </div>
 
-                <div v-if="projectTools.length" class="space-y-3 border-t border-white/8 pt-4">
+                <div v-if="projectTools.length" class="space-y-3 border-t border-[rgba(216,203,184,0.82)] pt-4">
                   <p
-                    class="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-textSecondary/78"
+                    class="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-textMuted"
                   >
                     Tools
                   </p>
@@ -328,7 +328,7 @@ onBeforeUnmount(() => {
                     <span
                       v-for="tool in projectTools"
                       :key="tool"
-                      class="inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[0.72rem] font-medium leading-none text-textPrimary/88 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] backdrop-blur-sm"
+                      class="inline-flex items-center rounded-full border border-[rgba(31,92,76,0.16)] bg-[rgba(220,233,226,0.82)] px-3 py-1.5 text-[0.72rem] font-medium leading-none text-textPrimary shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] backdrop-blur-sm"
                     >
                       {{ tool }}
                     </span>
@@ -336,11 +336,11 @@ onBeforeUnmount(() => {
                 </div>
 
                 <div
-                  class="flex flex-col gap-3 border-t border-white/8 pt-4 sm:flex-row sm:flex-wrap"
+                  class="flex flex-col gap-3 border-t border-[rgba(216,203,184,0.82)] pt-4 sm:flex-row sm:flex-wrap"
                 >
                   <RouterLink
                     :to="{ name: 'project-detail', params: { slug: project.slug } }"
-                    class="inline-flex items-center justify-center rounded-xl border border-white/12 bg-white/[0.04] px-4 py-3 text-sm font-medium text-textPrimary transition-[transform,border-color,background-color,color] duration-200 hover:-translate-y-0.5 hover:border-white/18 hover:bg-white/[0.07]"
+                    class="inline-flex items-center justify-center rounded-xl border border-[rgba(216,203,184,0.86)] bg-[rgba(251,246,238,0.92)] px-4 py-3 text-sm font-medium text-textPrimary transition-[transform,border-color,background-color,color] duration-200 hover:-translate-y-0.5 hover:border-[rgba(31,92,76,0.2)] hover:bg-[rgba(220,233,226,0.52)]"
                     @click="closeModal"
                   >
                     <span>Lihat Selengkapnya</span>
@@ -349,7 +349,7 @@ onBeforeUnmount(() => {
 
                   <button
                     type="button"
-                    class="inline-flex items-center justify-center rounded-xl border border-white/10 px-4 py-3 text-sm font-medium text-textSecondary transition-[transform,border-color,color,background-color] duration-200 hover:-translate-y-0.5 hover:border-white/16 hover:bg-white/[0.03] hover:text-textPrimary"
+                    class="inline-flex items-center justify-center rounded-xl border border-[rgba(216,203,184,0.86)] px-4 py-3 text-sm font-medium text-textSecondary transition-[transform,border-color,color,background-color] duration-200 hover:-translate-y-0.5 hover:border-[rgba(31,92,76,0.2)] hover:bg-[rgba(239,228,211,0.88)] hover:text-textPrimary"
                     @click="closeModal"
                   >
                     Tutup Project
@@ -428,9 +428,9 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  border: 1px solid rgb(255 255 255 / 0.12);
-  background: rgb(2 6 23 / 0.48);
-  color: rgb(248 250 252 / 0.9);
+  border: 1px solid rgba(141, 123, 104, 0.18);
+  background: rgba(230, 215, 195, 0.96);
+  color: #3e342b;
   backdrop-filter: blur(12px);
   transition:
     transform 180ms ease,
@@ -440,8 +440,8 @@ onBeforeUnmount(() => {
 
 .preview-nav-button:hover {
   transform: translateY(-50%) scale(1.04);
-  background: rgb(15 23 42 / 0.7);
-  border-color: rgb(255 255 255 / 0.18);
+  background: rgba(236, 223, 207, 0.98);
+  border-color: rgba(141, 123, 104, 0.24);
 }
 
 .preview-image-enter-active,

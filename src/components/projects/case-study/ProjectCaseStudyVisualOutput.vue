@@ -11,22 +11,22 @@ defineProps({
 const previewThemes = {
   dashboard: {
     shell:
-      'bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_34%),linear-gradient(135deg,rgba(15,23,42,0.96),rgba(15,23,42,0.84)_48%,rgba(2,6,23,0.96))]',
-    line: 'bg-sky-300/60',
+      'bg-[radial-gradient(circle_at_top_left,rgba(220,233,226,0.22),transparent_34%),linear-gradient(135deg,rgba(251,246,238,0.98),rgba(239,228,211,0.94)_48%,rgba(244,235,221,0.96))]',
+    line: 'bg-[rgba(31,92,76,0.38)]',
     Icon: LayoutDashboard,
     label: 'Dashboard View',
   },
   presentation: {
     shell:
-      'bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.16),transparent_34%),linear-gradient(135deg,rgba(30,41,59,0.94),rgba(15,23,42,0.88)_50%,rgba(2,6,23,0.96))]',
-    line: 'bg-amber-200/60',
+      'bg-[radial-gradient(circle_at_top_left,rgba(239,228,211,0.2),transparent_34%),linear-gradient(135deg,rgba(251,246,238,0.98),rgba(239,228,211,0.94)_50%,rgba(244,235,221,0.96))]',
+    line: 'bg-[rgba(31,92,76,0.32)]',
     Icon: MonitorPlay,
     label: 'Presentation Deck',
   },
   document: {
     shell:
-      'bg-[radial-gradient(circle_at_top_left,rgba(165,180,252,0.16),transparent_34%),linear-gradient(135deg,rgba(30,41,59,0.94),rgba(15,23,42,0.88)_50%,rgba(2,6,23,0.96))]',
-    line: 'bg-indigo-200/60',
+      'bg-[radial-gradient(circle_at_top_left,rgba(220,233,226,0.16),transparent_34%),linear-gradient(135deg,rgba(251,246,238,0.98),rgba(239,228,211,0.94)_50%,rgba(244,235,221,0.96))]',
+    line: 'bg-[rgba(31,92,76,0.28)]',
     Icon: FileText,
     label: 'Working Document',
   },
@@ -48,29 +48,29 @@ const getPreviewTheme = (previewType) => previewThemes[previewType] ?? previewTh
         :key="`${item.title}-${index}`"
         class="section-panel flex h-full flex-col overflow-hidden rounded-[1.75rem]"
       >
-        <div class="relative min-h-[15rem] border-b border-white/8 bg-[#0d1320]">
+        <div class="relative min-h-[15rem] border-b border-[rgba(216,203,184,0.88)] bg-[rgba(251,246,238,0.98)]">
           <div class="absolute inset-0" :class="getPreviewTheme(item.previewType).shell" />
           <div
-            class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.1),rgba(2,6,23,0.74))]"
+            class="absolute inset-0 bg-[linear-gradient(180deg,rgba(251,246,238,0.08),rgba(31,92,76,0.16))]"
           />
           <div
-            class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent"
+            class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[rgba(31,92,76,0.22)] to-transparent"
           />
           <div
-            class="absolute left-6 top-6 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 backdrop-blur-sm"
+            class="absolute left-6 top-6 flex items-center gap-3 rounded-2xl border border-[rgba(216,203,184,0.86)] bg-[rgba(251,246,238,0.3)] px-4 py-3 backdrop-blur-sm"
           >
-            <component :is="getPreviewTheme(item.previewType).Icon" class="h-5 w-5 text-white/85" />
-            <span class="text-[0.72rem] font-medium uppercase tracking-[0.22em] text-white/70">
+            <component :is="getPreviewTheme(item.previewType).Icon" class="h-5 w-5 text-textPrimary" />
+            <span class="text-[0.72rem] font-medium uppercase tracking-[0.22em] text-textSecondary">
               {{ getPreviewTheme(item.previewType).label }}
             </span>
           </div>
           <div
-            class="absolute right-6 top-6 h-20 w-20 rounded-[1.5rem] border border-white/10 bg-white/[0.05]"
+            class="absolute right-6 top-6 h-20 w-20 rounded-[1.5rem] border border-[rgba(216,203,184,0.86)] bg-[rgba(251,246,238,0.22)]"
           />
           <div class="absolute bottom-16 left-6 right-6 space-y-3">
             <div class="h-3 rounded-full" :class="getPreviewTheme(item.previewType).line" />
-            <div class="h-3 w-4/5 rounded-full bg-white/15" />
-            <div class="h-3 w-3/5 rounded-full bg-white/10" />
+            <div class="h-3 w-4/5 rounded-full bg-[rgba(31,92,76,0.16)]" />
+            <div class="h-3 w-3/5 rounded-full bg-[rgba(31,92,76,0.1)]" />
           </div>
 
           <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6">

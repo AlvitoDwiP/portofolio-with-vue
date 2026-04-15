@@ -57,7 +57,7 @@ const openPreview = () => {
 
 <template>
   <article
-    class="section-panel group flex h-full cursor-pointer transform-gpu flex-col overflow-hidden rounded-[1.5rem] border border-white/8 p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:scale-[1.02] hover:border-white/14 hover:shadow-[0_20px_44px_rgba(2,6,23,0.22)] focus:outline-none focus-visible:border-white/18 focus-visible:shadow-[0_0_0_3px_rgba(255,255,255,0.08)] sm:p-3.5"
+    class="section-panel group flex h-full cursor-pointer transform-gpu flex-col overflow-hidden rounded-[1.5rem] border border-[rgba(216,203,184,0.88)] bg-[rgba(251,246,238,0.98)] p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:-translate-y-1 hover:border-[rgba(31,92,76,0.28)] hover:shadow-[0_20px_44px_rgba(46,42,38,0.1)] focus:outline-none focus-visible:border-[rgba(31,92,76,0.24)] focus-visible:shadow-[0_0_0_3px_rgba(31,92,76,0.12)] sm:p-3.5"
     role="button"
     tabindex="0"
     :aria-label="`Buka preview project ${project.title}`"
@@ -67,7 +67,7 @@ const openPreview = () => {
   >
     <div class="relative overflow-hidden rounded-[1.2rem]">
       <div
-        class="flex aspect-[16/10] items-center justify-center bg-[linear-gradient(180deg,rgba(15,23,42,0.62),rgba(2,6,23,0.42))] p-4 sm:p-5"
+        class="flex aspect-[16/10] items-center justify-center bg-[linear-gradient(180deg,rgba(251,246,238,0.98),rgba(239,228,211,0.94))] p-4 sm:p-5"
       >
         <img
           :src="previewImage"
@@ -77,14 +77,14 @@ const openPreview = () => {
       </div>
 
       <div
-        class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.02),rgba(15,23,42,0.1)_52%,rgba(2,6,23,0.46))]"
+        class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(251,246,238,0.08),rgba(239,228,211,0.08)_52%,rgba(31,92,76,0.16))]"
       />
 
       <span
         class="pointer-events-none absolute inset-x-0 bottom-0 flex translate-y-2 justify-center opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"
       >
         <span
-          class="mb-4 inline-flex items-center rounded-full border border-white/12 bg-slate-950/72 px-3 py-1.5 text-[0.68rem] font-medium text-white/88 backdrop-blur-md"
+          class="mb-4 inline-flex items-center rounded-full border border-[rgba(216,203,184,0.86)] bg-[rgba(251,246,238,0.92)] px-3 py-1.5 text-[0.68rem] font-medium text-textSecondary backdrop-blur-md"
         >
           Preview Project
         </span>
@@ -110,7 +110,7 @@ const openPreview = () => {
       <div class="mt-auto flex items-center gap-3 pt-6">
         <RouterLink
           :to="{ name: 'project-detail', params: { slug: project.slug } }"
-          class="inline-flex items-center rounded-xl bg-[linear-gradient(135deg,rgba(56,189,248,0.96),rgba(59,130,246,0.92))] px-4 py-3 text-sm font-semibold text-slate-950 shadow-[0_16px_36px_rgba(56,189,248,0.22)] transition-[transform,filter,box-shadow] duration-200 hover:-translate-y-0.5 hover:scale-[1.02] hover:brightness-105"
+          class="inline-flex items-center rounded-xl bg-[#1F5C4C] px-4 py-3 text-sm font-semibold text-[#FBF6EE] shadow-[0_16px_36px_rgba(31,92,76,0.18)] transition-[transform,filter,box-shadow] duration-200 hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#17473B]"
           @click.stop
           @keydown.enter.stop
           @keydown.space.stop
@@ -124,7 +124,7 @@ const openPreview = () => {
           :href="externalAction.href"
           target="_blank"
           rel="noreferrer"
-          class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-textSecondary transition-[transform,border-color,color,background-color] duration-200 hover:-translate-y-0.5 hover:border-white/16 hover:bg-white/[0.06] hover:text-textPrimary"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(216,203,184,0.88)] bg-[rgba(251,246,238,0.92)] text-textSecondary transition-[transform,border-color,color,background-color] duration-200 hover:-translate-y-0.5 hover:border-[rgba(31,92,76,0.22)] hover:bg-[rgba(220,233,226,0.52)] hover:text-accent"
           :aria-label="externalAction.ariaLabel"
           :title="externalAction.label"
           @click.stop

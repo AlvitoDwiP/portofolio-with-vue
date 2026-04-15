@@ -14,7 +14,7 @@ defineProps({
 <template>
   <section
     id="pengalaman"
-    class="section-theme section-theme-experience section-spacing scroll-mt-24"
+    class="section-theme section-theme-experience section-spacing scroll-mt-24 bg-[#F4EBDD]"
   >
     <BaseContainer
       v-motion

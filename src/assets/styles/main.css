@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
+    color-scheme: light;
     --font-family-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
     --color-bg: var(--color-bg-primary-rgb);
     --color-surface: var(--color-surface-rgb);
@@ -110,7 +110,7 @@
 
   ::selection {
     background: rgb(var(--color-accent) / 0.18);
-    color: var(--color-text-primary);
+    color: #fbf6ee;
   }
 }
 
@@ -182,9 +182,9 @@
     --section-bottom-fade-start: 72%;
     --section-bottom-fade-end: 100%;
     --section-glow:
-      radial-gradient(circle at 12% 0%, var(--section-glow-primary), transparent 36%),
-      radial-gradient(circle at 88% 6%, var(--section-glow-secondary), transparent 34%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 26%);
+      radial-gradient(circle at 12% 0%, var(--section-glow-primary), transparent 38%),
+      radial-gradient(circle at 88% 6%, var(--section-glow-secondary), transparent 36%),
+      linear-gradient(180deg, rgba(239, 228, 211, 0.18), rgba(244, 235, 221, 0));
   }
 
   .section-theme::before {
@@ -206,7 +206,7 @@
     background: linear-gradient(
       180deg,
       rgb(var(--color-bg) / 0.96) 0,
-      rgb(var(--color-bg) / 0.72) 8%,
+      rgb(var(--color-bg) / 0.82) 8%,
       transparent var(--section-top-fade-end),
       transparent var(--section-bottom-fade-start),
       rgb(var(--color-bg) / 0.92) var(--section-bottom-fade-end)
@@ -219,7 +219,7 @@
   }
 
   .section-theme-hero {
-    --section-accent-rgb: 129 140 248;
+    --section-accent-rgb: 31 92 76;
     --section-glow-primary: var(--glow-blue);
     --section-glow-secondary: var(--glow-indigo);
     --section-glow-opacity: 0.78;
@@ -227,7 +227,7 @@
   }
 
   .section-theme-proof {
-    --section-accent-rgb: 167 139 250;
+    --section-accent-rgb: 31 92 76;
     --section-glow-primary: var(--glow-indigo);
     --section-glow-secondary: var(--glow-purple);
     --section-glow-opacity: 0.6;
@@ -236,7 +236,7 @@
   }
 
   .section-theme-projects {
-    --section-accent-rgb: 139 92 246;
+    --section-accent-rgb: 31 92 76;
     --section-glow-primary: var(--glow-indigo);
     --section-glow-secondary: var(--glow-purple);
     --section-glow-opacity: 0.68;
@@ -245,7 +245,7 @@
   }
 
   .section-theme-experience {
-    --section-accent-rgb: 251 191 36;
+    --section-accent-rgb: 31 92 76;
     --section-glow-primary: var(--glow-amber);
     --section-glow-secondary: var(--glow-purple);
     --section-glow-opacity: 0.44;
@@ -254,7 +254,7 @@
   }
 
   .section-theme-about {
-    --section-accent-rgb: 167 139 250;
+    --section-accent-rgb: 31 92 76;
     --section-glow-primary: var(--glow-purple);
     --section-glow-secondary: var(--glow-indigo);
     --section-glow-opacity: 0.5;
@@ -263,7 +263,7 @@
   }
 
   .section-theme-certification {
-    --section-accent-rgb: 52 211 153;
+    --section-accent-rgb: 31 92 76;
     --section-glow-primary: var(--glow-blue);
     --section-glow-secondary: var(--glow-emerald);
     --section-glow-opacity: 0.4;
@@ -272,7 +272,7 @@
   }
 
   .section-theme-contact {
-    --section-accent-rgb: 56 189 248;
+    --section-accent-rgb: 31 92 76;
     --section-glow-primary: var(--glow-blue);
     --section-glow-secondary: var(--glow-cyan);
     --section-glow-opacity: 0.34;
@@ -281,7 +281,7 @@
   }
 
   .section-theme-detail-project {
-    --section-accent-rgb: 129 140 248;
+    --section-accent-rgb: 31 92 76;
     --section-glow-primary: var(--glow-indigo);
     --section-glow-secondary: var(--glow-blue);
     --section-glow-opacity: 0.48;
@@ -290,7 +290,7 @@
   }
 
   .section-theme-detail-experience {
-    --section-accent-rgb: 251 191 36;
+    --section-accent-rgb: 31 92 76;
     --section-glow-primary: var(--glow-amber);
     --section-glow-secondary: var(--glow-purple);
     --section-glow-opacity: 0.36;
@@ -302,7 +302,7 @@
     position: relative;
     overflow: hidden;
     border: 1px solid var(--glass-border);
-    background: linear-gradient(180deg, rgb(15 23 42 / 0.78), rgb(15 23 42 / 0.62));
+    background: linear-gradient(180deg, rgba(251, 246, 238, 0.98), rgba(247, 240, 230, 0.96));
     box-shadow: var(--shadow-glass);
     -webkit-backdrop-filter: blur(var(--blur-base));
     backdrop-filter: blur(var(--blur-base));
@@ -313,7 +313,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(244, 235, 221, 0.1));
   }
 
   .section-panel > * {
@@ -345,37 +345,38 @@
   }
 
   .section-chip-accent {
-    border: 1px solid rgb(var(--section-accent-rgb) / 0.22);
-    background: rgb(var(--section-accent-rgb) / 0.12);
-    color: rgb(var(--section-accent-rgb) / 0.95);
+    border: 1px solid rgba(31, 92, 76, 0.16);
+    background: rgba(220, 233, 226, 0.88);
+    color: #1f5c4c;
   }
 
   .section-button-primary {
-    border: 1px solid rgb(var(--section-accent-rgb) / 0.24);
-    background: rgb(var(--section-accent-rgb) / 0.16);
-    color: var(--color-text-primary);
-    box-shadow: 0 16px 34px rgb(var(--section-accent-rgb) / 0.14);
+    border: 1px solid #1f5c4c;
+    background: #1f5c4c;
+    color: #fbf6ee;
+    box-shadow: 0 14px 30px rgba(31, 92, 76, 0.18);
   }
 
   .section-button-primary:hover {
-    border-color: rgb(var(--section-accent-rgb) / 0.34);
-    background: rgb(var(--section-accent-rgb) / 0.22);
+    border-color: #17473b;
+    background: #17473b;
   }
 
   .section-button-secondary {
-    border: 1px solid var(--glass-border);
-    background: var(--glass-bg);
-    color: var(--color-text-primary);
+    border: 1px solid #d8cbb8;
+    background: rgba(251, 246, 238, 0.92);
+    color: #2e2a26;
   }
 
   .section-button-secondary:hover {
-    border-color: var(--glass-hover-border);
-    background: var(--glass-bg-hover);
-    box-shadow: var(--shadow-glass);
+    border-color: #d8cbb8;
+    background: #efe4d3;
+    color: #2e2a26;
+    box-shadow: 0 10px 22px rgba(46, 42, 38, 0.08);
   }
 
   .section-link {
-    color: var(--color-text-secondary);
+    color: var(--color-text-primary);
     transition:
       color 200ms ease,
       border-color 200ms ease,
@@ -383,7 +384,7 @@
   }
 
   .section-link:hover {
-    color: var(--color-text-primary);
+    color: #1f5c4c;
   }
 
   .case-study-kicker {
@@ -473,26 +474,26 @@
   }
 
   .glass-panel {
-    background: linear-gradient(180deg, rgb(var(--color-bg) / 0.74), rgb(var(--color-bg) / 0.62));
+    background: linear-gradient(180deg, rgba(251, 246, 238, 0.98), rgba(247, 240, 230, 0.96));
   }
 
   .glass-panel-strong {
-    background: linear-gradient(180deg, rgb(var(--color-bg) / 0.82), rgb(var(--color-bg) / 0.7));
+    background: linear-gradient(180deg, rgba(251, 246, 238, 0.98), rgba(239, 228, 211, 0.98));
   }
 
   .glass-panel-solid {
-    background: linear-gradient(180deg, rgb(var(--color-bg) / 0.9), rgb(var(--color-bg) / 0.8));
+    background: linear-gradient(180deg, rgba(251, 246, 238, 0.98), rgba(239, 228, 211, 0.98));
   }
 
   .glass-chip {
     border: 1px solid var(--glass-border);
-    background: rgb(var(--color-bg) / 0.58);
+    background: rgba(220, 233, 226, 0.52);
     color: var(--color-text-secondary);
   }
 
   .glass-chip-strong {
     border: 1px solid var(--glass-border);
-    background: rgb(var(--color-bg) / 0.7);
+    background: rgba(251, 246, 238, 0.96);
     color: var(--color-text-primary);
   }
 

@@ -66,7 +66,10 @@ const handleSubmit = () => {
 </script>
 
 <template>
-  <section id="kontak" class="section-theme section-theme-contact section-spacing scroll-mt-24">
+  <section
+    id="kontak"
+    class="section-theme section-theme-contact section-spacing scroll-mt-24 bg-[#E8DACA]"
+  >
     <BaseContainer
       v-motion
       :initial="{ opacity: 0, y: 14 }"
@@ -177,7 +180,7 @@ const handleSubmit = () => {
                 :aria-label="item.ariaLabel"
                 target="_blank"
                 rel="noreferrer"
-                class="section-button-secondary inline-flex min-w-[9.5rem] items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-medium transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:-translate-y-0.5"
+                class="section-button-secondary inline-flex min-w-[9.5rem] items-center justify-center gap-2 rounded-xl border-[rgba(216,203,184,0.88)] bg-[rgba(251,246,238,0.92)] px-4 py-3 text-sm font-medium text-textPrimary transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-[rgba(31,92,76,0.18)] hover:bg-[rgba(220,233,226,0.58)] hover:text-accent"
               >
                 <component :is="item.icon" class="h-4 w-4" />
                 <span>{{ item.label }}</span>
@@ -200,7 +203,7 @@ const handleSubmit = () => {
 }
 
 .contact-card__glow {
-  background: radial-gradient(circle, rgb(56 189 248 / 0.16), transparent 72%);
+  background: radial-gradient(circle, rgba(220, 233, 226, 0.28), transparent 72%);
   pointer-events: none;
 }
 
@@ -214,16 +217,16 @@ const handleSubmit = () => {
 
 .contact-input {
   width: 100%;
-  border: 1px solid rgb(148 163 184 / 0.14);
+  border: 1px solid rgba(216, 203, 184, 0.9);
   border-radius: 1rem;
-  background: linear-gradient(180deg, rgb(15 23 42 / 0.72), rgb(15 23 42 / 0.52));
+  background: linear-gradient(180deg, rgba(251, 246, 238, 0.98), rgba(239, 228, 211, 0.96));
   color: var(--color-text-primary);
   padding: 0.95rem 1rem;
   transition:
     border-color 200ms ease,
     box-shadow 200ms ease,
     background-color 200ms ease;
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.03);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
 }
 
 .contact-input:focus {
@@ -231,7 +234,7 @@ const handleSubmit = () => {
   border-color: rgb(var(--section-accent-rgb) / 0.42);
   box-shadow:
     0 0 0 3px rgb(var(--section-accent-rgb) / 0.12),
-    0 10px 28px rgb(15 23 42 / 0.18);
+    0 10px 28px rgba(62, 52, 43, 0.12);
 }
 
 .contact-textarea {
@@ -240,12 +243,12 @@ const handleSubmit = () => {
 }
 
 .contact-error {
-  color: rgb(248 113 113 / 0.95);
+  color: rgba(111, 101, 91, 0.94);
   font-size: 0.82rem;
   line-height: 1.5;
 }
 
 .contact-divider {
-  border-top: 1px solid rgb(148 163 184 / 0.12);
+  border-top: 1px solid rgba(216, 203, 184, 0.9);
 }
 </style>

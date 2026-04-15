@@ -15,7 +15,7 @@ import { siteConfig } from '@/data/site'
           class="space-y-8"
         >
           <div
-            class="inline-flex items-center gap-2 rounded-full border border-brand-400/20 bg-brand-400/10 px-4 py-2 text-xs uppercase tracking-[0.28em] text-brand-200"
+            class="inline-flex items-center gap-2 rounded-full border border-[rgba(31,92,76,0.16)] bg-[rgba(220,233,226,0.82)] px-4 py-2 text-xs uppercase tracking-[0.28em] text-[#1F5C4C]"
           >
             <Sparkles class="h-4 w-4" />
             <span>{{ siteConfig.eyebrow }}</span>
@@ -23,7 +23,7 @@ import { siteConfig } from '@/data/site'
 
           <div class="space-y-5">
             <h1
-              class="max-w-4xl font-display text-4xl leading-tight text-white sm:text-5xl lg:text-6xl"
+              class="max-w-4xl font-display text-4xl leading-tight text-textPrimary sm:text-5xl lg:text-6xl"
             >
               {{ siteConfig.headline }}
             </h1>

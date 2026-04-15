@@ -26,7 +26,7 @@ defineProps({
       <article
         v-for="(item, index) in items"
         :key="`${item.title}-${index}`"
-        class="grid gap-4 border-t border-white/10 py-6 sm:grid-cols-[3rem_minmax(0,1fr)] sm:gap-8"
+        class="grid gap-4 border-t border-[rgba(216,203,184,0.82)] py-6 sm:grid-cols-[3rem_minmax(0,1fr)] sm:gap-8"
       >
         <div class="case-study-index pt-1">
           {{ String(index + 1).padStart(2, '0') }}

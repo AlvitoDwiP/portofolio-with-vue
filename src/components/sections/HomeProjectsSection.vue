@@ -40,7 +40,10 @@ const closePreview = () => {
 </script>
 
 <template>
-  <section id="proyek" class="section-theme section-theme-projects section-spacing scroll-mt-24">
+  <section
+    id="proyek"
+    class="section-theme section-theme-projects section-spacing scroll-mt-24 bg-[#EFE4D3]"
+  >
     <BaseContainer
       v-motion
       class="[--container-width:80rem]"
@@ -50,7 +53,7 @@ const closePreview = () => {
       <div class="flex flex-col items-center gap-8">
         <div class="mx-auto max-w-3xl space-y-4 text-center">
           <p class="section-eyebrow text-xs uppercase tracking-[0.28em]">Proyek Saya</p>
-          <h2 class="font-display text-3xl text-white sm:text-4xl">Karya Unggulan</h2>
+          <h2 class="font-display text-3xl text-textPrimary sm:text-4xl">Karya Unggulan</h2>
           <p class="section-muted mx-auto max-w-2xl text-sm leading-7">
             Kumpulan proyek yang menunjukkan bagaimana saya menganalisis data, membangun sistem,
             dan menghasilkan solusi yang dapat digunakan.
