@@ -19,7 +19,7 @@ defineProps({
         <div
           v-for="(item, index) in items"
           :key="`${item}-${index}`"
-          class="grid gap-4 border-t border-[rgba(216,203,184,0.82)] pt-6 first:border-t-0 first:pt-0 sm:grid-cols-[3rem_minmax(0,1fr)]"
+          class="grid gap-4 border-t border-[rgba(221,227,240,0.82)] pt-6 first:border-t-0 first:pt-0 sm:grid-cols-[3rem_minmax(0,1fr)]"
         >
           <div class="case-study-index pt-1 text-accent">
             {{ String(index + 1).padStart(2, '0') }}

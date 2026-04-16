@@ -168,7 +168,7 @@ onBeforeUnmount(() => {
 
     <div class="section-panel overflow-hidden rounded-[1.75rem] p-4 sm:p-5 lg:p-6">
       <div
-        class="swipe-surface relative overflow-hidden rounded-[1.35rem] border border-[rgba(216,203,184,0.88)] bg-[linear-gradient(180deg,rgba(251,246,238,0.98),rgba(239,228,211,0.94))] p-3 sm:p-4"
+        class="swipe-surface relative overflow-hidden rounded-[1.35rem] border border-[rgba(221,227,240,0.88)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(239,243,251,0.94))] p-3 sm:p-4"
         tabindex="0"
         @keydown.left.prevent="showPrevious"
         @keydown.right.prevent="showNext"
@@ -178,7 +178,7 @@ onBeforeUnmount(() => {
         @touchcancel="handleTouchCancel"
       >
         <div
-          class="pointer-events-none absolute inset-x-8 top-0 h-24 rounded-full bg-[rgba(220,233,226,0.16)] blur-3xl"
+          class="pointer-events-none absolute inset-x-8 top-0 h-24 rounded-full bg-[rgba(216,243,220,0.16)] blur-3xl"
         />
 
         <div class="group relative">
@@ -202,7 +202,7 @@ onBeforeUnmount(() => {
             </Transition>
 
             <span
-              class="pointer-events-none absolute right-4 top-4 inline-flex items-center gap-2 rounded-full border border-[rgba(216,203,184,0.86)] bg-[rgba(251,246,238,0.96)] px-3 py-2 text-xs font-medium text-textPrimary opacity-0 shadow-[0_16px_40px_rgba(46,42,38,0.1)] backdrop-blur-md transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+              class="pointer-events-none absolute right-4 top-4 inline-flex items-center gap-2 rounded-full border border-[rgba(221,227,240,0.86)] bg-[rgba(255,255,255,0.96)] px-3 py-2 text-xs font-medium text-textPrimary opacity-0 shadow-[0_16px_40px_rgba(26,26,46,0.1)] backdrop-blur-md transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
             >
               <Search class="h-3.5 w-3.5" />
               Zoom
@@ -234,7 +234,7 @@ onBeforeUnmount(() => {
             class="pointer-events-none absolute inset-x-0 bottom-4 flex justify-center"
           >
             <span
-              class="inline-flex items-center rounded-full border border-[rgba(216,203,184,0.86)] bg-[rgba(251,246,238,0.96)] px-3 py-1.5 text-[0.68rem] font-medium text-textSecondary backdrop-blur-md"
+              class="inline-flex items-center rounded-full border border-[rgba(221,227,240,0.86)] bg-[rgba(255,255,255,0.96)] px-3 py-1.5 text-[0.68rem] font-medium text-textSecondary backdrop-blur-md"
             >
               {{ String(activeIndex + 1).padStart(2, '0') }}/{{ String(previewImages.length).padStart(2, '0') }}
             </span>
@@ -273,13 +273,13 @@ onBeforeUnmount(() => {
           class="group overflow-hidden rounded-[1.15rem] border p-2 text-left transition-[transform,border-color,background-color,box-shadow] duration-200 hover:-translate-y-0.5"
           :class="
             index === activeIndex
-              ? 'border-[rgba(31,92,76,0.24)] bg-[rgba(220,233,226,0.72)] shadow-[0_14px_32px_rgba(46,42,38,0.1)]'
-              : 'border-[rgba(216,203,184,0.86)] bg-[rgba(251,246,238,0.82)] hover:border-[rgba(31,92,76,0.2)]'
+              ? 'border-[rgba(108,99,255,0.24)] bg-[rgba(216,243,220,0.72)] shadow-[0_14px_32px_rgba(26,26,46,0.1)]'
+              : 'border-[rgba(221,227,240,0.86)] bg-[rgba(255,255,255,0.82)] hover:border-[rgba(108,99,255,0.2)]'
           "
           @click="setActiveIndex(index)"
         >
           <div
-            class="flex h-28 items-center justify-center rounded-[0.8rem] bg-[linear-gradient(180deg,rgba(251,246,238,0.98),rgba(239,228,211,0.94))] p-2.5"
+            class="flex h-28 items-center justify-center rounded-[0.8rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(239,243,251,0.94))] p-2.5"
           >
             <img
               :src="item.src"
@@ -311,7 +311,7 @@ onBeforeUnmount(() => {
     >
       <div
         v-if="isZoomed"
-        class="fixed inset-0 z-[90] flex items-center justify-center bg-[rgba(244,235,221,0.84)] px-4 py-6 backdrop-blur-md sm:px-6"
+        class="fixed inset-0 z-[90] flex items-center justify-center bg-[rgba(244,246,251,0.84)] px-4 py-6 backdrop-blur-md sm:px-6"
         role="dialog"
         aria-modal="true"
         :aria-label="previewAlt"
@@ -319,7 +319,7 @@ onBeforeUnmount(() => {
       >
         <button
           type="button"
-          class="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(216,203,184,0.86)] bg-[rgba(251,246,238,0.96)] text-textPrimary transition-[transform,background-color,border-color] duration-200 hover:-translate-y-0.5 hover:bg-[rgba(239,228,211,0.98)] sm:right-6 sm:top-6"
+          class="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(221,227,240,0.86)] bg-[rgba(255,255,255,0.96)] text-textPrimary transition-[transform,background-color,border-color] duration-200 hover:-translate-y-0.5 hover:bg-[rgba(239,243,251,0.98)] sm:right-6 sm:top-6"
           aria-label="Tutup zoom"
           @click="closeZoom"
         >
@@ -329,7 +329,7 @@ onBeforeUnmount(() => {
         <button
           v-if="previewImages.length > 1"
           type="button"
-          class="absolute left-4 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[rgba(216,203,184,0.86)] bg-[rgba(251,246,238,0.96)] text-textPrimary transition-[transform,background-color,border-color] duration-200 hover:-translate-y-[52%] hover:bg-[rgba(239,228,211,0.98)] sm:left-6"
+          class="absolute left-4 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[rgba(221,227,240,0.86)] bg-[rgba(255,255,255,0.96)] text-textPrimary transition-[transform,background-color,border-color] duration-200 hover:-translate-y-[52%] hover:bg-[rgba(239,243,251,0.98)] sm:left-6"
           aria-label="Layar sebelumnya"
           @click="showPrevious"
         >
@@ -339,7 +339,7 @@ onBeforeUnmount(() => {
         <button
           v-if="previewImages.length > 1"
           type="button"
-          class="absolute right-4 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[rgba(216,203,184,0.86)] bg-[rgba(251,246,238,0.96)] text-textPrimary transition-[transform,background-color,border-color] duration-200 hover:-translate-y-[52%] hover:bg-[rgba(239,228,211,0.98)] sm:right-6"
+          class="absolute right-4 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[rgba(221,227,240,0.86)] bg-[rgba(255,255,255,0.96)] text-textPrimary transition-[transform,background-color,border-color] duration-200 hover:-translate-y-[52%] hover:bg-[rgba(239,243,251,0.98)] sm:right-6"
           aria-label="Layar berikutnya"
           @click="showNext"
         >
@@ -347,7 +347,7 @@ onBeforeUnmount(() => {
         </button>
 
         <div
-          class="w-full max-w-6xl overflow-hidden rounded-[1.6rem] border border-[rgba(216,203,184,0.88)] bg-[linear-gradient(180deg,rgba(251,246,238,0.98),rgba(239,228,211,0.96))] p-3 shadow-[0_30px_80px_rgba(46,42,38,0.12)] sm:p-4"
+          class="w-full max-w-6xl overflow-hidden rounded-[1.6rem] border border-[rgba(221,227,240,0.88)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(239,243,251,0.96))] p-3 shadow-[0_30px_80px_rgba(26,26,46,0.12)] sm:p-4"
         >
           <div class="flex min-h-[52vh] items-center justify-center rounded-[1.1rem] p-3 sm:p-4">
             <img
@@ -359,7 +359,7 @@ onBeforeUnmount(() => {
 
           <div
             v-if="activeImage?.title || activeImage?.description"
-            class="flex flex-col gap-2 border-t border-[rgba(216,203,184,0.82)] px-2 pb-1 pt-4 sm:px-3"
+            class="flex flex-col gap-2 border-t border-[rgba(221,227,240,0.82)] px-2 pb-1 pt-4 sm:px-3"
           >
             <p v-if="activeImage?.title" class="text-sm font-semibold tracking-[-0.01em] text-textPrimary">
               {{ activeImage.title }}
@@ -397,8 +397,8 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  border: 1px solid rgba(141, 123, 104, 0.18);
-  background: rgba(230, 215, 195, 0.96);
+  border: 1px solid rgba(221, 227, 240, 0.18);
+  background: rgba(239, 243, 251, 0.96);
   color: #3e342b;
   backdrop-filter: blur(12px);
   transition:
@@ -409,8 +409,8 @@ onBeforeUnmount(() => {
 
 .preview-nav-button:hover {
   transform: translateY(-50%) scale(1.04);
-  background: rgba(236, 223, 207, 0.98);
-  border-color: rgba(141, 123, 104, 0.24);
+  background: rgba(244, 246, 251, 0.98);
+  border-color: rgba(221, 227, 240, 0.24);
 }
 
 .preview-image-enter-active,

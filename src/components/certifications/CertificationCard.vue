@@ -27,7 +27,7 @@ const handleThumbnailError = () => {
 <template>
   <BaseCard
     as="article"
-    class="section-card-hover group flex h-full transform-gpu flex-col rounded-[20px] border-[color:var(--glass-border)] bg-[rgba(251,246,238,0.98)] p-5 transition duration-300 hover:scale-[1.01] hover:border-[rgba(31,92,76,0.18)] hover:shadow-[0_18px_45px_rgba(46,42,38,0.1)] sm:p-6"
+    class="section-card-hover group flex h-full transform-gpu flex-col rounded-[20px] border-[color:var(--glass-border)] bg-[rgba(255,255,255,0.98)] p-5 shadow-[0_12px_26px_rgba(26,26,46,0.07),0_0_0_1px_rgba(221,227,240,0.82)] transition duration-300 hover:scale-[1.01] hover:border-[rgba(45,106,79,0.18)] hover:shadow-[0_20px_42px_rgba(26,26,46,0.1),0_0_0_1px_rgba(221,227,240,0.9)] sm:p-6"
   >
     <div
       v-if="attachment"
@@ -50,7 +50,7 @@ const handleThumbnailError = () => {
         :href="certification.ctaUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="section-button-primary inline-flex min-h-11 items-center justify-center rounded-xl border px-4 py-2.5 text-sm font-medium transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:-translate-y-0.5"
+        class="section-button-primary inline-flex min-h-11 items-center justify-center rounded-xl border px-4 py-2.5 text-sm font-medium transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:-translate-y-0.5 hover:scale-[1.01]"
       >
         {{ certification.ctaLabel }}
       </a>
@@ -62,8 +62,8 @@ const handleThumbnailError = () => {
           class="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl border text-[0.68rem] font-semibold uppercase tracking-[0.16em]"
           :class="
             showThumbnail
-              ? 'border-[rgba(216,203,184,0.84)] bg-[rgba(251,246,238,0.92)] p-1.5 text-textPrimary'
-              : 'border-[rgba(31,92,76,0.16)] bg-[rgba(220,233,226,0.82)] text-accent'
+              ? 'border-[rgba(221,227,240,0.84)] bg-[rgba(255,255,255,0.92)] p-1.5 text-textPrimary'
+              : 'border-[rgba(45,106,79,0.16)] bg-[rgba(216,243,220,0.82)] text-[#2D6A4F]'
           "
         >
           <img

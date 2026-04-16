@@ -15,7 +15,7 @@ import { siteConfig } from '@/data/site'
           class="space-y-8"
         >
           <div
-            class="inline-flex items-center gap-2 rounded-full border border-[rgba(31,92,76,0.16)] bg-[rgba(220,233,226,0.82)] px-4 py-2 text-xs uppercase tracking-[0.28em] text-[#1F5C4C]"
+            class="inline-flex items-center gap-2 rounded-full border border-[rgba(45,106,79,0.16)] bg-[rgba(216,243,220,0.82)] px-4 py-2 text-xs uppercase tracking-[0.28em] text-[#2D6A4F]"
           >
             <Sparkles class="h-4 w-4" />
             <span>{{ siteConfig.eyebrow }}</span>

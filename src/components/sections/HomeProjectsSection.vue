@@ -42,7 +42,7 @@ const closePreview = () => {
 <template>
   <section
     id="proyek"
-    class="section-theme section-theme-projects section-spacing scroll-mt-24 bg-[#EFE4D3]"
+    class="section-theme section-theme-projects section-spacing scroll-mt-24 bg-[#EFF3FB]"
   >
     <BaseContainer
       v-motion
@@ -72,9 +72,10 @@ const closePreview = () => {
         class="section-content-gap grid gap-5 sm:auto-rows-fr sm:grid-cols-2 lg:grid-cols-4 xl:gap-6"
       >
         <ProjectCard
-          v-for="project in visibleProjects"
+          v-for="(project, index) in visibleProjects"
           :key="project.slug"
           :project="project"
+          :featured="index === 0"
           @preview="openPreview"
         />
       </div>

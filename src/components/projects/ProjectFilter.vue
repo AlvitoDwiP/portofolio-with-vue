@@ -23,7 +23,7 @@ defineEmits(['change'])
       :class="
         activeCategory === category
           ? 'section-chip-accent'
-          : 'glass-chip hover:border-[color:var(--glass-hover-border)] hover:text-textPrimary'
+          : 'glass-chip hover:border-[color:var(--glass-hover-border)] hover:bg-[rgba(255,255,255,0.72)] hover:text-textPrimary'
       "
       @click="$emit('change', category)"
     >

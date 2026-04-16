@@ -1,36 +1,36 @@
 :root {
   /* BASE COLORS */
-  --color-bg-primary: #f4ebdd;
-  --color-bg-secondary: #efe4d3;
-  --color-surface-base: #fbf6ee;
-  --color-surface-strong: #f7f0e6;
+  --color-bg-primary: #f4f6fb;
+  --color-bg-secondary: #eff3fb;
+  --color-surface-base: #ffffff;
+  --color-surface-strong: #ffffff;
 
   /* TEXT */
-  --color-text-primary: #2e2a26;
-  --color-text-secondary: #6f655b;
-  --color-text-muted: rgba(111, 101, 91, 0.76);
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #4a5568;
+  --color-text-muted: #8896ae;
 
   /* GLASS */
-  --glass-bg: rgba(251, 246, 238, 0.9);
-  --glass-bg-hover: rgba(239, 228, 211, 0.94);
-  --glass-border: rgba(216, 203, 184, 0.9);
-  --glass-hover-border: rgba(31, 92, 76, 0.24);
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg-hover: rgba(255, 255, 255, 0.68);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-hover-border: #6c63ff;
 
   /* BLUR */
   --blur-base: 10px;
   --blur-strong: 18px;
 
   /* GLOW */
-  --glow-indigo: rgba(169, 195, 181, 0.18);
-  --glow-purple: rgba(220, 233, 226, 0.24);
-  --glow-blue: rgba(244, 235, 221, 0.3);
-  --glow-cyan: rgba(220, 233, 226, 0.16);
-  --glow-emerald: rgba(31, 92, 76, 0.14);
-  --glow-amber: rgba(216, 203, 184, 0.16);
+  --glow-indigo: rgba(108, 99, 255, 0.12);
+  --glow-purple: rgba(108, 99, 255, 0.16);
+  --glow-blue: rgba(239, 243, 251, 0.9);
+  --glow-cyan: rgba(216, 243, 220, 0.22);
+  --glow-emerald: rgba(45, 106, 79, 0.14);
+  --glow-amber: rgba(221, 227, 240, 0.4);
 
   /* SHADOW */
-  --shadow-soft: 0 16px 32px rgba(46, 42, 38, 0.08);
-  --shadow-glass: 0 14px 30px rgba(46, 42, 38, 0.1);
+  --shadow-soft: 0 16px 32px rgba(26, 26, 46, 0.08);
+  --shadow-glass: 0 14px 30px rgba(26, 26, 46, 0.08);
 
   /* RADIUS */
   --radius-card: 16px;
@@ -41,12 +41,15 @@
   --space-section: 5rem;
 
   /* COMPATIBILITY */
-  --color-bg-primary-rgb: 244 235 221;
-  --color-bg-secondary-rgb: 239 228 211;
-  --color-surface-rgb: 251 246 238;
-  --color-text-primary-rgb: 46 42 38;
-  --color-text-secondary-rgb: 111 101 91;
-  --color-text-muted-rgb: 111 101 91;
-  --color-line-rgb: 216 203 184;
-  --color-accent-rgb: 31 92 76;
+  --color-bg-primary-rgb: 244 246 251;
+  --color-bg-secondary-rgb: 239 243 251;
+  --color-surface-rgb: 255 255 255;
+  --color-text-primary-rgb: 26 26 46;
+  --color-text-secondary-rgb: 74 85 104;
+  --color-text-muted-rgb: 136 150 174;
+  --color-line-rgb: 221 227 240;
+  --color-accent-rgb: 108 99 255;
+  --color-primary-rgb: 45 106 79;
+  --color-primary-hover-rgb: 64 145 108;
+  --color-primary-tint-rgb: 216 243 220;
 }

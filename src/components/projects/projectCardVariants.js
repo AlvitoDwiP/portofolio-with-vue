@@ -5,15 +5,15 @@ const MOBILE_CATEGORIES = ['mobile app', 'mobile']
 const VARIANTS = {
   data: {
     label: 'DATA',
-    badgeClass: 'border-[rgba(31,92,76,0.16)] bg-[rgba(220,233,226,0.88)] text-[#1F5C4C]',
+    badgeClass: 'border-[rgba(45,106,79,0.16)] bg-[rgba(216,243,220,0.88)] text-[#2D6A4F]',
   },
   web: {
     label: 'WEB',
-    badgeClass: 'border-[rgba(216,203,184,0.86)] bg-[rgba(251,246,238,0.92)] text-[#2E2A26]',
+    badgeClass: 'border-[rgba(221,227,240,0.86)] bg-[rgba(255,255,255,0.92)] text-[#1A1A2E]',
   },
   mobile: {
     label: 'MOBILE',
-    badgeClass: 'border-[rgba(216,203,184,0.86)] bg-[rgba(239,228,211,0.9)] text-[#2E2A26]',
+    badgeClass: 'border-[rgba(221,227,240,0.86)] bg-[rgba(239,243,251,0.9)] text-[#1A1A2E]',
   },
 }
 

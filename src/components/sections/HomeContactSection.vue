@@ -68,7 +68,7 @@ const handleSubmit = () => {
 <template>
   <section
     id="kontak"
-    class="section-theme section-theme-contact section-spacing scroll-mt-24 bg-[#E8DACA]"
+    class="section-theme section-theme-contact section-spacing scroll-mt-24 bg-[#F4F6FB]"
   >
     <BaseContainer
       v-motion
@@ -180,7 +180,7 @@ const handleSubmit = () => {
                 :aria-label="item.ariaLabel"
                 target="_blank"
                 rel="noreferrer"
-                class="section-button-secondary inline-flex min-w-[9.5rem] items-center justify-center gap-2 rounded-xl border-[rgba(216,203,184,0.88)] bg-[rgba(251,246,238,0.92)] px-4 py-3 text-sm font-medium text-textPrimary transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-[rgba(31,92,76,0.18)] hover:bg-[rgba(220,233,226,0.58)] hover:text-accent"
+                class="section-button-secondary inline-flex min-w-[9.5rem] items-center justify-center gap-2 rounded-xl border-[rgba(221,227,240,0.88)] bg-[rgba(255,255,255,0.92)] px-4 py-3 text-sm font-medium text-textPrimary transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-[rgba(221,227,240,1)] hover:bg-[rgba(239,243,251,1)] hover:text-accent"
               >
                 <component :is="item.icon" class="h-4 w-4" />
                 <span>{{ item.label }}</span>
@@ -203,7 +203,7 @@ const handleSubmit = () => {
 }
 
 .contact-card__glow {
-  background: radial-gradient(circle, rgba(220, 233, 226, 0.28), transparent 72%);
+  background: radial-gradient(circle, rgba(216, 243, 220, 0.28), transparent 72%);
   pointer-events: none;
 }
 
@@ -217,9 +217,9 @@ const handleSubmit = () => {
 
 .contact-input {
   width: 100%;
-  border: 1px solid rgba(216, 203, 184, 0.9);
+  border: 1px solid rgba(221, 227, 240, 0.9);
   border-radius: 1rem;
-  background: linear-gradient(180deg, rgba(251, 246, 238, 0.98), rgba(239, 228, 211, 0.96));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(239, 243, 251, 0.96));
   color: var(--color-text-primary);
   padding: 0.95rem 1rem;
   transition:
@@ -234,7 +234,7 @@ const handleSubmit = () => {
   border-color: rgb(var(--section-accent-rgb) / 0.42);
   box-shadow:
     0 0 0 3px rgb(var(--section-accent-rgb) / 0.12),
-    0 10px 28px rgba(62, 52, 43, 0.12);
+    0 10px 28px rgba(26, 26, 46, 0.12);
 }
 
 .contact-textarea {
@@ -243,12 +243,12 @@ const handleSubmit = () => {
 }
 
 .contact-error {
-  color: rgba(111, 101, 91, 0.94);
+  color: rgba(136, 150, 174, 0.94);
   font-size: 0.82rem;
   line-height: 1.5;
 }
 
 .contact-divider {
-  border-top: 1px solid rgba(216, 203, 184, 0.9);
+  border-top: 1px solid rgba(221, 227, 240, 0.9);
 }
 </style>

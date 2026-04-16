@@ -8,7 +8,7 @@ import { certificationAttachment, certifications } from '@/data/certifications'
 <template>
   <section
     id="sertifikasi"
-    class="section-theme section-theme-certification section-spacing scroll-mt-24 bg-[#EFE4D3]"
+    class="section-theme section-theme-certification section-spacing scroll-mt-24 bg-[#EFF3FB]"
   >
     <BaseContainer
       v-motion

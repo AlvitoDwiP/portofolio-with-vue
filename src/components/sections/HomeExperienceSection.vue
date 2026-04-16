@@ -14,7 +14,7 @@ defineProps({
 <template>
   <section
     id="pengalaman"
-    class="section-theme section-theme-experience section-spacing scroll-mt-24 bg-[#F4EBDD]"
+    class="section-theme section-theme-experience section-spacing scroll-mt-24 bg-[#F4F6FB]"
   >
     <BaseContainer
       v-motion
@@ -30,9 +30,10 @@ defineProps({
 
       <div class="section-content-gap section-grid-gap grid auto-rows-fr md:grid-cols-2">
         <ExperienceCard
-          v-for="experience in experiences"
+          v-for="(experience, index) in experiences"
           :key="experience.slug"
           :experience="experience"
+          :featured="index === 0"
         />
       </div>
     </BaseContainer>

@@ -7,7 +7,7 @@ import unejLogo from '@/assets/images/education/unej-logo.png'
     class="section-panel section-card-hover group relative overflow-hidden rounded-lg px-5 py-5 sm:px-6 sm:py-6"
   >
     <div
-      class="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[rgba(220,233,226,0.16)]"
+      class="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[rgba(216,243,220,0.16)]"
     />
 
     <img

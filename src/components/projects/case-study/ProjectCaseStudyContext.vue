@@ -23,7 +23,7 @@ defineProps({
     </div>
 
     <div
-      class="border-t border-[rgba(216,203,184,0.82)] pt-6"
+      class="border-t border-[rgba(221,227,240,0.82)] pt-6"
       :class="variant === 'wide' ? 'max-w-[58rem]' : 'max-w-[49rem]'"
     >
       <p class="case-study-body case-study-copy leading-[2.1rem] sm:text-[1.04rem]">

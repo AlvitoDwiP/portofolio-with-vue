@@ -125,10 +125,10 @@ const tools = toolGroups.flatMap((group) => group.tools)
     class="section-theme section-theme-about scroll-mt-24 pb-20 pt-20 sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28"
   >
     <div
-      class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-[linear-gradient(180deg,rgba(31,92,76,0.12),rgba(31,92,76,0.06)_48%,rgba(31,92,76,0))] sm:h-40"
+      class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-[linear-gradient(180deg,rgba(108,99,255,0.12),rgba(108,99,255,0.06)_48%,rgba(108,99,255,0))] sm:h-40"
     />
     <div
-      class="pointer-events-none absolute inset-x-0 top-12 h-40 bg-[radial-gradient(circle_at_top,rgba(220,233,226,0.18),transparent_68%)] sm:top-16 sm:h-48"
+      class="pointer-events-none absolute inset-x-0 top-12 h-40 bg-[radial-gradient(circle_at_top,rgba(216,243,220,0.18),transparent_68%)] sm:top-16 sm:h-48"
     />
 
     <BaseContainer
@@ -139,7 +139,7 @@ const tools = toolGroups.flatMap((group) => group.tools)
     >
       <div class="space-y-10 lg:space-y-12">
         <div
-          class="max-w-4xl space-y-6 rounded-[1.75rem] border border-[rgba(216,203,184,0.88)] bg-[rgba(251,246,238,0.96)] px-5 py-5 shadow-[0_18px_36px_rgba(46,42,38,0.06)] sm:px-6 sm:py-6"
+          class="max-w-4xl space-y-6 rounded-[1.75rem] border border-[rgba(221,227,240,0.88)] bg-[rgba(255,255,255,0.96)] px-5 py-5 shadow-[0_18px_36px_rgba(26,26,46,0.06)] sm:px-6 sm:py-6"
         >
           <SectionHeader
             eyebrow="who am i?"
@@ -177,10 +177,10 @@ const tools = toolGroups.flatMap((group) => group.tools)
         </div>
 
         <div
-          class="glass glass-panel relative overflow-hidden rounded-[28px] border border-[rgba(216,203,184,0.88)] bg-[rgba(251,246,238,0.98)] px-4 py-5 shadow-[0_20px_60px_rgba(46,42,38,0.08)] sm:px-6 sm:py-6 lg:px-7 lg:py-7"
+          class="glass glass-panel relative overflow-hidden rounded-[28px] border border-[rgba(221,227,240,0.88)] bg-[rgba(255,255,255,0.98)] px-4 py-5 shadow-[0_20px_60px_rgba(26,26,46,0.08)] sm:px-6 sm:py-6 lg:px-7 lg:py-7"
         >
           <div
-            class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(220,233,226,0.16),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(239,228,211,0.14),transparent_28%)]"
+            class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(216,243,220,0.16),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(239,243,251,0.14),transparent_28%)]"
           />
 
           <div class="relative">
@@ -198,14 +198,14 @@ const tools = toolGroups.flatMap((group) => group.tools)
               <article
                 v-for="tool in tools"
                 :key="tool.name"
-                class="glass glass-panel glass-hover group relative flex min-h-[5.75rem] items-start gap-3 overflow-hidden rounded-[18px] border-[rgba(216,203,184,0.88)] bg-[rgba(251,246,238,0.98)] px-3.5 py-3.5 hover:border-[#A9C3B5] hover:bg-[rgba(255,252,247,0.98)]"
+                class="glass glass-panel glass-hover group relative flex min-h-[5.75rem] items-start gap-3 overflow-hidden rounded-[18px] border-[rgba(221,227,240,0.88)] bg-[rgba(255,255,255,0.98)] px-3.5 py-3.5 hover:border-[rgba(108,99,255,0.24)] hover:bg-[rgba(239,243,251,0.98)]"
               >
                 <div
-                  class="pointer-events-none absolute inset-x-0 top-0 h-14 bg-[radial-gradient(circle_at_top_left,rgba(220,233,226,0.14),transparent_72%)] opacity-80"
+                  class="pointer-events-none absolute inset-x-0 top-0 h-14 bg-[radial-gradient(circle_at_top_left,rgba(216,243,220,0.14),transparent_72%)] opacity-80"
                 />
 
                 <div
-                  class="glass-chip relative flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl text-[rgb(var(--section-accent-rgb)_/_0.94)] transition-colors duration-200 group-hover:bg-[rgba(220,233,226,0.72)]"
+                  class="glass-chip relative flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl text-[rgb(var(--section-accent-rgb)_/_0.94)] transition-colors duration-200 group-hover:bg-[rgba(216,243,220,0.72)]"
                 >
                   <img
                     v-if="tool.logo"
@@ -258,13 +258,13 @@ const tools = toolGroups.flatMap((group) => group.tools)
                       <article
                         v-for="tool in row.tools"
                         :key="`${rowIndex}-${tool.name}`"
-                        class="glass glass-panel glass-hover about-tool-card group relative flex h-[5.75rem] w-[13.5rem] items-start gap-3 overflow-hidden rounded-[18px] border-[rgba(216,203,184,0.88)] bg-[rgba(251,246,238,0.98)] px-3.5 py-3.5 hover:border-[#A9C3B5] hover:bg-[rgba(255,252,247,0.98)] xl:w-[14.25rem]"
+                        class="glass glass-panel glass-hover about-tool-card group relative flex h-[5.75rem] w-[13.5rem] items-start gap-3 overflow-hidden rounded-[18px] border-[rgba(221,227,240,0.88)] bg-[rgba(255,255,255,0.98)] px-3.5 py-3.5 hover:border-[rgba(108,99,255,0.24)] hover:bg-[rgba(239,243,251,0.98)] xl:w-[14.25rem]"
                       >
                         <div
-                          class="pointer-events-none absolute inset-x-0 top-0 h-14 bg-[radial-gradient(circle_at_top_left,rgba(220,233,226,0.14),transparent_72%)] opacity-80"
+                          class="pointer-events-none absolute inset-x-0 top-0 h-14 bg-[radial-gradient(circle_at_top_left,rgba(216,243,220,0.14),transparent_72%)] opacity-80"
                         />
                         <div
-                          class="glass-chip relative flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl text-[rgb(var(--section-accent-rgb)_/_0.94)] transition-colors duration-200 group-hover:bg-[rgba(220,233,226,0.72)]"
+                          class="glass-chip relative flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl text-[rgb(var(--section-accent-rgb)_/_0.94)] transition-colors duration-200 group-hover:bg-[rgba(216,243,220,0.72)]"
                         >
                           <img
                             v-if="tool.logo"
@@ -297,10 +297,10 @@ const tools = toolGroups.flatMap((group) => group.tools)
                       <article
                         v-for="tool in row.tools"
                         :key="`${rowIndex}-${tool.name}-clone`"
-                        class="glass glass-panel about-tool-card relative flex h-[5.75rem] w-[13.5rem] items-start gap-3 overflow-hidden rounded-[18px] border-[rgba(216,203,184,0.88)] bg-[rgba(251,246,238,0.98)] px-3.5 py-3.5 xl:w-[14.25rem]"
+                        class="glass glass-panel about-tool-card relative flex h-[5.75rem] w-[13.5rem] items-start gap-3 overflow-hidden rounded-[18px] border-[rgba(221,227,240,0.88)] bg-[rgba(255,255,255,0.98)] px-3.5 py-3.5 xl:w-[14.25rem]"
                       >
                         <div
-                          class="pointer-events-none absolute inset-x-0 top-0 h-14 bg-[radial-gradient(circle_at_top_left,rgba(220,233,226,0.14),transparent_72%)] opacity-80"
+                          class="pointer-events-none absolute inset-x-0 top-0 h-14 bg-[radial-gradient(circle_at_top_left,rgba(216,243,220,0.14),transparent_72%)] opacity-80"
                         />
                         <div
                           class="glass-chip relative flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl text-[rgb(var(--section-accent-rgb)_/_0.94)]"
@@ -379,8 +379,8 @@ const tools = toolGroups.flatMap((group) => group.tools)
 
 .about-tool-card {
   box-shadow:
-    0 10px 28px rgba(62, 52, 43, 0.12),
-    inset 0 1px 0 rgba(241, 222, 201, 0.16);
+    0 10px 28px rgba(26, 26, 46, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
 @keyframes about-tools-marquee-left {

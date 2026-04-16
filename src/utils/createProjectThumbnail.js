@@ -5,27 +5,27 @@ const MOBILE_CATEGORIES = ['mobile app', 'mobile']
 const THUMBNAIL_THEMES = {
   data: {
     label: 'DATA',
-    backgroundStart: '#F4EBDD',
-    backgroundEnd: '#EFE4D3',
-    accent: '#1F5C4C',
-    accentSoft: 'rgba(31,92,76,0.16)',
-    panel: 'rgba(251,246,238,0.82)',
+    backgroundStart: '#F4F6FB',
+    backgroundEnd: '#EFF3FB',
+    accent: '#2D6A4F',
+    accentSoft: 'rgba(45,106,79,0.16)',
+    panel: 'rgba(255,255,255,0.82)',
   },
   web: {
     label: 'WEB',
-    backgroundStart: '#F4EBDD',
-    backgroundEnd: '#EFE4D3',
-    accent: '#1F5C4C',
-    accentSoft: 'rgba(31,92,76,0.14)',
-    panel: 'rgba(251,246,238,0.8)',
+    backgroundStart: '#F4F6FB',
+    backgroundEnd: '#EFF3FB',
+    accent: '#2D6A4F',
+    accentSoft: 'rgba(108,99,255,0.14)',
+    panel: 'rgba(255,255,255,0.8)',
   },
   mobile: {
     label: 'MOBILE',
-    backgroundStart: '#F4EBDD',
-    backgroundEnd: '#EFE4D3',
-    accent: '#1F5C4C',
-    accentSoft: 'rgba(31,92,76,0.18)',
-    panel: 'rgba(251,246,238,0.8)',
+    backgroundStart: '#F4F6FB',
+    backgroundEnd: '#EFF3FB',
+    accent: '#2D6A4F',
+    accentSoft: 'rgba(45,106,79,0.18)',
+    panel: 'rgba(255,255,255,0.8)',
   },
 }
 
@@ -68,7 +68,7 @@ export const createProjectThumbnail = (project = {}) => {
         </linearGradient>
         <radialGradient id="glow" cx="72%" cy="18%" r="55%">
           <stop offset="0%" stop-color="${theme.accentSoft}" />
-          <stop offset="100%" stop-color="rgba(244,235,221,0)" />
+          <stop offset="100%" stop-color="rgba(244,246,251,0)" />
         </radialGradient>
       </defs>
 
@@ -80,33 +80,33 @@ export const createProjectThumbnail = (project = {}) => {
       </g>
 
       <g opacity="0.7">
-        <rect x="94" y="90" width="1412" height="720" rx="36" fill="${theme.panel}" stroke="rgba(216,203,184,0.9)" />
-        <rect x="146" y="152" width="872" height="478" rx="26" fill="rgba(251,246,238,0.34)" stroke="rgba(216,203,184,0.9)" />
-        <rect x="1064" y="152" width="286" height="218" rx="24" fill="rgba(251,246,238,0.34)" stroke="rgba(216,203,184,0.9)" />
-        <rect x="1064" y="402" width="286" height="228" rx="24" fill="rgba(251,246,238,0.34)" stroke="rgba(216,203,184,0.9)" />
-        <rect x="146" y="668" width="1204" height="74" rx="22" fill="rgba(251,246,238,0.28)" stroke="rgba(216,203,184,0.86)" />
+        <rect x="94" y="90" width="1412" height="720" rx="36" fill="${theme.panel}" stroke="rgba(221,227,240,0.9)" />
+        <rect x="146" y="152" width="872" height="478" rx="26" fill="rgba(255,255,255,0.34)" stroke="rgba(221,227,240,0.9)" />
+        <rect x="1064" y="152" width="286" height="218" rx="24" fill="rgba(255,255,255,0.34)" stroke="rgba(221,227,240,0.9)" />
+        <rect x="1064" y="402" width="286" height="228" rx="24" fill="rgba(255,255,255,0.34)" stroke="rgba(221,227,240,0.9)" />
+        <rect x="146" y="668" width="1204" height="74" rx="22" fill="rgba(255,255,255,0.28)" stroke="rgba(221,227,240,0.86)" />
       </g>
 
       <g>
-        <rect x="196" y="206" width="402" height="26" rx="13" fill="rgba(31,92,76,0.18)" />
-        <rect x="196" y="252" width="312" height="16" rx="8" fill="rgba(31,92,76,0.1)" />
-        <rect x="196" y="474" width="772" height="102" rx="24" fill="rgba(31,92,76,0.08)" />
+        <rect x="196" y="206" width="402" height="26" rx="13" fill="rgba(45,106,79,0.18)" />
+        <rect x="196" y="252" width="312" height="16" rx="8" fill="rgba(45,106,79,0.1)" />
+        <rect x="196" y="474" width="772" height="102" rx="24" fill="rgba(45,106,79,0.08)" />
         <rect x="196" y="312" width="178" height="122" rx="22" fill="${theme.accentSoft}" />
-        <rect x="402" y="312" width="178" height="122" rx="22" fill="rgba(31,92,76,0.1)" />
-        <rect x="608" y="312" width="178" height="122" rx="22" fill="rgba(31,92,76,0.12)" />
-        <rect x="814" y="312" width="122" height="122" rx="22" fill="rgba(31,92,76,0.1)" />
+        <rect x="402" y="312" width="178" height="122" rx="22" fill="rgba(45,106,79,0.1)" />
+        <rect x="608" y="312" width="178" height="122" rx="22" fill="rgba(108,99,255,0.12)" />
+        <rect x="814" y="312" width="122" height="122" rx="22" fill="rgba(45,106,79,0.1)" />
 
         <circle cx="1138" cy="230" r="48" fill="${theme.accentSoft}" />
-        <rect x="1206" y="194" width="92" height="16" rx="8" fill="rgba(31,92,76,0.16)" />
-        <rect x="1206" y="226" width="66" height="14" rx="7" fill="rgba(31,92,76,0.1)" />
-        <rect x="1096" y="450" width="222" height="24" rx="12" fill="rgba(31,92,76,0.14)" />
-        <rect x="1096" y="494" width="184" height="14" rx="7" fill="rgba(31,92,76,0.1)" />
-        <rect x="1096" y="528" width="156" height="14" rx="7" fill="rgba(31,92,76,0.1)" />
+        <rect x="1206" y="194" width="92" height="16" rx="8" fill="rgba(45,106,79,0.16)" />
+        <rect x="1206" y="226" width="66" height="14" rx="7" fill="rgba(45,106,79,0.1)" />
+        <rect x="1096" y="450" width="222" height="24" rx="12" fill="rgba(108,99,255,0.14)" />
+        <rect x="1096" y="494" width="184" height="14" rx="7" fill="rgba(45,106,79,0.1)" />
+        <rect x="1096" y="528" width="156" height="14" rx="7" fill="rgba(45,106,79,0.1)" />
       </g>
 
       <g>
-        <rect x="146" y="114" width="142" height="42" rx="21" fill="rgba(220,233,226,0.58)" stroke="rgba(31,92,76,0.16)" />
-        <text x="217" y="141" fill="#2E2A26" font-size="20" font-family="Arial, Helvetica, sans-serif" text-anchor="middle" letter-spacing="3">${theme.label}</text>
+        <rect x="146" y="114" width="142" height="42" rx="21" fill="rgba(216,243,220,0.58)" stroke="rgba(45,106,79,0.16)" />
+        <text x="217" y="141" fill="#1A1A2E" font-size="20" font-family="Arial, Helvetica, sans-serif" text-anchor="middle" letter-spacing="3">${theme.label}</text>
       </g>
     </svg>
   `.trim()
