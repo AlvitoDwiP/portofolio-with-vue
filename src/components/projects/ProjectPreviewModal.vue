@@ -58,8 +58,10 @@ const previewImages = computed(() => {
     return []
   }
 
+  const galleryImages = props.project.caseStudy?.appPreview?.images ?? []
+
   return normalizeProjectScreenshots(
-    [basePreviewImage.value, ...(props.project.caseStudy?.appPreview?.images ?? [])],
+    galleryImages.length ? galleryImages : [basePreviewImage.value],
     basePreviewImage.value
   )
 })

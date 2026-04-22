@@ -8,7 +8,9 @@ import { siteConfig } from '@/data/site'
 
 const hasPortraitError = ref(false)
 const cardRef = ref(null)
+const resumeMenuRef = ref(null)
 const isCardHovered = ref(false)
+const isResumeMenuOpen = ref(false)
 const prefersReducedMotion = ref(false)
 
 const defaultCardState = {
@@ -41,6 +43,9 @@ const fallbackInitials = computed(() =>
     .join('')
     .toUpperCase()
 )
+
+const resumeDownloads = computed(() => siteConfig.resumeDownloads?.options ?? [])
+const resumeMenuId = 'hero-resume-download-menu'
 
 const { navigateToSection } = useSectionNavigation(['#proyek'])
 
@@ -178,7 +183,52 @@ const updateReducedMotionPreference = (event) => {
   }
 }
 
+const toggleResumeMenu = () => {
+  isResumeMenuOpen.value = !isResumeMenuOpen.value
+}
+
+const closeResumeMenu = () => {
+  isResumeMenuOpen.value = false
+}
+
+const handleDocumentPointerDown = (event) => {
+  if (!isResumeMenuOpen.value || !resumeMenuRef.value) {
+    return
+  }
+
+  if (!resumeMenuRef.value.contains(event.target)) {
+    closeResumeMenu()
+  }
+}
+
+const handleDocumentKeydown = (event) => {
+  if (event.key === 'Escape') {
+    closeResumeMenu()
+  }
+}
+
+const downloadResume = (option) => {
+  if (!option?.url || typeof document === 'undefined') {
+    closeResumeMenu()
+    return
+  }
+
+  const link = document.createElement('a')
+  link.href = option.url
+  link.download = option.downloadName ?? ''
+  link.rel = 'noopener'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+  closeResumeMenu()
+}
+
 onMounted(() => {
+  if (typeof document !== 'undefined') {
+    document.addEventListener('pointerdown', handleDocumentPointerDown)
+    document.addEventListener('keydown', handleDocumentKeydown)
+  }
+
   if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
     return
   }
@@ -191,6 +241,11 @@ onMounted(() => {
 onBeforeUnmount(() => {
   if (frameId) {
     window.cancelAnimationFrame(frameId)
+  }
+
+  if (typeof document !== 'undefined') {
+    document.removeEventListener('pointerdown', handleDocumentPointerDown)
+    document.removeEventListener('keydown', handleDocumentKeydown)
   }
 
   mediaQueryList?.removeEventListener?.('change', updateReducedMotionPreference)
@@ -259,14 +314,43 @@ onBeforeUnmount(() => {
               <ArrowRight class="ml-2 h-4 w-4" />
             </BaseButton>
 
-            <a
-              :href="siteConfig.resumeUrl"
-              download
-              class="section-button-secondary inline-flex w-full items-center justify-center rounded-xl border px-4 py-2.5 text-sm font-medium transition-[transform,background-color,border-color,color] duration-200 hover:-translate-y-0.5 sm:w-auto"
-            >
-              <span>Unduh CV</span>
-              <Download class="ml-2 h-4 w-4" />
-            </a>
+            <div ref="resumeMenuRef" class="relative w-full sm:w-auto">
+              <Transition name="resume-menu">
+                <div
+                  v-if="isResumeMenuOpen"
+                  :id="resumeMenuId"
+                  class="resume-menu section-panel absolute bottom-[calc(100%+0.75rem)] left-0 right-0 z-20 overflow-hidden rounded-2xl border-[rgba(221,227,240,0.96)] bg-[rgba(255,255,255,0.96)] p-2 shadow-[0_20px_44px_rgba(26,26,46,0.12)] backdrop-blur-[18px] sm:right-auto sm:w-[18rem]"
+                  role="menu"
+                  :aria-label="siteConfig.resumeDownloads.buttonLabel"
+                >
+                  <button
+                    v-for="option in resumeDownloads"
+                    :key="option.id"
+                    type="button"
+                    class="resume-menu__option group flex w-full items-center justify-between rounded-[1rem] px-4 py-3 text-left text-sm font-medium text-text transition-[background-color,color,transform,box-shadow] duration-200 hover:bg-[rgba(239,243,251,0.96)] hover:text-accent focus:outline-none focus-visible:bg-[rgba(239,243,251,0.98)] focus-visible:text-accent"
+                    role="menuitem"
+                    @click="downloadResume(option)"
+                  >
+                    <span>{{ option.label }}</span>
+                    <Download
+                      class="h-4 w-4 text-textSecondary transition-transform duration-200 group-hover:translate-y-0.5 group-hover:text-accent group-focus-visible:text-accent"
+                    />
+                  </button>
+                </div>
+              </Transition>
+
+              <BaseButton
+                variant="secondary"
+                class="w-full sm:w-auto"
+                :aria-controls="resumeMenuId"
+                aria-haspopup="menu"
+                :aria-expanded="isResumeMenuOpen"
+                @click="toggleResumeMenu"
+              >
+                <span>{{ siteConfig.resumeDownloads.buttonLabel }}</span>
+                <Download class="ml-2 h-4 w-4" />
+              </BaseButton>
+            </div>
           </div>
         </div>
 
@@ -412,6 +496,33 @@ onBeforeUnmount(() => {
   opacity: 1;
 }
 
+.resume-menu {
+  transform-origin: center bottom;
+}
+
+.resume-menu__option + .resume-menu__option {
+  margin-top: 0.25rem;
+}
+
+.resume-menu-enter-active,
+.resume-menu-leave-active {
+  transition:
+    opacity 180ms ease,
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.resume-menu-enter-from,
+.resume-menu-leave-to {
+  opacity: 0;
+  transform: translate3d(0, 0.5rem, 0) scale(0.98);
+}
+
+.resume-menu-enter-to,
+.resume-menu-leave-from {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
 @keyframes hero-name-sweep {
   0% {
     background-position: 0% 50%;
@@ -435,7 +546,9 @@ onBeforeUnmount(() => {
   .hero-photo-card,
   .hero-photo-card__ambient,
   .hero-photo-card__media,
-  .hero-photo-card__focus {
+  .hero-photo-card__focus,
+  .resume-menu-enter-active,
+  .resume-menu-leave-active {
     transition: none !important;
     transform: none !important;
   }

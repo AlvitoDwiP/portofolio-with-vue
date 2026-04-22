@@ -143,31 +143,207 @@ export const projects = [
   },
   {
     id: 2,
-    slug: 'analisis-customer-churn-strategi-retensi-bisnis-subscription',
-    title: 'Analisis Customer Churn untuk Strategi Retensi Bisnis Subscription',
+    slug: 'analisis-perilaku-pembelian-pelanggan-suryamart-untuk-mendukung-strategi-penjualan',
+    title: 'Analisis Perilaku Pembelian Pelanggan Suryamart untuk Mendukung Strategi Penjualan',
     category: 'Data Analytics',
     shortDescription:
-      'Analisis customer churn pada bisnis subscription untuk menemukan segmen dengan risiko tertinggi dan faktor layanan yang paling berpengaruh.',
+      'Analisis data pelanggan retail Suryamart untuk memahami pola pembelian, kategori produk terkuat, serta faktor yang paling relevan untuk strategi peningkatan penjualan.',
     overview:
-      'Proyek ini menganalisis customer churn pada bisnis subscription menggunakan dataset Telco Customer Churn. Fokus utamanya adalah melihat segmen pelanggan yang paling rentan berhenti berlangganan dan memahami faktor layanan yang paling berkaitan dengan keputusan tersebut.',
+      'Proyek ini berfokus pada analisis data pelanggan retail Suryamart untuk memahami pola pembelian dan mendukung strategi peningkatan penjualan. Analisis memanfaatkan data seperti gender, income level, lokasi, kategori produk, frekuensi pembelian, penggunaan diskon, dan pengaruh sosial media untuk membaca perilaku transaksi pelanggan secara lebih terarah.',
     problem: [
-      'Churn tidak terjadi merata pada seluruh pelanggan, sehingga pendekatan retensi yang terlalu umum sering kurang tepat.',
-      'Perusahaan perlu mengetahui kelompok pelanggan yang paling berisiko agar intervensinya lebih terarah.',
-      'Tanpa pembacaan faktor layanan yang relevan, strategi retensi mudah berhenti pada asumsi.',
+      'Suryamart ingin meningkatkan penjualan, tetapi belum memahami faktor utama yang mempengaruhi perilaku pembelian pelanggan.',
+      'Analisis diarahkan untuk mengidentifikasi driver penjualan, pola antar segmen, kategori produk terbaik, serta efektivitas diskon dan sosial media.',
+      'Pertanyaan bisnis utama mencakup pelanggan paling bernilai, produk paling berkontribusi terhadap revenue, area dengan aktivitas pembelian tertinggi, dampak diskon terhadap frekuensi pembelian, dan pengaruh sosial media terhadap transaksi.',
+      'Dataset memuat Customer_ID, Age, Gender, Income_Level, Location, Purchase_Category, Purchase_Amount, Frequency_of_Purchase, Social_Media_Influence, dan Discount_Used.',
     ],
     approach: [
-      'Melakukan quality check agar data siap dibaca dengan konsisten.',
-      'Menganalisis churn berdasarkan kontrak, layanan internet, dan kelompok pelanggan.',
-      'Membandingkan churn dengan tenure, monthly charges, TechSupport, dan OnlineSecurity untuk melihat faktor yang paling kuat.',
+      'Melakukan data cleaning dan validasi untuk memastikan struktur dan nilai data konsisten.',
+      'Melakukan exploratory data analysis untuk membaca distribusi pelanggan dan pola pembelian awal.',
+      'Menyusun aggregation berdasarkan gender, lokasi, dan kategori produk untuk menemukan kontributor penjualan utama.',
+      'Menganalisis frekuensi pembelian untuk melihat aktivitas transaksi antar segmen dan area.',
+      'Membandingkan perilaku pembelian antara transaksi dengan diskon dan non diskon.',
+      'Mengevaluasi pengaruh sosial media terhadap keputusan pembelian pelanggan.',
     ],
-    tools: ['Python', 'Jupyter Notebook', 'Tableau'],
+    tools: ['Microsoft Excel'],
     output:
-      'Proyek ini menghasilkan dataset bersih, notebook analisis untuk segmentasi churn, visualisasi utama, dan executive summary yang dapat dipakai sebagai dasar evaluasi retensi.',
+      'Hasil analisis divisualisasikan dalam dashboard interaktif yang menampilkan total penjualan, distribusi gender, performa kategori produk, perbandingan diskon, dan tren frekuensi pembelian untuk membantu pembacaan kondisi bisnis secara cepat.',
     insights:
-      'Analisis menunjukkan churn rate berada di kisaran 26 persen. Risiko tertinggi muncul pada pelanggan dengan kontrak month-to-month dan pengguna layanan fiber optic. Pelanggan yang churn juga cenderung memiliki tenure lebih pendek dan biaya bulanan lebih tinggi. Selain itu, ketiadaan TechSupport dan OnlineSecurity berkaitan kuat dengan churn yang lebih tinggi.',
-    cover: '',
-    links: {
-      github: 'https://github.com/AlvitoDwiP/churn-analysis',
+      'Rekomendasi utama dari analisis ini adalah memfokuskan campaign pada segmen female, menjadikan Jewelry & Accessories sebagai core revenue driver, menghindari strategi diskon massal, memakai diskon secara lebih targeted, dan menempatkan sosial media sebagai channel pendukung alih-alih channel utama.',
+    cover: projectImage('suryamart-cover.png'),
+    hideUiPreview: true,
+    links: {},
+    caseStudy: {
+      heroSummary:
+        'Analisis ini memetakan perilaku pembelian pelanggan retail Suryamart untuk melihat segmen paling bernilai, kategori produk dengan kontribusi tertinggi, serta efektivitas diskon dan sosial media dalam mendorong penjualan.',
+      context: [
+        'Suryamart ingin meningkatkan penjualan, tetapi strategi yang dijalankan perlu ditopang oleh pemahaman yang lebih jelas tentang perilaku pelanggan. Karena itu, proyek ini membaca bagaimana karakteristik pelanggan dan pola transaksi saling berkaitan agar keputusan penjualan tidak berhenti pada asumsi umum.',
+        'Analisis menggunakan data pelanggan retail yang mencakup gender, income level, lokasi, kategori produk, purchase amount, frequency of purchase, discount used, dan social media influence. Dengan kombinasi variabel ini, analisis diarahkan untuk menemukan pola pembelian yang paling relevan bagi strategi bisnis.',
+      ],
+      problemHighlights: [
+        {
+          title: 'Business Problem',
+          description:
+            'Bisnis ingin meningkatkan penjualan tetapi belum memahami faktor utama yang mempengaruhi perilaku pembelian pelanggan, sehingga strategi penjualan berisiko terlalu umum dan kurang tepat sasaran.',
+        },
+        {
+          title: 'Objectives',
+          description:
+            'Mengidentifikasi driver utama penjualan, memahami pola pembelian antar segmen pelanggan, menentukan kategori produk dengan performa terbaik, mengevaluasi efektivitas diskon dan sosial media, serta menghasilkan insight untuk strategi bisnis.',
+        },
+        {
+          title: 'Business Questions',
+          description:
+            'Siapa pelanggan paling bernilai bagi bisnis, produk mana yang paling berkontribusi terhadap revenue, area mana dengan aktivitas pembelian tertinggi, apakah diskon meningkatkan frekuensi pembelian, dan seberapa besar pengaruh sosial media terhadap transaksi.',
+        },
+      ],
+      approachGroups: [
+        {
+          title: 'Data Cleaning dan Validasi',
+          description:
+            'Memeriksa konsistensi tipe data, kelengkapan kolom, serta validitas nilai agar analisis dilakukan pada data yang rapi dan dapat dipercaya.',
+        },
+        {
+          title: 'Exploratory Data Analysis',
+          description:
+            'Membaca distribusi nilai pembelian, karakteristik pelanggan, dan pola awal transaksi untuk menemukan arah analisis yang paling relevan.',
+        },
+        {
+          title: 'Aggregation Gender, Lokasi, dan Kategori',
+          description:
+            'Mengelompokkan data berdasarkan gender, lokasi, dan purchase category untuk melihat segmen serta kategori dengan kontribusi penjualan terbesar.',
+        },
+        {
+          title: 'Analisis Frekuensi Pembelian',
+          description:
+            'Membandingkan tingkat aktivitas pembelian antar kota dan kelompok pelanggan untuk mengetahui area dengan loyalitas relatif lebih tinggi.',
+        },
+        {
+          title: 'Evaluasi Pengaruh Sosial Media',
+          description:
+            'Menilai seberapa besar social media influence ikut mendorong transaksi dibanding faktor-faktor pembelian lainnya.',
+        },
+      ],
+      insightHighlights: [
+        {
+          eyebrow: 'Segmen',
+          title: 'Fokuskan campaign ke segmen female',
+          description:
+            'Female menunjukkan kontribusi pembelian lebih tinggi dibanding male, sehingga segmen ini menjadi peluang paling langsung untuk mendorong pertumbuhan penjualan.',
+          implication:
+            'Prioritaskan pesan kampanye, bundling produk, dan personalisasi promosi pada segmen female untuk memaksimalkan revenue.',
+        },
+        {
+          eyebrow: 'Kategori',
+          title: 'Gunakan Jewelry & Accessories sebagai core revenue driver',
+          description:
+            'Kategori Jewelry & Accessories menjadi kontributor revenue terbesar, sehingga layak dijadikan poros utama dalam perencanaan promosi dan penempatan produk.',
+          implication:
+            'Dorong kategori ini lewat campaign unggulan, cross-sell, dan penonjolan visual pada dashboard maupun materi pemasaran.',
+        },
+        {
+          eyebrow: 'Diskon',
+          title: 'Hindari strategi diskon massal',
+          description:
+            'Analisis menunjukkan diskon tidak meningkatkan frekuensi pembelian secara signifikan, sehingga diskon massal berisiko menekan margin tanpa dampak penjualan yang sepadan.',
+          implication:
+            'Gunakan diskon dengan cakupan terbatas dan tujuan yang jelas, bukan sebagai strategi default untuk semua pelanggan.',
+        },
+        {
+          eyebrow: 'Targeting',
+          title: 'Gunakan diskon secara lebih targeted',
+          description:
+            'Karena efek diskon tidak merata, strategi promosi lebih efektif jika diarahkan ke segmen, kategori, atau momen tertentu yang memang membutuhkan stimulus.',
+          implication:
+            'Rancang promo berdasarkan kategori unggulan, perilaku pelanggan tertentu, atau momentum penjualan agar efisiensi promosi tetap terjaga.',
+        },
+        {
+          eyebrow: 'Channel',
+          title: 'Jadikan sosial media sebagai channel pendukung',
+          description:
+            'Pengaruh sosial media terhadap transaksi relatif kecil, sehingga kanal ini lebih tepat diposisikan sebagai penguat awareness daripada motor utama penjualan.',
+          implication:
+            'Arahkan sosial media untuk edukasi produk, penguatan brand, dan dukungan campaign, sambil tetap mengandalkan driver penjualan yang lebih kuat.',
+        },
+      ],
+      impact: [
+        'Female memiliki total pembelian lebih tinggi dibanding male dengan selisih sekitar Rp300 juta.',
+        'Income level tidak menunjukkan perbedaan signifikan terhadap jumlah pembelian.',
+        'Jewelry & Accessories menjadi kategori dengan kontribusi terbesar.',
+        'Perbedaan frekuensi pembelian antar kota sangat kecil.',
+        'Diskon tidak meningkatkan frekuensi pembelian secara signifikan.',
+      ],
+      appPreview: {
+        imageSrc: projectImage('suryamart-cover.png'),
+        imageAlt:
+          'Cover project Analisis Perilaku Pembelian Pelanggan Suryamart untuk Mendukung Strategi Penjualan',
+        description:
+          'Galeri ini merangkum halaman presentasi analisis, tampilan dataset, serta dashboard Excel interaktif yang dipakai untuk membaca performa penjualan Suryamart.',
+        images: [
+          {
+            src: projectImage('suryamart-overview.png'),
+            alt: 'Slide overview analisis pelanggan Suryamart',
+            label: 'Overview',
+            caption:
+              'Slide ini menjelaskan latar analisis data pelanggan retail Suryamart dan variabel utama yang dipakai untuk membaca pola pembelian.',
+          },
+          {
+            src: projectImage('suryamart-objectives.png'),
+            alt: 'Slide objectives analisis pelanggan Suryamart',
+            label: 'Objectives',
+            caption:
+              'Bagian ini merinci tujuan analisis mulai dari identifikasi driver penjualan hingga evaluasi efektivitas diskon dan sosial media.',
+          },
+          {
+            src: projectImage('suryamart-questions.png'),
+            alt: 'Slide business questions analisis pelanggan Suryamart',
+            label: 'Business Questions',
+            caption:
+              'Slide business questions menyoroti pertanyaan inti yang dijawab analisis untuk mendukung keputusan penjualan yang lebih terarah.',
+          },
+          {
+            src: projectImage('suryamart-findings.png'),
+            alt: 'Slide key findings analisis pelanggan Suryamart',
+            label: 'Key Findings',
+            caption:
+              'Ringkasan temuan utama menunjukkan gender, kategori produk, diskon, dan sosial media memiliki pengaruh yang berbeda terhadap penjualan.',
+          },
+          {
+            src: projectImage('suryamart-dataset.png'),
+            alt: 'Tampilan dataset pelanggan retail Suryamart',
+            label: 'Data Cleaning',
+            caption:
+              'Slide ini menampilkan data yang sudah melalui proses cleaning, termasuk pengecekan duplikat, missing value, konsistensi format, dan validasi kolom agar dataset siap dipakai untuk analisis.',
+          },
+          {
+            src: projectImage('suryamart-dashboard-overview.png'),
+            alt: 'Dashboard KPI utama analisis pelanggan Suryamart',
+            label: 'KPI',
+            caption:
+              'Slide KPI merangkum metrik utama seperti total penjualan, jumlah customer, rata-rata pembelian, dan frekuensi pembelian sebagai ringkasan cepat performa bisnis.',
+          },
+          {
+            src: projectImage('suryamart-dashboard-details.png'),
+            alt: 'Visual dashboard detail kategori dan diskon Suryamart',
+            label: 'Dashboard Details',
+            caption:
+              'Visual ini memperlihatkan distribusi gender, kota dengan aktivitas pembelian tertinggi, top kategori produk, dan perbandingan pembelian berdasarkan diskon.',
+          },
+          {
+            src: projectImage('suryamart-frequency-trend.png'),
+            alt: 'Grafik tren frekuensi pembelian berdasarkan kelompok usia',
+            label: 'Frequency Trend',
+            caption:
+              'Grafik tren ini membantu melihat perbedaan frekuensi pembelian antar kelompok usia sebagai konteks tambahan untuk segmentasi pelanggan.',
+          },
+          {
+            src: projectImage('suryamart-insight-final.png'),
+            alt: 'Slide insight akhir analisis pelanggan Suryamart',
+            label: 'Final Insight',
+            caption:
+              'Slide penutup ini merangkum insight dan rekomendasi utama untuk membantu Suryamart memfokuskan strategi penjualan pada segmen, kategori, dan channel yang paling relevan.',
+          },
+        ],
+      },
     },
   },
   {

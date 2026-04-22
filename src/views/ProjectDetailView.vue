@@ -111,6 +111,7 @@ const buildHeroLinks = (currentProject) => {
 
 const heroLinks = computed(() => buildHeroLinks(project.value))
 const canShowUiPreview = computed(() =>
+  !project.value?.hideUiPreview &&
   Boolean(caseStudy.value?.appPreview?.imageSrc || caseStudy.value?.appPreview?.images?.length)
 )
 

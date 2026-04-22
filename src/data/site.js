@@ -8,7 +8,23 @@ export const siteConfig = {
   email: 'vdwinova@gmail.com',
   githubUrl: 'https://github.com/AlvitoDwiP',
   linkedinUrl: 'https://www.linkedin.com/in/alvito-dwinova-permana-90a7b82ab',
-  resumeUrl: createAssetUrl('alvito-dwinova-permana-cv.pdf'),
+  resumeDownloads: {
+    buttonLabel: 'Unduh Resume (Data Analyst)',
+    options: [
+      {
+        id: 'id',
+        label: 'Download Indonesia',
+        url: createAssetUrl('resume-data-analyst-id.pdf'),
+        downloadName: 'Alvito Dwinova - Resume.pdf',
+      },
+      {
+        id: 'en',
+        label: 'Download English',
+        url: createAssetUrl('resume-data-analyst-en.pdf'),
+        downloadName: 'Alvito Dwinova P. - Resume.pdf',
+      },
+    ],
+  },
   portrait: {
     src: createAssetUrl('profile-photo-hero.jpg'),
     alt: 'Foto profesional Alvito Dwinova Permana',
