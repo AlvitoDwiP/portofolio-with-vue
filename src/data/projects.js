@@ -371,7 +371,7 @@ export const projects = [
       'Proyek ini menghasilkan aplikasi internal dengan dashboard berbasis peran, manajemen akun, data pegawai, referensi master, penugasan kerja, pencatatan kegiatan, log aktivitas, dan ekspor PDF untuk kebutuhan pelaporan.',
     insights:
       'Proyek ini menunjukkan bahwa sistem internal perlu kuat pada pengaturan peran dan relevansi alur kerja. Pemisahan dashboard dan middleware membantu menjaga keamanan akses sekaligus membuat tiap pengguna melihat fungsi yang memang mereka butuhkan. Saat modul kepegawaian, penugasan, dan pelaporan disatukan, proses administrasi menjadi lebih rapi dan lebih mudah dipantau.',
-    cover: projectImage('sipanda-admin-dashboard.png'),
+    cover: projectImage('sipanda-cover-presentation.png'),
     links: {
       github: 'https://github.com/AlvitoDwiP/sipanda-kph.git',
     },
@@ -617,7 +617,7 @@ export const projects = [
       'Proyek ini menghasilkan aplikasi internal yang membantu owner mengelola pegawai, layanan, produk, pengeluaran, transaksi harian, komisi, payroll, dan laporan operasional. Sistem juga mendukung ekspor laporan ke CSV untuk kebutuhan rekap.',
     insights:
       'Proyek ini menunjukkan bahwa sistem untuk usaha kecil tidak perlu rumit, tetapi harus tepat pada alur bisnisnya. Historical snapshot menjadi penting karena menjaga data transaksi dan payroll tetap konsisten. Pendekatan single owner juga membuat autentikasi dan permission bisa dibuat lebih sederhana, sehingga aplikasi tetap fokus pada pekerjaan inti.',
-    cover: projectImage('hair-studio-login.png'),
+    cover: projectImage('hair-studio-cover-presentation.png'),
     links: {
       github: 'https://github.com/AlvitoDwiP/barber-management.git',
     },
