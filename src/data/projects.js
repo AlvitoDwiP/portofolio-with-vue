@@ -824,4 +824,211 @@ export const projects = [
       },
     },
   },
+  {
+    id: 8,
+    slug: 'rentalps-management-system',
+    title: 'RentalPS Management System',
+    category: 'Fullstack',
+    displayCategory: 'Fullstack Developer',
+    type: 'Web App',
+    shortDescription:
+      'Sistem manajemen rental PlayStation berbasis web dengan kontrol console real-time, billing otomatis, dan dashboard analytics untuk operasional bisnis.',
+    overview:
+      'RentalPS Management System adalah aplikasi web berbasis React untuk mengelola operasional rental PlayStation secara real-time. Sistem ini menangani 15 console secara paralel dengan pendekatan component-driven agar tetap ringan saat dipakai kasir.',
+    problem: [
+      'Pencatatan manual menyebabkan error billing.',
+      'Kasir sulit memonitor banyak console secara bersamaan.',
+      'Perhitungan waktu OPEN tidak selalu akurat.',
+      'Paket dengan durasi tetap perlu berhenti otomatis.',
+      'Owner belum mendapat insight bisnis dari transaksi harian.',
+      'Admin dan kasir membutuhkan hak akses yang berbeda.',
+    ],
+    approach: [
+      'Membangun UI React berbasis component dan state management.',
+      'Mengganti form CRUD utama dengan console grid interaktif.',
+      'Membuat billing engine custom untuk transaksi OPEN dan PACKAGE.',
+      'Menyimpan snapshot harga dan produk saat transaksi dimulai.',
+      'Menampilkan transaksi aktif lewat side panel tanpa pindah halaman.',
+      'Menerapkan role-based authentication menggunakan JWT.',
+      'Membagi backend ke service, controller, dan ORM agar modular.',
+      'Menggunakan timer berbasis state untuk simulasi real-time tanpa WebSocket.',
+    ],
+    tools: ['React.js', 'CSS', 'Node.js', 'Express.js', 'PostgreSQL', 'Prisma ORM', 'JWT'],
+    output:
+      'Proyek ini menghasilkan aplikasi operasional dengan interactive console grid, start transaksi 1 klik, billing otomatis per detik, paket durasi tetap, dashboard admin, manajemen produk, manajemen harga, manajemen user, dan laporan transaksi.',
+    insights:
+      'Project ini menunjukkan bahwa UX operasional lebih penting daripada jumlah fitur. Snapshot data wajib dipakai untuk menjaga transaksi tetap konsisten. Real-time tidak selalu membutuhkan WebSocket jika kebutuhan utamanya adalah feedback cepat di dashboard.',
+    cover: projectImage('rentalps-cover-card.png'),
+    links: {},
+    caseStudy: {
+      heroSummary:
+        'RentalPS Management System dirancang untuk membantu kasir dan admin mengelola rental PlayStation dari satu sistem. Fokusnya ada pada monitoring 15 console, billing otomatis, dan pemisahan role yang jelas.',
+      context: [
+        'Operasional rental PlayStation bergerak cepat. Kasir perlu melihat status console, memulai transaksi, menambah produk, dan menyelesaikan billing tanpa berpindah halaman terlalu sering.',
+        'Sistem ini dibuat sebagai web app React dengan backend modular. Admin mengelola produk, paket, harga, console, user, dan laporan. Kasir fokus pada transaksi aktif dan status console real-time.',
+      ],
+      problemHighlights: [
+        {
+          title: 'Billing manual rawan salah',
+          description:
+            'Perhitungan durasi, paket, produk tambahan, dan grand total sulit dijaga akurat jika masih dicatat manual.',
+          implication:
+            'Kesalahan kecil bisa langsung berdampak pada pendapatan dan kepercayaan pelanggan.',
+        },
+        {
+          title: 'Monitoring banyak console tidak efisien',
+          description:
+            'Kasir perlu melihat status available, in use, dan maintenance untuk 15 console dalam satu tampilan.',
+          implication: 'Tanpa visual state yang jelas, keputusan operasional menjadi lebih lambat.',
+        },
+        {
+          title: 'Role admin dan kasir harus dipisah',
+          description:
+            'Admin membutuhkan kontrol data master dan laporan, sedangkan kasir membutuhkan alur transaksi harian.',
+          implication:
+            'Pemisahan akses membuat sistem lebih aman dan lebih mudah dipakai sesuai tugas masing-masing.',
+        },
+      ],
+      approachGroups: [
+        {
+          title: 'Interactive Console Grid',
+          description:
+            'Console ditampilkan sebagai grid visual agar kasir bisa mulai transaksi 1 klik dan membaca status tiap unit dengan cepat.',
+        },
+        {
+          title: 'Custom Billing Engine',
+          description:
+            'Billing OPEN dihitung per detik, sedangkan PACKAGE memakai durasi tetap dan snapshot harga saat transaksi dimulai.',
+        },
+        {
+          title: 'Side Panel Transaksi Aktif',
+          description:
+            'Transaksi berjalan ditampilkan di sisi dashboard agar kasir bisa melihat detail, menambah produk, dan menyelesaikan pembayaran tanpa pindah halaman.',
+        },
+        {
+          title: 'Modular Backend',
+          description:
+            'Backend Node.js dan Express.js dipisah ke controller, service, Prisma ORM, dan autentikasi JWT agar aturan bisnis lebih mudah dirawat.',
+        },
+      ],
+      insightHighlights: [
+        {
+          eyebrow: 'UX Operasional',
+          title: 'Visual state lebih penting dari banyaknya menu',
+          description:
+            'Status console dibuat jelas lewat warna dan label agar kasir cepat tahu mana yang tersedia, dipakai, atau maintenance.',
+          implication:
+            'Dashboard yang mudah dipindai membantu keputusan operasional dibuat lebih cepat.',
+        },
+        {
+          eyebrow: 'Billing',
+          title: 'Snapshot menjaga transaksi tetap konsisten',
+          description:
+            'Harga rental, paket, dan produk disimpan saat transaksi dimulai sehingga histori tetap aman walau data master berubah.',
+          implication:
+            'Laporan dan grand total tidak ikut berubah karena update harga setelah transaksi berjalan.',
+        },
+        {
+          eyebrow: 'Real-time',
+          title: 'Timer state cukup untuk kebutuhan dashboard',
+          description:
+            'Simulasi real-time dibangun dari state dan timer karena kebutuhan utama adalah estimasi billing yang bergerak di layar kasir.',
+          implication:
+            'Pendekatan ini membuat sistem tetap ringan tanpa menambah kompleksitas infrastruktur.',
+        },
+      ],
+      impact: [
+        'Kasir dapat memonitor 15 console dalam satu dashboard.',
+        'Start transaksi bisa dilakukan dengan 1 klik dari console grid.',
+        'Billing berjalan otomatis per detik untuk transaksi OPEN.',
+        'Dashboard admin membantu membaca revenue, transaksi, produk terlaris, dan stok kritis.',
+        'Pemisahan role admin dan kasir membuat alur kerja lebih aman.',
+      ],
+      appPreview: {
+        imageSrc: projectImage('rentalps-login-page.png'),
+        imageAlt: 'Halaman login RentalPS Management System',
+        description:
+          'Preview ini menampilkan alur utama RentalPS mulai dari login, dashboard admin, halaman kelola, dashboard kasir, transaksi aktif, dan riwayat transaksi.',
+        images: [
+          {
+            src: projectImage('rentalps-login-page.png'),
+            alt: 'Halaman login RentalPS Management System',
+            label: 'Login Page',
+            caption:
+              'Halaman login memisahkan akses admin dan kasir sebelum pengguna masuk ke dashboard kerja.',
+          },
+          {
+            src: projectImage('rentalps-dashboard-admin.png'),
+            alt: 'Dashboard admin RentalPS Management System',
+            label: 'Dashboard Admin',
+            caption:
+              'Dashboard admin merangkum pendapatan, transaksi, produk terlaris, stok kritis, dan akses cepat ke data master.',
+          },
+          {
+            src: projectImage('rentalps-dashboard-kasir.png'),
+            alt: 'Dashboard kasir RentalPS Management System',
+            label: 'Dashboard Kasir',
+            caption:
+              'Dashboard kasir menampilkan 15 console dengan status real-time untuk memulai dan memantau transaksi harian.',
+          },
+          {
+            src: projectImage('rentalps-report-page.png'),
+            alt: 'Halaman laporan RentalPS Management System',
+            label: 'Laporan',
+            caption:
+              'Halaman laporan menampilkan revenue, jumlah transaksi, pendapatan rental, pendapatan produk, dan transaksi selesai.',
+          },
+          {
+            src: projectImage('rentalps-products-page.png'),
+            alt: 'Halaman produk RentalPS Management System',
+            label: 'Produk',
+            caption:
+              'Halaman produk membantu admin mengelola stok, harga, status produk, dan item yang dijual saat transaksi berlangsung.',
+          },
+          {
+            src: projectImage('rentalps-packages-page.png'),
+            alt: 'Halaman paket RentalPS Management System',
+            label: 'Paket',
+            caption:
+              'Halaman paket mengatur durasi dan harga rental berdasarkan tipe console agar kasir bisa memilih paket dengan cepat.',
+          },
+          {
+            src: projectImage('rentalps-pricing-page.png'),
+            alt: 'Halaman harga RentalPS Management System',
+            label: 'Harga',
+            caption:
+              'Halaman harga dipakai admin untuk mengelola tarif OPEN per tipe console tanpa mengubah histori transaksi lama.',
+          },
+          {
+            src: projectImage('rentalps-console-page.png'),
+            alt: 'Halaman console RentalPS Management System',
+            label: 'Console',
+            caption:
+              'Halaman console menampilkan status available, in use, dan maintenance untuk membantu admin memantau unit.',
+          },
+          {
+            src: projectImage('rentalps-users-page.png'),
+            alt: 'Halaman user RentalPS Management System',
+            label: 'User',
+            caption:
+              'Halaman user memisahkan pengelolaan akun kasir, status aktif, dan proteksi akun admin.',
+          },
+          {
+            src: projectImage('rentalps-active-transactions.png'),
+            alt: 'Panel transaksi aktif RentalPS Management System',
+            label: 'Transaksi Aktif',
+            caption:
+              'Panel transaksi aktif membantu kasir melihat detail billing, produk tambahan, dan tombol penyelesaian transaksi.',
+          },
+          {
+            src: projectImage('rentalps-transaction-history.png'),
+            alt: 'Halaman riwayat transaksi RentalPS Management System',
+            label: 'Riwayat Transaksi',
+            caption:
+              'Halaman riwayat transaksi menampilkan daftar transaksi selesai dengan durasi, rental, produk, dan grand total.',
+          },
+        ],
+      },
+    },
+  },
 ]

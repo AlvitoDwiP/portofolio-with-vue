@@ -244,13 +244,13 @@ onBeforeUnmount(() => {
 
               <div
                 v-if="previewImages.length > 1"
-                class="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-5"
+                class="project-preview-thumbnails flex gap-3 overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory pb-3 whitespace-nowrap"
               >
                 <button
                   v-for="(item, index) in previewImages"
                   :key="`${item.src}-${index}`"
                   type="button"
-                  class="overflow-hidden rounded-[1rem] border transition-[transform,border-color,box-shadow] duration-200 hover:scale-[1.02]"
+                  class="project-preview-thumbnail shrink-0 snap-start w-[120px] overflow-hidden rounded-[1rem] border transition-[transform,border-color,box-shadow] duration-200 hover:scale-[1.02] sm:w-[132px] md:w-[144px]"
                   :class="
                     index === activeIndex
                       ? 'border-[rgba(108,99,255,0.24)] bg-[rgba(216,243,220,0.72)] shadow-[0_14px_34px_rgba(26,26,46,0.1)]'
@@ -319,10 +319,11 @@ onBeforeUnmount(() => {
                   </p>
                 </div>
 
-                <div v-if="projectTools.length" class="space-y-3 border-t border-[rgba(221,227,240,0.82)] pt-4">
-                  <p
-                    class="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-textMuted"
-                  >
+                <div
+                  v-if="projectTools.length"
+                  class="space-y-3 border-t border-[rgba(221,227,240,0.82)] pt-4"
+                >
+                  <p class="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-textMuted">
                     Tools
                   </p>
 
@@ -421,6 +422,15 @@ onBeforeUnmount(() => {
   -webkit-line-clamp: 2;
   font-size: 0.7rem;
   line-height: 1.45;
+}
+
+.project-preview-thumbnails {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.project-preview-thumbnails::-webkit-scrollbar {
+  display: none;
 }
 
 .preview-nav-button {

@@ -79,15 +79,12 @@ const showNext = () => {
   setActiveIndex(activeIndex.value + 1)
 }
 
-const {
-  handleTouchStart,
-  handleTouchMove,
-  handleTouchEnd,
-  handleTouchCancel,
-} = useHorizontalSwipe({
-  onNext: showNext,
-  onPrevious: showPrevious,
-})
+const { handleTouchStart, handleTouchMove, handleTouchEnd, handleTouchCancel } = useHorizontalSwipe(
+  {
+    onNext: showNext,
+    onPrevious: showPrevious,
+  }
+)
 
 const openZoom = (index = activeIndex.value) => {
   if (!previewImages.value.length) {
@@ -236,7 +233,9 @@ onBeforeUnmount(() => {
             <span
               class="inline-flex items-center rounded-full border border-[rgba(221,227,240,0.86)] bg-[rgba(255,255,255,0.96)] px-3 py-1.5 text-[0.68rem] font-medium text-textSecondary backdrop-blur-md"
             >
-              {{ String(activeIndex + 1).padStart(2, '0') }}/{{ String(previewImages.length).padStart(2, '0') }}
+              {{ String(activeIndex + 1).padStart(2, '0') }}/{{
+                String(previewImages.length).padStart(2, '0')
+              }}
             </span>
           </div>
         </div>
@@ -265,12 +264,15 @@ onBeforeUnmount(() => {
         </p>
       </div>
 
-      <div v-if="previewImages.length > 1" class="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
+      <div
+        v-if="previewImages.length > 1"
+        class="project-preview-thumbnails mt-6 flex gap-3 overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory pb-3 whitespace-nowrap"
+      >
         <button
           v-for="(item, index) in previewImages"
           :key="`${item.src}-${index}`"
           type="button"
-          class="group overflow-hidden rounded-[1.15rem] border p-2 text-left transition-[transform,border-color,background-color,box-shadow] duration-200 hover:-translate-y-0.5"
+          class="group project-preview-thumbnail shrink-0 snap-start w-[120px] overflow-hidden rounded-[1.15rem] border p-2 text-left transition-[transform,border-color,background-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:scale-[1.015] sm:w-[132px] md:w-[144px]"
           :class="
             index === activeIndex
               ? 'border-[rgba(108,99,255,0.24)] bg-[rgba(216,243,220,0.72)] shadow-[0_14px_32px_rgba(26,26,46,0.1)]'
@@ -291,7 +293,9 @@ onBeforeUnmount(() => {
             <p class="app-preview__thumb-title text-sm text-textPrimary">
               {{ item.title || `Screen ${index + 1}` }}
             </p>
-            <p class="app-preview__thumb-copy mt-1 min-h-[2.75rem] text-xs leading-5 text-textSecondary">
+            <p
+              class="app-preview__thumb-copy mt-1 min-h-[2.75rem] text-xs leading-5 text-textSecondary"
+            >
               {{ item.description || 'Lihat detail tampilan pada layar ini.' }}
             </p>
           </div>
@@ -361,7 +365,10 @@ onBeforeUnmount(() => {
             v-if="activeImage?.title || activeImage?.description"
             class="flex flex-col gap-2 border-t border-[rgba(221,227,240,0.82)] px-2 pb-1 pt-4 sm:px-3"
           >
-            <p v-if="activeImage?.title" class="text-sm font-semibold tracking-[-0.01em] text-textPrimary">
+            <p
+              v-if="activeImage?.title"
+              class="text-sm font-semibold tracking-[-0.01em] text-textPrimary"
+            >
               {{ activeImage.title }}
             </p>
             <p v-if="activeImage?.description" class="text-sm leading-7 text-textSecondary">
@@ -388,6 +395,15 @@ onBeforeUnmount(() => {
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+.project-preview-thumbnails {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.project-preview-thumbnails::-webkit-scrollbar {
+  display: none;
 }
 
 .preview-nav-button {
