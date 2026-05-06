@@ -9,19 +9,25 @@ export const siteConfig = {
   githubUrl: 'https://github.com/AlvitoDwiP',
   linkedinUrl: 'https://www.linkedin.com/in/alvito-dwinova-permana-90a7b82ab',
   resumeDownloads: {
-    buttonLabel: 'Unduh Resume (Data Analyst)',
+    buttonLabel: 'Download Resume',
     options: [
       {
-        id: 'id',
-        label: 'Download Indonesia',
-        url: createAssetUrl('resume-data-analyst-id.pdf'),
-        downloadName: 'Alvito Dwinova - Resume.pdf',
+        id: 'fullstack',
+        label: 'Resume (Fullstack Dev)',
+        url: createAssetUrl('resume-fullstack-dev.pdf'),
+        downloadName: 'Alvito Dwinova P. - Resume Fullstack Dev.pdf',
       },
       {
-        id: 'en',
-        label: 'Download English',
+        id: 'data-analyst',
+        label: 'Resume (Data Analyst)',
         url: createAssetUrl('resume-data-analyst-en.pdf'),
-        downloadName: 'Alvito Dwinova P. - Resume.pdf',
+        downloadName: 'Alvito Dwinova P. - Resume Data Analyst.pdf',
+      },
+      {
+        id: 'business-analyst',
+        label: 'Resume (Business Analyst)',
+        url: createAssetUrl('resume-business-analyst.pdf'),
+        downloadName: 'Alvito Dwinova P. - Resume Business Analyst.pdf',
       },
     ],
   },

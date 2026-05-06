@@ -20,6 +20,7 @@ const emit = defineEmits(['preview'])
 const cardVariant = computed(() => resolveProjectCardVariant(props.project))
 const previewImage = computed(() => props.project.cover || createProjectThumbnail(props.project))
 const isDataProject = computed(() => cardVariant.value.key === 'data')
+const githubLink = computed(() => props.project.links?.github || '')
 
 const externalAction = computed(() => {
   if (isDataProject.value) {
@@ -41,17 +42,7 @@ const externalAction = computed(() => {
       icon: ChartColumnBig,
     }
   }
-
-  if (!props.project.links?.github) {
-    return null
-  }
-
-  return {
-    href: props.project.links.github,
-    label: 'GitHub',
-    ariaLabel: 'Buka GitHub project',
-    icon: Github,
-  }
+  return null
 })
 
 const openPreview = () => {
@@ -132,6 +123,21 @@ const openPreview = () => {
           <span>Lihat Detail</span>
           <ArrowRight class="ml-2 h-4 w-4" />
         </RouterLink>
+
+        <a
+          v-if="githubLink"
+          :href="githubLink"
+          target="_blank"
+          rel="noreferrer"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(221,227,240,0.9)] bg-[rgba(255,255,255,0.92)] text-textSecondary shadow-[0_8px_18px_rgba(26,26,46,0.04),inset_0_1px_0_rgba(255,255,255,0.82)] transition-[transform,border-color,color,background-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-[rgba(108,99,255,0.22)] hover:bg-[rgba(216,243,220,0.52)] hover:text-accent hover:shadow-[0_14px_26px_rgba(26,26,46,0.08),inset_0_1px_0_rgba(255,255,255,0.86)]"
+          aria-label="Buka GitHub project"
+          title="GitHub"
+          @click.stop
+          @keydown.enter.stop
+          @keydown.space.stop
+        >
+          <Github class="h-4 w-4" />
+        </a>
 
         <a
           v-if="externalAction"

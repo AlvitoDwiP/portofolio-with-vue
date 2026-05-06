@@ -171,7 +171,9 @@ export const projects = [
       'Rekomendasi utama dari analisis ini adalah memfokuskan campaign pada segmen female, menjadikan Jewelry & Accessories sebagai core revenue driver, menghindari strategi diskon massal, memakai diskon secara lebih targeted, dan menempatkan sosial media sebagai channel pendukung alih-alih channel utama.',
     cover: projectImage('suryamart-cover.png'),
     hideUiPreview: true,
-    links: {},
+    links: {
+      github: 'https://github.com/AlvitoDwiP/SpendWise.git',
+    },
     caseStudy: {
       heroSummary:
         'Analisis ini memetakan perilaku pembelian pelanggan retail Suryamart untuk melihat segmen paling bernilai, kategori produk dengan kontribusi tertinggi, serta efektivitas diskon dan sosial media dalam mendorong penjualan.',
@@ -859,7 +861,9 @@ export const projects = [
     insights:
       'Project ini menunjukkan bahwa UX operasional lebih penting daripada jumlah fitur. Snapshot data wajib dipakai untuk menjaga transaksi tetap konsisten. Real-time tidak selalu membutuhkan WebSocket jika kebutuhan utamanya adalah feedback cepat di dashboard.',
     cover: projectImage('rentalps-cover-card.png'),
-    links: {},
+    links: {
+      github: 'https://github.com/AlvitoDwiP/rentalps-management-.git',
+    },
     caseStudy: {
       heroSummary:
         'RentalPS Management System dirancang untuk membantu kasir dan admin mengelola rental PlayStation dari satu sistem. Fokusnya ada pada monitoring 15 console, billing otomatis, dan pemisahan role yang jelas.',
@@ -1026,6 +1030,195 @@ export const projects = [
             label: 'Riwayat Transaksi',
             caption:
               'Halaman riwayat transaksi menampilkan daftar transaksi selesai dengan durasi, rental, produk, dan grand total.',
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: 9,
+    slug: 'spendwise-web-app',
+    title: 'SpendWise Web App',
+    category: 'Fullstack',
+    displayCategory: 'WEB APPS',
+    cardVariant: 'web',
+    type: 'Web App',
+    shortDescription:
+      'Aplikasi web untuk mencatat income dan expense secara terstruktur, memantau ringkasan keuangan, serta membaca report periodik untuk pengambilan keputusan finansial.',
+    overview:
+      'SpendWise dibangun untuk membantu pengguna melacak pemasukan dan pengeluaran secara konsisten dalam satu tempat. Sebelum aplikasi ini ada, pencatatan keuangan cenderung manual, tersebar di banyak media, dan sulit dianalisis, sehingga kondisi finansial harian tidak terlihat secara jelas.',
+    problem: [
+      'Pencatatan pemasukan dan pengeluaran tidak rutin sehingga transaksi sering lupa dicatat.',
+      'Data keuangan tersebar di catatan, chat, dan spreadsheet sehingga proses rekap memakan waktu.',
+      'Pengguna tidak memiliki ringkasan serta laporan yang cepat dibaca untuk mengambil keputusan finansial.',
+    ],
+    approach: [
+      'Pengguna mencatat transaksi pemasukan dan pengeluaran dengan kategori yang sesuai.',
+      'Sistem menyimpan data per pengguna secara aman melalui API terproteksi JWT.',
+      'Dashboard menghitung ringkasan kondisi keuangan seperti balance, income, expense, dan transaksi terbaru.',
+      'Report menyajikan tren serta breakdown periodik agar kebiasaan finansial lebih mudah dievaluasi.',
+    ],
+    tools: [
+      'Next.js ',
+      'TypeScript',
+      'Go Lang',
+      'GORM',
+      'PostgreSQL',
+      'JWT',
+      'Validation Helpers',
+    ],
+    output:
+      'SpendWise menyediakan alur lengkap untuk mencatat transaksi income atau expense, mengelola kategori, melihat dashboard ringkasan, memantau report periodik, serta fitur akun seperti login atau register, reset data, dan delete account.',
+    insights:
+      'Nilai utama SpendWise bukan hanya mencatat transaksi, tetapi mengubah data finansial harian menjadi insight yang bisa ditindaklanjuti untuk keputusan keuangan yang lebih terarah.',
+    cover: projectImage('spendwise-cover-card.jpg'),
+    links: {
+      github: 'https://github.com/AlvitoDwiP/SpendWise.git',
+    },
+    caseStudy: {
+      heroSummary:
+        'SpendWise memusatkan aktivitas pencatatan keuangan pribadi dari transaksi harian sampai report periodik agar pengguna bisa membaca kondisi finansial secara cepat dan akurat.',
+      context: [
+        'Kebiasaan pencatatan keuangan pribadi sering terhenti karena proses manual terasa merepotkan dan tidak konsisten. Saat data tersebar di banyak tempat, pengguna kehilangan visibilitas terhadap kondisi kas yang sebenarnya.',
+        'SpendWise dirancang sebagai web app yang menyatukan pencatatan, pengelolaan kategori, ringkasan dashboard, dan report periodik dalam satu alur yang mudah dipakai setiap hari.',
+      ],
+      problemHighlights: [
+        {
+          title: 'Pencatatan tidak konsisten',
+          description:
+            'Transaksi pemasukan dan pengeluaran sering tidak tercatat pada waktu kejadian.',
+          implication:
+            'Data historis menjadi tidak lengkap, sehingga evaluasi arus kas harian sulit dipercaya.',
+        },
+        {
+          title: 'Data tersebar di banyak media',
+          description:
+            'Informasi keuangan tersebar di catatan manual, chat, dan spreadsheet terpisah.',
+          implication:
+            'Rekap bulanan menjadi lambat dan rawan salah karena pengguna harus menggabungkan data secara manual.',
+        },
+        {
+          title: 'Tidak ada ringkasan cepat',
+          description:
+            'Pengguna kesulitan membaca posisi keuangan tanpa dashboard dan report yang ringkas.',
+          implication:
+            'Keputusan finansial sering berbasis perkiraan, bukan data aktual.',
+        },
+      ],
+      approachGroups: [
+        {
+          title: 'Pencatatan Transaksi',
+          description:
+            'Pengguna mencatat income dan expense dengan kategori yang jelas agar data keuangan tersusun rapi sejak awal.',
+        },
+        {
+          title: 'Keamanan Data Pengguna',
+          description:
+            'Autentikasi JWT dan API terproteksi memastikan data transaksi tersimpan aman untuk setiap akun pengguna.',
+        },
+        {
+          title: 'Dashboard Ringkasan',
+          description:
+            'Sistem menghitung balance, total income, total expense, serta transaksi terbaru untuk pembacaan kondisi keuangan secara cepat.',
+        },
+        {
+          title: 'Report Periodik',
+          description:
+            'Laporan tren dan breakdown kategori membantu pengguna mengevaluasi kebiasaan finansial dari waktu ke waktu.',
+        },
+      ],
+      insightHighlights: [
+        {
+          eyebrow: 'Nilai Utama',
+          title: 'Data transaksi berubah menjadi insight yang dapat ditindaklanjuti',
+          description:
+            'SpendWise bukan hanya tempat mencatat, tetapi sistem yang menerjemahkan data harian menjadi informasi praktis untuk evaluasi finansial.',
+          implication:
+            'Pengguna bisa mengambil keputusan keuangan dengan dasar data yang lebih jelas.',
+        },
+        {
+          eyebrow: 'Konsistensi',
+          title: 'Alur sederhana membantu kebiasaan pencatatan tetap berjalan',
+          description:
+            'Saat input transaksi dibuat cepat dan terstruktur, pengguna cenderung lebih rutin mencatat pemasukan dan pengeluaran setiap hari.',
+          implication:
+            'Data keuangan menjadi lebih lengkap sehingga evaluasi bulanan tidak lagi bergantung pada ingatan.',
+        },
+        {
+          eyebrow: 'Kontrol Pengeluaran',
+          title: 'Ringkasan periodik mempercepat deteksi pengeluaran berulang',
+          description:
+            'Dashboard dan report memudahkan pengguna melihat kategori dengan beban biaya terbesar dan pola pengeluaran yang meningkat.',
+          implication:
+            'Pengguna bisa segera melakukan penyesuaian anggaran sebelum kebocoran biaya menjadi lebih besar.',
+        },
+      ],
+      impact: [
+        'Pengguna lebih sadar arus kas karena pemasukan dan pengeluaran tercatat rapi.',
+        'Kebocoran pengeluaran lebih cepat terdeteksi melalui dashboard ringkasan dan report.',
+        'Keputusan keuangan menjadi lebih terarah karena berbasis data, bukan perkiraan.',
+      ],
+      appPreview: {
+        imageSrc: projectImage('spendwise-login-modal.png'),
+        imageAlt: 'Login page SpendWise dengan opsi Google dan email/password',
+        description:
+          'Preview aplikasi menampilkan alur utama mulai dari autentikasi, input transaksi, manajemen kategori, dashboard ringkasan, hingga report periodik.',
+        images: [
+          {
+            src: projectImage('spendwise-login-modal.png'),
+            alt: 'Modal login SpendWise dengan Google sign-in dan email/password',
+            label: 'Login Page',
+            caption:
+              'Halaman autentikasi menyediakan opsi login Google maupun email/password untuk mendukung akses akun yang fleksibel.',
+          },
+          {
+            src: projectImage('spendwise-dashboard-populated.png'),
+            alt: 'Dashboard SpendWise setelah data transaksi masuk',
+            label: 'Dashboard Overview',
+            caption:
+              'Halaman utama menampilkan ringkasan kondisi finansial, insight pengeluaran, grafik spending overview, dan daftar transaksi terbaru dalam satu layar.',
+          },
+          {
+            src: projectImage('spendwise-add-transaction-manual.png'),
+            alt: 'Modal tambah transaksi manual di SpendWise',
+            label: 'Add Transaction (Manual)',
+            caption:
+              'Form manual untuk mencatat transaksi dengan tipe, nominal, kategori, tanggal, dan catatan agar input harian tetap cepat dan terstruktur.',
+          },
+          {
+            src: projectImage('spendwise-add-transaction-receipt.png'),
+            alt: 'Modal Receipt Assist untuk scan struk transaksi di SpendWise',
+            label: 'Add Transaction (Receipt Assist)',
+            caption:
+              'Fitur Receipt Assist memberi opsi upload atau foto struk untuk membantu percepatan input transaksi dari bukti belanja.',
+          },
+          {
+            src: projectImage('spendwise-transactions-page.png'),
+            alt: 'Halaman daftar transaksi SpendWise dengan filter dan pencarian',
+            label: 'Transactions Page',
+            caption:
+              'Halaman transaksi menyediakan filter income/expense/all dan kolom pencarian agar pengguna lebih mudah menelusuri histori transaksi.',
+          },
+          {
+            src: projectImage('spendwise-categories-page.png'),
+            alt: 'Halaman manajemen kategori pemasukan dan pengeluaran di SpendWise',
+            label: 'Categories Management',
+            caption:
+              'Pengguna dapat mengelola kategori income dan expense agar proses pencatatan transaksi tetap rapi dan konsisten.',
+          },
+          {
+            src: projectImage('spendwise-report-page.png'),
+            alt: 'Halaman report SpendWise dengan periode, ringkasan, dan tren pengeluaran',
+            label: 'Report Page',
+            caption:
+              'Report periodik menampilkan ringkasan income, expense, net, jumlah transaksi, serta breakdown kategori dan tren pengeluaran.',
+          },
+          {
+            src: projectImage('spendwise-guest-dashboard.png'),
+            alt: 'Tampilan dashboard SpendWise untuk pengguna guest sebelum login',
+            label: 'Guest State',
+            caption:
+              'Kondisi guest menunjukkan empty state dengan ajakan sign-in sehingga alur onboarding pengguna baru menjadi lebih jelas.',
           },
         ],
       },
