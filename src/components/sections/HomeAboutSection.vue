@@ -138,9 +138,7 @@ const tools = toolGroups.flatMap((group) => group.tools)
       :visible-once="{ opacity: 1, y: 0, transition: { duration: 360 } }"
     >
       <div class="space-y-10 lg:space-y-12">
-        <div
-          class="max-w-4xl space-y-6 rounded-[1.75rem] border border-[rgba(221,227,240,0.88)] bg-[rgba(255,255,255,0.96)] px-5 py-5 shadow-[0_18px_36px_rgba(26,26,46,0.06)] sm:px-6 sm:py-6"
-        >
+        <div class="max-w-4xl space-y-6 px-1 py-1 sm:px-0 sm:py-0">
           <SectionHeader
             eyebrow="who am i?"
             title="Tentang Saya."
@@ -148,31 +146,33 @@ const tools = toolGroups.flatMap((group) => group.tools)
           />
 
           <p class="section-muted text-justify text-sm leading-8 sm:text-base">
-            Saya merupakan lulusan Teknologi Informasi dari Universitas Jember dengan IPK 3.76/4.00.
-            Saya berfokus pada analisis data dan pemecahan masalah berbasis data dengan pengalaman
-            dalam mengolah data mentah menjadi insight yang terstruktur untuk mendukung pengambilan
-            keputusan. Saya memulai dari memahami kebutuhan yang nyata kemudian merapikan informasi dan
-            mengubahnya menjadi analisis atau solusi yang dapat digunakan. Dalam prosesnya, saya
-            tidak hanya berhenti pada insight tetapi juga mengembangkan aplikasi berbasis web untuk
-            menyajikan data secara lebih terstruktur dan mudah diakses.
+            Saya lulusan Teknologi Informasi dari Universitas Jember dengan IPK 3.76/4.00. Minat saya
+            terbagi cukup merata antara data analyst dan fullstack engineering karena bagi saya
+            keduanya saling melengkapi. Sebuah analisis tidak akan memberi dampak optimal jika tidak
+            dapat diakses oleh orang lain, demikian pula sebuah aplikasi tidak akan memiliki nilai
+            yang kuat tanpa data yang bermakna sebagai pendukung.
           </p>
 
           <p class="section-muted text-justify text-sm leading-8 sm:text-base">
-            Selama masa studi saya membangun dasar yang kuat dalam data analytics, machine
-            learning, dan data processing melalui proyek akademik dan praktik langsung. Saya juga
-            pernah berperan sebagai Asisten Dosen di Laboratorium GIS serta Asisten
-            Laboratorium Smart Agriculture. Saya membantu sesi praktikum, membimbing
-            mahasiswa, dan menjelaskan konsep teknis seperti sistem operasi dan penerapan IoT.
-            Melalui pengalaman magang dan berbagai proyek, saya terbiasa menyusun alur kerja yang
-            rapi, memahami konteks kebutuhan, serta memastikan solusi yang dibangun tetap relevan
-            dan dapat digunakan secara nyata.
+            Saya terbiasa mulai dari memahami masalah dulu sebelum menyentuh data atau kode. Dari sisi
+            analytics saya senang mengolah raw data sampai menjadi sesuatu yang bisa dijadikan dasar
+            keputusan. Dari sisi fullstack dev, saya membangun web app yang membuat data tersebut bisa
+            dilihat dan digunakan oleh orang yang membutuhkannya.
           </p>
 
           <p class="section-muted text-justify text-sm leading-8 sm:text-base">
-            Saya tertarik pada peran Data Analyst dan Data Science yang dimana saya dapat menganalisis
-            data, menemukan pola, dan menghasilkan insight yang berdampak. Saya juga terus
-            mengembangkan kemampuan dengan mengerjakan dataset nyata, membangun proyek analisis,
-            serta mengembangkan sistem sederhana yang menghubungkan data dengan aplikasi.
+            Selama kuliah saya cukup aktif terlibat langsung di luar kelas. Saya pernah menjadi
+            Asisten Dosen di Laboratorium GIS dan Asisten Laboratorium Smart Agriculture, di mana saya
+            membantu sesi praktikum serta membimbing mahasiswa dalam memahami konsep teknis mulai dari
+            sistem operasi sampai penerapan IoT. Pengalaman itu mengajarkan saya untuk menjelaskan hal
+            teknis dengan cara yang mudah dipahami.
+          </p>
+
+          <p class="section-muted text-justify text-sm leading-8 sm:text-base">
+            Pengalaman magang dan berbagai project juga membuat saya belajar bahwa solusi yang baik
+            bukan hanya yang kuat secara teknis, tetapi juga yang benar-benar bisa dipakai. Sampai
+            sekarang saya terus berlatih dengan mengerjakan real dataset dan membangun project yang
+            menghubungkan data analytics dengan sistem yang berjalan.
           </p>
         </div>
 
