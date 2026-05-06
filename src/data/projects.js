@@ -776,7 +776,7 @@ export const projects = [
       'Proyek ini menghasilkan dataset hasil preprocessing, data transaksi paid shipping dan free shipping, data agregat untuk visualisasi, notebook analisis, dan dashboard interaktif di Tableau Public.',
     insights:
       'Analisis menunjukkan bahwa gratis ongkir mendominasi 69,80 persen dari seluruh transaksi. Pada transaksi berbayar, median ongkir per kilogram berada di angka Rp10.000 dan memberi gambaran baseline biaya logistik aktual. Dari sisi risiko, segmen subsidi tinggi memiliki cancellation rate 24,81 persen, lebih tinggi dibanding segmen subsidi rendah yang berada di 15,26 persen. Beban subsidi juga banyak terkonsentrasi di Jawa Barat, Banten, dan DKI Jakarta.',
-    cover: '',
+    cover: projectImage('ongkir-ecommerce-cover.png'),
     links: {
       github: 'https://github.com/AlvitoDwiP/operasional_ecommers_indo',
       demo: 'https://public.tableau.com/views/E-commersShipping/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
@@ -1222,6 +1222,168 @@ export const projects = [
           },
         ],
       },
+    },
+  },
+  {
+    id: 10,
+    slug: 'analisis-aktifitas-penayangan-pengguna-vidio',
+    title: 'Analisis Aktifitas Penayangan Pengguna Vidio',
+    category: 'Data Analytics',
+    shortDescription:
+      'Analisis perilaku penayangan pengguna Vidio untuk memahami pola konsumsi konten, waktu tonton, dan preferensi kategori tayangan.',
+    overview:
+      'Proyek ini menganalisis aktivitas penayangan pengguna platform Vidio untuk membaca pola watch time, frekuensi penayangan, dan preferensi konten berdasarkan segmen pengguna dan periode waktu tertentu.',
+    problem: [
+      'Perubahan kebiasaan menonton pengguna tidak selalu terlihat jelas hanya dari total view.',
+      'Tim membutuhkan pemetaan konten dan periode waktu dengan engagement tertinggi.',
+      'Diperlukan insight yang bisa dipakai untuk optimasi strategi konten dan retensi pengguna.',
+    ],
+    approach: [
+      'Melakukan data cleaning dan validasi data aktivitas penayangan agar metrik dapat dihitung konsisten.',
+      'Menganalisis pola durasi tonton, frekuensi sesi, dan kategori konten yang paling sering diakses.',
+      'Menyusun visualisasi tren penayangan per periode untuk menemukan puncak dan penurunan aktivitas pengguna.',
+      'Meringkas insight utama untuk rekomendasi optimasi konten dan pengalaman pengguna.',
+    ],
+    tools: ['Python', 'Pandas', 'Google Colab'],
+    output:
+      'Proyek menghasilkan analisis perilaku penayangan, visualisasi tren aktivitas pengguna, serta rekomendasi berbasis data untuk peningkatan engagement.',
+    insights:
+      'Hasil analisis menunjukkan bahwa pola penayangan dipengaruhi kombinasi jenis konten dan waktu akses. Dengan memahami segmen dan periode paling aktif, strategi publikasi konten dapat dibuat lebih terarah.',
+    cover: projectImage('vidio-analysis-cover-card.jpg'),
+    caseStudy: {
+      appPreview: {
+        imageSrc: projectImage('vidio-analysis-02.jpg'),
+        imageAlt: 'Slide latar belakang dan tujuan analisis aktivitas penayangan pengguna Vidio',
+        description:
+          'Preview ini merangkum alur analisis aktivitas penayangan pengguna Vidio, mulai dari konteks dataset, data preparation, analisis perilaku pengguna, hingga kesimpulan dan rekomendasi.',
+        images: [
+          {
+            src: projectImage('vidio-analysis-02.jpg'),
+            alt: 'Slide latar belakang dan tujuan analisis aktivitas penayangan pengguna Vidio',
+            label: 'Latar Belakang & Tujuan',
+            caption:
+              'Slide pembuka menjelaskan konteks dataset, tujuan utama analisis, fokus analisis, dan output yang diharapkan.',
+          },
+          {
+            src: projectImage('vidio-analysis-03.jpg'),
+            alt: 'Slide ringkasan dataset aktivitas pengguna Vidio',
+            label: 'Ringkasan Dataset',
+            caption:
+              'Ringkasan metrik dasar dataset selama 15 hari, termasuk total penayangan, unique users, unique sessions, dan jumlah konten unik.',
+          },
+          {
+            src: projectImage('vidio-analysis-04.jpg'),
+            alt: 'Slide persiapan data dan proses cleaning',
+            label: 'Persiapan Data',
+            caption:
+              'Menjelaskan tahapan cleaning, konversi tipe data, penanganan duplikat, dan pembuatan kolom turunan untuk analisis waktu.',
+          },
+          {
+            src: projectImage('vidio-analysis-05.jpg'),
+            alt: 'Slide insight missing values pada dataset',
+            label: 'Insight Missing Values',
+            caption:
+              'Menunjukkan bahwa missing values bersifat structural missing sesuai konteks tipe konten dan platform, bukan data rusak.',
+          },
+          {
+            src: projectImage('vidio-analysis-06.jpg'),
+            alt: 'Slide gambaran umum metrik aktivitas pengguna',
+            label: 'Gambaran Umum Aktivitas',
+            caption:
+              'Menampilkan metrik utama penayangan dan insight perbedaan mean vs median durasi tonton.',
+          },
+          {
+            src: projectImage('vidio-analysis-07.jpg'),
+            alt: 'Slide tren aktivitas harian selama periode analisis',
+            label: 'Tren Aktivitas Harian',
+            caption:
+              'Visualisasi tren total penayangan dan users per hari untuk melihat puncak aktivitas dalam periode observasi.',
+          },
+          {
+            src: projectImage('vidio-analysis-08.jpg'),
+            alt: 'Slide pola aktivitas pengguna per jam',
+            label: 'Pola Aktivitas Per Jam',
+            caption:
+              'Distribusi penayangan per jam yang menyorot prime time dan momentum terbaik untuk publikasi konten.',
+          },
+          {
+            src: projectImage('vidio-analysis-09.jpg'),
+            alt: 'Slide distribusi durasi tonton per rentang waktu',
+            label: 'Distribusi Durasi Tonton',
+            caption:
+              'Membaca pola durasi sesi dari sangat singkat hingga loyal viewers untuk memahami karakter perilaku menonton.',
+          },
+          {
+            src: projectImage('vidio-analysis-10.jpg'),
+            alt: 'Slide distribusi platform akses pengguna Vidio',
+            label: 'Distribusi Platform',
+            caption:
+              'Menunjukkan dominasi ekosistem mobile dalam volume penayangan dan implikasinya terhadap prioritas optimasi produk.',
+          },
+          {
+            src: projectImage('vidio-analysis-11.jpg'),
+            alt: 'Slide engagement per platform berdasarkan volume dan durasi',
+            label: 'Engagement Per Platform',
+            caption:
+              'Membandingkan volume penayangan dan rata-rata durasi tonton per platform untuk melihat kualitas engagement.',
+          },
+          {
+            src: projectImage('vidio-analysis-12.jpg'),
+            alt: 'Slide performa kategori konten berdasarkan jumlah penayangan',
+            label: 'Performa Kategori Konten',
+            caption:
+              'Menganalisis kategori konten paling banyak ditonton dan gap antar kategori dalam menarik traffic.',
+          },
+          {
+            src: projectImage('vidio-analysis-13.jpg'),
+            alt: 'Slide tingkat penyelesaian tontonan per kategori',
+            label: 'Tingkat Penyelesaian Tontonan',
+            caption:
+              'Membandingkan completion rate antar kategori untuk mengukur kualitas konsumsi konten, bukan hanya volume.',
+          },
+          {
+            src: projectImage('vidio-analysis-14.jpg'),
+            alt: 'Slide perbandingan perilaku user login dan tidak login',
+            label: 'Login vs Non-Login',
+            caption:
+              'Menunjukkan perbedaan durasi dan completion rate antara user login dan non-login sebagai dasar strategi konversi.',
+          },
+          {
+            src: projectImage('vidio-analysis-15.jpg'),
+            alt: 'Slide perbandingan perilaku user premium dan gratis',
+            label: 'Premium vs Gratis',
+            caption:
+              'Menyorot bahwa user premium memiliki engagement lebih dalam walau volume tayang lebih kecil.',
+          },
+          {
+            src: projectImage('vidio-analysis-16.jpg'),
+            alt: 'Slide analisis sumber trafik berdasarkan volume dan completion rate',
+            label: 'Analisis Sumber Trafik',
+            caption:
+              'Mengevaluasi kualitas sumber trafik dari sisi completion rate agar keputusan akuisisi lebih efektif.',
+          },
+          {
+            src: projectImage('vidio-analysis-17.jpg'),
+            alt: 'Slide ringkasan insight kunci analisis aktivitas pengguna Vidio',
+            label: 'Ringkasan Insight Kunci',
+            caption:
+              'Merangkum temuan utama yang dapat langsung diterjemahkan menjadi prioritas strategi produk dan konten.',
+          },
+          {
+            src: projectImage('vidio-analysis-18.jpg'),
+            alt: 'Slide kesimpulan dan rekomendasi analisis',
+            label: 'Kesimpulan & Rekomendasi',
+            caption:
+              'Slide penutup berisi rekomendasi aksi prioritas dari hasil analisis untuk optimasi engagement pengguna.',
+          },
+        ],
+      },
+    },
+    links: {
+      notebook: 'https://colab.research.google.com/drive/1y4gubQiYT3VJ09iCrKobJM2Tg7F3fDNY?usp=sharing',
+      notebookLabel: 'Google Colab',
+      ppt: 'https://canva.link/pam545jqkyhhdgu',
+      pptLabel: 'PPT Canva',
     },
   },
 ]
