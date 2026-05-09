@@ -163,9 +163,9 @@ onBeforeUnmount(() => {
       </p>
     </div>
 
-    <div class="section-panel overflow-hidden rounded-[1.75rem] p-4 sm:p-5 lg:p-6">
+    <div class="section-panel overflow-hidden rounded-[1.4rem] p-3 sm:rounded-[1.75rem] sm:p-5 lg:p-6">
       <div
-        class="swipe-surface relative overflow-hidden rounded-[1.35rem] border border-[rgba(221,227,240,0.88)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(239,243,251,0.94))] p-3 sm:p-4"
+        class="swipe-surface relative overflow-hidden rounded-[1.1rem] border border-[rgba(221,227,240,0.88)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(239,243,251,0.94))] p-2.5 sm:rounded-[1.35rem] sm:p-4"
         tabindex="0"
         @keydown.left.prevent="showPrevious"
         @keydown.right.prevent="showNext"
@@ -188,7 +188,7 @@ onBeforeUnmount(() => {
             <Transition name="preview-image" mode="out-in">
               <div
                 :key="activeImage?.src || sectionId"
-                class="flex aspect-[16/10] items-center justify-center rounded-[1rem] p-3 sm:p-4"
+                class="flex aspect-[16/10] items-center justify-center rounded-[0.8rem] p-2 sm:rounded-[1rem] sm:p-4"
               >
                 <img
                   :src="activeImage?.src"
@@ -209,7 +209,7 @@ onBeforeUnmount(() => {
           <button
             v-if="previewImages.length > 1"
             type="button"
-            class="preview-nav-button absolute left-4 top-1/2 z-[1] -translate-y-1/2"
+            class="preview-nav-button absolute left-2 top-1/2 z-[1] -translate-y-1/2 sm:left-4"
             aria-label="Gambar sebelumnya"
             @click="showPrevious"
           >
@@ -219,7 +219,7 @@ onBeforeUnmount(() => {
           <button
             v-if="previewImages.length > 1"
             type="button"
-            class="preview-nav-button absolute right-4 top-1/2 z-[1] -translate-y-1/2"
+            class="preview-nav-button absolute right-2 top-1/2 z-[1] -translate-y-1/2 sm:right-4"
             aria-label="Gambar berikutnya"
             @click="showNext"
           >
@@ -266,13 +266,13 @@ onBeforeUnmount(() => {
 
       <div
         v-if="previewImages.length > 1"
-        class="project-preview-thumbnails mt-6 flex gap-3 overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory pb-3 whitespace-nowrap"
+        class="project-preview-thumbnails mt-5 grid grid-cols-2 gap-2.5 sm:mt-6 sm:flex sm:gap-3 sm:overflow-x-auto sm:overflow-y-hidden sm:scroll-smooth sm:snap-x sm:snap-mandatory sm:pb-3 sm:whitespace-nowrap"
       >
         <button
           v-for="(item, index) in previewImages"
           :key="`${item.src}-${index}`"
           type="button"
-          class="group project-preview-thumbnail shrink-0 snap-start w-[120px] overflow-hidden rounded-[1.15rem] border p-2 text-left transition-[transform,border-color,background-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:scale-[1.015] sm:w-[132px] md:w-[144px]"
+          class="group project-preview-thumbnail w-full overflow-hidden rounded-[0.95rem] border p-1.5 text-left transition-[transform,border-color,background-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:scale-[1.015] sm:shrink-0 sm:snap-start sm:w-[132px] sm:rounded-[1.15rem] sm:p-2 md:w-[144px]"
           :class="
             index === activeIndex
               ? 'border-[rgba(108,99,255,0.24)] bg-[rgba(216,243,220,0.72)] shadow-[0_14px_32px_rgba(26,26,46,0.1)]'
@@ -281,7 +281,7 @@ onBeforeUnmount(() => {
           @click="setActiveIndex(index)"
         >
           <div
-            class="flex h-28 items-center justify-center rounded-[0.8rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(239,243,251,0.94))] p-2.5"
+            class="flex h-20 items-center justify-center rounded-[0.7rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(239,243,251,0.94))] p-2 sm:h-28 sm:rounded-[0.8rem] sm:p-2.5"
           >
             <img
               :src="item.src"
@@ -289,12 +289,12 @@ onBeforeUnmount(() => {
               class="max-h-full w-full object-contain"
             />
           </div>
-          <div class="px-1 pb-1 pt-3">
-            <p class="app-preview__thumb-title text-sm text-textPrimary">
+          <div class="px-1 pb-1 pt-2 sm:pt-3">
+            <p class="app-preview__thumb-title text-[0.78rem] text-textPrimary sm:text-sm">
               {{ item.title || `Screen ${index + 1}` }}
             </p>
             <p
-              class="app-preview__thumb-copy mt-1 min-h-[2.75rem] text-xs leading-5 text-textSecondary"
+              class="app-preview__thumb-copy mt-1 min-h-[2.2rem] text-[0.68rem] leading-4 text-textSecondary sm:min-h-[2.75rem] sm:text-xs sm:leading-5"
             >
               {{ item.description || 'Lihat detail tampilan pada layar ini.' }}
             </p>
@@ -408,8 +408,8 @@ onBeforeUnmount(() => {
 
 .preview-nav-button {
   display: inline-flex;
-  height: 2.75rem;
-  width: 2.75rem;
+  height: 2.3rem;
+  width: 2.3rem;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
@@ -421,6 +421,13 @@ onBeforeUnmount(() => {
     transform 180ms ease,
     background-color 180ms ease,
     border-color 180ms ease;
+}
+
+@media (min-width: 640px) {
+  .preview-nav-button {
+    height: 2.75rem;
+    width: 2.75rem;
+  }
 }
 
 .preview-nav-button:hover {

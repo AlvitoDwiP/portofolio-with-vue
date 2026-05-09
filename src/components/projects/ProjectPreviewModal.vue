@@ -129,7 +129,13 @@ watch(
       return
     }
 
-    document.body.style.overflow = project ? 'hidden' : ''
+    if (project) {
+      document.body.style.overflow = 'hidden'
+      document.body.style.overflowX = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+      document.body.style.overflowX = ''
+    }
 
     if (typeof window === 'undefined') {
       return
@@ -148,6 +154,7 @@ watch(
 onBeforeUnmount(() => {
   if (typeof document !== 'undefined') {
     document.body.style.overflow = ''
+    document.body.style.overflowX = ''
   }
 
   if (typeof window !== 'undefined') {
@@ -161,11 +168,12 @@ onBeforeUnmount(() => {
     <Transition name="project-preview">
       <div
         v-if="project"
-        class="project-preview fixed inset-0 z-[95] flex items-center justify-center bg-[rgba(244,246,251,0.84)] px-4 py-6 backdrop-blur-md sm:px-6"
+        class="project-preview fixed inset-0 z-[95] box-border flex min-h-[100dvh] items-center justify-center bg-[rgba(244,246,251,0.84)] p-3 backdrop-blur-md sm:p-4"
         @click.self="closeModal"
       >
         <div
-          class="project-preview__panel section-panel relative w-full max-w-6xl overflow-hidden rounded-[1.9rem] border border-[rgba(221,227,240,0.88)] p-4 shadow-[0_28px_80px_rgba(26,26,46,0.12)] sm:p-5 lg:p-6"
+          class="project-preview__panel section-panel relative box-border min-w-0 max-w-full overflow-y-auto overflow-x-hidden rounded-[24px] border border-[rgba(221,227,240,0.88)] bg-white p-5 shadow-[0_28px_80px_rgba(26,26,46,0.12)] sm:rounded-[32px] sm:p-6 lg:p-8"
+          style="width: min(1120px, calc(100vw - 32px)); max-height: calc(100dvh - 32px)"
           role="dialog"
           aria-modal="true"
           :aria-label="project.title"
@@ -179,10 +187,10 @@ onBeforeUnmount(() => {
             <X class="h-4 w-4" />
           </button>
 
-          <div class="grid gap-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(18rem,0.75fr)] lg:gap-8">
-            <div class="space-y-4">
+          <div class="grid min-w-0 max-w-full grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,0.95fr)] lg:gap-8">
+            <div class="min-w-0 max-w-full space-y-4">
               <div
-                class="swipe-surface relative overflow-hidden rounded-[1.5rem] border border-[rgba(221,227,240,0.88)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(239,243,251,0.94))]"
+                class="swipe-surface relative w-full min-w-0 max-w-full overflow-hidden rounded-2xl border border-[rgba(221,227,240,0.88)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(239,243,251,0.94))]"
                 tabindex="0"
                 @keydown.left.prevent="showPrevious"
                 @keydown.right.prevent="showNext"
@@ -194,12 +202,12 @@ onBeforeUnmount(() => {
                 <Transition name="preview-image" mode="out-in">
                   <div
                     :key="activeImage?.src || project.slug"
-                    class="flex aspect-[16/10] items-center justify-center p-4 sm:p-5 lg:p-6"
+                    class="flex aspect-[16/9] w-full min-w-0 items-center justify-center p-3 sm:p-4 lg:min-h-[360px] lg:p-6"
                   >
                     <img
                       :src="activeImage?.src"
                       :alt="activeImage?.alt || project.title"
-                      class="max-h-full w-full object-contain"
+                      class="block h-full w-full object-contain"
                     />
                   </div>
                 </Transition>
@@ -207,7 +215,7 @@ onBeforeUnmount(() => {
                 <button
                   v-if="previewImages.length > 1"
                   type="button"
-                  class="preview-nav-button absolute left-4 top-1/2 z-[1] -translate-y-1/2"
+                  class="preview-nav-button absolute left-3 top-1/2 z-[2] -translate-y-1/2"
                   aria-label="Gambar sebelumnya"
                   @click="showPrevious"
                 >
@@ -217,7 +225,7 @@ onBeforeUnmount(() => {
                 <button
                   v-if="previewImages.length > 1"
                   type="button"
-                  class="preview-nav-button absolute right-4 top-1/2 z-[1] -translate-y-1/2"
+                  class="preview-nav-button absolute right-3 top-1/2 z-[2] -translate-y-1/2"
                   aria-label="Gambar berikutnya"
                   @click="showNext"
                 >
@@ -226,10 +234,10 @@ onBeforeUnmount(() => {
 
                 <div
                   v-if="previewImages.length > 1"
-                  class="pointer-events-none absolute inset-x-0 bottom-4 flex justify-center"
+                  class="pointer-events-none absolute inset-x-0 bottom-3 z-[2] flex justify-center"
                 >
                   <span
-                    class="inline-flex items-center rounded-full border border-[rgba(221,227,240,0.86)] bg-[rgba(255,255,255,0.96)] px-3 py-1.5 text-[0.68rem] font-medium text-textSecondary backdrop-blur-md"
+                    class="inline-flex items-center rounded-full border border-[rgba(221,227,240,0.86)] bg-[rgba(255,255,255,0.86)] px-3 py-1 text-[0.68rem] font-medium text-textSecondary backdrop-blur-md"
                   >
                     {{ String(activeIndex + 1).padStart(2, '0') }}/{{
                       String(previewImages.length).padStart(2, '0')
@@ -238,19 +246,19 @@ onBeforeUnmount(() => {
                 </div>
 
                 <div
-                  class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(108,99,255,0.14))]"
+                  class="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(108,99,255,0.14))]"
                 />
               </div>
 
               <div
                 v-if="previewImages.length > 1"
-                class="project-preview-thumbnails flex gap-3 overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory pb-3 whitespace-nowrap"
+                class="project-preview-thumbnails mt-4 flex min-w-0 max-w-full gap-3 overflow-x-auto overflow-y-hidden pb-2 scroll-smooth snap-x snap-mandatory whitespace-nowrap"
               >
                 <button
                   v-for="(item, index) in previewImages"
                   :key="`${item.src}-${index}`"
                   type="button"
-                  class="project-preview-thumbnail shrink-0 snap-start w-[120px] overflow-hidden rounded-[1rem] border transition-[transform,border-color,box-shadow] duration-200 hover:scale-[1.02] sm:w-[132px] md:w-[144px]"
+                  class="project-preview-thumbnail box-border w-32 shrink-0 snap-start overflow-hidden rounded-xl border transition-[transform,border-color,box-shadow] duration-200 hover:scale-[1.02] sm:w-40 lg:w-44"
                   :class="
                     index === activeIndex
                       ? 'border-[rgba(108,99,255,0.24)] bg-[rgba(216,243,220,0.72)] shadow-[0_14px_34px_rgba(26,26,46,0.1)]'
@@ -259,12 +267,12 @@ onBeforeUnmount(() => {
                   @click="setActiveIndex(index)"
                 >
                   <div
-                    class="flex aspect-[4/3] items-center justify-center bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(239,243,251,0.94))] p-2.5"
+                    class="flex aspect-[4/3] items-center justify-center bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(239,243,251,0.94))] p-2"
                   >
                     <img
                       :src="item.src"
                       :alt="item.alt || project.title"
-                      class="max-h-full w-full object-contain"
+                      class="block h-full w-full object-contain"
                     />
                   </div>
                   <div class="px-3 pb-3 pt-2.5 text-left">
@@ -281,8 +289,8 @@ onBeforeUnmount(() => {
               </div>
             </div>
 
-            <div class="flex flex-col justify-center">
-              <div class="space-y-6">
+            <div class="min-w-0 max-w-full">
+              <div class="space-y-5 sm:space-y-6">
                 <span
                   :class="[
                     'inline-flex w-fit items-center rounded-full border px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.22em]',
@@ -292,19 +300,19 @@ onBeforeUnmount(() => {
                   {{ cardVariant.label }}
                 </span>
 
-                <div class="space-y-3">
-                  <h3 class="font-display text-2xl leading-tight text-textPrimary sm:text-[2rem]">
+                <div class="min-w-0 max-w-full space-y-3">
+                  <h3 class="font-display text-2xl leading-tight text-textPrimary break-words sm:text-3xl lg:text-4xl">
                     {{ project.title }}
                   </h3>
                   <p
                     v-if="projectDescription"
-                    class="project-preview__project-copy text-sm leading-7 text-textSecondary sm:text-base"
+                    class="project-preview__project-copy text-sm leading-relaxed text-textSecondary sm:text-base"
                   >
                     {{ projectDescription }}
                   </p>
                 </div>
 
-                <div class="space-y-2.5 border-t border-[rgba(221,227,240,0.82)] pt-4">
+                <div class="mt-5 space-y-2.5 border-t border-[rgba(221,227,240,0.82)] py-5">
                   <p
                     v-if="activeImageTitle"
                     class="text-[0.82rem] font-semibold tracking-[-0.01em] text-textPrimary sm:text-[0.9rem]"
@@ -313,7 +321,7 @@ onBeforeUnmount(() => {
                   </p>
                   <p
                     v-if="activeImageDescription"
-                    class="project-preview__active-copy text-sm leading-7 text-textSecondary"
+                    class="project-preview__active-copy text-sm leading-relaxed text-textSecondary"
                   >
                     {{ activeImageDescription }}
                   </p>
@@ -321,7 +329,7 @@ onBeforeUnmount(() => {
 
                 <div
                   v-if="projectTools.length"
-                  class="space-y-3 border-t border-[rgba(221,227,240,0.82)] pt-4"
+                  class="space-y-3 border-t border-[rgba(221,227,240,0.82)] py-5"
                 >
                   <p class="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-textMuted">
                     Tools
@@ -339,11 +347,11 @@ onBeforeUnmount(() => {
                 </div>
 
                 <div
-                  class="flex flex-col gap-3 border-t border-[rgba(221,227,240,0.82)] pt-4 sm:flex-row sm:flex-wrap"
+                  class="flex flex-col gap-3 border-t border-[rgba(221,227,240,0.82)] pt-5 sm:flex-row"
                 >
                   <RouterLink
                     :to="{ name: 'project-detail', params: { slug: project.slug } }"
-                    class="inline-flex items-center justify-center rounded-xl border border-[rgba(221,227,240,0.86)] bg-[rgba(255,255,255,0.92)] px-4 py-3 text-sm font-medium text-textPrimary transition-[transform,border-color,background-color,color] duration-200 hover:-translate-y-0.5 hover:border-[rgba(108,99,255,0.2)] hover:bg-[rgba(216,243,220,0.52)]"
+                    class="inline-flex w-full items-center justify-center rounded-xl border border-[rgba(221,227,240,0.86)] bg-[rgba(255,255,255,0.92)] px-4 py-3 text-sm font-medium text-textPrimary transition-[transform,border-color,background-color,color] duration-200 hover:-translate-y-0.5 hover:border-[rgba(108,99,255,0.2)] hover:bg-[rgba(216,243,220,0.52)] sm:w-auto"
                     @click="closeModal"
                   >
                     <span>Lihat Selengkapnya</span>
@@ -352,7 +360,7 @@ onBeforeUnmount(() => {
 
                   <button
                     type="button"
-                    class="inline-flex items-center justify-center rounded-xl border border-[rgba(221,227,240,0.86)] px-4 py-3 text-sm font-medium text-textSecondary transition-[transform,border-color,color,background-color] duration-200 hover:-translate-y-0.5 hover:border-[rgba(108,99,255,0.2)] hover:bg-[rgba(239,243,251,0.88)] hover:text-textPrimary"
+                    class="inline-flex w-full items-center justify-center rounded-xl border border-[rgba(221,227,240,0.86)] px-4 py-3 text-sm font-medium text-textSecondary transition-[transform,border-color,color,background-color] duration-200 hover:-translate-y-0.5 hover:border-[rgba(108,99,255,0.2)] hover:bg-[rgba(239,243,251,0.88)] hover:text-textPrimary sm:w-auto"
                     @click="closeModal"
                   >
                     Tutup Project
@@ -368,6 +376,13 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
+@media (max-width: 639px) {
+  .project-preview__panel {
+    width: calc(100vw - 24px) !important;
+    max-height: calc(100dvh - 24px) !important;
+  }
+}
+
 .project-preview-enter-active,
 .project-preview-leave-active {
   transition: opacity 220ms ease;
@@ -435,8 +450,8 @@ onBeforeUnmount(() => {
 
 .preview-nav-button {
   display: inline-flex;
-  height: 2.75rem;
-  width: 2.75rem;
+  height: 2.5rem;
+  width: 2.5rem;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
