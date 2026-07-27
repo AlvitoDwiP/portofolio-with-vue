@@ -1,34 +1,30 @@
 {
   "name": "personal-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint . --ext .js,.vue --max-warnings=0",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
     "format": "prettier . --write",
     "format:check": "prettier . --check"
   },
   "dependencies": {
-    "@vueuse/head": "^2.0.0",
-    "@vueuse/motion": "^3.0.3",
-    "lucide-vue-next": "^1.0.0",
-    "vue": "^3.5.30",
-    "vue-router": "^5.0.4"
+    "@vercel/analytics": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "@vitejs/plugin-vue": "^6.0.5",
-    "@vue/eslint-config-prettier": "^10.2.0",
+    "@types/node": "26.1.1",
+    "@types/react": "19.2.17",
     "autoprefixer": "^10.4.27",
-    "eslint": "^10.1.0",
-    "eslint-plugin-vue": "^10.8.0",
-    "globals": "^17.4.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.0",
     "postcss": "^8.5.8",
     "prettier": "^3.8.1",
-    "tailwindcss": "^3.4.19",
-    "vite": "^8.0.1"
+    "tailwindcss": "^3.4.19"
   }
 }
