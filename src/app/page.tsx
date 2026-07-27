@@ -1,12 +1,16 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import FeaturedProject from './components/FeaturedProject'
+import ProjectList from './components/ProjectList'
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
       <ProofSection />
+      <FeaturedProject />
+      <ProjectList />
     </>
   )
 }
@@ -140,78 +144,92 @@ function HeroSection() {
 
             {/* Impact metrics */}
             <div className="mt-12 grid grid-cols-3 gap-8 border-t border-slate-100 pt-8">
-              {[
-                { value: '12', label: 'Proyek Selesai' },
-                { value: '4', label: 'Tahun Pengalaman' },
-                { value: '6', label: 'Klien & Startup' },
-              ].map((stat, idx) => (
-                <div key={stat.label}>
-                  <div className="text-2xl font-bold text-slate-900 sm:text-3xl">
-                    <span
-                      ref={(el) => {
-                        countersRef.current[idx] = el
-                      }}
-                      data-target={stat.value}
-                    >
-                      0
-                    </span>
-                  </div>
-                  <div className="mt-1 text-xs font-medium uppercase tracking-wider text-slate-400">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+              <div>
+                <span
+                  ref={(el) => {
+                    countersRef.current[0] = el
+                  }}
+                  data-target="50"
+                  className="text-3xl font-bold text-slate-900"
+                >
+                  0
+                </span>
+                <span className="text-3xl font-bold text-slate-900">+</span>
+                <p className="mt-1 text-sm text-slate-400">Proyek Selesai</p>
+              </div>
+              <div>
+                <span
+                  ref={(el) => {
+                    countersRef.current[1] = el
+                  }}
+                  data-target="5"
+                  className="text-3xl font-bold text-slate-900"
+                >
+                  0
+                </span>
+                <span className="text-3xl font-bold text-slate-900">+</span>
+                <p className="mt-1 text-sm text-slate-400">Tahun Pengalaman</p>
+              </div>
+              <div>
+                <span
+                  ref={(el) => {
+                    countersRef.current[2] = el
+                  }}
+                  data-target="15"
+                  className="text-3xl font-bold text-slate-900"
+                >
+                  0
+                </span>
+                <span className="text-3xl font-bold text-slate-900">+</span>
+                <p className="mt-1 text-sm text-slate-400">Tools Dikuasai</p>
+              </div>
             </div>
           </div>
 
-          {/* Right: Impact visualization - secondary */}
-          <div className="hidden lg:col-span-5 lg:block">
-            <div className="sticky top-28">
-              <div className="relative overflow-hidden rounded-2xl border border-slate-100 bg-gradient-to-b from-slate-50 to-white p-8 shadow-sm">
-                {/* Testimonial / value highlight */}
-                <blockquote className="relative">
-                  <svg
-                    className="mb-4 h-8 w-8 text-slate-300"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
-                  </svg>
-                  <p className="text-base leading-relaxed text-slate-600">
-                    &ldquo;Alvito mampu menerjemahkan kebutuhan kompleks menjadi
-                    solusi teknis yang elegan. Pendekatan data-driven-nya
-                    membuat setiap keputusan pengembangan memiliki dasar yang
-                    kuat.&rdquo;
-                  </p>
-                  <footer className="mt-4 flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 text-xs font-semibold text-slate-500">
-                      RK
+          {/* Right: Testimonial + Tech */}
+          <div className="lg:col-span-5">
+            <div className="rounded-2xl border border-slate-100 bg-gradient-to-b from-slate-50 to-white p-8 shadow-sm">
+              <blockquote className="relative">
+                <svg
+                  className="mb-4 h-8 w-8 text-slate-300"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
+                </svg>
+                <p className="text-base leading-relaxed text-slate-600">
+                  &ldquo;Alvito mampu menerjemahkan kebutuhan kompleks menjadi
+                  solusi teknis yang elegan. Pendekatan data-driven-nya
+                  membuat setiap keputusan pengembangan memiliki dasar yang
+                  kuat.&rdquo;
+                </p>
+                <footer className="mt-4 flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 text-xs font-semibold text-slate-500">
+                    RK
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-slate-900">
+                      Rekan Kerja
                     </div>
-                    <div>
-                      <div className="text-sm font-medium text-slate-900">
-                        Rekan Kerja
-                      </div>
-                      <div className="text-xs text-slate-400">
-                        Tech Lead, Startup Teknologi
-                      </div>
+                    <div className="text-xs text-slate-400">
+                      Tech Lead, Startup Teknologi
                     </div>
-                  </footer>
-                </blockquote>
+                  </div>
+                </footer>
+              </blockquote>
 
-                {/* Tech stack quick pills */}
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {['React', 'Next.js', 'TypeScript', 'Python', 'SQL'].map(
-                    (tech) => (
-                      <span
-                        key={tech}
-                        className="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-500"
-                      >
-                        {tech}
-                      </span>
-                    ),
-                  )}
-                </div>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {['React', 'Next.js', 'TypeScript', 'Python', 'SQL'].map(
+                  (tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-500"
+                    >
+                      {tech}
+                    </span>
+                  ),
+                )}
               </div>
             </div>
           </div>

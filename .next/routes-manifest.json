@@ -40,6 +40,18 @@
       "regex": "^/_not\\-found(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/pengalaman",
+      "regex": "^/pengalaman(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/pengalaman(?:/)?$"
+    },
+    {
+      "page": "/proyek",
+      "regex": "^/proyek(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/proyek(?:/)?$"
     }
   ],
   "dataRoutes": [],
